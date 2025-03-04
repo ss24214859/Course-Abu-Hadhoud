@@ -103,12 +103,39 @@ vector<stClient> LoadClientsData(string FileName)
         
         File.close();
     }
+    return vClients;
         
 }
 
-void PrintClintsDataInList(vector<stClient> vClients)
+void PrintRecordInList(stClient Client)
 {
-    
+    cout<<"| "<<setw(15)<<Client.AccountNumber
+        <<"| "<<setw(10)<<Client.PINcode
+        <<"| "<<setw(23)<<Client.Name
+        <<"| "<<setw(21)<<Client.Phone
+        <<"| "<<setw(10)<<Client.AccountBalance;
+
+}
+
+void PrintClientsDataInList(vector<stClient> vClients)
+{
+        for(stClient C : vClients)
+        {
+            PrintRecordInList(C);
+            cout<<endl;
+        }
+}
+
+void PrintClientList(vector<stClient> vClients)
+{
+    string length=" Balance ";
+    cout<<setw(40)<<"Client List (" << vClients.size() << ") Clients(s)."<<endl;
+    string Title ="| Account Number | PIN Code  | Client Name           | Phone Number        | Balance |";
+    PrintLineByChar(Title.length());
+    cout<<Title<<endl;
+    PrintLineByChar(Title.length());
+    PrintClientsDataInList(vClients);
+    PrintLineByChar(Title.length());
 }
 
 void DoChoice(short choice)
@@ -121,7 +148,7 @@ void DoChoice(short choice)
     {
         case 1: 
         {
-            cout<<"Show Clients List"<<endl;
+            PrintClientList(vClients);
             break;
         }
         case 2:
@@ -154,6 +181,7 @@ void DoChoice(short choice)
     }
    
 }
+
 void StartProgram()
 {
     short Choice=0;
@@ -173,6 +201,7 @@ void StartProgram()
     
 int main()
 {
-StartProgram();
+
+    StartProgram();
 
 }
