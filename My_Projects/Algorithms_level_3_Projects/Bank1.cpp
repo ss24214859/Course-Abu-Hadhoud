@@ -33,19 +33,18 @@ void MainMenueScreen()
     short WidthLine=50;
     
     system("cls");
-    PrintLineByChar(WidthLine,'-');
-    PrintLineByChar(WidthLine,'-');
-    cout<<"                Main Menue Screen"<<endl;
-    PrintLineByChar(WidthLine,'-');
-    PrintLineByChar(WidthLine,'-');
+    PrintLineByChar(WidthLine);
+    PrintLineByChar(WidthLine);    cout<<"\n                Main Menue Screen"<<endl;
+    PrintLineByChar(WidthLine);
+    PrintLineByChar(WidthLine);
     cout<<"        [1] Show Clients List."<<endl;
     cout<<"        [2] Add New Client."<<endl;
     cout<<"        [3] Delete Client."<<endl;
     cout<<"        [4] Update Client Info."<<endl;
     cout<<"        [5] Find Client."<<endl;
     cout<<"        [6] Exit"<<endl;
-    PrintLineByChar(WidthLine,'-');
-    PrintLineByChar(WidthLine,'-');
+    PrintLineByChar(WidthLine);
+    PrintLineByChar(WidthLine);
     
 }
 
@@ -191,7 +190,7 @@ stClient ReadClient()
                getline(cin>>ws,Client.AccountNumber);
             }
         }
-        
+
     } while(IsExisit);
 
     cout<<"Enter PIN Code ?";
@@ -309,7 +308,7 @@ bool DeleteClientByAccountNumber(string AccountNumber,vector<stClient>& vClients
             //refreach Data.
             vClients=LoadClientsDataFromFile(ClientsFileName);
 
-            cout<<"Client Deleted successfully."<<endl;
+            cout<<"\nClient Deleted successfully."<<endl;
         }
     }
     else
@@ -342,7 +341,7 @@ bool UpdateClientInfoByAccountNubmer(string AccountNumber, vector<stClient>& vCl
             //refreach Data.
             vClients=LoadClientsDataFromFile(ClientsFileName);
 
-            cout<<"Client Updated successfully."<<endl;
+            cout<<"\nClient Updated successfully."<<endl;
         }
     }
     else
