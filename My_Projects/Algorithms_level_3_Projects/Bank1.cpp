@@ -4,9 +4,10 @@
 #include<vector>
 #include <fstream>
 #include <iomanip>
+#include <C:\Users\ss242\Documents\repos\MyLiberary\MyLib.h>
 using namespace std;
 
-const string ClientsFileName="Clients";
+const string ClientsFileName="Clients.txt";
 
 struct stClient
 {
@@ -34,7 +35,7 @@ void MainMenueScreen()
     system("cls");
     PrintLineByChar(WidthLine,'-');
     PrintLineByChar(WidthLine,'-');
-    cout<<setw((WidthLine/2)+8)<<"Main Menue Screen"<<endl;
+    cout<<"                Main Menue Screen"<<endl;
     PrintLineByChar(WidthLine,'-');
     PrintLineByChar(WidthLine,'-');
     cout<<"        [1] Show Clients List."<<endl;
@@ -54,7 +55,7 @@ vector<string> SpletStringInVector(string S1,string Delimeter)
     short pos=0;
     string Word;
 
-    while(pos=S1.find(Delimeter) != string::npos)
+    while((pos=S1.find(Delimeter)) != string::npos)
     {
         Word=S1.substr(0,pos);
 
@@ -85,6 +86,21 @@ stClient ConvertLineToRecord(string Line,string Delimeter="/##/")
     return Client;
 }
  
+string ConvertRecordToLine(stClient Client, string Delimeter="/##/")
+{
+ 
+    string Line="";
+    
+    Line+=Client.AccountNumber+Delimeter;
+    Line+=Client.PINcode+Delimeter;
+    Line+=Client.Name+Delimeter;
+    Line+=Client.Phone+Delimeter;
+    Line+=to_string(Client.AccountBalance);
+    
+    return Line;
+    
+}
+
 vector<stClient> LoadClientsData(string FileName)
 {
     vector<stClient> vClients;
@@ -107,13 +123,14 @@ vector<stClient> LoadClientsData(string FileName)
         
 }
 
+
 void PrintRecordInList(stClient Client)
 {
-    cout<<"| "<<setw(15)<<Client.AccountNumber
-        <<"| "<<setw(10)<<Client.PINcode
-        <<"| "<<setw(23)<<Client.Name
-        <<"| "<<setw(21)<<Client.Phone
-        <<"| "<<setw(10)<<Client.AccountBalance;
+    cout<<"| "<<setw(15)<<left<<Client.AccountNumber
+        <<"| "<<setw(10)<<left<<Client.PINcode
+        <<"| "<<setw(22)<<left<<Client.Name
+        <<"| "<<setw(20)<<left<<Client.Phone
+        <<"| "<<setw(8)<<left<<Client.AccountBalance<<"|";
 
 }
 
@@ -132,10 +149,47 @@ void PrintClientList(vector<stClient> vClients)
     cout<<setw(40)<<"Client List (" << vClients.size() << ") Clients(s)."<<endl;
     string Title ="| Account Number | PIN Code  | Client Name           | Phone Number        | Balance |";
     PrintLineByChar(Title.length());
-    cout<<Title<<endl;
+    cout<<endl<<Title<<endl;
     PrintLineByChar(Title.length());
     PrintClientsDataInList(vClients);
     PrintLineByChar(Title.length());
+}
+
+stClient ReadClient()
+{
+    cout<<"Add Clients:\n"<<endl;
+    stClient Client;
+    cout<<"Enter Account Number ?";
+    getline(cin>>ws,Client.AccountNumber);
+    cout<<"Enter PIN Code ?";
+    getline(cin,Client.PINcode);
+    cout<<"Enter Name ?";
+    getline(cin,Client.Name);
+    cout<<"Enter Phone ?";
+    getline(cin,Client.Phone);
+    cout<<"Enter Account Balance ?";
+    cin>>Client.AccountBalance;
+
+    return Client;
+}
+
+void AddClientToFile(string FileName,stClient Client)
+{
+    fstream file;
+    file.open(FileName,ios::app | ios::out);
+    if(file.is_open())
+    {
+        file<<ConvertRecordToLine(Client)<<endl;
+        file.close();
+    }
+}
+
+void AddClients()
+{
+    do
+    {
+        AddClientToFile(ClientsFileName,ReadClient());
+    } while (IO::ReadYesOrNo("Do you want to add more Client ? [y/n] ? "));
 }
 
 void DoChoice(short choice)
@@ -153,7 +207,10 @@ void DoChoice(short choice)
         }
         case 2:
         {
-            cout<<"Add New Client"<<endl;
+            PrintLineByChar(35);
+            cout<<setw(10)<<"Add New Client"<<endl;
+            PrintLineByChar(35);
+            AddClients();
             break;
         }
         case 3:
