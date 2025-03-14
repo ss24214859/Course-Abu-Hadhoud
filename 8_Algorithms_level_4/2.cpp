@@ -20,18 +20,21 @@ int ReadPositiveNumber(string massge)
 
 bool IsleapYear(int Year)
 {
+    // Leap year is Perfectly divisible by 400
     if( (Year % 400) == 0 )
-    {
         return true;
-    }
-    else if ( (Year % 4) ==0 )
-    {
-        if( (Year % 100) != 0 )
-        return true;
-        else 
+
+    //Not a Leap Year if Divisible by 100
+    //but Not divisible by 400
+    if( (Year % 100) == 0 )
         return false;
-    }
-    else
+    
+    // Leap Year if Not divisible by 100
+    // but divisible by 4
+    if( (Year % 4) == 0 )
+        return true;
+
+    //All ohter Years is not leap year.
     return false;
 }
 
