@@ -6,9 +6,9 @@
 #include <iomanip>
 using namespace std;
 
-int ReadPositiveNumber(string massge)
+short ReadPositiveNumber(string massge)
 {
-    int num;
+    short num;
     do
     {
         cout << massge;
@@ -18,21 +18,12 @@ int ReadPositiveNumber(string massge)
     return num;
 }
 
-
-short ReadMonth(string Massage)
-{
-    short Month=0;
-    cout<<Massage;
-    cin>>Month;
-    return Month;
-}
-
-bool IsleapYear(int Month)
+bool IsleapYear(short Month)
 {
     return (Month % 400 == 0) || (Month % 100 != 0 && Month % 4 == 0);
 }
 
-short DaysInMonth(short Month, int Year)
+short DaysInMonth(short Month, short Year)
 {
     if(Month<1 ||Month>12)
     return 0;
@@ -49,25 +40,25 @@ short DaysInMonth(short Month, int Year)
     return 30;  
 }
 
-int HoursInMonth(short Month, int Year)
+int HoursInMonth(short Month, short Year)
 {
     return DaysInMonth(Month, Year) * 24;
 }
 
-int MinutesInMonth(short Month, int Year)
+int MinutesInMonth(short Month, short Year)
 {
     return HoursInMonth(Month, Year) * 60;
 }
 
-int secondsInMonth(short Month, int Year)
+int secondsInMonth(short Month, short Year)
 {
     return MinutesInMonth(Month, Year) * 60;
 }
 
 int main()
 {
-    int Year = ReadPositiveNumber("Enter a Year to Chack ?");
-    short Month = ReadMonth("Enter a Month to Chack ?");
+    short Year = ReadPositiveNumber("Enter a Year to Chack ?");
+    short Month = ReadPositiveNumber("Enter a Month to Chack ?");
 
     cout << "Number Of Days    in Month [" << Month << "] is " << DaysInMonth(Month, Year) << endl;
     cout << "Number Of Hours   in Month [" << Month << "] is " << HoursInMonth(Month, Year) << endl;
