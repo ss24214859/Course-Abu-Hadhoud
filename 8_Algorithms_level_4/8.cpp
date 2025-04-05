@@ -32,54 +32,52 @@ short DaysInMonth(short Month, short Year)
     return (Month == 2 )? ( (IsleapYear(Year))? 29 : 28 ) : arrDaysOfMonths[Month-1] ;
 }
 
-short DayOrder(int year , short month, short day)
+short DayOfWeekOrder(int year , short month, short day)
 {
     short a =(14-month)/12;
     int   y = year-a;
     short m = month + (12*a)-2;
-    short d = ( day + y + (y/4) - (y/100) + (y/400) + ((31*m)/12)) % 7;
+    //Gregorian
+    //0-Sun 1-Mon 2-Tue ....
+    return ( day + y + (y/4) - (y/100) + (y/400) + ((31*m)/12)) % 7;
     
-    return d;
 }
-string MonthName(short MonthNumber)
+
+string MonthShortName(short MonthNumber)
 {
     string arr[12]={"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
     return arr[MonthNumber-1];
 }
 
-string DayName(short DayOrder)
+string DayShortName(short DayOfWeekOrder)
 {
     string arr[7]={"Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
 
-    return arr[DayOrder];
+    return arr[DayOfWeekOrder];
 }
 
 void PrintMonthCleander(int Year , short Month)
 {
     short Days=DaysInMonth(Month,Year);
-    short dayOrder= DayOrder(Year,Month,1);
-    cout<<"______________"<<MonthName(Month)<<"________________\n"<<endl;
-    cout<<"Sun  Mon  Tue  Wed  Thu  Fri  Sat"<<endl;
-    short NextWeek=0;
-    for(short i=0;i<Days+dayOrder;i++)
-    {
-        if(i>=dayOrder)
-        {
-            cout<<setw(3)<<i-dayOrder+1<<"  ";
-        }
-        else
-        {
-            cout<<"     ";
-        }
+    short dayOrder= DayOfWeekOrder(Year,Month,1);
+    printf("  ______________%s________________\n",MonthShortName(Month).c_str());
+    printf("  Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
 
-        NextWeek++;
-        if(NextWeek==7)
+    short i=0;
+    for(i=0;i<dayOrder;i++)
+        printf("     ");
+    
+    for(short j=1;j<Days;j++)
+    {
+        printf("%5d",j);
+        if(++i==7)
         {
-            cout<<"\n";
-            NextWeek=0;
+            printf("\n");
+            i=0;
         }
     }
-    cout<<"\n__________________________________"<<endl;
+    
+    printf("\n  __________________________________\n");
 }
 
 int main()
