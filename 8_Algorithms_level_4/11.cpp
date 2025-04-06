@@ -52,15 +52,17 @@ struct stDate
 stDate GetDateFromDayOrderInYear(short Year ,short DateOrderInYear)
 {
     stDate Date;
+    short daysInMonth=0;
+    short RemainingDays=DateOrderInYear;
     short Month=1;
     
-    while(DaysInMonth(Month,Year) < DateOrderInYear)
+    while((daysInMonth = DaysInMonth(Month,Year)) < RemainingDays)
     {
-        DateOrderInYear-=DaysInMonth(Month,Year);
+        RemainingDays -= daysInMonth;
         Month++;
     }
 
-    Date.Day=DateOrderInYear;
+    Date.Day=RemainingDays;
     Date.Month=Month;
     Date.Year=Year;
 
