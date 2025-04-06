@@ -54,17 +54,23 @@ stDate GetDateFromDayOrderInYear(short Year ,short DateOrderInYear)
     stDate Date;
     short daysInMonth=0;
     short RemainingDays=DateOrderInYear;
-    short Month=1;
-    
-    while((daysInMonth = DaysInMonth(Month,Year)) < RemainingDays)
-    {
-        RemainingDays -= daysInMonth;
-        Month++;
-    }
-
-    Date.Day=RemainingDays;
-    Date.Month=Month;
+    Date.Month=1;
     Date.Year=Year;
+
+    while(true)
+    {
+        daysInMonth = DaysInMonth(Date.Month,Year);
+        if(daysInMonth < RemainingDays)
+        {
+            RemainingDays -= daysInMonth;
+            Date.Month++;
+        }
+        else
+        {
+            Date.Day=RemainingDays;
+            break;
+        }
+    }
 
     return Date;
 }
