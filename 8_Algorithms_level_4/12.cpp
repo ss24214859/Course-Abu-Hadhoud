@@ -49,6 +49,15 @@ short TotalDaysFromBeginningYear(int Year,short Month,short Day)
     return TotalDays;
 }
 
+stDate ReadDate()
+{
+    stDate Date;
+    Date.Year = ReadPositiveNumber("Enter a Year ?");
+    Date.Month = ReadPositiveNumber("Enter a Month ?");
+    Date.Day = ReadPositiveNumber("Enter a Day ?");
+    return Date;
+}
+
 stDate GetDateFromDayOrderInYear(short Year ,short DateOrderInYear)
 {
     stDate Date;
@@ -75,30 +84,41 @@ stDate GetDateFromDayOrderInYear(short Year ,short DateOrderInYear)
     return Date;
 }
 
-stDate AddDaysToDate(int DaysToAdd , short Year , short Month , short Day)
+stDate AddDaysToDate(int DaysToAdd , stDate Date)
 {
-    int RemainingDays = DaysToAdd + TotalDaysFromBeginningYear(Year, Month, Day);
-    stDate DateAfterAddDays;
-    DateAfterAddDays.Year = Year;
-    short DaysInYear = 0;
+    int RemainingDays = DaysToAdd + TotalDaysFromBeginningYear(Date.Year,Date.Month,Date.Day);
+    short MonthDays=0;
+    Date.Month=1;
 
-    while ((DaysInYear = (IsleapYear(DateAfterAddDays.Year)) ? 366 : 365) < RemainingDays)
+    while(true)
     {
-        RemainingDays -= DaysInYear;
-        DateAfterAddDays.Year++;
-    }
+        MonthDays=DaysInMonth(Date.Month,Date.Year);
 
-    DateAfterAddDays = GetDateFromDayOrderInYear(DateAfterAddDays.Year, RemainingDays);
-    return DateAfterAddDays;
+        if(MonthDays<RemainingDays)
+        {
+            RemainingDays-=MonthDays;
+            Date.Month++;
+
+            if(Date.Month > 12)
+            {
+                Date.Month=1;
+                Date.Year++;
+            }
+        }
+        else
+        {
+            Date.Day=RemainingDays;
+            break;
+        }
+    }
+    return Date;
 }
 
 int main()
 {
-    short Year = ReadPositiveNumber("Enter a Year ?");
-    short Month = ReadPositiveNumber("Enter a Month ?");
-    short Day = ReadPositiveNumber("Enter a Day ?");
+    stDate Date=ReadDate();
     int DaysToAdd = ReadPositiveNumber("Enter How many Days to Add ?");
 
-    stDate Date= AddDaysToDate(DaysToAdd,Year,Month,Day);
+    Date= AddDaysToDate(DaysToAdd,Date);
     printf("Date After Adding [%d] days is : %d/%d/%d \n",DaysToAdd,Date.Day,Date.Month,Date.Year);
 }
