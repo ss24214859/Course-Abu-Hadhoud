@@ -77,26 +77,18 @@ stDate GetDateFromDayOrderInYear(short Year ,short DateOrderInYear)
 
 stDate AddDaysToDate(int DaysToAdd , short Year , short Month , short Day)
 {
-    int RemainingDays = DaysToAdd + TotalDaysFromBeginningYear(Year,Month,Day);
+    int RemainingDays = DaysToAdd + TotalDaysFromBeginningYear(Year, Month, Day);
     stDate DateAfterAddDays;
-    DateAfterAddDays.Year=Year;
-    short DaysInYear=0;
+    DateAfterAddDays.Year = Year;
+    short DaysInYear = 0;
 
-    while(true)
+    while ((DaysInYear = (IsleapYear(DateAfterAddDays.Year)) ? 366 : 365) < RemainingDays)
     {
-        DaysInYear=(IsleapYear(DateAfterAddDays.Year))? 366 : 365 ;
-
-        if(DaysInYear<RemainingDays)
-        {
-            RemainingDays-=DaysInYear;
-            DateAfterAddDays.Year++;
-        }
-        else
-        {
-            DateAfterAddDays=GetDateFromDayOrderInYear(DateAfterAddDays.Year,RemainingDays);
-            break;
-        }
+        RemainingDays -= DaysInYear;
+        DateAfterAddDays.Year++;
     }
+
+    DateAfterAddDays = GetDateFromDayOrderInYear(DateAfterAddDays.Year, RemainingDays);
     return DateAfterAddDays;
 }
 
