@@ -64,18 +64,49 @@ bool IsDate1BeforeDate2(stDate Date1,stDate Date2)
     return ( (Date1.Year<Date2.Year)? true : (Date1.Year != Date2.Year)? false : ( (Date1.Month<Date2.Month)? true : (Date1.Month!=Date2.Month)? false : ( (Date1.Day<Date2.Day)? true : false ) ) );
 }
 
-int DiffrenceInDaysByDate1AndDate2(stDate Date1,stDate Date2,bool IsIncludingEndDay=false)
+bool IsLastDayInMonth(stDate Date)
 {
-    int DiffrenceInDays=TotalDaysFromBeginningYear(Date2.Year,Date2.Month,Date2.Day);
-    
-    while(Date1.Year<Date2.Year)
-    {
-        Date2.Year--;
-        DiffrenceInDays+=(IsleapYear(Date2.Year)? 366 : 365);
-    }
-    DiffrenceInDays-=TotalDaysFromBeginningYear(Date1.Year,Date1.Month,Date1.Day);
+    return (DaysInMonth(Date.Month,Date.Year)==Date.Day);
+}
 
-    return ((!IsIncludingEndDay)? DiffrenceInDays : DiffrenceInDays+1);
+bool IsLastMonthInYear(short Month)
+{
+    return (Month == 12 );
+}
+
+stDate IncreaseDateByOneDay(stDate Date)
+{
+    if(IsLastDayInMonth(Date))
+    {
+        if(IsLastMonthInYear(Date.Month))
+        {
+            Date.Year++;
+            Date.Month=1;
+        }
+        else
+        {
+            Date.Month++;
+        }
+
+        Date.Day=1;
+    }
+    else
+    {
+        Date.Day++;
+    }
+
+    return Date;
+}
+
+int GetDiffrenceInDays(stDate Date1,stDate Date2,bool IsIncludingEndDay=false)
+{
+    int Days=0;
+    while(IsDate1BeforeDate2(Date1,Date2))
+    {
+        Date1=IncreaseDateByOneDay(Date1);
+        Days++;
+    }
+    return ((!IsIncludingEndDay)? Days : Days+1);
 }
 
 int main()
@@ -89,12 +120,13 @@ int main()
     cout<<"\nEnter Date2 :\n";
     Date2=ReadDate();
     NotValid=!IsDate1BeforeDate2(Date1,Date2);
+
     if(NotValid)
         cout<<"\n\nDate2 is Not after Date1 Try Again :-("<<endl;
 
     } while(NotValid);
 
-    cout<<"Diffrence Is : "<< DiffrenceInDaysByDate1AndDate2(Date1,Date2)<<"Days" <<endl;
-    cout<<"Diffrence (Including End Day) Is : "<< DiffrenceInDaysByDate1AndDate2(Date1,Date2,true)<<"Days" <<endl;
+    cout<<"Diffrence Is : "<< GetDiffrenceInDays(Date1,Date2)<<"Days" <<endl;
+    cout<<"Diffrence (Including End Day) Is : "<< GetDiffrenceInDays(Date1,Date2,true)<<"Days" <<endl;
 
 }
