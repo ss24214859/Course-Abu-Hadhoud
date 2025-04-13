@@ -70,6 +70,13 @@ namespace Date
                                                                                                                                                    : ((Date1.Day < Date2.Day) ? true : false)));
     }
 
+    bool IsDate1SameAsDate2(stDate Date1, stDate Date2)
+    {
+        return (Date1.Year != Date2.Year) ? false : (Date1.Month != Date2.Month) ? false
+                                                : (Date1.Day == Date2.Day)       ? true
+                                                                                 : false;
+    }
+
     bool IsLastDayInMonth(stDate Date)
     {
         return (DaysInMonth(Date.Month, Date.Year) == Date.Day);
@@ -104,15 +111,25 @@ namespace Date
         return Date;
     }
 
-    int GetDifferenceInDays(stDate Date1, stDate Date2, bool IsIncludingEndDay = false)
+    int GetDiffrenceInDays(stDate Date1, stDate Date2, bool IsIncludingEndDay = false)
     {
         int Days = 0;
-        while (IsDate1BeforeDate2(Date1, Date2))
+        while (!IsDate1SameAsDate2(Date1, Date2))
         {
-            Date1 = IncreaseDateByOneDay(Date1);
-            Days++;
+            if (IsDate1BeforeDate2(Date1, Date2))
+            {
+                Date1 = IncreaseDateByOneDay(Date1);
+                Days++;
+            }
+            else
+            {
+                Date2 = IncreaseDateByOneDay(Date2);
+                Days--;
+            }
         }
-        return ((!IsIncludingEndDay) ? Days : Days + 1);
+        return ((!IsIncludingEndDay) ? Days : (Days > 0) ? Days + 1
+                                          : (Days < 0)   ? Days - 1
+                                                         : 0);
     }
 
     stDate GetSystemDate()
@@ -131,7 +148,7 @@ namespace Date
 
     int GetAgeInDays(stDate BirthDate)
     {
-        return GetDifferenceInDays(BirthDate, Date::GetSystemDate(), true);
+        return GetDiffrenceInDays(BirthDate, Date::GetSystemDate(), true);
     }
 
 }
