@@ -111,19 +111,27 @@ namespace Date
         return Date;
     }
 
-    int GetDiffrenceInDays(stDate Date1, stDate Date2, bool IsIncludingEndDay = false)
+    stDate SwapDates(stDate &Date1, stDate &Date2)
+    {
+        stDate TempDate = {Date1.Day, Date1.Month, Date1.Year};
+        Date1 = {Date2.Day, Date2.Month, Date2.Year};
+        Date2 = {TempDate.Day, TempDate.Month, TempDate.Year};
+    }
+
+    int GetDifferenceInDays(stDate Date1, stDate Date2, bool IsIncludingEndDay = false)
     {
         int Days = 0;
         short SwapFlagValue = 1;
-        while (!IsDate1SameAsDate2(Date1, Date2))
+
+        if (!IsDate1BeforeDate2(Date1, Date2))
         {
-            if (IsDate1BeforeDate2(Date1, Date2))
-                Date1 = IncreaseDateByOneDay(Date1);
-            else
-            {
-                Date2 = IncreaseDateByOneDay(Date2);
-                SwapFlagValue = -1;
-            }
+            SwapDates(Date1, Date2);
+            SwapFlagValue = -1;
+        }
+
+        while (IsDate1BeforeDate2(Date1, Date2))
+        {
+            Date1 = IncreaseDateByOneDay(Date1);
             Days++;
         }
         return (IsIncludingEndDay) ? ++Days * SwapFlagValue : Days * SwapFlagValue;
@@ -145,7 +153,7 @@ namespace Date
 
     int GetAgeInDays(stDate BirthDate)
     {
-        return GetDiffrenceInDays(BirthDate, Date::GetSystemDate(), true);
+        return GetDifferenceInDays(BirthDate, Date::GetSystemDate(), true);
     }
 
 }
