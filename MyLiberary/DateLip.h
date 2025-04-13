@@ -114,22 +114,19 @@ namespace Date
     int GetDiffrenceInDays(stDate Date1, stDate Date2, bool IsIncludingEndDay = false)
     {
         int Days = 0;
+        short SwapFlagValue = 1;
         while (!IsDate1SameAsDate2(Date1, Date2))
         {
             if (IsDate1BeforeDate2(Date1, Date2))
-            {
                 Date1 = IncreaseDateByOneDay(Date1);
-                Days++;
-            }
             else
             {
                 Date2 = IncreaseDateByOneDay(Date2);
-                Days--;
+                SwapFlagValue = -1;
             }
+            Days++;
         }
-        return ((!IsIncludingEndDay) ? Days : (Days > 0) ? Days + 1
-                                          : (Days < 0)   ? Days - 1
-                                                         : 0);
+        return (IsIncludingEndDay) ? ++Days * SwapFlagValue : Days * SwapFlagValue;
     }
 
     stDate GetSystemDate()
