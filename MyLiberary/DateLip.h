@@ -204,4 +204,13 @@ namespace Date
         return Date;
     }
 
+    stDate IncreaseDateByXMonth(stDate Date, int XMonth)
+    {
+        for (int i = 0; i < XMonth; i++)
+        {
+            Date = IncreaseDateByOneMonth(Date);
+        }
+        return Date;
+    }
+
 }
