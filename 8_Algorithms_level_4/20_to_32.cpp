@@ -12,4 +12,5 @@ int main()
     cout << "04-Adding 10 Week is : " << Date ::DateInLine(Date = Date::IncreaseDateByXWeek(Date, 10)) << endl;
     cout << "05-Adding one Month is : " << Date ::DateInLine(Date = Date::IncreaseDateByOneMonth(Date)) << endl;
     cout << "06-Adding 5 Month is : " << Date ::DateInLine(Date = Date::IncreaseDateByXMonth(Date, 5)) << endl;
+    cout << "07-Adding one Year is : " << Date ::DateInLine(Date = Date::IncreaseDateByOneYear(Date)) << endl;
 }
