@@ -189,4 +189,19 @@ namespace Date
         return Date;
     }
 
+    stDate IncreaseDateByOneMonth(stDate Date)
+    {
+        if (IsLastMonthInYear(Date.Month))
+        {
+            Date.Month = 1;
+            Date.Year++;
+        }
+        else
+        {
+            Date.Month++;
+        }
+
+        return Date;
+    }
+
 }
