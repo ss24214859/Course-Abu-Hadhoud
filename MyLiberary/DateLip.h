@@ -246,4 +246,9 @@ namespace Date
         return Date;
     }
 
+    stDate IncreaseDateByXDecadesFaster(stDate Date, int XDecade)
+    {
+        return {Date.Day, Date.Month, Date.Year + (XDecade * 10)};
+    }
+
 }
