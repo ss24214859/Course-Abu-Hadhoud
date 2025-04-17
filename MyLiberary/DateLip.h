@@ -256,4 +256,8 @@ namespace Date
         return {Date.Day, Date.Month, Date.Year + 100};
     }
 
+    stDate IncreaseDateByOneMillennium(stDate Date)
+    {
+        return {Date.Day, Date.Month, Date.Year + 1000};
+    }
 }
