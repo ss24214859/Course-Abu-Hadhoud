@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "ReadLip.h"
+#include <string>
 
 namespace Date
 {
@@ -21,15 +22,19 @@ namespace Date
     bool IsLastDayInMonth(stDate Date);
     bool IsLastMonthInYear(short Month);
     stDate IncreaseDateByOneDay(stDate Date);
+    void SwapDates(stDate &Date1, stDate &Date2);
     int GetDifferenceInDays(stDate, stDate, bool);
     stDate GetSystemDate();
     int GetAgeInDays(stDate BirthDate);
+    string DateInLine(stDate Date);
+    stDate IncreaseDateByXDays(stDate Date, int XDays);
 
 }
 
 namespace Date
 {
     using namespace std;
+
     bool IsleapYear(short Year)
     {
         return (Year % 400 == 0) || (Year % 100 != 0 && Year % 4 == 0);
@@ -87,31 +92,7 @@ namespace Date
         return (Month == 12);
     }
 
-    stDate IncreaseDateByOneDay(stDate Date)
-    {
-        if (IsLastDayInMonth(Date))
-        {
-            if (IsLastMonthInYear(Date.Month))
-            {
-                Date.Year++;
-                Date.Month = 1;
-            }
-            else
-            {
-                Date.Month++;
-            }
-
-            Date.Day = 1;
-        }
-        else
-        {
-            Date.Day++;
-        }
-
-        return Date;
-    }
-
-    stDate SwapDates(stDate &Date1, stDate &Date2)
+    void SwapDates(stDate &Date1, stDate &Date2)
     {
         stDate TempDate = {Date1.Day, Date1.Month, Date1.Year};
         Date1 = {Date2.Day, Date2.Month, Date2.Year};
@@ -154,6 +135,44 @@ namespace Date
     int GetAgeInDays(stDate BirthDate)
     {
         return GetDifferenceInDays(BirthDate, Date::GetSystemDate(), true);
+    }
+
+    string DateInLine(stDate Date)
+    {
+        return to_string(Date.Day) + "/" + to_string(Date.Month) + "/" + to_string(Date.Year);
+    }
+
+    stDate IncreaseDateByOneDay(stDate Date)
+    {
+        if (IsLastDayInMonth(Date))
+        {
+            if (IsLastMonthInYear(Date.Month))
+            {
+                Date.Year++;
+                Date.Month = 1;
+            }
+            else
+            {
+                Date.Month++;
+            }
+
+            Date.Day = 1;
+        }
+        else
+        {
+            Date.Day++;
+        }
+
+        return Date;
+    }
+
+    stDate IncreaseDateByXDays(stDate Date, int XDays)
+    {
+        for (int i = 0; i < XDays; i++)
+        {
+            Date = IncreaseDateByOneDay(Date);
+        }
+        return Date;
     }
 
 }
