@@ -218,4 +218,13 @@ namespace Date
         return {Date.Day, Date.Month, Date.Year + 1};
     }
 
+    stDate IncreaseDateByXYear(stDate Date, int XYear)
+    {
+        for (int i = 0; i < XYear; i++)
+        {
+            Date = IncreaseDateByOneYear(Date);
+        }
+        return Date;
+    }
+
 }
