@@ -232,4 +232,9 @@ namespace Date
         return {Date.Day, Date.Month, Date.Year + XYear};
     }
 
+    stDate IncreaseDateByOneDecade(stDate Date)
+    {
+        return IncreaseDateByXYearFaster(Date, 10);
+    }
+
 }

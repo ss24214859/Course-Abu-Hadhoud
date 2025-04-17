@@ -15,4 +15,5 @@ int main()
     cout << "07-Adding one Year is : " << Date ::DateInLine(Date = Date::IncreaseDateByOneYear(Date)) << endl;
     cout << "08-Adding 10 Year is : " << Date ::DateInLine(Date = Date::IncreaseDateByXYear(Date, 10)) << endl;
     cout << "09-Adding 10 Year (Faster) is : " << Date ::DateInLine(Date = Date::IncreaseDateByXYearFaster(Date, 10)) << endl;
+    cout << "10-Adding one Decade is : " << Date ::DateInLine(Date = Date::IncreaseDateByOneDecade(Date)) << endl;
 }
