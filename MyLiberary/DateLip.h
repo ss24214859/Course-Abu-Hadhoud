@@ -19,7 +19,7 @@ namespace Date
     short TotalDaysFromBeginningYear(stDate Date);
     stDate ReadDate();
     bool IsDate1BeforeDate2(stDate Date1, stDate Date2);
-    bool IsLastDayInMonth(stDate Date);
+    bool IsNumberOfDaysInCurrntMonthInMonth(stDate Date);
     bool IsLastMonthInYear(short Month);
     stDate IncreaseDateByOneDay(stDate Date);
     void SwapDates(stDate &Date1, stDate &Date2);
@@ -82,7 +82,7 @@ namespace Date
                                                                                  : false;
     }
 
-    bool IsLastDayInMonth(stDate Date)
+    bool IsNumberOfDaysInCurrntMonthInMonth(stDate Date)
     {
         return (DaysInMonth(Date.Month, Date.Year) == Date.Day);
     }
@@ -144,7 +144,7 @@ namespace Date
 
     stDate IncreaseDateByOneDay(stDate Date)
     {
-        if (IsLastDayInMonth(Date))
+        if (IsNumberOfDaysInCurrntMonthInMonth(Date))
         {
             if (IsLastMonthInYear(Date.Month))
             {
@@ -201,6 +201,11 @@ namespace Date
             Date.Month++;
         }
 
+        short NumberOfDaysInCurrentMonth = DaysInMonth(Date.Month, Date.Year);
+
+        if (NumberOfDaysInCurrentMonth < Date.Day)
+            Date.Day = NumberOfDaysInCurrentMonth;
+
         return Date;
     }
 
@@ -215,7 +220,8 @@ namespace Date
 
     stDate IncreaseDateByOneYear(stDate Date)
     {
-        return {Date.Day, Date.Month, Date.Year + 1};
+        Date.Year++;
+        return Date;
     }
 
     stDate IncreaseDateByXYears(stDate Date, int XYear)
@@ -229,12 +235,14 @@ namespace Date
 
     stDate IncreaseDateByXYearsFaster(stDate Date, int XYear)
     {
-        return {Date.Day, Date.Month, Date.Year + XYear};
+        Date.Year += XYear;
+        return Date;
     }
 
     stDate IncreaseDateByOneDecade(stDate Date)
     {
-        return IncreaseDateByXYearsFaster(Date, 10);
+        Date.Year += 10;
+        return Date;
     }
 
     stDate IncreaseDateByXDecades(stDate Date, int XDecade)
@@ -248,16 +256,19 @@ namespace Date
 
     stDate IncreaseDateByXDecadesFaster(stDate Date, int XDecade)
     {
-        return {Date.Day, Date.Month, Date.Year + (XDecade * 10)};
+        Date.Year += XDecade * 10;
+        return Date;
     }
 
     stDate IncreaseDateByOneCentury(stDate Date)
     {
-        return {Date.Day, Date.Month, Date.Year + 100};
+        Date.Year += 100;
+        return Date;
     }
 
     stDate IncreaseDateByOneMillennium(stDate Date)
     {
-        return {Date.Day, Date.Month, Date.Year + 1000};
+        Date.Year += 1000;
+        return Date;
     }
 }
