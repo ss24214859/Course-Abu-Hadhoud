@@ -180,7 +180,7 @@ namespace Date
         return IncreaseDateByXDays(Date, 7);
     }
 
-    stDate IncreaseDateByXWeek(stDate Date, int XWeek)
+    stDate IncreaseDateByXWeeks(stDate Date, int XWeek)
     {
         for (int i = 0; i < XWeek; i++)
         {
@@ -204,7 +204,7 @@ namespace Date
         return Date;
     }
 
-    stDate IncreaseDateByXMonth(stDate Date, int XMonth)
+    stDate IncreaseDateByXMonths(stDate Date, int XMonth)
     {
         for (int i = 0; i < XMonth; i++)
         {
@@ -218,7 +218,7 @@ namespace Date
         return {Date.Day, Date.Month, Date.Year + 1};
     }
 
-    stDate IncreaseDateByXYear(stDate Date, int XYear)
+    stDate IncreaseDateByXYears(stDate Date, int XYear)
     {
         for (int i = 0; i < XYear; i++)
         {
@@ -227,14 +227,23 @@ namespace Date
         return Date;
     }
 
-    stDate IncreaseDateByXYearFaster(stDate Date, int XYear)
+    stDate IncreaseDateByXYearsFaster(stDate Date, int XYear)
     {
         return {Date.Day, Date.Month, Date.Year + XYear};
     }
 
     stDate IncreaseDateByOneDecade(stDate Date)
     {
-        return IncreaseDateByXYearFaster(Date, 10);
+        return IncreaseDateByXYearsFaster(Date, 10);
+    }
+
+    stDate IncreaseDateByXDecades(stDate Date, int XDecade)
+    {
+        for (int i = 0; i < XDecade; i++)
+        {
+            Date = IncreaseDateByOneDecade(Date);
+        }
+        return Date;
     }
 
 }
