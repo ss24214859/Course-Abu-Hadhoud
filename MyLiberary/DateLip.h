@@ -175,4 +175,9 @@ namespace Date
         return Date;
     }
 
+    stDate IncreaseDateByOneWeek(stDate Date)
+    {
+        return IncreaseDateByXDays(Date, 7);
+    }
+
 }
