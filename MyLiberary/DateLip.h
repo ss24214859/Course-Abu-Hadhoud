@@ -227,4 +227,9 @@ namespace Date
         return Date;
     }
 
+    stDate IncreaseDateByXYearFaster(stDate Date, int XYear)
+    {
+        return {Date.Day, Date.Month, Date.Year + XYear};
+    }
+
 }
