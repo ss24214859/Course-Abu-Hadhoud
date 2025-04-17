@@ -251,4 +251,9 @@ namespace Date
         return {Date.Day, Date.Month, Date.Year + (XDecade * 10)};
     }
 
+    stDate IncreaseDateByOneCentury(stDate Date)
+    {
+        return {Date.Day, Date.Month, Date.Year + 100};
+    }
+
 }
