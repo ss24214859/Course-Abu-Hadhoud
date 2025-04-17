@@ -180,4 +180,13 @@ namespace Date
         return IncreaseDateByXDays(Date, 7);
     }
 
+    stDate IncreaseDateByXWeek(stDate Date, int XWeek)
+    {
+        for (int i = 0; i < XWeek; i++)
+        {
+            Date = IncreaseDateByOneWeek(Date);
+        }
+        return Date;
+    }
+
 }
