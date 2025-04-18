@@ -309,4 +309,9 @@ namespace Date
         return Date;
     }
 
+    stDate DecreaseDateByOneWeek(stDate Date)
+    {
+        return DecreaseDateByXDays(Date, 7);
+    }
+
 }
