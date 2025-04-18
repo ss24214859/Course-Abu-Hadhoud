@@ -323,4 +323,23 @@ namespace Date
         return Date;
     }
 
+    stDate DecreaseDateByOneMonth(stDate Date)
+    {
+        if (Date.Month == 1)
+        {
+            Date.Month = 12;
+            Date.Year--;
+        }
+        else
+        {
+            Date.Month--;
+        }
+
+        short NumberOfDaysInCurrentMonth = DaysInMonth(Date.Month, Date.Year);
+
+        if (NumberOfDaysInCurrentMonth < Date.Day)
+            Date.Day = NumberOfDaysInCurrentMonth;
+
+        return Date;
+    }
 }
