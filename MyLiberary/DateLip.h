@@ -142,6 +142,8 @@ namespace Date
         return to_string(Date.Day) + "/" + to_string(Date.Month) + "/" + to_string(Date.Year);
     }
 
+    //////////////////// Increase //////////////////
+
     stDate IncreaseDateByOneDay(stDate Date)
     {
         if (IsNumberOfDaysInCurrntMonthInMonth(Date))
@@ -271,4 +273,31 @@ namespace Date
         Date.Year += 1000;
         return Date;
     }
+
+    ////////////////// Decrease ////////////////
+
+    stDate DecreaseDateByOneDay(stDate Date)
+    {
+        if (Date.Day == 1)
+        {
+            if (Date.Month == 1)
+            {
+                Date.Year--;
+                Date.Month = 12;
+            }
+            else
+            {
+                Date.Month--;
+            }
+
+            Date.Day = DaysInMonth(Date.Month, Date.Year);
+        }
+        else
+        {
+            Date.Day--;
+        }
+
+        return Date;
+    }
+
 }
