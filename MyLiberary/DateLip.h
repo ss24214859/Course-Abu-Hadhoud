@@ -367,4 +367,10 @@ namespace Date
         return Date;
     }
 
+    stDate DecreaseDateByXYearsFaster(stDate Date, int XYear)
+    {
+        Date.Year -= XYear;
+        return Date;
+    }
+
 }
