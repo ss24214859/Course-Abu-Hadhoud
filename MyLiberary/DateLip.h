@@ -342,4 +342,14 @@ namespace Date
 
         return Date;
     }
+
+    stDate DecreaseDateByXMonths(stDate Date, int XMonth)
+    {
+        for (int i = 0; i < XMonth; i++)
+        {
+            Date = DecreaseDateByOneMonth(Date);
+        }
+        return Date;
+    }
+
 }

@@ -11,7 +11,7 @@ int main()
     cout << "03-Substracting one Week is : " << Date ::DateInLine(Date = Date::DecreaseDateByOneWeek(Date)) << endl;
     cout << "04-Substracting 10 Weeks is : " << Date ::DateInLine(Date = Date::DecreaseDateByXWeeks(Date, 10)) << endl;
     cout << "05-Substracting one Month is : " << Date ::DateInLine(Date = Date::DecreaseDateByOneMonth(Date)) << endl;
-    // cout << "06-Substracting 5 Months is : " << Date ::DateInLine(Date = Date::IncreaseDateByXMonths(Date, 5)) << endl;
+    cout << "06-Substracting 5 Months is : " << Date ::DateInLine(Date = Date::DecreaseDateByXMonths(Date, 5)) << endl;
     // cout << "07-Substracting one Year is : " << Date ::DateInLine(Date = Date::IncreaseDateByOneYear(Date)) << endl;
     // cout << "08-Substracting 10 Years is : " << Date ::DateInLine(Date = Date::IncreaseDateByXYears(Date, 10)) << endl;
     // cout << "09-Substracting 10 Years (Faster) is : " << Date ::DateInLine(Date = Date::IncreaseDateByXYearsFaster(Date, 10)) << endl;
