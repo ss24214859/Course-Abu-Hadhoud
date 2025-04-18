@@ -7,7 +7,7 @@ int main()
     Date::stDate Date = Date::ReadDate();
 
     cout << "01-Substracting One Day is : " << Date::DateInLine(Date = Date::DecreaseDateByOneDay(Date)) << endl;
-    // cout << "02-Substracting 10 Days is : " << Date ::DateInLine(Date = Date::IncreaseDateByXDays(Date, 10)) << endl;
+    cout << "02-Substracting 10 Days is : " << Date ::DateInLine(Date = Date::DecreaseDateByXDays(Date, 10)) << endl;
     // cout << "03-Substracting one Week is : " << Date ::DateInLine(Date = Date::IncreaseDateByOneWeek(Date)) << endl;
     // cout << "04-Substracting 10 Weeks is : " << Date ::DateInLine(Date = Date::IncreaseDateByXWeeks(Date, 10)) << endl;
     // cout << "05-Substracting one Month is : " << Date ::DateInLine(Date = Date::IncreaseDateByOneMonth(Date)) << endl;

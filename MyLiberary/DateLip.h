@@ -300,4 +300,13 @@ namespace Date
         return Date;
     }
 
+    stDate DecreaseDateByXDays(stDate Date, int XDays)
+    {
+        for (int i = 0; i < XDays; i++)
+        {
+            Date = DecreaseDateByOneDay(Date);
+        }
+        return Date;
+    }
+
 }
