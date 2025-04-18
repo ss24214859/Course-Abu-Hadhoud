@@ -18,6 +18,6 @@ int main()
     cout << "10-Substracting one Decade is : " << Date ::DateInLine(Date = Date::DecreaseDateByOneDecade(Date)) << endl;
     cout << "11-Substracting 10 Decades is : " << Date ::DateInLine(Date = Date::DecreaseDateByXDecades(Date, 10)) << endl;
     cout << "12-Substracting 10 Decades (Faster) is : " << Date ::DateInLine(Date = Date::DecreaseDateByXDecadesFaster(Date, 10)) << endl;
-    // cout << "13-Substracting one Century is : " << Date ::DateInLine(Date = Date::DecreaseDateByOneCentury(Date)) << endl;
-    // cout << "14-Substracting one Millennium is : " << Date ::DateInLine(Date = Date::DecreaseDateByOneMillennium(Date)) << endl;
+    cout << "13-Substracting one Century is : " << Date ::DateInLine(Date = Date::DecreaseDateByOneCentury(Date)) << endl;
+    cout << "14-Substracting one Millennium is : " << Date ::DateInLine(Date = Date::DecreaseDateByOneMillennium(Date)) << endl;
 }

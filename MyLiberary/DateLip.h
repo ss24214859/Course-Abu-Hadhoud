@@ -394,4 +394,16 @@ namespace Date
         return Date;
     }
 
+    stDate DecreaseDateByOneCentury(stDate Date)
+    {
+        Date.Year -= 100;
+        return Date;
+    }
+
+    stDate DecreaseDateByOneMillennium(stDate Date)
+    {
+        Date.Year -= 1000;
+        return Date;
+    }
+
 }
