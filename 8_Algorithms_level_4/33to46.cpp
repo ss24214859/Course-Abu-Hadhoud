@@ -9,7 +9,7 @@ int main()
     cout << "01-Substracting One Day is : " << Date::DateInLine(Date = Date::DecreaseDateByOneDay(Date)) << endl;
     cout << "02-Substracting 10 Days is : " << Date ::DateInLine(Date = Date::DecreaseDateByXDays(Date, 10)) << endl;
     cout << "03-Substracting one Week is : " << Date ::DateInLine(Date = Date::DecreaseDateByOneWeek(Date)) << endl;
-    // cout << "04-Substracting 10 Weeks is : " << Date ::DateInLine(Date = Date::IncreaseDateByXWeeks(Date, 10)) << endl;
+    cout << "04-Substracting 10 Weeks is : " << Date ::DateInLine(Date = Date::DecreaseDateByXWeeks(Date, 10)) << endl;
     // cout << "05-Substracting one Month is : " << Date ::DateInLine(Date = Date::IncreaseDateByOneMonth(Date)) << endl;
     // cout << "06-Substracting 5 Months is : " << Date ::DateInLine(Date = Date::IncreaseDateByXMonths(Date, 5)) << endl;
     // cout << "07-Substracting one Year is : " << Date ::DateInLine(Date = Date::IncreaseDateByOneYear(Date)) << endl;

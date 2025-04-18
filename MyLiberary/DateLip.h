@@ -314,4 +314,13 @@ namespace Date
         return DecreaseDateByXDays(Date, 7);
     }
 
+    stDate DecreaseDateByXWeeks(stDate Date, int XWeek)
+    {
+        for (int i = 0; i < XWeek; i++)
+        {
+            Date = DecreaseDateByOneWeek(Date);
+        }
+        return Date;
+    }
+
 }
