@@ -373,4 +373,25 @@ namespace Date
         return Date;
     }
 
+    stDate DecreaseDateByOneDecade(stDate Date)
+    {
+        Date.Year -= 10;
+        return Date;
+    }
+
+    stDate DecreaseDateByXDecades(stDate Date, int XDecade)
+    {
+        for (int i = 0; i < XDecade; i++)
+        {
+            Date = DecreaseDateByOneDecade(Date);
+        }
+        return Date;
+    }
+
+    stDate DecreaseDateByXDecadesFaster(stDate Date, int XDecade)
+    {
+        Date.Year -= XDecade * 10;
+        return Date;
+    }
+
 }
