@@ -352,4 +352,19 @@ namespace Date
         return Date;
     }
 
+    stDate DecreaseDateByOneYear(stDate Date)
+    {
+        Date.Year--;
+        return Date;
+    }
+
+    stDate DecreaseDateByXYears(stDate Date, int XYear)
+    {
+        for (int i = 0; i < XYear; i++)
+        {
+            Date = DecreaseDateByOneYear(Date);
+        }
+        return Date;
+    }
+
 }
