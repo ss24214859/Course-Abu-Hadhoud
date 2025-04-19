@@ -243,8 +243,20 @@ namespace Date
             DateFrom = IncreaseDateByOneDay(DateFrom);
             if (IsBusinessDay(DateFrom))
                 DaysCount++;
-                }
+        }
         return DaysCount;
+    }
+
+    stDate CalculatVacationReturnDate(stDate Date, int VacationDays)
+    {
+        for (int i = 0; i < VacationDays; i++)
+        {
+            if (IsWeekEnd(Date))
+                VacationDays++;
+
+            Date = IncreaseDateByOneDay(Date);
+        }
+        return Date;
     }
 
     //////////////////// Increase //////////////////
