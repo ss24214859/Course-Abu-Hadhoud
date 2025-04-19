@@ -61,12 +61,7 @@ namespace Date
 
     short DayOfWeekOrder(stDate Date)
     {
-        short a = (14 - Date.Month) / 12;
-        int y = Date.Year - a;
-        short m = Date.Month + (12 * a) - 2;
-        // Gregorian
-        // 0-Sun 1-Mon 2-Tue ....
-        return (Date.Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
+        return DayOfWeekOrder(Date.Year, Date.Month, Date.Day);
     }
 
     short TotalDaysFromBeginningYear(stDate Date)
@@ -112,19 +107,19 @@ namespace Date
         return (Month == 12);
     }
 
-    bool IsEndOfWeek(short DayOrder)
+    bool IsEndOfWeek(stDate Date)
     {
-        return DayOrder == 6;
+        return DayOfWeekOrder(Date) == 6;
     }
 
-    bool IsWeekEnd(short DayOrder)
+    bool IsWeekEnd(stDate Date)
     {
-        return DayOrder == 5;
+        return (DayOfWeekOrder(Date) == 5) || (DayOfWeekOrder(Date) == 6); // Fri || Sat
     }
 
-    bool IsBusinessDay(short DayOrder)
+    bool IsBusinessDay(stDate Date)
     {
-        return DayOrder != 5;
+        return !IsWeekEnd(Date);
     }
 
     short DaysUntilTheEndOfWeek(stDate Date)
@@ -145,12 +140,20 @@ namespace Date
 
     short DaysUntilTheEndOfMonth(stDate Date)
     {
-        return DaysInMonth(Date.Month, Date.Year) - Date.Day + 1;
+        /////// My SL ///
+        // return DaysInMonth(Date.Month, Date.Year) - Date.Day + 1;
+
+        stDate EndOfMonthDate{DaysInMonth(Date.Month, Date.Year), Date.Month, Date.Year};
+        return GetDifferenceInDays(Date, EndOfMonthDate, true);
     }
 
     short DaysUntilTheEndOfYear(stDate Date)
     {
-        return ((IsleapYear(Date.Year)) ? 366 : 365) - TotalDaysFromBeginningYear(Date) + 1;
+        /////// My SL ////
+        // return ((IsleapYear(Date.Year)) ? 366 : 365) - TotalDaysFromBeginningYear(Date) + 1;
+
+        stDate EndOfYearDate = {31, 12, Date.Year};
+        return GetDifferenceInDays(Date, EndOfYearDate, true);
     }
 
     void SwapDates(stDate &Date1, stDate &Date2)
