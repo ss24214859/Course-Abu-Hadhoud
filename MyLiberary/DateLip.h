@@ -83,79 +83,6 @@ namespace Date
         return Date;
     }
 
-    bool IsDate1BeforeDate2(stDate Date1, stDate Date2)
-    {
-        return ((Date1.Year < Date2.Year) ? true : (Date1.Year != Date2.Year) ? false
-                                                                              : ((Date1.Month < Date2.Month) ? true : (Date1.Month != Date2.Month) ? false
-                                                                                                                                                   : ((Date1.Day < Date2.Day) ? true : false)));
-    }
-
-    bool IsDate1SameAsDate2(stDate Date1, stDate Date2)
-    {
-        return (Date1.Year != Date2.Year) ? false : (Date1.Month != Date2.Month) ? false
-                                                : (Date1.Day == Date2.Day)       ? true
-                                                                                 : false;
-    }
-
-    bool IsNumberOfDaysInCurrntMonthInMonth(stDate Date)
-    {
-        return (DaysInMonth(Date.Month, Date.Year) == Date.Day);
-    }
-
-    bool IsLastMonthInYear(short Month)
-    {
-        return (Month == 12);
-    }
-
-    bool IsEndOfWeek(stDate Date)
-    {
-        return DayOfWeekOrder(Date) == 6;
-    }
-
-    bool IsWeekEnd(stDate Date)
-    {
-        return (DayOfWeekOrder(Date) == 5) || (DayOfWeekOrder(Date) == 6); // Fri || Sat
-    }
-
-    bool IsBusinessDay(stDate Date)
-    {
-        return !IsWeekEnd(Date);
-    }
-
-    short DaysUntilTheEndOfWeek(stDate Date)
-    {
-
-        /*  SL-01
-        short Days=0;
-        while (!IsEndOfWeek(DayOfWeekOrder(Date)))
-        {
-            Date = IncreaseDateByOneDay(Date);
-            Days++;
-        }
-        return Days; */
-
-        // SL-02
-        return 6 - DayOfWeekOrder(Date);
-    }
-
-    short DaysUntilTheEndOfMonth(stDate Date)
-    {
-        /////// My SL ///
-        // return DaysInMonth(Date.Month, Date.Year) - Date.Day + 1;
-
-        stDate EndOfMonthDate{DaysInMonth(Date.Month, Date.Year), Date.Month, Date.Year};
-        return GetDifferenceInDays(Date, EndOfMonthDate, true);
-    }
-
-    short DaysUntilTheEndOfYear(stDate Date)
-    {
-        /////// My SL ////
-        // return ((IsleapYear(Date.Year)) ? 366 : 365) - TotalDaysFromBeginningYear(Date) + 1;
-
-        stDate EndOfYearDate = {31, 12, Date.Year};
-        return GetDifferenceInDays(Date, EndOfYearDate, true);
-    }
-
     void SwapDates(stDate &Date1, stDate &Date2)
     {
         stDate TempDate = {Date1.Day, Date1.Month, Date1.Year};
@@ -251,6 +178,73 @@ namespace Date
 
         for (short i = 1; i <= 12; i++)
             PrintMonthCleander(Year, i);
+    }
+
+    bool IsDate1BeforeDate2(stDate Date1, stDate Date2)
+    {
+        return ((Date1.Year < Date2.Year) ? true : (Date1.Year != Date2.Year) ? false
+                                                                              : ((Date1.Month < Date2.Month) ? true : (Date1.Month != Date2.Month) ? false
+                                                                                                                                                   : ((Date1.Day < Date2.Day) ? true : false)));
+    }
+
+    bool IsDate1SameAsDate2(stDate Date1, stDate Date2)
+    {
+        return (Date1.Year != Date2.Year) ? false : (Date1.Month != Date2.Month) ? false
+                                                : (Date1.Day == Date2.Day)       ? true
+                                                                                 : false;
+    }
+
+    bool IsNumberOfDaysInCurrntMonthInMonth(stDate Date)
+    {
+        return (DaysInMonth(Date.Month, Date.Year) == Date.Day);
+    }
+
+    bool IsLastMonthInYear(short Month)
+    {
+        return (Month == 12);
+    }
+
+    bool IsEndOfWeek(stDate Date)
+    {
+        return DayOfWeekOrder(Date) == 6;
+    }
+
+    bool IsWeekEnd(stDate Date)
+    {
+        return (DayOfWeekOrder(Date) == 5) || (DayOfWeekOrder(Date) == 6); // Fri || Sat
+    }
+
+    bool IsBusinessDay(stDate Date)
+    {
+        return !IsWeekEnd(Date);
+    }
+
+    short DaysUntilTheEndOfWeek(stDate Date)
+    {
+
+        /*  SL-01
+        short Days=0;
+        while (!IsEndOfWeek(DayOfWeekOrder(Date)))
+        {
+            Date = IncreaseDateByOneDay(Date);
+            Days++;
+        }
+        return Days; */
+
+        // SL-02
+        return 6 - DayOfWeekOrder(Date);
+    }
+
+    int CalculatVacationDays(stDate DateFrom, stDate DateTo)
+    {
+        int ActucalVaction = GetDifferenceInDays(DateFrom, DateTo);
+        while (IsDate1BeforeDate2(DateFrom, DateTo))
+        {
+            DateFrom = IncreaseDateByOneDay(DateFrom);
+            if (IsWeekEnd(DateFrom))
+                ActucalVaction--;
+        }
+        return ActucalVaction;
     }
 
     //////////////////// Increase //////////////////
