@@ -49,6 +49,26 @@ namespace Date
         return (Month == 2) ? ((IsleapYear(Year)) ? 29 : 28) : arrDaysOfMonths[Month - 1];
     }
 
+    short DayOfWeekOrder(int year, short month, short day)
+    {
+        short a = (14 - month) / 12;
+        int y = year - a;
+        short m = month + (12 * a) - 2;
+        // Gregorian
+        // 0-Sun 1-Mon 2-Tue ....
+        return (day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
+    }
+
+    short DayOfWeekOrder(stDate Date)
+    {
+        short a = (14 - Date.Month) / 12;
+        int y = Date.Year - a;
+        short m = Date.Month + (12 * a) - 2;
+        // Gregorian
+        // 0-Sun 1-Mon 2-Tue ....
+        return (Date.Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
+    }
+
     short TotalDaysFromBeginningYear(stDate Date)
     {
         short TotalDays = Date.Day;
@@ -140,6 +160,46 @@ namespace Date
     string DateInLine(stDate Date)
     {
         return to_string(Date.Day) + "/" + to_string(Date.Month) + "/" + to_string(Date.Year);
+    }
+
+    string MonthShortName(short MonthNumber)
+    {
+        string arr[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        return arr[MonthNumber - 1];
+    }
+
+    void PrintMonthCleander(int Year, short Month)
+    {
+        short Days = DaysInMonth(Month, Year);
+        short dayOrder = DayOfWeekOrder(Year, Month, 1);
+        printf("\n  ______________%s________________\n", MonthShortName(Month).c_str());
+        printf("  Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
+
+        short i = 0;
+        for (i = 0; i < dayOrder; i++)
+            printf("     ");
+
+        for (short j = 1; j < Days; j++)
+        {
+            printf("%5d", j);
+            if (++i == 7)
+            {
+                printf("\n");
+                i = 0;
+            }
+        }
+
+        printf("\n  __________________________________\n");
+    }
+
+    void PrintYearCleander(int Year)
+    {
+        printf("\n  __________________________________\n\n");
+        printf("             Cleander - %d ", Year);
+        printf("\n  __________________________________\n\n");
+
+        for (short i = 1; i <= 12; i++)
+            PrintMonthCleander(Year, i);
     }
 
     //////////////////// Increase //////////////////
