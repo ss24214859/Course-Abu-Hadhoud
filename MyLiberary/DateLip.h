@@ -168,6 +168,13 @@ namespace Date
         return arr[MonthNumber - 1];
     }
 
+    string DayShortName(short DayOfWeekOrder)
+    {
+        string arr[7] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+
+        return arr[DayOfWeekOrder];
+    }
+
     void PrintMonthCleander(int Year, short Month)
     {
         short Days = DaysInMonth(Month, Year);
