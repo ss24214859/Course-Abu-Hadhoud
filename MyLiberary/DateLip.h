@@ -127,6 +127,22 @@ namespace Date
         return DayOrder != 5;
     }
 
+    short DaysUntilTheEndOfWeek(stDate Date)
+    {
+
+        /*  SL-01
+        short Days=0;
+        while (!IsEndOfWeek(DayOfWeekOrder(Date)))
+        {
+            Date = IncreaseDateByOneDay(Date);
+            Days++;
+        }
+        return Days; */
+
+        // SL-02
+        return 6 - DayOfWeekOrder(Date);
+    }
+
     void SwapDates(stDate &Date1, stDate &Date2)
     {
         stDate TempDate = {Date1.Day, Date1.Month, Date1.Year};

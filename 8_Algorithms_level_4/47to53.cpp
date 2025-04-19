@@ -16,4 +16,6 @@ int main()
 
     cout << "\nIs it Business Day ? " << endl;
     cout << ((Date::IsBusinessDay(DayOrder)) ? "Yes it is a Business Day." : "No Not Business Day.") << endl;
+
+    cout << "Days until end of Week : " << Date::DaysUntilTheEndOfWeek(Date) << endl;
 }
