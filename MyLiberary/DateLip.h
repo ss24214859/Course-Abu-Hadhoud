@@ -143,6 +143,16 @@ namespace Date
         return 6 - DayOfWeekOrder(Date);
     }
 
+    short DaysUntilTheEndOfMonth(stDate Date)
+    {
+        return DaysInMonth(Date.Month, Date.Year) - Date.Day + 1;
+    }
+
+    short DaysUntilTheEndOfYear(stDate Date)
+    {
+        return ((IsleapYear(Date.Year)) ? 366 : 365) - TotalDaysFromBeginningYear(Date) + 1;
+    }
+
     void SwapDates(stDate &Date1, stDate &Date2)
     {
         stDate TempDate = {Date1.Day, Date1.Month, Date1.Year};
