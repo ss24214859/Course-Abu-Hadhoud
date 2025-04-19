@@ -112,6 +112,11 @@ namespace Date
         return (Month == 12);
     }
 
+    bool IsEndOfWeek(short DayOrder)
+    {
+        return DayOrder == 6;
+    }
+
     void SwapDates(stDate &Date1, stDate &Date2)
     {
         stDate TempDate = {Date1.Day, Date1.Month, Date1.Year};
