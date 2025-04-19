@@ -237,14 +237,14 @@ namespace Date
 
     int CalculatVacationDays(stDate DateFrom, stDate DateTo)
     {
-        int ActucalVaction = GetDifferenceInDays(DateFrom, DateTo);
+        int DaysCount = 0;
         while (IsDate1BeforeDate2(DateFrom, DateTo))
         {
             DateFrom = IncreaseDateByOneDay(DateFrom);
-            if (IsWeekEnd(DateFrom))
-                ActucalVaction--;
-        }
-        return ActucalVaction;
+            if (IsBusinessDay(DateFrom))
+                DaysCount++;
+                }
+        return DaysCount;
     }
 
     //////////////////// Increase //////////////////
