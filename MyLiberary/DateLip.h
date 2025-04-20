@@ -263,11 +263,16 @@ namespace Date
         }
         return Date;
     }
-
-    short CompareDates(stDate Date1, stDate Date2)
+    enum enDateCompare
     {
-        return (IsDate1BeforeDate2(Date1, Date2)) ? -1 : (IsDate1SameAsDate2(Date1, Date2)) ? 0
-                                                                                            : 1;
+        Before = -1,
+        Equal = 0,
+        After = 1
+    };
+    enDateCompare CompareDates(stDate Date1, stDate Date2)
+    {
+        return (IsDate1BeforeDate2(Date1, Date2)) ? enDateCompare::Before : (IsDate1SameAsDate2(Date1, Date2)) ? enDateCompare::Equal
+                                                                                                               : enDateCompare::After;
     }
 
     //////////////////// Increase //////////////////
