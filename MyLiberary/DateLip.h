@@ -249,6 +249,11 @@ namespace Date
 
     stDate CalculatVacationReturnDate(stDate Date, int VacationDays)
     {
+        while (IsWeekEnd(Date))
+        {
+            Date = IncreaseDateByOneDay(Date);
+        }
+
         for (int i = 0; i < VacationDays; i++)
         {
             if (IsWeekEnd(Date))
@@ -256,6 +261,12 @@ namespace Date
 
             Date = IncreaseDateByOneDay(Date);
         }
+
+        while (IsWeekEnd(Date))
+        {
+            Date = IncreaseDateByOneDay(Date);
+        }
+
         return Date;
     }
 
