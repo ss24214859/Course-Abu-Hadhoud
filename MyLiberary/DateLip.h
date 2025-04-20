@@ -194,6 +194,11 @@ namespace Date
                                                                                  : false;
     }
 
+    bool IsDate1AfterDate2(stDate Date1, stDate Date2)
+    {
+        return !IsDate1BeforeDate2(Date1, Date2) && !IsDate1SameAsDate2(Date1, Date2);
+    }
+
     bool IsNumberOfDaysInCurrntMonthInMonth(stDate Date)
     {
         return (DaysInMonth(Date.Month, Date.Year) == Date.Day);
