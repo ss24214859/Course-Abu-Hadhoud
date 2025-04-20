@@ -264,6 +264,12 @@ namespace Date
         return Date;
     }
 
+    short CompareDates(stDate Date1, stDate Date2)
+    {
+        return (IsDate1BeforeDate2(Date1, Date2)) ? -1 : (IsDate1SameAsDate2(Date1, Date2)) ? 0
+                                                                                            : 1;
+    }
+
     //////////////////// Increase //////////////////
 
     stDate IncreaseDateByOneDay(stDate Date)
