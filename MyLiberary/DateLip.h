@@ -297,11 +297,9 @@ namespace Date
 
     bool IsPeriodsOverLap(stPeriod Period1, stPeriod Period2)
     {
-        if ((CompareDates(Period1.EndDate, Period2.StartDate) == enDateCompare::Before) ||
-            (CompareDates(Period1.StartDate, Period2.EndDate) == enDateCompare::After))
-            return false;
-        else
-            return true;
+
+        return !((CompareDates(Period1.EndDate, Period2.StartDate) == enDateCompare::Before) ||
+                 (CompareDates(Period1.StartDate, Period2.EndDate) == enDateCompare::After));
     }
 
     int CalculatPeriodLength(stPeriod Period, bool IncludingEndDay = false)
@@ -311,11 +309,8 @@ namespace Date
 
     bool IsDateinPeriod(stPeriod Period, stDate Date)
     {
-        if ((CompareDates(Date, Period.StartDate) == enDateCompare::Before) ||
-            (CompareDates(Date, Period.EndDate) == enDateCompare::After))
-            return false;
-        else
-            return true;
+        return !((CompareDates(Date, Period.StartDate) == enDateCompare::Before) ||
+                 (CompareDates(Date, Period.EndDate) == enDateCompare::After));
     }
 
     //////////////////// Increase //////////////////
