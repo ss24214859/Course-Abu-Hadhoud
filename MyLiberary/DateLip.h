@@ -14,6 +14,12 @@ namespace Date
         int Year;
     };
 
+    struct stPeriod
+    {
+        stDate StartDate;
+        stDate EndDate;
+    };
+
     bool IsleapYear(short Year);
     short DaysInMonth(short Month, short Year);
     short TotalDaysFromBeginningYear(stDate Date);
@@ -81,6 +87,16 @@ namespace Date
         Date.Month = Read::ReadNumberInRang(1, 12, "Enter a Month ?", "Wrong Month :-(\n");
         Date.Day = Read::ReadNumberInRang(1, Date::DaysInMonth(Date.Month, Date.Year), "Enter a Day ?", "This Day is not exisit in this Month :-( \n");
         return Date;
+    }
+
+    stPeriod ReadPeriod()
+    {
+        stPeriod Period;
+        cout << "Enter Start Date : " << endl;
+        Period.StartDate = ReadDate();
+        cout << "\nEnter End Date : " << endl;
+        Period.EndDate = ReadDate();
+        return Period;
     }
 
     void SwapDates(stDate &Date1, stDate &Date2)
@@ -263,16 +279,28 @@ namespace Date
         }
         return Date;
     }
+
     enum enDateCompare
     {
         Before = -1,
         Equal = 0,
         After = 1
     };
+
     enDateCompare CompareDates(stDate Date1, stDate Date2)
     {
         return (IsDate1BeforeDate2(Date1, Date2)) ? enDateCompare::Before : (IsDate1SameAsDate2(Date1, Date2)) ? enDateCompare::Equal
                                                                                                                : enDateCompare::After;
+    }
+
+    bool IsPeriodsOverLap(stPeriod Period1, stPeriod Period2)
+    {
+        if ((CompareDates(Period1.StartDate, Period2.StartDate) == -1) && (CompareDates(Period1.EndDate, Period2.StartDate) == -1))
+            return false;
+        else if ((CompareDates(Period1.StartDate, Period2.EndDate) == 1) && (CompareDates(Period1.EndDate, Period2.EndDate) == 1))
+            return false;
+        else
+            return true;
     }
 
     //////////////////// Increase //////////////////
