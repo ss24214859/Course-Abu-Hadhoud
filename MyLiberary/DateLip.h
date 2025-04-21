@@ -295,9 +295,8 @@ namespace Date
 
     bool IsPeriodsOverLap(stPeriod Period1, stPeriod Period2)
     {
-        if ((CompareDates(Period1.StartDate, Period2.StartDate) == -1) && (CompareDates(Period1.EndDate, Period2.StartDate) == -1))
-            return false;
-        else if ((CompareDates(Period1.StartDate, Period2.EndDate) == 1) && (CompareDates(Period1.EndDate, Period2.EndDate) == 1))
+        if ((CompareDates(Period1.EndDate, Period2.StartDate) == enDateCompare::Before) ||
+            (CompareDates(Period1.StartDate, Period2.EndDate) == enDateCompare::After))
             return false;
         else
             return true;
