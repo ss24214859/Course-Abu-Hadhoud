@@ -302,6 +302,11 @@ namespace Date
             return true;
     }
 
+    int CalculatPeriodLength(stPeriod Period, bool IncludingEndDay = false)
+    {
+        return GetDifferenceInDays(Period.StartDate, Period.EndDate, IncludingEndDay);
+    }
+
     //////////////////// Increase //////////////////
 
     stDate IncreaseDateByOneDay(stDate Date)
