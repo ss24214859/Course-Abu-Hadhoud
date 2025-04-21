@@ -92,9 +92,11 @@ namespace Date
     stPeriod ReadPeriod()
     {
         stPeriod Period;
-        cout << "Enter Start Date : " << endl;
+        cout << "Enter Start Date : \n"
+             << endl;
         Period.StartDate = ReadDate();
-        cout << "\nEnter End Date : " << endl;
+        cout << "\nEnter End Date : \n"
+             << endl;
         Period.EndDate = ReadDate();
         return Period;
     }
@@ -305,6 +307,15 @@ namespace Date
     int CalculatPeriodLength(stPeriod Period, bool IncludingEndDay = false)
     {
         return GetDifferenceInDays(Period.StartDate, Period.EndDate, IncludingEndDay);
+    }
+
+    bool IsDateinPeriod(stPeriod Period, stDate Date)
+    {
+        if ((CompareDates(Date, Period.StartDate) == enDateCompare::Before) ||
+            (CompareDates(Date, Period.EndDate) == enDateCompare::After))
+            return false;
+        else
+            return true;
     }
 
     //////////////////// Increase //////////////////
