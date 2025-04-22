@@ -103,7 +103,7 @@ namespace Date
 
     bool IsValideDate(stDate Date)
     {
-        return (Date.Month < 0 || Date.Month > 12) ? false : (Date.Day < 0 || Date.Day > DaysInMonth(Date.Month, Date.Year)) ? false
+        return (Date.Month < 1 || Date.Month > 12) ? false : (Date.Day < 1 || Date.Day > DaysInMonth(Date.Month, Date.Year)) ? false
                                                                                                                              : true;
     }
 
