@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     Date::stDate Date = Date::ReadDate();
-    cout << "\nToday is " << Date::DayShortName(Date::DayOfWeekOrder(Date)) << " , " << Date::DateInLine(Date) << endl;
+    cout << "\nToday is " << Date::DayShortName(Date::DayOfWeekOrder(Date)) << " , " << Date::DateToString(Date) << endl;
 
     cout << "\nIs it End Of Week ? " << endl;
     cout << ((Date::IsEndOfWeek(Date)) ? "Yes it is End Of Week." : "No Not End Of Week.") << endl;

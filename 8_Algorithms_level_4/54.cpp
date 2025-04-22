@@ -9,8 +9,8 @@ int main()
     cout << "Vacation Ends:" << endl;
     Date::stDate DateTo = Date::ReadDate();
 
-    cout << "\nVaction From : " << Date::DayShortName(Date::DayOfWeekOrder(DateFrom)) << " , " << Date::DateInLine(DateFrom) << endl;
-    cout << "Vaction To : " << Date::DayShortName(Date::DayOfWeekOrder(DateTo)) << " , " << Date::DateInLine(DateTo) << endl;
+    cout << "\nVaction From : " << Date::DayShortName(Date::DayOfWeekOrder(DateFrom)) << " , " << Date::DateToString(DateFrom) << endl;
+    cout << "Vaction To : " << Date::DayShortName(Date::DayOfWeekOrder(DateTo)) << " , " << Date::DateToString(DateTo) << endl;
 
     cout << "\nActucal Vacation Days is: " << Date::CalculatVacationDays(DateFrom, DateTo) << endl;
 }

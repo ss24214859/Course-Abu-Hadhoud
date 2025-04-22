@@ -10,5 +10,5 @@ int main()
     int VacationDays = Read::ReadPosNum("Please Enter Vacation Days ? ");
 
     DateFrom = Date::CalculatVacationReturnDate(DateFrom, VacationDays);
-    cout << "Return Date : " << Date::DayShortName(Date::DayOfWeekOrder(DateFrom)) << " , " << Date::DateInLine(DateFrom) << endl;
+    cout << "Return Date : " << Date::DayShortName(Date::DayOfWeekOrder(DateFrom)) << " , " << Date::DateToString(DateFrom) << endl;
 }

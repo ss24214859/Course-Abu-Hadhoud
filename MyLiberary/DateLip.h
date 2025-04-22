@@ -32,7 +32,7 @@ namespace Date
     int GetDifferenceInDays(stDate, stDate, bool);
     stDate GetSystemDate();
     int GetAgeInDays(stDate BirthDate);
-    string DateInLine(stDate Date);
+    string DateToString(stDate Date);
     stDate IncreaseDateByXDays(stDate Date, int XDays);
 
 }
@@ -152,7 +152,10 @@ namespace Date
         return GetDifferenceInDays(BirthDate, Date::GetSystemDate(), true);
     }
 
-    string DateInLine(stDate Date)
+    stDate StringToDate(string DateString)
+    {
+        }
+    string DateToString(stDate Date)
     {
         return to_string(Date.Day) + "/" + to_string(Date.Month) + "/" + to_string(Date.Year);
     }
