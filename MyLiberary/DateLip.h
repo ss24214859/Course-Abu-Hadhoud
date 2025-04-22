@@ -323,24 +323,14 @@ namespace Date
 
     int OverlapDaysCounter(stPeriod Period1, stPeriod Period2)
     {
-        int Period1Length = PeriodLength(Period1);
-        int Period2Length = PeriodLength(Period2);
-        int OverLapDays = 0;
+        stPeriod OverLapPeriod;
+        OverLapPeriod.StartDate = (IsDate1BeforeDate2(Period1.StartDate, Period2.StartDate)) ? Period2.StartDate : Period1.StartDate;
+        OverLapPeriod.EndDate = (IsDate1BeforeDate2(Period1.EndDate, Period2.EndDate)) ? Period1.EndDate : Period2.EndDate;
 
-        if (!IsPeriodsOverLap(Period1, Period2))
+        if (IsDate1BeforeDate2(OverLapPeriod.EndDate, OverLapPeriod.StartDate))
             return 0;
 
-        if (Period1Length > Period2Length)
-            SwapPeriods(Period1, Period2);
-
-        while ((CompareDates(Period1.StartDate, Period1.EndDate) == enDateCompare::Before))
-        {
-            if (IsDateinPeriod(Period2, Period1.StartDate))
-                OverLapDays++;
-
-            Period1.StartDate = IncreaseDateByOneDay(Period1.StartDate);
-        }
-        return OverLapDays;
+        return PeriodLength(OverLapPeriod);
     }
 
     //////////////////// Increase //////////////////
