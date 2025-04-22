@@ -101,6 +101,12 @@ namespace Date
         return Period;
     }
 
+    bool IsValideDate(stDate Date)
+    {
+        return (Date.Month < 0 || Date.Month > 12) ? false : (Date.Day < 0 || Date.Day > DaysInMonth(Date.Month, Date.Year)) ? false
+                                                                                                                             : true;
+    }
+
     void SwapDates(stDate &Date1, stDate &Date2)
     {
         stDate TempDate = {Date1.Day, Date1.Month, Date1.Year};
