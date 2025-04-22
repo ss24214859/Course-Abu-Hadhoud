@@ -313,17 +313,34 @@ namespace Date
                  (CompareDates(Date, Period.EndDate) == enDateCompare::After));
     }
 
+    void SwapPeriods(stPeriod &Period1, stPeriod &Period2)
+    {
+        stPeriod temp;
+        temp = Period2;
+        Period2 = Period1;
+        Period1 = temp;
+    }
+
     int OverlapDaysCounter(stPeriod Period1, stPeriod Period2)
     {
-        int Counter = 0;
+        int Period1Length = PeriodLength(Period1);
+        int Period2Length = PeriodLength(Period2);
+        int OverLapDays = 0;
+
+        if (!IsPeriodsOverLap(Period1, Period2))
+            return 0;
+
+        if (Period1Length > Period2Length)
+            SwapPeriods(Period1, Period2);
+
         while ((CompareDates(Period1.StartDate, Period1.EndDate) == enDateCompare::Before))
         {
             if (IsDateinPeriod(Period2, Period1.StartDate))
-                Counter++;
+                OverLapDays++;
 
             Period1.StartDate = IncreaseDateByOneDay(Period1.StartDate);
         }
-        return Counter;
+        return OverLapDays;
     }
 
     //////////////////// Increase //////////////////
