@@ -302,7 +302,7 @@ namespace Date
                  (CompareDates(Period1.StartDate, Period2.EndDate) == enDateCompare::After));
     }
 
-    int CalculatPeriodLength(stPeriod Period, bool IncludingEndDay = false)
+    int PeriodLength(stPeriod Period, bool IncludingEndDay = false)
     {
         return GetDifferenceInDays(Period.StartDate, Period.EndDate, IncludingEndDay);
     }
@@ -311,6 +311,19 @@ namespace Date
     {
         return !((CompareDates(Date, Period.StartDate) == enDateCompare::Before) ||
                  (CompareDates(Date, Period.EndDate) == enDateCompare::After));
+    }
+
+    int OverlapDaysCounter(stPeriod Period1, stPeriod Period2)
+    {
+        int Counter = 0;
+        while ((CompareDates(Period1.StartDate, Period1.EndDate) == enDateCompare::Before))
+        {
+            if (IsDateinPeriod(Period2, Period1.StartDate))
+                Counter++;
+
+            Period1.StartDate = IncreaseDateByOneDay(Period1.StartDate);
+        }
+        return Counter;
     }
 
     //////////////////// Increase //////////////////
