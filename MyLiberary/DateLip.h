@@ -3,6 +3,8 @@
 #include <iostream>
 #include "ReadLip.h"
 #include <string>
+#include <vector>
+#include "StringLip.h"
 
 namespace Date
 {
@@ -10,7 +12,7 @@ namespace Date
 
     struct stDate
     {
-        short Day, Month;
+        int Day, Month;
         int Year;
     };
 
@@ -154,7 +156,10 @@ namespace Date
 
     stDate StringToDate(string DateString)
     {
-        }
+        vector<string> vDate = String::SplitStringInVector(DateString, "/");
+        stDate Date = {stoi(vDate[0]), stoi(vDate[1]), stoi(vDate[2])};
+        return Date;
+    }
     string DateToString(stDate Date)
     {
         return to_string(Date.Day) + "/" + to_string(Date.Month) + "/" + to_string(Date.Year);

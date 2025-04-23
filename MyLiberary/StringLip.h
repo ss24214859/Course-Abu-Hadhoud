@@ -10,7 +10,6 @@ namespace String
     using namespace std;
     string ReadPassword();
     bool GuessPassword(string OriginalPassword);
-    string ReadText();
     string EncryptText(string Text, short EncryptIOnKey);
     string DecryptText(string Text, short EncryptIOnKey);
     void PrintWordsFromAAAtoZZZ();
@@ -50,14 +49,6 @@ namespace String
             }
         }
         return false;
-    }
-
-    string ReadText()
-    {
-        string Text;
-        cout << "Enter text: ";
-        getline(cin, Text);
-        return Text;
     }
 
     string EncryptText(string Text, short EncryptIOnKey)

@@ -23,6 +23,14 @@ namespace Read
         return Number;
     }
 
+    string ReadText(string Massage = "Enter text: ")
+    {
+        string Text;
+        cout << Massage;
+        getline(cin >> ws, Text);
+        return Text;
+    }
+
     int ReadPosNum(string Message)
     {
         int Number = 0;
