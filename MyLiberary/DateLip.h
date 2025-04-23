@@ -167,9 +167,9 @@ namespace Date
 
     string FormatDate(stDate Date, string Format = "dd/mm/yyyy")
     {
-        Format.replace(Format.find("dd"), 2, to_string(Date.Day));
-        Format.replace(Format.find("mm"), 2, to_string(Date.Month));
-        Format.replace(Format.find("yyyy"), 4, to_string(Date.Year));
+        Format = String::ReplaceWordInString(Format, "dd", to_string(Date.Day));
+        Format = String::ReplaceWordInString(Format, "mm", to_string(Date.Month));
+        Format = String::ReplaceWordInString(Format, "yyyy", to_string(Date.Year));
         return Format;
     }
 

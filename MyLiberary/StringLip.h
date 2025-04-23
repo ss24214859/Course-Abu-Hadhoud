@@ -338,7 +338,7 @@ namespace String
         return S2.substr(0, S2.length() - deli.length());
     }
 
-    string ReplaceWordInString(string S1, string StrInS1, string StrToReplace, string deli = " ", bool IsMatchCase = true)
+    string ReplaceWordInStringByDelimeter(string S1, string StrInS1, string StrToReplace, string deli = " ", bool IsMatchCase = true)
     {
         string tempS1 = S1;
         if (!IsMatchCase)
@@ -353,11 +353,13 @@ namespace String
 
             if (!IsMatchCase)
                 tempS1 = LowerAllString(S1);
+            else
+                tempS1 = S1; // to Refrech String in temp String.
         }
         return S1;
     }
 
-    string ReplaceWordInStringWhithVector(string S1, string StrInS1, string StrToReplace, string deli = " ", bool IsMatchCase = true)
+    string ReplaceWordInStringWhithVectorByDelimeter(string S1, string StrInS1, string StrToReplace, string deli = " ", bool IsMatchCase = true)
     {
         vector<string> vSWords = SplitStringInVector(S1, deli);
         for (string &S : vSWords)
@@ -385,6 +387,30 @@ namespace String
                 S2.push_back(ch);
         }
         return S2;
+    }
+
+    string ReplaceWordInString(string Str, string StrInString, string StrToReplace, bool IsMatchCase = true)
+    {
+        string Temp = Str;
+
+        if (!IsMatchCase)
+        {
+            Temp = UpperAllString(Str);
+            StrInString = UpperAllString(StrInString);
+        }
+
+        short pos = Temp.find(StrInString);
+        while ((pos = Temp.find(StrInString)) != std::string::npos)
+        {
+            Str.replace(pos, StrInString.length(), StrToReplace);
+
+            if (!IsMatchCase)
+                Temp = LowerAllString(Str);
+            else
+                Temp = Str; // to Refrech String in temp String.
+        }
+
+        return Str;
     }
 
 }
