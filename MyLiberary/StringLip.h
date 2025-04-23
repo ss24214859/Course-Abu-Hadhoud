@@ -338,18 +338,18 @@ namespace String
         return S2.substr(0, S2.length() - deli.length());
     }
 
-    string ReplaceWordInString(string S1, string OldStr, string StrReplaceTo, string deli = " ", bool IsMatchCase = true)
+    string ReplaceWordInString(string S1, string StrInS1, string StrToReplace, string deli = " ", bool IsMatchCase = true)
     {
         string tempS1 = S1;
         if (!IsMatchCase)
         {
             tempS1 = LowerAllString(S1);
-            OldStr = LowerAllString(OldStr);
+            StrInS1 = LowerAllString(StrInS1);
         }
-        short pos = tempS1.find(OldStr);
-        while ((pos = tempS1.find(OldStr)) != std::string::npos)
+        short pos = tempS1.find(StrInS1);
+        while ((pos = tempS1.find(StrInS1)) != std::string::npos)
         {
-            S1.replace(pos, OldStr.length(), StrReplaceTo);
+            S1.replace(pos, StrInS1.length(), StrToReplace);
 
             if (!IsMatchCase)
                 tempS1 = LowerAllString(S1);
@@ -357,20 +357,20 @@ namespace String
         return S1;
     }
 
-    string ReplaceWordInStringWhithVector(string S1, string OldStr, string StrReplaceTo, string deli = " ", bool IsMatchCase = true)
+    string ReplaceWordInStringWhithVector(string S1, string StrInS1, string StrToReplace, string deli = " ", bool IsMatchCase = true)
     {
         vector<string> vSWords = SplitStringInVector(S1, deli);
         for (string &S : vSWords)
         {
             if (IsMatchCase)
             {
-                if (S == OldStr)
-                    S = StrReplaceTo;
+                if (S == StrInS1)
+                    S = StrToReplace;
             }
             else
             {
-                if (LowerAllString(S) == LowerAllString(OldStr))
-                    S = StrReplaceTo;
+                if (LowerAllString(S) == LowerAllString(StrInS1))
+                    S = StrToReplace;
             }
         }
         return JoinString(vSWords, deli);

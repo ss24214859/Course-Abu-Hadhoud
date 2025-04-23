@@ -165,6 +165,14 @@ namespace Date
         return to_string(Date.Day) + "/" + to_string(Date.Month) + "/" + to_string(Date.Year);
     }
 
+    string FormatDate(stDate Date, string Format = "dd/mm/yyyy")
+    {
+        Format.replace(Format.find("dd"), 2, to_string(Date.Day));
+        Format.replace(Format.find("mm"), 2, to_string(Date.Month));
+        Format.replace(Format.find("yyyy"), 4, to_string(Date.Year));
+        return Format;
+    }
+
     string MonthShortName(short MonthNumber)
     {
         string arr[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
