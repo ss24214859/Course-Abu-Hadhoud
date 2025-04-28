@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-
+#include <limits>
 namespace Read
 {
     using namespace std;
@@ -15,14 +15,6 @@ namespace Read
 namespace Read
 {
     using namespace std;
-    int ReadNumber(string Message)
-    {
-        int Number = 0;
-        cout << Message;
-        cin >> Number;
-        return Number;
-    }
-
     string ReadLine(string Massage = "")
     {
         string Line;
@@ -39,6 +31,27 @@ namespace Read
         return String;
     }
 
+    int ReadNumber(string Message)
+    {
+        int Number = 0;
+        do
+        {
+            cout << Message;
+            cin >> Number;
+            if (cin.fail())
+            {
+                cout << "Error! This is Not Number.Try again";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+            else
+                break;
+
+        } while (true);
+
+        return Number;
+    }
+
     int ReadPosNum(string Message)
     {
         int Number = 0;
@@ -50,7 +63,7 @@ namespace Read
         return Number;
     }
 
-    int ReadNumberInRang(int Min, int Max, string Message, string ErrorMessage = "INvalid Number")
+    int ReadNumberInRang(int Min, int Max, string Message, string ErrorMessage = "Invalid Number")
     {
         int Number = 0;
         do

@@ -4,17 +4,22 @@
 #include <vector>
 #include <fstream>
 #include <iomanip>
+#include <bitset>
 #include "../../MyLiberary/ClientLib.h"
 #include "../../MyLiberary/ReadLip.h"
 #include "../../MyLiberary/patternLib.h"
+#include "Users.h"
+
 using namespace std;
 using namespace Clients;
 using namespace Pattern;
+using namespace Users;
 
 void ShowTransactionMenueScreen();
 void ShowMainMenueScreen();
 
-const string ClientsFileName = "C:/Users/ss242/Documents/repos/My_Projects/8_Algorithms_level_4/Clients.txt";
+const string ClientsFileName = "Clients.txt";
+const string UsersFileName = "Users.txt";
 
 enum enMainMenueOption
 {
@@ -33,6 +38,16 @@ enum enTransactionMenueOption
     eWithdraw = 2,
     eTotalBalance = 3,
     eBack = 4
+};
+
+enum enUsersMenueOption
+{
+    eListUsers = 1,
+    eAddNewUser = 2,
+    eDeleteUser = 3,
+    eUpdateUser = 4,
+    eFindUser = 5,
+    eMainMenue = 6
 };
 
 void PrintRecordInList(stClient Client)
@@ -67,6 +82,23 @@ void PrintClientRecordsDataInBalanceList(vector<stClient> vClients)
     for (stClient C : vClients)
     {
         PrintRecordInBalanceList(C);
+        cout << endl;
+    }
+}
+
+void PrintUserRecordInUsersList(stUsers User)
+{
+
+    cout << "| " << setw(13) << left << User.UserName
+         << "| " << setw(10) << left << User.Password
+         << "| " << setw(13) << left << User.Permissions << "|";
+}
+
+void PrintUsersRecordsInUsersList(vector<stUsers> Users)
+{
+    for (stUsers U : Users)
+    {
+        PrintUserRecordInUsersList(U);
         cout << endl;
     }
 }
@@ -247,8 +279,7 @@ void ShowWithdrawScreen()
         PrintClientCard(Client);
         do
         {
-            cout << "Enter the amount you want to Withdraw ? ";
-            cin >> Amount;
+            Amount = Read::ReadPosNum("Enter the amount you want to Withdraw ? ");
 
             if (Amount < 0 || Amount > Client.AccountBalance)
             {
@@ -296,6 +327,29 @@ void ShowBlanceListScreen()
 enTransactionMenueOption ReadTransactionMenueOption()
 {
     return (enTransactionMenueOption)Read::ReadNumber("\nChoose What do you want to do? [1 to 4]?");
+}
+
+void ShowUsersListScreen()
+{
+    vector<stUsers> vUsers = LoadUsersDataFromFile(UsersFileName);
+
+    cout << "          Users List (" << vUsers.size() << ") User(s)." << endl;
+    string Title = "| User Name    | Password  | Permissions  |";
+    PrintLineByChar(Title.length());
+    cout << endl
+         << Title << endl;
+    PrintLineByChar(Title.length());
+    PrintUsersRecordsInUsersList(vUsers);
+    PrintLineByChar(Title.length());
+}
+
+void ShowAddUserScreen()
+{
+    PrintLineByChar(40);
+    cout << "         Add User Screen" << endl;
+    PrintLineByChar(40);
+
+    AddNewUsers(UsersFileName);
 }
 
 void PerformTransactionMenueOption(enTransactionMenueOption choice)
@@ -429,7 +483,13 @@ void ShowMainMenueScreen()
     PerformMainMenueOption(ReadMainMenueOption());
 }
 
+void LogIn()
+{
+}
 int main()
 {
-    ShowMainMenueScreen();
+    // ShowMainMenueScreen();
+
+    // ShowAddUserScreen();
+    ShowUsersListScreen();
 }

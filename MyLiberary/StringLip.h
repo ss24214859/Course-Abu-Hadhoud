@@ -27,6 +27,11 @@ namespace String
         return Password;
     }
 
+    int StringLength(string s)
+    {
+        return s.length();
+    }
+
     bool GuessPassword(string OriginalPassword)
     {
         string Word;
@@ -250,13 +255,12 @@ namespace String
     vector<string> SpletStringInVector(string S1, string Delimeter) //
     {
         vector<string> vStrWords;
-        short pos = 0;
+        size_t pos = 0;
         string Word;
 
         while ((pos = S1.find(Delimeter)) != string::npos)
         {
             Word = S1.substr(0, pos);
-
             if (Word != "")
                 vStrWords.push_back(Word);
 
