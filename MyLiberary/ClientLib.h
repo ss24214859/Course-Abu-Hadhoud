@@ -258,8 +258,9 @@ namespace Clients
         return false;
     }
 
-    bool DeleteClintByAccountNumber(string FileName, string AccountNumber, vector<stClient> &ClientsData)
+    bool DeleteClintByAccountNumber(string FileName, string AccountNumber)
     {
+        vector<stClient> ClientsData = LoadClientsDataFromFile(FileName);
         stClient Client;
         char Delete = 'n';
         if (FindClientByAccountNumber(AccountNumber, ClientsData, Client))

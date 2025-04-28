@@ -7,6 +7,7 @@
 
 #include "../../MyLiberary/ReadLip.h"
 #include "../../MyLiberary/StringLip.h"
+#include "../../MyLiberary/PatternLib.h"
 
 namespace Users
 {
@@ -156,6 +157,62 @@ namespace Users
         {
             AddUserToFile(FileName, ReadNewUser(FileName));
         } while (Read::ReadYesOrNo("Do you want to add more Users ? [y/n] ? "));
+    }
+
+    bool FindUserByUserName(vector<stUsers> vUsers, string UserName, stUsers &User)
+    {
+
+        for (stUsers U : vUsers)
+        {
+            if (U.UserName == UserName)
+            {
+                User = U;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void PrintUserCard(stUsers User)
+    {
+        cout << "the Foloowing is the User Card: " << endl;
+        Pattern::PrintLineByChar(50);
+        cout << "User Name   : " << User.UserName << endl;
+        cout << "Password    : " << User.Password << endl;
+        cout << "permissions : " << User.Permissions << endl;
+        Pattern::PrintLineByChar(50);
+    }
+
+    bool MarkUsersForDeleteByUserName(string UserName, vector<stUsers> &UsersData)
+    {
+        for (stUsers &U : UsersData)
+        {
+            if (U.UserName == UserName)
+            {
+                U.MarkForDelete = true;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void DeleteUserByUserName(string FileName, string UserName)
+    {
+        vector<stUsers> vUsers = LoadUsersDataFromFile(FileName);
+        stUsers User;
+        if (FindUserByUserName(vUsers, UserName, User))
+        {
+            PrintUserCard(User);
+            if (Read::ReadYesOrNo("Are you sure Do you want to Delete this User ? y/n ? "))
+            {
+                MarkUsersForDeleteByUserName(UserName, vUsers);
+                SaveUsersDataToFile(FileName, vUsers);
+            }
+        }
+        else
+        {
+            cout << "User With '" << UserName << "' Not Found!" << endl;
+        }
     }
 
 }

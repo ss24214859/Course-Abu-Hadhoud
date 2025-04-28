@@ -155,13 +155,11 @@ void ShowAddClientsScreen()
 
 void ShowDeleteClientScreen()
 {
-    vector<stClient> vClients = LoadClientsDataFromFile(ClientsFileName);
-
     PrintLineByChar(40);
     cout << "         Delete Client Screen" << endl;
     PrintLineByChar(40);
 
-    DeleteClintByAccountNumber(ClientsFileName, ReadAccountNumber(), vClients);
+    DeleteClintByAccountNumber(ClientsFileName, ReadAccountNumber());
 }
 
 void ShowUpdateClientInfoScreen()
@@ -352,6 +350,15 @@ void ShowAddUserScreen()
     AddNewUsers(UsersFileName);
 }
 
+void ShowDeleteUserScreen()
+{
+    PrintLineByChar(40);
+    cout << "         Delete User Screen" << endl;
+    PrintLineByChar(40);
+
+    DeleteUserByUserName(UsersFileName, Read::ReadLine("Please Enter Username ? "));
+}
+
 void PerformTransactionMenueOption(enTransactionMenueOption choice)
 {
     system("cls");
@@ -491,5 +498,5 @@ int main()
     // ShowMainMenueScreen();
 
     // ShowAddUserScreen();
-    ShowUsersListScreen();
+    ShowDeleteUserScreen();
 }
