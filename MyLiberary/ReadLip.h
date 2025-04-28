@@ -23,12 +23,20 @@ namespace Read
         return Number;
     }
 
-    string ReadText(string Massage = "Enter text: ")
+    string ReadLine(string Massage = "")
     {
-        string Text;
+        string Line;
         cout << Massage;
-        getline(cin >> ws, Text);
-        return Text;
+        getline(cin >> ws, Line);
+        return Line;
+    }
+
+    string ReadString(string Massage = "")
+    {
+        string String;
+        cout << Massage;
+        cin >> String;
+        return String;
     }
 
     int ReadPosNum(string Message)

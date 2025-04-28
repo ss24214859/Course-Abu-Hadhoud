@@ -2,11 +2,12 @@
 #include <string>
 #include <vector>
 #include "StringLip.h"
+#include "ReadLip.h"
 namespace Clients
 {
     using namespace std;
 
-    struct stClientData
+    struct stClient
     {
         string AccountNumber;
         string PINcode;
@@ -16,9 +17,9 @@ namespace Clients
         bool MarkForDelete = false;
     };
 
-    stClientData ReadNewClient()
+    stClient ReadNewClient()
     {
-        stClientData ClientData;
+        stClient ClientData;
         cout << "Enter Account Number : ";
         getline(cin, ClientData.AccountNumber);
         cout << "Enter PIN Code : ";
@@ -33,23 +34,10 @@ namespace Clients
         return ClientData;
     }
 
-    string ConvertRecordToLine(stClientData ClientData, string Saperator = "#//#")
+    stClient ExtructClientRecord(string LineRecord, string Saperator)
     {
-        string ClientDataStr = "";
-
-        ClientDataStr += ClientData.AccountNumber + Saperator;
-        ClientDataStr += ClientData.PINcode + Saperator;
-        ClientDataStr += ClientData.Name + Saperator;
-        ClientDataStr += ClientData.Phone + Saperator;
-        ClientDataStr += (to_string(ClientData.AccountBalance));
-
-        return ClientDataStr;
-    }
-
-    stClientData ExtructClientRecord(string LineRecord, string Saperator)
-    {
-        stClientData ClientData;
-        vector<string> vClientRecord = String::SplitStringInVector(LineRecord, Saperator);
+        stClient ClientData;
+        vector<string> vClientRecord = String::SpletStringInVector(LineRecord, Saperator);
 
         ClientData.AccountNumber = vClientRecord[0];
         ClientData.PINcode = vClientRecord[1];
@@ -60,7 +48,7 @@ namespace Clients
         return ClientData;
     }
 
-    void PrintClientData(stClientData ClientData)
+    void PrintClientData(stClient ClientData)
     {
         cout << "Account Number  : " << ClientData.AccountNumber << endl;
         cout << "PIN Code        : " << ClientData.PINcode << endl;
@@ -69,7 +57,7 @@ namespace Clients
         cout << "Account Balance : " << ClientData.AccountBalance << endl;
     }
 
-    string ConvertRecordToLine(stClientData ClientData, string Saperator = "#//#")
+    string ConvertRecordToLine(stClient ClientData, string Saperator = "/##/")
     {
         string ClientDataStr = "";
 
@@ -82,10 +70,10 @@ namespace Clients
         return ClientDataStr;
     }
 
-    stClientData ConvertLineToRecord(string LineRecord, string Saperator = "#//#")
+    stClient ConvertLineToRecord(string LineRecord, string Saperator = "/##/")
     {
-        stClientData ClientData;
-        vector<string> vClientRecord = String::SplitStringInVector(LineRecord, Saperator);
+        stClient ClientData;
+        vector<string> vClientRecord = String::SpletStringInVector(LineRecord, Saperator);
 
         ClientData.AccountNumber = vClientRecord[0];
         ClientData.PINcode = vClientRecord[1];
@@ -96,24 +84,82 @@ namespace Clients
         return ClientData;
     }
 
-    //////////  Files  ////////////
-
-    vector<stClientData> LoadClientsDataFromFile(string FileName)
+    bool ClientExistsByAccountNumber(string FileName, string AccountNumber)
     {
-        vector<stClientData> vFileData;
         fstream File;
         File.open(FileName, ios::in);
-
         if (File.is_open())
         {
             string Line;
+            stClient Client;
             while (getline(File, Line))
             {
-                vFileData.push_back(ConvertLineToRecord(Line));
+                Client = ConvertLineToRecord(Line);
+                if (Client.AccountNumber == AccountNumber)
+                {
+                    File.close();
+                    return true;
+                }
             }
+
             File.close();
         }
-        return vFileData;
+        return false;
+    }
+
+    stClient ReadClient(string FileName)
+    {
+        cout << "Add Clients:\n"
+             << endl;
+
+        stClient Client;
+        Client.AccountNumber = Read::ReadLine("Enter Account Number ?");
+
+        while (ClientExistsByAccountNumber(FileName, Client.AccountNumber))
+        {
+            cout << "Account Number \'" << Client.AccountNumber << "\' already exists. Please enter another Account Number? ";
+            Client.AccountNumber = Read::ReadLine();
+        }
+        cin, Client.PINcode = Read::ReadLine("Enter PIN Code ?");
+        cin, Client.Name = Read::ReadLine("Enter Name ?");
+        cin, Client.Phone = Read::ReadLine("Enter Phone ?");
+        Client.AccountBalance = Read::ReadNumber("Enter Account Balance ?");
+
+        return Client;
+    }
+
+    stClient ChanchClientRecord(string AccountNumber)
+    {
+        stClient Client;
+        Client.AccountNumber = AccountNumber;
+        cin, Client.PINcode = Read::ReadLine("Enter PIN Code ?");
+        cin, Client.Name = Read::ReadLine("Enter Name ?");
+        cin, Client.Phone = Read::ReadLine("Enter Phone ?");
+        Client.AccountBalance = Read::ReadNumber("Enter Account Balance ?");
+        return Client;
+    }
+
+    //////////  Files  ////////////
+
+    vector<stClient> LoadClientsDataFromFile(string FileName) //
+    {
+        vector<stClient> vClients;
+
+        fstream File;
+        File.open(FileName, ios::in);
+        if (File.is_open())
+        {
+            string Line;
+            stClient Client;
+            while (getline(File, Line))
+            {
+                Client = ConvertLineToRecord(Line);
+                vClients.push_back(Client);
+            }
+
+            File.close();
+        }
+        return vClients;
     }
 
     void PrintContantFromFile(string FileName)
@@ -132,25 +178,20 @@ namespace Clients
         }
     }
 
-    vector<stClientData> SaveClientsDataToFile(string FileName, vector<stClientData> vClientsData)
+    vector<stClient> SaveClientsDataToFile(string FileName, vector<stClient> vClients) //
     {
-        fstream File;
-        File.open(FileName, ios::out);
-        string line;
-        if (File.is_open())
+        fstream file;
+        file.open(FileName, ios::out);
+        if (file.is_open())
         {
-
-            for (stClientData Client : vClientsData)
+            for (stClient C : vClients)
             {
-                if (Client.MarkForDelete == false)
-                {
-                    line = ConvertRecordToLine(Client);
-                    File << line << endl;
-                }
+                if (C.MarkForDelete == false)
+                    file << ConvertRecordToLine(C) << endl;
             }
-            File.close();
+            file.close();
         }
-        return vClientsData;
+        return vClients;
     }
 
     void PrintVector(vector<string> vect)
@@ -172,43 +213,28 @@ namespace Clients
         }
     }
 
-    void AddDataLineToFile(string FileName, string DataLine)
+    void AddClient(string FileName, stClient Client)
     {
-        fstream File;
-        File.open(FileName, ios::out | ios::app);
-        if (File.is_open())
+        fstream file;
+        file.open(FileName, ios::app | ios::out);
+        if (file.is_open())
         {
-            File << DataLine << endl;
-            File.close();
+            file << ConvertRecordToLine(Client) << endl;
+            file.close();
         }
     }
 
-    void AddClientToFile(string FileName)
+    void AddNewClients(string FileName)
     {
-        stClientData Client = ReadNewClient();
-
-        AddDataLineToFile(FileName, ConvertRecordToLine(Client));
-    }
-
-    void AddClients(string FileName)
-    {
-
-        char AddMore = 'y';
-
-        while (tolower(AddMore == 'y'))
+        do
         {
-            system("cls");
-            cout << "Add Client :\n"
-                 << endl;
-            AddClientToFile(FileName);
-            cout << "Client Added Successfully , do you want to Add More Clients ?";
-            cin >> AddMore;
-        }
+            AddClient(FileName, ReadClient(FileName));
+        } while (Read::ReadYesOrNo("Do you want to add more Client ? [y/n] ? "));
     }
 
-    bool FindClientByAccountNumber(string AccountNumber, vector<stClientData> vClientsData, stClientData &Client)
+    bool FindClientByAccountNumber(string AccountNumber, vector<stClient> vClientsData, stClient &Client)
     {
-        for (stClientData &c : vClientsData)
+        for (stClient &c : vClientsData)
         {
             if (c.AccountNumber == AccountNumber)
             {
@@ -219,9 +245,9 @@ namespace Clients
         return false;
     }
 
-    bool MarkClintForDeleteByAccountNumber(string AccountNumber, vector<stClientData> &ClientsData)
+    bool MarkClintForDeleteByAccountNumber(string AccountNumber, vector<stClient> &ClientsData)
     {
-        for (stClientData &C : ClientsData)
+        for (stClient &C : ClientsData)
         {
             if (C.AccountNumber == AccountNumber)
             {
@@ -232,11 +258,9 @@ namespace Clients
         return false;
     }
 
-    bool DeleteClintByAccountNumber(string FileName, string AccountNumber, vector<stClientData> &ClientsData)
+    bool DeleteClintByAccountNumber(string FileName, string AccountNumber, vector<stClient> &ClientsData)
     {
-        string FileName;
-
-        stClientData Client;
+        stClient Client;
         char Delete = 'n';
         if (FindClientByAccountNumber(AccountNumber, ClientsData, Client))
         {
@@ -259,15 +283,14 @@ namespace Clients
             }
         }
         else
-        {
             cout << "Client With Account Number (" << AccountNumber << ") Not Found!" << endl;
-            return false;
-        }
+
+        return false;
     }
 
-    stClientData ChangeClientRecord(string AccountNumber)
+    stClient ChangeClientRecord(string AccountNumber)
     {
-        stClientData ClientData;
+        stClient ClientData;
 
         ClientData.AccountNumber = AccountNumber;
         cout << "Enter PIN Code : ";
@@ -282,11 +305,9 @@ namespace Clients
         return ClientData;
     }
 
-    bool UpdateClintByAccountNumber(string AccountNumber, vector<stClientData> &ClientsData)
+    bool UpdateClintByAccountNumber(string FileName, string AccountNumber, vector<stClient> &ClientsData)
     {
-        string FileName;
-
-        stClientData Client;
+        stClient Client;
         char Delete = 'n';
         if (FindClientByAccountNumber(AccountNumber, ClientsData, Client))
         {
@@ -297,7 +318,7 @@ namespace Clients
 
             if (toupper(Delete) == 'Y')
             {
-                for (stClientData &C : ClientsData)
+                for (stClient &C : ClientsData)
                 {
                     if (C.AccountNumber == AccountNumber)
                     {

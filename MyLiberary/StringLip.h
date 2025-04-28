@@ -247,20 +247,20 @@ namespace String
         return counter;
     }
 
-    vector<string> SplitStringInVector(string S1, string delimiter = " ")
+    vector<string> SpletStringInVector(string S1, string Delimeter) //
     {
         vector<string> vStrWords;
         short pos = 0;
         string Word;
 
-        while ((pos = S1.find(delimiter)) != std::string::npos)
+        while ((pos = S1.find(Delimeter)) != string::npos)
         {
             Word = S1.substr(0, pos);
 
             if (Word != "")
                 vStrWords.push_back(Word);
 
-            S1.erase(0, pos + delimiter.length());
+            S1.erase(0, pos + Delimeter.length());
         }
         if (S1 != "")
             vStrWords.push_back(S1);
@@ -327,7 +327,7 @@ namespace String
     string ReverseWordsInString(string S1)
     {
         string deli = " ";
-        vector<string> vWords = SplitStringInVector(S1, deli);
+        vector<string> vWords = SpletStringInVector(S1, deli);
         string S2 = "";
         vector<string>::iterator iter = vWords.end();
         while (iter != vWords.begin())
@@ -361,7 +361,7 @@ namespace String
 
     string ReplaceWordInStringWhithVectorByDelimeter(string S1, string StrInS1, string StrToReplace, string deli = " ", bool IsMatchCase = true)
     {
-        vector<string> vSWords = SplitStringInVector(S1, deli);
+        vector<string> vSWords = SpletStringInVector(S1, deli);
         for (string &S : vSWords)
         {
             if (IsMatchCase)
