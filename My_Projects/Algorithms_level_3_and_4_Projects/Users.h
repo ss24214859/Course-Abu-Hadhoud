@@ -17,8 +17,14 @@ namespace Users
         string UserName;
         string Password;
         int Permissions;
-        bool MarkForDelete;
+        bool MarkForDelete = false;
+        bool MarkUserRun = false;
     };
+
+    string ReadUserName()
+    {
+        return Read::ReadLine("Enter Username ? ");
+    }
 
     stUsers ConvertUserLineToRecord(string LineRecord, string Saperator = "#//#")
     {
@@ -115,23 +121,24 @@ namespace Users
             User.UserName = Read::ReadLine();
         }
 
-        User.Password = Read::ReadNumber("Enter Password? ");
+        User.Password = Read::ReadString("Enter Password? ");
 
         if (Read::ReadYesOrNo("Do You Want to give Full access? y/n ?"))
             User.Permissions = -1;
+        else
+        {
+            bitset<7> command;
+            cout << "Do you want to give access to : " << endl;
+            command |= (Read::ReadYesOrNo("Clients List ?") << 0);
+            command |= (Read::ReadYesOrNo("Add New Client?") << 1);
+            command |= (Read::ReadYesOrNo("Delete Client ?") << 2);
+            command |= (Read::ReadYesOrNo("Update Client ?") << 3);
+            command |= (Read::ReadYesOrNo("Find Client ?") << 4);
+            command |= (Read::ReadYesOrNo("Transaction Menue ?") << 5);
+            command |= (Read::ReadYesOrNo("Manage Users?") << 6);
 
-        bitset<7> command;
-        cout << "Do you want to give access to : " << endl;
-        command |= (Read::ReadYesOrNo("Clients List ?") << 0);
-        command |= (Read::ReadYesOrNo("Add New Client?") << 1);
-        command |= (Read::ReadYesOrNo("Delete Client ?") << 2);
-        command |= (Read::ReadYesOrNo("Update Client ?") << 3);
-        command |= (Read::ReadYesOrNo("Find Client ?") << 4);
-        command |= (Read::ReadYesOrNo("Transaction Menue ?") << 5);
-        command |= (Read::ReadYesOrNo("Manage Users?") << 6);
-
-        User.Permissions = command.to_ulong();
-
+            User.Permissions = command.to_ulong();
+        }
         return User;
     }
 
@@ -213,6 +220,93 @@ namespace Users
         {
             cout << "User With '" << UserName << "' Not Found!" << endl;
         }
+    }
+
+    stUsers ChangeUserRecord(string UserName)
+    {
+        stUsers User;
+        User.UserName = UserName;
+        User.Password = Read::ReadString("Enter Password? ");
+
+        if (Read::ReadYesOrNo("Do You Want to give Full access? y/n ?"))
+            User.Permissions = -1;
+        else
+        {
+            bitset<7> command;
+            cout << "Do you want to give access to : " << endl;
+            command |= (Read::ReadYesOrNo("Clients List ?") << 0);
+            command |= (Read::ReadYesOrNo("Add New Client?") << 1);
+            command |= (Read::ReadYesOrNo("Delete Client ?") << 2);
+            command |= (Read::ReadYesOrNo("Update Client ?") << 3);
+            command |= (Read::ReadYesOrNo("Find Client ?") << 4);
+            command |= (Read::ReadYesOrNo("Transaction Menue ?") << 5);
+            command |= (Read::ReadYesOrNo("Manage Users?") << 6);
+
+            User.Permissions = command.to_ulong();
+        }
+        return User;
+    }
+
+    void UpdatUserByAccountNumber(string FileName, string UserName, vector<stUsers> &UsersData)
+    {
+
+        stUsers User;
+        char Update = 'n';
+        if (FindUserByUserName(UsersData, UserName, User))
+        {
+            PrintUserCard(User);
+
+            cout << "\ndo you want to update it ?[y,n]? ";
+            cin >> Update;
+
+            if (toupper(Update) == 'Y')
+            {
+                for (stUsers &U : UsersData)
+                {
+                    if (U.UserName == User.UserName)
+                    {
+                        U = ChangeUserRecord(UserName);
+                        break;
+                    }
+                }
+
+                SaveUsersDataToFile(FileName, UsersData);
+
+                UsersData = LoadUsersDataFromFile(FileName);
+
+                cout << "\nUser updated Successfully. \n"
+                     << endl;
+            }
+        }
+        else
+        {
+            cout << "\n\nUser With Username (" << UserName << ") Not Found!" << endl;
+        }
+    }
+
+    void FindUserScreen(vector<stUsers> vUsers)
+    {
+        stUsers User;
+        string UserName = ReadUserName();
+        if (FindUserByUserName(vUsers, UserName, User))
+            PrintUserCard(User);
+        else
+            cout << "\n\nUser With Username (" << UserName << ") Not Found!" << endl;
+    }
+
+    bool ChackUserLogIn(string UsersFileName, stUsers &User)
+    {
+        string UserName = ReadUserName();
+        string Password = Read::ReadString("Enter Password? ");
+        vector<stUsers> vUsers = LoadUsersDataFromFile(UsersFileName);
+        if (FindUserByUserName(vUsers, UserName, User))
+        {
+            if (User.Password == Password)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

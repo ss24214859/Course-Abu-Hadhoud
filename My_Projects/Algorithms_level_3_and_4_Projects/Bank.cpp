@@ -17,9 +17,11 @@ using namespace Users;
 
 void ShowTransactionMenueScreen();
 void ShowMainMenueScreen();
+void ShowManageUserMenueScreen();
 
 const string ClientsFileName = "Clients.txt";
 const string UsersFileName = "Users.txt";
+int UserPermissions;
 
 enum enMainMenueOption
 {
@@ -29,7 +31,8 @@ enum enMainMenueOption
     eShowUpdateClientInfo = 4,
     eShowFindClient = 5,
     eTransactionMenue = 6,
-    eExit = 7
+    eManageUserMenue = 7,
+    eExit = 8
 };
 
 enum enTransactionMenueOption
@@ -40,7 +43,7 @@ enum enTransactionMenueOption
     eBack = 4
 };
 
-enum enUsersMenueOption
+enum enManageUsersMenueOption
 {
     eListUsers = 1,
     eAddNewUser = 2,
@@ -197,6 +200,13 @@ void GoBackToTransactionMenue()
     ShowTransactionMenueScreen();
 }
 
+void GoBackToManageUserMenue()
+{
+    cout << "\nPress any key to go to Manage User Screen Menue.";
+    system("pause>0");
+    ShowManageUserMenueScreen();
+}
+
 enum enTransactionType
 {
     enDeposit = 0,
@@ -327,6 +337,11 @@ enTransactionMenueOption ReadTransactionMenueOption()
     return (enTransactionMenueOption)Read::ReadNumber("\nChoose What do you want to do? [1 to 4]?");
 }
 
+enManageUsersMenueOption ReadManageUserMenueOption()
+{
+    return (enManageUsersMenueOption)Read::ReadNumber("\nChoose What do you want to do? [1 to 6]?");
+}
+
 void ShowUsersListScreen()
 {
     vector<stUsers> vUsers = LoadUsersDataFromFile(UsersFileName);
@@ -356,7 +371,96 @@ void ShowDeleteUserScreen()
     cout << "         Delete User Screen" << endl;
     PrintLineByChar(40);
 
-    DeleteUserByUserName(UsersFileName, Read::ReadLine("Please Enter Username ? "));
+    DeleteUserByUserName(UsersFileName, ReadUserName());
+}
+
+void ShowUpdateUserScreen()
+{
+    vector<stUsers> vUsers = LoadUsersDataFromFile(UsersFileName);
+
+    PrintLineByChar(40);
+    cout << "         Update User Screen" << endl;
+    PrintLineByChar(40);
+
+    UpdatUserByAccountNumber(UsersFileName, ReadUserName(), vUsers);
+}
+
+void ShowFindUserScreen()
+{
+    vector<stUsers> vUsers = LoadUsersDataFromFile(UsersFileName);
+    PrintLineByChar(40);
+    cout << "         Find User Screen" << endl;
+    PrintLineByChar(40);
+
+    FindUserScreen(vUsers);
+}
+
+void PerformManageUserMenueOption(enManageUsersMenueOption choice)
+{
+    system("cls");
+
+    switch (choice)
+    {
+    case enManageUsersMenueOption::eListUsers:
+    {
+        ShowUsersListScreen();
+        GoBackToManageUserMenue();
+        break;
+    }
+    case enManageUsersMenueOption::eAddNewUser:
+    {
+        ShowAddUserScreen();
+        GoBackToManageUserMenue();
+        break;
+    }
+    case enManageUsersMenueOption::eDeleteUser:
+    {
+        ShowDeleteUserScreen();
+        GoBackToManageUserMenue();
+        break;
+    }
+    case enManageUsersMenueOption::eUpdateUser:
+    {
+        ShowUpdateUserScreen();
+        GoBackToManageUserMenue();
+        break;
+    }
+    case enManageUsersMenueOption::eFindUser:
+    {
+        ShowFindUserScreen();
+        GoBackToManageUserMenue();
+        break;
+    }
+    case enManageUsersMenueOption::eMainMenue:
+    {
+        ShowMainMenueScreen();
+        break;
+    }
+    default:
+    {
+        cout << "Invalid Choice" << endl;
+        GoBackToManageUserMenue();
+        break;
+    }
+    }
+}
+
+void ShowManageUserMenueScreen()
+{
+    short WidthLine = 50;
+
+    system("cls");
+    PrintLineByChar(WidthLine, '=');
+    cout << "             Manage User Menue Screen" << endl;
+    PrintLineByChar(WidthLine, '=');
+    cout << "        [1] List Users." << endl;
+    cout << "        [2] Add New Users." << endl;
+    cout << "        [3] Delete User." << endl;
+    cout << "        [4] Update User." << endl;
+    cout << "        [5] Find User." << endl;
+    cout << "        [6] Main Menue." << endl;
+    PrintLineByChar(WidthLine, '=');
+    PerformManageUserMenueOption(ReadManageUserMenueOption());
 }
 
 void PerformTransactionMenueOption(enTransactionMenueOption choice)
@@ -410,6 +514,19 @@ void ShowTransactionMenueScreen()
     PerformTransactionMenueOption(ReadTransactionMenueOption());
 }
 
+bool GetPermissionCaseforMainMenue(int Commend, enMainMenueOption Choice)
+{
+    if (Commend & (1 << (Choice - 1)))
+        return true;
+
+    Pattern::PrintLineByChar(40, '-');
+    cout << "Access Denied," << endl;
+    cout << "You Don't Have Permission To Do This," << endl;
+    cout << "Plese Conact Your Admin." << endl;
+    Pattern::PrintLineByChar(40, '-');
+    return false;
+}
+
 void PerformMainMenueOption(enMainMenueOption choice)
 {
     system("cls");
@@ -417,37 +534,60 @@ void PerformMainMenueOption(enMainMenueOption choice)
     {
     case enMainMenueOption::eShowClientsList:
     {
-        ShowClientListScreen();
+        if (GetPermissionCaseforMainMenue(UserPermissions, enMainMenueOption::eShowClientsList))
+            ShowClientListScreen();
+
         GoBackToMainMenue();
         break;
     }
     case enMainMenueOption::eShowAddNewClient:
     {
-        ShowAddClientsScreen();
+        if (GetPermissionCaseforMainMenue(UserPermissions, enMainMenueOption::eShowAddNewClient))
+            ShowAddClientsScreen();
+
         GoBackToMainMenue();
         break;
     }
     case enMainMenueOption::eShowDeleteClient:
     {
-        ShowDeleteClientScreen();
+        if (GetPermissionCaseforMainMenue(UserPermissions, enMainMenueOption::eShowDeleteClient))
+            ShowDeleteClientScreen();
+
         GoBackToMainMenue();
         break;
     }
     case enMainMenueOption::eShowUpdateClientInfo:
     {
-        ShowUpdateClientInfoScreen();
+        if (GetPermissionCaseforMainMenue(UserPermissions, enMainMenueOption::eShowUpdateClientInfo))
+            ShowUpdateClientInfoScreen();
+
         GoBackToMainMenue();
         break;
     }
     case enMainMenueOption::eShowFindClient:
     {
-        ShowFindClientScreen();
+        if (GetPermissionCaseforMainMenue(UserPermissions, enMainMenueOption::eShowFindClient))
+            ShowFindClientScreen();
+
         GoBackToMainMenue();
         break;
     }
     case enMainMenueOption::eTransactionMenue:
     {
-        ShowTransactionMenueScreen();
+        if (GetPermissionCaseforMainMenue(UserPermissions, enMainMenueOption::eTransactionMenue))
+            ShowTransactionMenueScreen();
+        else
+            GoBackToMainMenue();
+
+        break;
+    }
+    case enMainMenueOption::eManageUserMenue:
+    {
+        if (GetPermissionCaseforMainMenue(UserPermissions, enMainMenueOption::eManageUserMenue))
+            ShowManageUserMenueScreen();
+        else
+            GoBackToMainMenue();
+
         break;
     }
     case enMainMenueOption::eExit:
@@ -468,14 +608,14 @@ void PerformMainMenueOption(enMainMenueOption choice)
 
 enMainMenueOption ReadMainMenueOption()
 {
-    return (enMainMenueOption)Read::ReadNumber("\nChoose What do you want to do? [1 to 7]?");
+    return (enMainMenueOption)Read::ReadNumber("\nChoose What do you want to do? [1 to 8]?");
 }
 
 void ShowMainMenueScreen()
 {
     short WidthLine = 50;
-
     system("cls");
+    cout << "User Permissions ( " << UserPermissions << " )" << endl;
     PrintLineByChar(WidthLine, '=');
     cout << "                Main Menue Screen" << endl;
     PrintLineByChar(WidthLine, '=');
@@ -485,18 +625,26 @@ void ShowMainMenueScreen()
     cout << "        [4] Update Client Info." << endl;
     cout << "        [5] Find Client." << endl;
     cout << "        [6] Transaction Manue Screen." << endl;
-    cout << "        [7] Exit" << endl;
+    cout << "        [7] Manage User Screen." << endl;
+    cout << "        [8] Exit" << endl;
     PrintLineByChar(WidthLine, '=');
     PerformMainMenueOption(ReadMainMenueOption());
 }
 
 void LogIn()
 {
+    stUsers User;
+    bool IsLogIn = ChackUserLogIn(UsersFileName, User);
+    while (!IsLogIn)
+    {
+        cout << "Invalid Username/password!" << endl;
+        IsLogIn = ChackUserLogIn(UsersFileName, User);
+    }
+    UserPermissions = User.Permissions;
+    ShowMainMenueScreen();
 }
+
 int main()
 {
-    // ShowMainMenueScreen();
-
-    // ShowAddUserScreen();
-    ShowDeleteUserScreen();
+    LogIn();
 }
