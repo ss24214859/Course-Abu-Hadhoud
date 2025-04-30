@@ -69,10 +69,10 @@ return 0;
 
 int main()
 {
-    bitset<2> command;
-    command |= (Read::ReadYesOrNo("Light is ON\n") << 0);
-    command |= (Read::ReadYesOrNo("Fan is ON\n") << 1);
+    /* bitset<2> command;
+     command |= (Read::ReadYesOrNo("Light is ON\n") << 0);
+     command |= (Read::ReadYesOrNo("Fan is ON\n") << 1);
 
-    cout << endl
-         << (command.to_ulong() & (1 << 0)) << endl;
+     cout << endl
+          << (command.to_ulong() & (1 << 0)) << endl;*/
 }

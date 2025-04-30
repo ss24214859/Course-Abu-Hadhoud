@@ -18,7 +18,18 @@ namespace Users
         string Password;
         int Permissions;
         bool MarkForDelete = false;
-        bool MarkUserRun = false;
+    };
+
+    enum enMainMenuOptionPermissions
+    {
+        eClientsList = 1,
+        eAddNewClient = 2,
+        eDeleteClient = 4,
+        eUpdateClientInfo = 8,
+        eFindClient = 16,
+        eTransactionMenue = 32,
+        eManageUserMenue = 64,
+        eAll = -1
     };
 
     string ReadUserName()
@@ -124,20 +135,31 @@ namespace Users
         User.Password = Read::ReadString("Enter Password? ");
 
         if (Read::ReadYesOrNo("Do You Want to give Full access? y/n ?"))
-            User.Permissions = -1;
+            User.Permissions = eAll;
         else
         {
-            bitset<7> command;
+            User.Permissions = 0;
             cout << "Do you want to give access to : " << endl;
-            command |= (Read::ReadYesOrNo("Clients List ?") << 0);
-            command |= (Read::ReadYesOrNo("Add New Client?") << 1);
-            command |= (Read::ReadYesOrNo("Delete Client ?") << 2);
-            command |= (Read::ReadYesOrNo("Update Client ?") << 3);
-            command |= (Read::ReadYesOrNo("Find Client ?") << 4);
-            command |= (Read::ReadYesOrNo("Transaction Menue ?") << 5);
-            command |= (Read::ReadYesOrNo("Manage Users?") << 6);
+            if (Read::ReadYesOrNo("Clients List ?"))
+                User.Permissions += enMainMenuOptionPermissions::eClientsList;
 
-            User.Permissions = command.to_ulong();
+            if (Read::ReadYesOrNo("Add New Client?"))
+                User.Permissions += enMainMenuOptionPermissions::eAddNewClient;
+
+            if (Read::ReadYesOrNo("Delete Client ?"))
+                User.Permissions += enMainMenuOptionPermissions::eDeleteClient;
+
+            if (Read::ReadYesOrNo("Update Client ?"))
+                User.Permissions += enMainMenuOptionPermissions::eUpdateClientInfo;
+
+            if (Read::ReadYesOrNo("Find Client ?"))
+                User.Permissions += enMainMenuOptionPermissions::eFindClient;
+
+            if (Read::ReadYesOrNo("Transaction Menue ?"))
+                User.Permissions += enMainMenuOptionPermissions::eTransactionMenue;
+
+            if (Read::ReadYesOrNo("Manage Users?"))
+                User.Permissions += enMainMenuOptionPermissions::eManageUserMenue;
         }
         return User;
     }
@@ -172,6 +194,20 @@ namespace Users
         for (stUsers U : vUsers)
         {
             if (U.UserName == UserName)
+            {
+                User = U;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    bool FindUserByUserNameAndPassword(vector<stUsers> vUsers, string UserName, string Password, stUsers &User)
+    {
+
+        for (stUsers U : vUsers)
+        {
+            if (U.UserName == UserName && U.Password == Password)
             {
                 User = U;
                 return true;
@@ -247,7 +283,7 @@ namespace Users
         return User;
     }
 
-    void UpdatUserByAccountNumber(string FileName, string UserName, vector<stUsers> &UsersData)
+    void UpdateUserByUserName(string FileName, string UserName, vector<stUsers> &UsersData)
     {
 
         stUsers User;
@@ -292,21 +328,6 @@ namespace Users
             PrintUserCard(User);
         else
             cout << "\n\nUser With Username (" << UserName << ") Not Found!" << endl;
-    }
-
-    bool ChackUserLogIn(string UsersFileName, stUsers &User)
-    {
-        string UserName = ReadUserName();
-        string Password = Read::ReadString("Enter Password? ");
-        vector<stUsers> vUsers = LoadUsersDataFromFile(UsersFileName);
-        if (FindUserByUserName(vUsers, UserName, User))
-        {
-            if (User.Password == Password)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 
 }
