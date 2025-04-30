@@ -18,10 +18,11 @@ using namespace Users;
 void ShowTransactionMenueScreen();
 void ShowMainMenueScreen();
 void ShowManageUserMenueScreen();
+void LogIn();
 
 const string ClientsFileName = "Clients.txt";
 const string UsersFileName = "Users.txt";
-int UserPermissions;
+stUsers CurrentUser;
 
 enum enMainMenueOption
 {
@@ -382,7 +383,7 @@ void ShowUpdateUserScreen()
     cout << "         Update User Screen" << endl;
     PrintLineByChar(40);
 
-    UpdatUserByAccountNumber(UsersFileName, ReadUserName(), vUsers);
+    UpdateUserByUserName(UsersFileName, ReadUserName(), vUsers);
 }
 
 void ShowFindUserScreen()
@@ -514,9 +515,9 @@ void ShowTransactionMenueScreen()
     PerformTransactionMenueOption(ReadTransactionMenueOption());
 }
 
-bool GetPermissionCaseforMainMenue(int Commend, enMainMenueOption Choice)
+bool GetPermissionCaseforMainMenue(enMainMenuOptionPermissions Permission)
 {
-    if (Commend & (1 << (Choice - 1)))
+    if ((CurrentUser.Permissions & Permission) == Permission)
         return true;
 
     Pattern::PrintLineByChar(40, '-');
@@ -534,7 +535,7 @@ void PerformMainMenueOption(enMainMenueOption choice)
     {
     case enMainMenueOption::eShowClientsList:
     {
-        if (GetPermissionCaseforMainMenue(UserPermissions, enMainMenueOption::eShowClientsList))
+        if (GetPermissionCaseforMainMenue(enMainMenuOptionPermissions::eClientsList))
             ShowClientListScreen();
 
         GoBackToMainMenue();
@@ -542,7 +543,7 @@ void PerformMainMenueOption(enMainMenueOption choice)
     }
     case enMainMenueOption::eShowAddNewClient:
     {
-        if (GetPermissionCaseforMainMenue(UserPermissions, enMainMenueOption::eShowAddNewClient))
+        if (GetPermissionCaseforMainMenue(enMainMenuOptionPermissions::eAddNewClient))
             ShowAddClientsScreen();
 
         GoBackToMainMenue();
@@ -550,7 +551,7 @@ void PerformMainMenueOption(enMainMenueOption choice)
     }
     case enMainMenueOption::eShowDeleteClient:
     {
-        if (GetPermissionCaseforMainMenue(UserPermissions, enMainMenueOption::eShowDeleteClient))
+        if (GetPermissionCaseforMainMenue(enMainMenuOptionPermissions::eDeleteClient))
             ShowDeleteClientScreen();
 
         GoBackToMainMenue();
@@ -558,7 +559,7 @@ void PerformMainMenueOption(enMainMenueOption choice)
     }
     case enMainMenueOption::eShowUpdateClientInfo:
     {
-        if (GetPermissionCaseforMainMenue(UserPermissions, enMainMenueOption::eShowUpdateClientInfo))
+        if (GetPermissionCaseforMainMenue(enMainMenuOptionPermissions::eUpdateClientInfo))
             ShowUpdateClientInfoScreen();
 
         GoBackToMainMenue();
@@ -566,7 +567,7 @@ void PerformMainMenueOption(enMainMenueOption choice)
     }
     case enMainMenueOption::eShowFindClient:
     {
-        if (GetPermissionCaseforMainMenue(UserPermissions, enMainMenueOption::eShowFindClient))
+        if (GetPermissionCaseforMainMenue(enMainMenuOptionPermissions::eFindClient))
             ShowFindClientScreen();
 
         GoBackToMainMenue();
@@ -574,7 +575,7 @@ void PerformMainMenueOption(enMainMenueOption choice)
     }
     case enMainMenueOption::eTransactionMenue:
     {
-        if (GetPermissionCaseforMainMenue(UserPermissions, enMainMenueOption::eTransactionMenue))
+        if (GetPermissionCaseforMainMenue(enMainMenuOptionPermissions::eTransactionMenue))
             ShowTransactionMenueScreen();
         else
             GoBackToMainMenue();
@@ -583,7 +584,7 @@ void PerformMainMenueOption(enMainMenueOption choice)
     }
     case enMainMenueOption::eManageUserMenue:
     {
-        if (GetPermissionCaseforMainMenue(UserPermissions, enMainMenueOption::eManageUserMenue))
+        if (GetPermissionCaseforMainMenue(enMainMenuOptionPermissions::eManageUserMenue))
             ShowManageUserMenueScreen();
         else
             GoBackToMainMenue();
@@ -592,9 +593,7 @@ void PerformMainMenueOption(enMainMenueOption choice)
     }
     case enMainMenueOption::eExit:
     {
-        cout << "======================" << endl;
-        cout << "     Good Bye :-)" << endl;
-        cout << "======================" << endl;
+        LogIn();
         break;
     }
     default:
@@ -615,7 +614,7 @@ void ShowMainMenueScreen()
 {
     short WidthLine = 50;
     system("cls");
-    cout << "User Permissions ( " << UserPermissions << " )" << endl;
+    cout << "User Permissions ( " << CurrentUser.Permissions << " )" << endl;
     PrintLineByChar(WidthLine, '=');
     cout << "                Main Menue Screen" << endl;
     PrintLineByChar(WidthLine, '=');
@@ -631,16 +630,31 @@ void ShowMainMenueScreen()
     PerformMainMenueOption(ReadMainMenueOption());
 }
 
+bool LoginInfo()
+{
+    string UserName = ReadUserName();
+    string Password = Read::ReadString("Enter Password? ");
+    vector<stUsers> vUsers = LoadUsersDataFromFile(UsersFileName);
+    if (FindUserByUserNameAndPassword(vUsers, UserName, Password, CurrentUser))
+    {
+        return true;
+    }
+    return false;
+}
+
 void LogIn()
 {
+    PrintLineByChar(30, '-');
+    cout << "      Login Screen" << endl;
+    PrintLineByChar(30, '-');
+
     stUsers User;
-    bool IsLogIn = ChackUserLogIn(UsersFileName, User);
+    bool IsLogIn = LoginInfo();
     while (!IsLogIn)
     {
         cout << "Invalid Username/password!" << endl;
-        IsLogIn = ChackUserLogIn(UsersFileName, User);
+        IsLogIn = LoginInfo();
     }
-    UserPermissions = User.Permissions;
     ShowMainMenueScreen();
 }
 
