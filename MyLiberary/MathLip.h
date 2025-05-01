@@ -10,6 +10,7 @@ namespace Math
     float GetFracTionPart(float Number);
     bool IsPrimeNumber(int Number);
     bool IsPerfectNumber(int Number);
+    bool IsNumberMultipleOfX(int Num, int X);
     int SumOfDigits(int Number);
     int ReverseNumber(int Number);
     bool IsPalindromeNumber(int Number);
@@ -46,6 +47,11 @@ namespace Math
                 return false;
         }
         return true;
+    }
+
+    bool IsNumberMultipleOfX(int Num, int X)
+    {
+        return (Num % 5) == 0;
     }
 
     bool IsPerfectNumber(int Number)

@@ -54,6 +54,18 @@ enum enManageUsersMenueOption
     eMainMenue = 6
 };
 
+enum enMainMenuOptionPermissions
+{
+    eClientsList = 1,
+    eAddNewClient = 2,
+    eDeleteClient = 4,
+    eUpdateClientInfo = 8,
+    eFindClient = 16,
+    PTransactionMenue = 32,
+    PManageUserMenue = 64,
+    eAll = -1
+};
+
 void PrintRecordInList(stClient Client)
 {
     cout << "| " << setw(15) << left << Client.AccountNumber
@@ -575,7 +587,7 @@ void PerformMainMenueOption(enMainMenueOption choice)
     }
     case enMainMenueOption::eTransactionMenue:
     {
-        if (GetPermissionCaseforMainMenue(enMainMenuOptionPermissions::eTransactionMenue))
+        if (GetPermissionCaseforMainMenue(enMainMenuOptionPermissions::PTransactionMenue))
             ShowTransactionMenueScreen();
         else
             GoBackToMainMenue();
@@ -584,7 +596,7 @@ void PerformMainMenueOption(enMainMenueOption choice)
     }
     case enMainMenueOption::eManageUserMenue:
     {
-        if (GetPermissionCaseforMainMenue(enMainMenuOptionPermissions::eManageUserMenue))
+        if (GetPermissionCaseforMainMenue(enMainMenuOptionPermissions::PManageUserMenue))
             ShowManageUserMenueScreen();
         else
             GoBackToMainMenue();

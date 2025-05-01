@@ -20,18 +20,6 @@ namespace Users
         bool MarkForDelete = false;
     };
 
-    enum enMainMenuOptionPermissions
-    {
-        eClientsList = 1,
-        eAddNewClient = 2,
-        eDeleteClient = 4,
-        eUpdateClientInfo = 8,
-        eFindClient = 16,
-        eTransactionMenue = 32,
-        eManageUserMenue = 64,
-        eAll = -1
-    };
-
     string ReadUserName()
     {
         return Read::ReadLine("Enter Username ? ");
@@ -135,31 +123,31 @@ namespace Users
         User.Password = Read::ReadString("Enter Password? ");
 
         if (Read::ReadYesOrNo("Do You Want to give Full access? y/n ?"))
-            User.Permissions = eAll;
+            User.Permissions = -1;
         else
         {
             User.Permissions = 0;
             cout << "Do you want to give access to : " << endl;
             if (Read::ReadYesOrNo("Clients List ?"))
-                User.Permissions += enMainMenuOptionPermissions::eClientsList;
+                User.Permissions += 1;
 
             if (Read::ReadYesOrNo("Add New Client?"))
-                User.Permissions += enMainMenuOptionPermissions::eAddNewClient;
+                User.Permissions += 2;
 
             if (Read::ReadYesOrNo("Delete Client ?"))
-                User.Permissions += enMainMenuOptionPermissions::eDeleteClient;
+                User.Permissions += 4;
 
             if (Read::ReadYesOrNo("Update Client ?"))
-                User.Permissions += enMainMenuOptionPermissions::eUpdateClientInfo;
+                User.Permissions += 8;
 
             if (Read::ReadYesOrNo("Find Client ?"))
-                User.Permissions += enMainMenuOptionPermissions::eFindClient;
+                User.Permissions += 16;
 
             if (Read::ReadYesOrNo("Transaction Menue ?"))
-                User.Permissions += enMainMenuOptionPermissions::eTransactionMenue;
+                User.Permissions += 32;
 
             if (Read::ReadYesOrNo("Manage Users?"))
-                User.Permissions += enMainMenuOptionPermissions::eManageUserMenue;
+                User.Permissions += 64;
         }
         return User;
     }

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <limits>
+#include "MathLip.h"
 namespace Read
 {
     using namespace std;
@@ -31,7 +32,7 @@ namespace Read
         return String;
     }
 
-    int ReadNumber(string Message)
+    int ReadNumber(string Message = "")
     {
         int Number = 0;
         do
@@ -52,7 +53,7 @@ namespace Read
         return Number;
     }
 
-    int ReadPosNum(string Message)
+    int ReadPosNum(string Message = "")
     {
         int Number = 0;
         do
@@ -90,6 +91,22 @@ namespace Read
                 return false;
         }
         return 0;
+    }
+
+    int ReadNumberMultipleOfX(int X, string Massage = "")
+    {
+        if (Massage != "")
+            cout << Massage << X << "'s ? ";
+
+        int Number = ReadPosNum();
+        while (!Math::IsNumberMultipleOfX(Number, X))
+        {
+            if (Massage != "")
+                cout << Massage << X << "'s ? ";
+
+            Number = ReadPosNum();
+        }
+        return Number;
     }
 
 }
