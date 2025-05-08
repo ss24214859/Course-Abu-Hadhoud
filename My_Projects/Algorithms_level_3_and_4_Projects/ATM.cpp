@@ -157,10 +157,13 @@ void ShowNormalWithdrawScreen()
     PrintLineByChar(WidthLine, '=');
     int Amount = Read::ReadNumberMultipleOfX(5, "Enter An Amount Multiple Of ");
 
-    while (Amount > CurrentClient.AccountBalance)
+    if (Amount > CurrentClient.AccountBalance)
     {
         cout << "The Amount exceeds Your Balance." << endl;
-        Amount = Read::ReadNumberMultipleOfX(5, "Enter An Amount Multiple Of ");
+        cout << "press any key to continue...";
+        system("pause>0");
+        ShowNormalWithdrawScreen();
+        return;
     }
     TransactionClientsCash(Amount, enTransactionType::enWithdraw);
 }
@@ -184,6 +187,7 @@ void ShowChackBalanceScreen()
     cout << "            Chack Balance Screen" << endl;
     PrintLineByChar(WidthLine, '=');
     cout << "Your Balance is " << CurrentClient.AccountBalance << endl;
+    system("pause");
 }
 
 void GoBackToATMMainMenue()
