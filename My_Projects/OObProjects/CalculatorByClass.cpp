@@ -8,83 +8,54 @@ private:
     double _Result = 0;
     double _PreviousResult = 0;
     double _Number = 0;
-    double _PreviousNumber = 0;
 
-    enum _enOption
-    {
-        _Clear = 0,
-        _Add = 1,
-        _Sub = 2,
-        _Mul = 3,
-        _Div = 4
-    };
-
-    _enOption _Option = _enOption::_Clear;
-    _enOption _PreviousOption = _enOption::_Clear;
+    string _OperationName = "Clear";
 
     void GetPreviousValues()
     {
-        _PreviousOption = _Option;
-        _PreviousNumber = _Number;
         _PreviousResult = _Result;
     }
-    double _SimpleCalculator(double Number1, double Number2, _enOption OpType)
-    {
-        switch (OpType)
-        {
-        case _enOption::_Add:
-            return Number1 + Number2;
-            break;
-        case _enOption::_Sub:
-            return Number1 - Number2;
-            break;
-        case _enOption::_Mul:
-            return Number1 * Number2;
-            break;
-        default:
-            return Number1 / Number2; // Div
-            break;
-        }
-    };
 
 public:
     void Clear()
     {
         GetPreviousValues();
-        _Option = _enOption::_Clear;
+        _OperationName = "Clear";
         _Result = 0;
     }
 
     void Add(double Num)
     {
+
         GetPreviousValues();
-        _Option = _enOption::_Add;
+        _OperationName = "Adding";
         _Number = Num;
-        _Result = _SimpleCalculator(_Result, _Number, _Option);
+        _Result += Num;
     }
 
     void Subtract(double Num)
     {
         GetPreviousValues();
-        _Option = _enOption::_Sub;
+        _OperationName = "Subtracting";
         _Number = Num;
-        _Result = _SimpleCalculator(_Result, _Number, _Option);
+        _Result -= Num;
     }
 
     void Divide(double Num)
     {
+        Num = (Num == 0) ? 1 : Num;
         GetPreviousValues();
-        _Option = _enOption::_Div;
-        _Number = (Num <= 0) ? 1 : Num;
-        _Result = _SimpleCalculator(_Result, _Number, _Option);
+        _OperationName = "Dividing";
+        _Number = Num;
+        _Result /= Num;
     }
 
     void Multiply(double Num)
     {
         GetPreviousValues();
-        _Option = _enOption::_Mul;
+        _OperationName = "Multiplying";
         _Number = Num;
-        _Result = _SimpleCalculator(_Result, _Number, _Option);
+        _Result *= Num;
     }
 
     double GetFinal_Result()
@@ -94,17 +65,16 @@ public:
 
     void Print_Result()
     {
-        string OptionName[5] = {"Clear", "Adding", "Subtractring", "Multiplying", "Dividing"};
-        if (_Option != _enOption::_Clear)
-            cout << "Result After " << OptionName[_Option] << " " << _Number << " is " << _Result << endl;
+        if (_OperationName == "Clear" || _OperationName == "Canceling Last Operarion")
+            cout << "Result After " << _OperationName << " is " << _Result << endl;
         else
-            cout << "Result After " << OptionName[_Option] << " is " << _Result << endl;
+            cout << "Result After " << _OperationName << " " << _Number << " is " << _Result << endl;
     }
     void CancelLastOperation()
     {
-        _Option = _PreviousOption;
-        _Number = _PreviousNumber;
         _Result = _PreviousResult;
+        _Number = 0;
+        _OperationName = "Canceling Last Operarion";
     }
 };
 
@@ -121,8 +91,6 @@ int main()
     Calculator1.Divide(3);
     Calculator1.Print_Result();
     Calculator1.Clear();
-    Calculator1.Print_Result();
-    Calculator1.CancelLastOperation();
     Calculator1.Print_Result();
     Calculator1.CancelLastOperation();
     Calculator1.Print_Result();
