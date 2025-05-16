@@ -21,8 +21,6 @@ public:
         return _FirstName;
     }
 
-    __declspec(property(get = GetFirstName, put = SetFirstName)) string FirstName;
-
     void SetLastName(string NewLastName)
     {
         _LastName = NewLastName;
@@ -32,8 +30,6 @@ public:
     {
         return _LastName;
     }
-
-    __declspec(property(get = GetLastName, put = SetLastName)) string LastName;
 };
 
 int main()
@@ -43,10 +39,4 @@ int main()
     Person1.SetLastName("Shaaban");
     cout << "FullName :" << Person1.GetFirstName() << endl;
     cout << "LastName :" << Person1.GetLastName() << endl;
-
-    // instead of The above, we only write this
-    Person1.FirstName = "Hamo";
-    Person1.LastName = "Shaaban";
-    cout << "FullName :" << Person1.FirstName << endl;
-    cout << "LastName :" << Person1.LastName << endl;
 }
