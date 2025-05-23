@@ -101,20 +101,30 @@ public:
     }
 };
 
-void Func()
+class clsA
 {
-    clsAddress Address1("ALdikhla Alex", "Al Shamhadan", "ha898", "001545");
-    clsAddress *Address2 = new clsAddress("ALdikhla Alex", "Al Shamhadan", "ha898", "001545");
-    delete Address2;
-}
+public:
+    static int counter;
+    clsA()
+    {
+        counter++;
+    }
+    static int Func1()
+    {
+        return 10;
+    }
 
+    int Func2()
+    {
+        return 30;
+    }
+};
+int clsA::counter = 0;
 int main()
 {
-
-    Func();
-    cout << endl;
-    clsAddress Address1("ALdikhla Alex", "Al Shamhadan", "ha898", "001545");
-    clsAddress Address2 = Address1;
-
+    clsA A1, A2;
+    cout << A1.Func1() << endl;
+    cout << A2.Func2() << endl;
+    cout << A1.counter << endl;
     system("pause>0");
 }
