@@ -1,25 +1,37 @@
 #include <iostream>
 using namespace std;
 
-class clsPerson
+class clsEmployee
 {
 private:
-    int _ID;
-    string _FirstName, _LastName, _Email, _Phone;
+    int _ID, _Salary;
+    string _FirstName, _LastName, _Title, _Email, _Phone, _Department;
 
 public:
-    clsPerson(int ID, string FirstName, string LastName, string Email, string Phone)
+    clsEmployee(int ID, int Salary, string FirstName, string LastName, string Title, string Email, string Phone, string Department)
     {
         _ID = ID;
+        _Salary = Salary;
         _FirstName = FirstName;
         _LastName = LastName;
+        _Title = Title;
         _Email = Email;
         _Phone = Phone;
+        _Department = Department;
     }
 
     int ID()
     {
         return _ID;
+    }
+
+    void setSalary(int Salary)
+    {
+        _Salary = Salary;
+    }
+    int Salary()
+    {
+        return _Salary;
     }
 
     void setFirstName(string FirstName)
@@ -30,6 +42,7 @@ public:
     {
         return _FirstName;
     }
+
     void setLastName(string LastName)
     {
         _LastName = LastName;
@@ -37,6 +50,20 @@ public:
     string LastName()
     {
         return _LastName;
+    }
+
+    string FullName()
+    {
+        return _FirstName + " " + _LastName;
+    }
+
+    void setTitle(string Title)
+    {
+        _Title = Title;
+    }
+    string Title()
+    {
+        return _Title;
     }
 
     void setEmail(string Email)
@@ -47,6 +74,7 @@ public:
     {
         return _Email;
     }
+
     void setPhone(string Phone)
     {
         _Phone = Phone;
@@ -56,9 +84,13 @@ public:
         return _Phone;
     }
 
-    string FullName()
+    void setDepartment(string Department)
     {
-        return _FirstName + " " + _LastName;
+        _Department = Department;
+    }
+    string Department()
+    {
+        return _Department;
     }
 
     void Print()
@@ -70,8 +102,11 @@ public:
         cout << "First Name : " << _FirstName << endl;
         cout << "Last Name  : " << _LastName << endl;
         cout << "Full Name  : " << FullName() << endl;
+        cout << "Title       : " << _Title << endl;
         cout << "Email      : " << _Email << endl;
         cout << "Phone      : " << _Phone << endl;
+        cout << "Salary      : " << _Salary << endl;
+        cout << "Department  : " << _Department << endl;
         cout << "______________________" << endl;
     }
 
@@ -91,8 +126,8 @@ public:
 
 int main()
 {
-    clsPerson Person1(15, "Mohamed", "Shaaban", "ss888595gmail.co", "0123556453");
-    Person1.Print();
-    Person1.SendEmail("hi", "How Are You Now");
-    Person1.SendSMS("How Are you");
+    clsEmployee Employee1(15, 7400, "Mohamed", "Shaaban", "Jokar", "ss888595gmail.co", "0123556453", "Operations");
+    Employee1.Print();
+    Employee1.SendEmail("hi", "How Are You Now");
+    Employee1.SendSMS("How Are you");
 }
