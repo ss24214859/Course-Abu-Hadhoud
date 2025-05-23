@@ -43,6 +43,8 @@ private:
 public:
     clsAddress(string AddressLine1, string AddressLine2, string POBox, string ZipCode)
     {
+        cout << "Hi Im Constructors." << endl
+             << endl;
         _AddressLine1 = AddressLine1;
         _AddressLine2 = AddressLine2;
         _POBox = POBox;
@@ -92,14 +94,27 @@ public:
         cout << "PO Box         : " << _POBox << endl;
         cout << "Zip Code       : " << _ZipCode << endl;
     }
+
+    ~clsAddress()
+    {
+        cout << "hi Im Desturctor" << endl;
+    }
 };
+
+void Func()
+{
+    clsAddress Address1("ALdikhla Alex", "Al Shamhadan", "ha898", "001545");
+    clsAddress *Address2 = new clsAddress("ALdikhla Alex", "Al Shamhadan", "ha898", "001545");
+    delete Address2;
+}
 
 int main()
 {
+
+    Func();
+    cout << endl;
     clsAddress Address1("ALdikhla Alex", "Al Shamhadan", "ha898", "001545");
     clsAddress Address2 = Address1;
-    Address1.Print();
-    Address2.Print();
 
     system("pause>0");
 }
