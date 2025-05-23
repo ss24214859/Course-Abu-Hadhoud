@@ -97,7 +97,9 @@ public:
 int main()
 {
     clsAddress Address1("ALdikhla Alex", "Al Shamhadan", "ha898", "001545");
+    clsAddress Address2 = Address1;
     Address1.Print();
+    Address2.Print();
 
     system("pause>0");
 }
