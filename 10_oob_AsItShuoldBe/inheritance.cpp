@@ -8,10 +8,6 @@ private:
     string _FirstName, _LastName, _Email, _Phone;
 
 public:
-    clsPerson()
-    {
-    }
-
     clsPerson(int ID, string FirstName, string LastName, string Email, string Phone)
     {
         _ID = ID;
@@ -100,15 +96,23 @@ public:
 class clsEmployee : public clsPerson
 {
 private:
-    int _Salary;
+    float _Salary;
     string _Title, _Department;
 
 public:
+    clsEmployee(int ID, string FirstName, string LastName, string Email, string Phone, string Title, string Department, float Salary)
+        : clsPerson(ID, FirstName, LastName, Email, Phone)
+    {
+        _Title = Title;
+        _Department = Department;
+        _Salary = Salary;
+    }
+
     void setSalary(int Salary)
     {
         _Salary = Salary;
     }
-    int Salary()
+    float Salary()
     {
         return _Salary;
     }
@@ -134,14 +138,7 @@ public:
 
 int main()
 {
-    clsEmployee Employee1;
-    Employee1.setFirstName("Hamo");
-    Employee1.setLastName("Shaaban");
-    Employee1.setPhone("01255656645");
-    Employee1.setEmail("ss266455654@gmail.com");
-    Employee1.setDepartment("Operations");
-    Employee1.setTitle("Joker");
-    Employee1.setSalary(7400);
+    clsEmployee Employee1(16, "Hamo", "Shaaban", "ss1224515@gmail.com", "01244963562", "Joker", "Operations", 7400);
     Employee1.Print();
     cout << "Title      : " << Employee1.Title() << endl;
     cout << "Department : " << Employee1.Department() << endl;
