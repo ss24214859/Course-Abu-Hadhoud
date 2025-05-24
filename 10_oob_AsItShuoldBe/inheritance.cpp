@@ -134,15 +134,29 @@ public:
     {
         return _Department;
     }
+
+    void Print()
+    {
+        cout << "Info:"
+             << endl;
+        cout << "______________________" << endl;
+        cout << "ID         : " << ID() << endl;
+        cout << "First Name : " << FirstName() << endl;
+        cout << "Last Name  : " << LastName() << endl;
+        cout << "Full Name  : " << FullName() << endl;
+        cout << "Email      : " << Email() << endl;
+        cout << "Phone      : " << Phone() << endl;
+        cout << "Title      : " << _Title << endl;
+        cout << "Department : " << _Department << endl;
+        cout << "Salary     : " << _Salary << endl;
+        cout << "______________________" << endl;
+    }
 };
 
 int main()
 {
-    clsEmployee Employee1(16, "Hamo", "Shaaban", "ss1224515@gmail.com", "01244963562", "Joker", "Operations", 7400);
+    clsEmployee Employee1(3027, "Hamo", "Shaaban", "ss1224515@gmail.com", "01244963562", "Joker", "Operations", 7400);
     Employee1.Print();
-    cout << "Title      : " << Employee1.Title() << endl;
-    cout << "Department : " << Employee1.Department() << endl;
-    cout << "Salary     : " << Employee1.Salary() << endl;
     Employee1.SendEmail("hi", "How Are You Now");
     Employee1.SendSMS("How Are you");
 }
