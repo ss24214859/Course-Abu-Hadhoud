@@ -91,6 +91,8 @@ public:
         cout << "The Following SMS sent Successfully to Phone : " << _Phone << endl;
         cout << TextMassage << endl;
     }
+
+    friend class clsEmployee; // Means  the clsEmployee is Have All Access on clsPerson.
 };
 
 class clsEmployee : public clsPerson
@@ -140,7 +142,7 @@ public:
         cout << "Info:"
              << endl;
         cout << "______________________" << endl;
-        cout << "ID         : " << ID() << endl;
+        cout << "ID         : " << _ID << endl; // this is varibal is Private in clsPerson
         cout << "First Name : " << FirstName() << endl;
         cout << "Last Name  : " << LastName() << endl;
         cout << "Full Name  : " << FullName() << endl;
