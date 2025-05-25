@@ -65,7 +65,7 @@ public:
         return _FirstName + " " + _LastName;
     }
 
-    void Print()
+    virtual void Print()
     {
         cout << "Info:"
              << endl;
@@ -201,18 +201,17 @@ public:
 
 int main()
 {
-    clsPerson Person1;
-    // UPCasting is work
-    clsEmployee Employee1;
-    Employee1.setFirstName("Hamo");
-    clsPerson *Person2 = &Employee1;
-    Person2->Print(); // in UpCasting Overriding is not work
-    Employee1.FirstName();
-    clsDeveloper Developer;
-    Developer.setDepartment("Programming");
-    Developer.setFirstName("namo");
-    clsEmployee *Employee2 = &Developer;
-    Employee2->Print();
+
+    // UPCasting is work.
+
+    clsDeveloper Developer1(3027, "Hamo", "Shaaban", "ss1224515@gmail.com", "01244963562", "Programming", "Full Stack", 26000, "C++");
+    clsEmployee *Employee1 = &Developer1;
+    Employee1->Print();
+
+    clsEmployee Employee2;
+    clsPerson *Person1 = &Developer1;
+
+    Person1->Print(); // in UpCasting Overriding is not work if Print()isn't virtual Function
 
     // DownCasting Is not Work
 }
