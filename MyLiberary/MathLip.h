@@ -51,7 +51,7 @@ namespace Math
 
     bool IsNumberMultipleOfX(int Num, int X)
     {
-        return (Num % 5) == 0;
+        return (Num % X) == 0;
     }
 
     bool IsPerfectNumber(int Number)

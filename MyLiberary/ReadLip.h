@@ -95,17 +95,14 @@ namespace Read
 
     int ReadNumberMultipleOfX(int X, string Massage = "")
     {
-        if (Massage != "")
-            cout << Massage << X << "'s ? ";
-
-        int Number = ReadPosNum();
-        while (!Math::IsNumberMultipleOfX(Number, X))
+        int Number = 0;
+        do
         {
             if (Massage != "")
                 cout << Massage << X << "'s ? ";
 
             Number = ReadPosNum();
-        }
+        } while (!Math::IsNumberMultipleOfX(Number, X));
         return Number;
     }
 

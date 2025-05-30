@@ -254,7 +254,7 @@ string Trim(string S1)
     return TrimRight(Trimleft(S1));
 }
 
-string JoinString(vector<string> vString, string Delimiter)
+string JoinStringFromVector(vector<string> vString, string Delimiter)
 {
     string String = "";
     for (string &Str : vString)
@@ -281,7 +281,7 @@ int main()
     cout<<"\nString Length : "<<S1.length()<<endl;
     cout<<"Capital letters count : "<<CapitalLettersCount(S1)<<endl;
     cout<<"Small letters count : "<<SmallLettersCount(S1)<<endl;*/
-    cout << JoinString(vString, " ") << "|" << endl;
+    cout << JoinStringFromVector(vString, " ") << "|" << endl;
 
     // 38
     /* cout<<"Trim Left :"<<Trimleft(S1)<<"|"<<endl;

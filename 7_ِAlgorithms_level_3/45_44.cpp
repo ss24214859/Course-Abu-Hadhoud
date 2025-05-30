@@ -219,7 +219,7 @@ string JoinStringWithArr(string ArrStr[], short length, string Delimiter)
     return String.substr(0, String.length() - Delimiter.length());
 }
 
-string JoinString(vector<string> vString, string Delimiter)
+string JoinStringFromVector(vector<string> vString, string Delimiter)
 {
     string String = "";
     for (string &Str : vString)
@@ -305,7 +305,7 @@ string ReplaceWordInStringWhithVector(string S1, string OldStr, string StrReplac
                 S = StrReplaceTo;
         }
     }
-    return JoinString(vSWords, deli);
+    return JoinStringFromVector(vSWords, deli);
 }
 
 string RemoveAllPunctuationsInString(string S1)

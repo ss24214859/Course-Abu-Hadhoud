@@ -272,7 +272,7 @@ namespace String
         return vStrWords;
     }
 
-    string JoinString(vector<string> vString, string Delimiter)
+    string JoinStringFromVector(vector<string> vString, string Delimiter)
     {
         string String = "";
         for (string &Str : vString)
@@ -342,27 +342,6 @@ namespace String
         return S2.substr(0, S2.length() - deli.length());
     }
 
-    string ReplaceWordInStringByDelimeter(string S1, string StrInS1, string StrToReplace, string deli = " ", bool IsMatchCase = true)
-    {
-        string tempS1 = S1;
-        if (!IsMatchCase)
-        {
-            tempS1 = LowerAllString(S1);
-            StrInS1 = LowerAllString(StrInS1);
-        }
-        short pos = tempS1.find(StrInS1);
-        while ((pos = tempS1.find(StrInS1)) != std::string::npos)
-        {
-            S1.replace(pos, StrInS1.length(), StrToReplace);
-
-            if (!IsMatchCase)
-                tempS1 = LowerAllString(S1);
-            else
-                tempS1 = S1; // to Refrech String in temp String.
-        }
-        return S1;
-    }
-
     string ReplaceWordInStringWhithVectorByDelimeter(string S1, string StrInS1, string StrToReplace, string deli = " ", bool IsMatchCase = true)
     {
         vector<string> vSWords = SpletStringInVector(S1, deli);
@@ -379,18 +358,7 @@ namespace String
                     S = StrToReplace;
             }
         }
-        return JoinString(vSWords, deli);
-    }
-
-    string RemoveAllPunctuationsInString(string S1)
-    {
-        string S2 = "";
-        for (char &ch : S1)
-        {
-            if (!ispunct(ch))
-                S2.push_back(ch);
-        }
-        return S2;
+        return JoinStringFromVector(vSWords, deli);
     }
 
     string ReplaceWordInString(string Str, string StrInString, string StrToReplace, bool IsMatchCase = true)
@@ -415,6 +383,17 @@ namespace String
         }
 
         return Str;
+    }
+
+    string RemoveAllPunctuationsInString(string S1)
+    {
+        string S2 = "";
+        for (char &ch : S1)
+        {
+            if (!ispunct(ch))
+                S2.push_back(ch);
+        }
+        return S2;
     }
 
 }
