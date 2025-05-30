@@ -156,7 +156,7 @@ namespace Date
 
     stDate StringToDate(string DateString)
     {
-        vector<string> vDate = String::SplitStringInVector(DateString, "/");
+        vector<string> vDate = String::SpletStringInVector(DateString, "/");
         stDate Date = {stoi(vDate[0]), stoi(vDate[1]), stoi(vDate[2])};
         return Date;
     }
