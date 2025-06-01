@@ -140,7 +140,7 @@ namespace Arr
         }
     }
 
-    void SumOf2Arrays(int arr1[100], int arr2[100], int arrSum[100], int arrLength)
+    void SumOf2Arrays(int arr1[100], int arr2[100], int arrSum[100], int arrLength)//To Sum the values in 2 array in one array.
     {
         for (int i = 0; i < arrLength; i++)
         {
