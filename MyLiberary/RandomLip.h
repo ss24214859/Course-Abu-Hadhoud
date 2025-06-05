@@ -17,6 +17,10 @@ namespace Random
 namespace Random
 {
     using namespace std;
+    void Srand()
+    {
+        srand((unsigned)time(NULL));
+    }
     int RandomNumber(int From, int To)
     {
         return rand() % (To - From + 1) + From;
@@ -31,9 +35,9 @@ namespace Random
         case 2:
             return char(RandomNumber(65, 90)); // Capital letter
         case 3:
-            return char(RandomNumber(33, 47)); // Special character
-        case 4:
             return char(RandomNumber(48, 57)); // Digit
+        case 4:
+            return char(RandomNumber(33, 47)); // Special character
         default:
             return ' ';
         }

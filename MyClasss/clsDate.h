@@ -247,16 +247,16 @@ public:
         return Date;
     }
 
-    static void SwapDates(clsDate &Date1, clsDate &Date2)
+    static void Swap(clsDate &Date1, clsDate &Date2)
     {
         clsDate TempDate = {Date1._Day, Date1._Month, Date1._Year};
         Date1 = {Date2._Day, Date2._Month, Date2._Year};
         Date2 = {TempDate._Day, TempDate._Month, TempDate._Year};
     }
 
-    void SwapDates(clsDate &OtherDate)
+    void Swap(clsDate &OtherDate)
     {
-        return SwapDates(*this, OtherDate);
+        return Swap(*this, OtherDate);
     }
 
     static int GetDifferenceInDays(clsDate Date1, clsDate Date2, bool IsIncludingEnd_Day = false)
@@ -266,7 +266,7 @@ public:
 
         if (!IsDate1BeforeDate2(Date1, Date2))
         {
-            SwapDates(Date1, Date2);
+            Swap(Date1, Date2);
             SwapFlagValue = -1;
         }
 
@@ -320,7 +320,7 @@ public:
         return to_string(Date._Day) + "/" + to_string(Date._Month) + "/" + to_string(Date._Year);
     }
 
-    string DateTostring()
+    string DateToString()
     {
         return DateToString(*this);
     }
