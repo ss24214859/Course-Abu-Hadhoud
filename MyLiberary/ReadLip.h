@@ -8,7 +8,7 @@ namespace Read
     using namespace std;
     int ReadNumber(string);
     int ReadPosNum(string);
-    int ReadNumberInRang(int, int, string, string);
+    int ReadIntNumberBetween(int, int, string, string);
     bool ReadYesOrNo(string);
 
 }
@@ -64,7 +64,7 @@ namespace Read
         return Number;
     }
 
-    int ReadNumberInRang(int Min, int Max, string Message, string ErrorMessage = "Invalid Number")
+    int ReadIntNumberBetween(int Min, int Max, string Message, string ErrorMessage = "Invalid Number")
     {
         int Number = 0;
         do

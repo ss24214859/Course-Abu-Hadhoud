@@ -21,17 +21,17 @@ enum enQuestionLevel
 
 short HowManyQuestion()
 {
-    return IO::ReadNumberInRang(1, 10, "How Many Question Do You want To Answer? [1]To[10] ? ");
+    return IO::ReadIntNumberBetween(1, 10, "How Many Question Do You want To Answer? [1]To[10] ? ");
 }
 
 enOpType ReadOpType()
 {
-    return (enOpType)IO::ReadNumberInRang(1, 5, "Enter Operation Type : Add:[1],Sub:[2],Mul:[3],Div:[4],Mix:[5] ?\n");
+    return (enOpType)IO::ReadIntNumberBetween(1, 5, "Enter Operation Type : Add:[1],Sub:[2],Mul:[3],Div:[4],Mix:[5] ?\n");
 }
 
 enQuestionLevel ReadQuestionLevel()
 {
-    return (enQuestionLevel)IO::ReadNumberInRang(1, 4, "Enter Question Level : Easy:[1],Med:[2],Hard:[3],Mix:[4] ? \n");
+    return (enQuestionLevel)IO::ReadIntNumberBetween(1, 4, "Enter Question Level : Easy:[1],Med:[2],Hard:[3],Mix:[4] ? \n");
 }
 
 struct stQuestion
@@ -148,7 +148,7 @@ void setColorScreen(bool Right)
 
 void PrintQuizzQuestions(stQuizz Quizz, short QuestionNumber)
 {
-    printf("\n Question [%d/%d]\n\n" , QuestionNumber + 1 ,Quizz.NumberOfQuestions);  
+    printf("\n Question [%d/%d]\n\n", QuestionNumber + 1, Quizz.NumberOfQuestions);
     cout << Quizz.QuestionList[QuestionNumber].Number1 << endl;
     cout << Quizz.QuestionList[QuestionNumber].Number2 << " " << GetOpTypeSembol(Quizz.QuestionList[QuestionNumber].OpType) << endl;
     cout << "__________________";
@@ -178,7 +178,7 @@ void AskAndCorrectAnswers(stQuizz &Quizz, short NumberOfQuestion)
     for (short QuestionNumber = 0; QuestionNumber < NumberOfQuestion; QuestionNumber++)
     {
         PrintQuizzQuestions(Quizz, QuestionNumber);
-        Quizz.QuestionList[QuestionNumber].PlayerAnswer = IO::ReadNumber("");
+        Quizz.QuestionList[QuestionNumber].PlayerAnswer = IO::ReadIntNumber("");
         CorrectTheAnswer(Quizz, QuestionNumber);
     }
     Quizz.IsPass = Quizz.NumberOfRightAnswer >= Quizz.NumberOfWrongAnswer;
@@ -231,6 +231,4 @@ int main()
 {
     srand((unsigned)time(NULL));
     Start();
-
-
 }

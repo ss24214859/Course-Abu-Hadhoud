@@ -145,7 +145,7 @@ void ShowQuickWithdrawScreen()
     cout << "     [9] Exit" << endl;
     cout << "=========================================\n";
     cout << "Your Balance is " << CurrentClient.AccountBalance << endl;
-    PerformQuickWithdrawOptions((enQuickWhithdrawOptions)Read::ReadNumberInRang(1, 9, "Choice What to withdraw from [1] to [8] ? "));
+    PerformQuickWithdrawOptions((enQuickWhithdrawOptions)Read::ReadIntNumberBetween(1, 9, "Choice What to withdraw from [1] to [8] ? "));
 }
 
 void ShowNormalWithdrawScreen()

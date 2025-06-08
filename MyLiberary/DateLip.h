@@ -86,8 +86,8 @@ namespace Date
     {
         stDate Date;
         Date.Year = Read::ReadPosNum("Enter a Year ?");
-        Date.Month = Read::ReadNumberInRang(1, 12, "Enter a Month ?", "Wrong Month :-(\n");
-        Date.Day = Read::ReadNumberInRang(1, Date::DaysInMonth(Date.Month, Date.Year), "Enter a Day ?", "This Day is not exisit in this Month :-( \n");
+        Date.Month = Read::ReadIntNumberBetween(1, 12, "Enter a Month ?", "Wrong Month :-(\n");
+        Date.Day = Read::ReadIntNumberBetween(1, Date::DaysInMonth(Date.Month, Date.Year), "Enter a Day ?", "This Day is not exisit in this Month :-( \n");
         return Date;
     }
 

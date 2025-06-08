@@ -61,7 +61,7 @@ enWinner RoundWinner(stRoundInFo RoundInFo)
     return enWinner::Player1;
 }
 
-short ReadNumberInRang(short from,short to,string massge)
+short ReadIntNumberBetween(short from,short to,string massge)
 {
     short num=0;
     do
@@ -121,7 +121,7 @@ string Taps(short Number)
 
 enChoice ReadPlayer1Choise()
 {
-    return (enChoice) ReadNumberInRang(1,3,"Your Choise : Stone:[1],Peper:[2],Scissor:[3] ? ");
+    return (enChoice) ReadIntNumberBetween(1,3,"Your Choise : Stone:[1],Peper:[2],Scissor:[3] ? ");
 }
 
 enChoice GetComputerChoise()
@@ -224,7 +224,7 @@ void StartGame()
     do
     {
         ResetScreen();
-        short HowManyPlayRound=ReadNumberInRang(1,10,"How Many Rounds [1] To [10] ?");
+        short HowManyPlayRound=ReadIntNumberBetween(1,10,"How Many Rounds [1] To [10] ?");
         stGameInfo GameInFo=PlayGame(HowManyPlayRound);
         ShowFinalGameResult(GameInFo);
 

@@ -5,7 +5,7 @@
 #include <vector>
 #include <limits>
 #include <ctime>
-#include "clsRead.h"
+#include "clsInputValidate.h"
 
 using namespace std;
 
@@ -236,15 +236,6 @@ public:
     short DaysFromYearStart()
     {
         return DaysFromYearStart(*this);
-    }
-
-    static clsDate ReadDate()
-    {
-        clsDate Date;
-        Date._Year = clsRead::ReadPosNum("Enter a _Year ?");
-        Date._Month = clsRead::ReadNumberInRang(1, 12, "Enter a _Month ?", "Wrong _Month :-(\n");
-        Date._Day = clsRead::ReadNumberInRang(1, clsDate::DaysInMonth(Date._Month, Date._Year), "Enter a _Day ?", "This _Day is not exisit in this _Month :-( \n");
-        return Date;
     }
 
     static void Swap(clsDate &Date1, clsDate &Date2)

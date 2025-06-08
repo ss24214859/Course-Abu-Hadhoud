@@ -3,10 +3,9 @@
 #include <iostream>
 #include "clsDate.h"
 #include "clsString.h"
-#include "clsRead.h"
 using namespace std;
 
-class clsUtility : public clsRead
+class clsUtil
 {
 
 public:
