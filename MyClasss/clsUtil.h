@@ -27,6 +27,15 @@ public:
         Mix = 0
     };
 
+    static void PrintLineByChar(int width, char ch = '_')
+    {
+
+        for (int i = 0; i < width; i++)
+            cout << ch;
+
+        cout << "\n";
+    }
+
     static char GetRandomCharacter(enCharType CharType)
     {
         if (CharType == enCharType::Mix)

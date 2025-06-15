@@ -3,6 +3,7 @@
 #include <iostream>
 #include "clsDate.h"
 #include "clsperiod.h"
+#include "clsUtil.h"
 
 using namespace std;
 

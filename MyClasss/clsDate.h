@@ -5,7 +5,6 @@
 #include <vector>
 #include <limits>
 #include <ctime>
-#include "clsInputValidate.h"
 
 using namespace std;
 
