@@ -23,12 +23,13 @@ private:
 
     static string _ConvertClientObjectToLine(clsBankClient Client)
     {
-        string Line = Client.FirstName() +
-                      Client.LastName() +
-                      Client.Email() +
-                      Client.Phone() +
-                      Client.AccountNumber() +
-                      Client.PINCode() +
+        string Sepretor = "#//#";
+        string Line = Client.FirstName() + Sepretor +
+                      Client.LastName() + Sepretor +
+                      Client.Email() + Sepretor +
+                      Client.Phone() + Sepretor +
+                      Client.AccountNumber() + Sepretor +
+                      Client.PINCode() + Sepretor +
                       to_string(Client.AccountBalance());
         return Line;
     }
@@ -131,7 +132,7 @@ public:
     {
         return _PINCode;
     }
-    void SetPINCode(string &pinCode)
+    void SetPINCode(string pinCode)
     {
         _PINCode = pinCode;
     }
@@ -160,7 +161,7 @@ public:
 
     void Print()
     {
-        cout << "the Foloowing is the Client Card: " << endl;
+        cout << "\nClient Card: " << endl;
         clsUtil::PrintLineByChar(50);
         cout << "FirstName       : " << FirstName() << endl;
         cout << "LastName        : " << LastName() << endl;
@@ -237,5 +238,6 @@ public:
             _Update();
             return SvSucced;
         }
+        return SvSucced;
     }
 };

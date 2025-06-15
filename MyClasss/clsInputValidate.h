@@ -28,6 +28,14 @@ public:
         return clsDate::IsValideDate(Date);
     }
 
+    static string ReadString(string Massage = "")
+    {
+        cout << Massage << endl;
+        string S1;
+        getline(cin >> ws, S1);
+        return S1;
+    }
+
     static int ReadIntNumber(string Message, string Errormassage = "Error! This is Not Number.Try again ")
     {
         int Number = 0;
