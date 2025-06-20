@@ -34,28 +34,24 @@ string ReadNewAccountNumber()
     return AccountNumber;
 }
 
-void AddNewClient()
+void DeleteClient()
 {
-    string AccountNumber = ReadNewAccountNumber();
-    clsBankClient NewClient = clsBankClient::GetAddNewClientObject(AccountNumber);
-    ReadClientInfo(NewClient);
-    clsBankClient::enSaveResult SaveResult = NewClient.Save();
-    switch (SaveResult)
+    string AccountNumber = ReadExistingAccountNumber();
+    clsBankClient Client = clsBankClient::Find(AccountNumber);
+    Client.Print();
+    if (clsInputValidate::ReadYesOrNo("Are you Sure you want delete this Client? y/n ?"))
     {
-    case clsBankClient::enSaveResult::SvSucceeded:
-        cout << "Account Added Successfully :-) " << endl;
-        NewClient.Print();
-        break;
-    case clsBankClient::enSaveResult::svFaildAccountisExist:
-        cout << "Save Faild BeCause Account Number is Already Used :-( " << endl;
-        break;
-    case clsBankClient::enSaveResult::SvFaildEmptyObject:
-        cout << "Save Faild BeCuase Client Is Empty :-( " << endl;
-        break;
+        if (Client.Delete())
+        {
+            cout << "Client Delete Successfully :-) " << endl;
+            Client.Print();
+        }
+        else
+            cout << "Faild Client is Not Delete :-( " << endl;
     }
 }
 
 int main()
 {
-    AddNewClient();
+    DeleteClient();
 }

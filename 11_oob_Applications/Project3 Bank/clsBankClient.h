@@ -13,14 +13,15 @@ class clsBankClient : public clsPerson
 private:
     enum enMode
     {
-        Empty = 0,
-        Update = 1,
-        AddNew = 2
+        EmptyM = 0,
+        UpdateM = 1,
+        AddNewM = 2,
     };
     enMode _Mode;
     string _AccountNumber;
     string _PINCode;
     double _AccountBalance;
+    bool _MarkForDelete = false;
 
     static string _ConvertClientObjectToLine(clsBankClient Client)
     {
@@ -39,7 +40,7 @@ private:
     {
         vector<string> vClient = clsString::Split(Line, "#//#");
         return clsBankClient(
-            enMode::Update,
+            enMode::UpdateM,
             vClient[0],      // FirstName
             vClient[1],      // LastName
             vClient[2],      // Email
@@ -78,7 +79,8 @@ private:
         {
             for (clsBankClient C : vClients)
             {
-                file << _ConvertClientObjectToLine(C) << endl;
+                if (C._MarkForDelete = true)
+                    file << _ConvertClientObjectToLine(C) << endl;
             }
             file.close();
         }
@@ -114,9 +116,20 @@ private:
         _AddDataLineToFile(_ConvertClientObjectToLine(*this));
     }
 
+    void _Delete()
+    {
+        vector<clsBankClient> ClientsData = _LoadClientsDataFromFile();
+        for (clsBankClient &C : ClientsData)
+        {
+            if (C.AccountNumber() == _AccountNumber)
+                _MarkForDelete = true;
+        }
+        _SaveClientsDataToFile(ClientsData);
+    }
+
     static clsBankClient _EmptyClientObject()
     {
-        return clsBankClient(enMode::Empty, "", "", "", "", "", "", 0.0);
+        return clsBankClient(enMode::EmptyM, "", "", "", "", "", "", 0.0);
     }
 
 public:
@@ -132,6 +145,11 @@ public:
     string AccountNumber()
     {
         return _AccountNumber;
+    }
+    // Get For _MarkForDelete
+    bool MarkForDelete()
+    {
+        return _MarkForDelete;
     }
 
     // Getter and Setter for _PINCode
@@ -157,7 +175,7 @@ public:
     //-------------------------------------------------------
     bool IsEmpty()
     {
-        return (_Mode == enMode::Empty);
+        return (_Mode == enMode::EmptyM);
     }
 
     static bool IsClientExist(string AccountNumber)
@@ -179,6 +197,17 @@ public:
         cout << "PIN Code        : " << _PINCode << endl;
         cout << "Account Balance : " << _AccountBalance << endl;
         clsUtil::PrintLineByChar(50);
+    }
+
+    bool Delete()
+    {
+        _Delete();
+        if (!IsClientExist(_AccountNumber))
+        {
+            *this = _EmptyClientObject();
+            return true;
+        }
+        return false;
     }
 
     static void Print(clsBankClient Client)
@@ -232,7 +261,7 @@ public:
 
     static clsBankClient GetAddNewClientObject(string AccountNumber)
     {
-        return clsBankClient(enMode::AddNew, "", "", "", "", AccountNumber, "", 0.0);
+        return clsBankClient(enMode::AddNewM, "", "", "", "", AccountNumber, "", 0.0);
     }
 
     enum enSaveResult
@@ -245,17 +274,18 @@ public:
     {
         switch (_Mode)
         {
-        case enMode::Empty:
+        case enMode::EmptyM:
             return SvFaildEmptyObject;
-        case enMode::Update:
+        case enMode::UpdateM:
             _Update();
             return SvSucceeded;
-        case enMode::AddNew:
+        case enMode::AddNewM:
             if (IsClientExist(this->AccountNumber()))
                 return svFaildAccountisExist;
             else
             {
                 _AddNew();
+                _Mode = enMode::UpdateM;
                 return SvSucceeded;
             }
         }
