@@ -37,7 +37,7 @@ void UpdateClient()
         cout << "Save Faild Empty Object :-( " << endl;
         break;
 
-    case clsBankClient::enSaveResult::SvSucced:
+    case clsBankClient::enSaveResult::SvSucceeded:
         cout << "Account update successfully :-) " << endl;
         Client.Print();
         break;

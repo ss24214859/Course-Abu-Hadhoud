@@ -14,7 +14,8 @@ private:
     enum enMode
     {
         Empty = 0,
-        Update = 1
+        Update = 1,
+        AddNew = 2
     };
     enMode _Mode;
     string _AccountNumber;
@@ -69,7 +70,7 @@ private:
         return vClients;
     }
 
-    void SaveClientsDataToFile(vector<clsBankClient> vClients) //
+    void _SaveClientsDataToFile(vector<clsBankClient> vClients) //
     {
         fstream file;
         file.open("Clients.txt", ios::out);
@@ -94,19 +95,25 @@ private:
                 break;
             }
         }
-        SaveClientsDataToFile(vClients);
+        _SaveClientsDataToFile(vClients);
     }
 
-    void AddDataLineToFile(string StrDateLine)
+    void _AddDataLineToFile(string StrDateLine)
     {
         fstream File;
-        File.open("Client.txt", ios::out | ios::app);
+        File.open("Clients.txt", ios::out | ios::app);
         if (File.is_open())
         {
             File << StrDateLine << endl;
             File.close();
         }
     }
+
+    void _AddNew()
+    {
+        _AddDataLineToFile(_ConvertClientObjectToLine(*this));
+    }
+
     static clsBankClient _EmptyClientObject()
     {
         return clsBankClient(enMode::Empty, "", "", "", "", "", "", 0.0);
@@ -223,10 +230,16 @@ public:
         return _EmptyClientObject();
     }
 
+    static clsBankClient GetAddNewClientObject(string AccountNumber)
+    {
+        return clsBankClient(enMode::AddNew, "", "", "", "", AccountNumber, "", 0.0);
+    }
+
     enum enSaveResult
     {
         SvFaildEmptyObject = 0,
-        SvSucced = 1
+        SvSucceeded = 1,
+        svFaildAccountisExist = 2
     };
     enSaveResult Save()
     {
@@ -236,8 +249,16 @@ public:
             return SvFaildEmptyObject;
         case enMode::Update:
             _Update();
-            return SvSucced;
+            return SvSucceeded;
+        case enMode::AddNew:
+            if (IsClientExist(this->AccountNumber()))
+                return svFaildAccountisExist;
+            else
+            {
+                _AddNew();
+                return SvSucceeded;
+            }
         }
-        return SvSucced;
+        return SvSucceeded;
     }
 };

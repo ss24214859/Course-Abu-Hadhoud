@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include <iostream>
@@ -14,7 +13,7 @@ private:
     string _Phone;
 
 public:
-    clsPerson(string FirstName, string LastName, string Email, string Phone)
+    clsPerson(string FirstName, string LastName, string Email, string Phone) // Constructor: initializes person data
     {
         _FirstName = FirstName;
         _LastName = LastName;
@@ -23,54 +22,54 @@ public:
     }
 
     // Property Set
-    void setFirstName(string FirstName)
+    void setFirstName(string FirstName) // Set the first name
     {
         _FirstName = FirstName;
     }
 
     // Property Get
-    string FirstName()
+    string FirstName() // Get the first name
     {
         return _FirstName;
     }
 
     // Property Set
-    void setLastName(string LastName)
+    void setLastName(string LastName) // Set the last name
     {
         _LastName = LastName;
     }
 
     // Property Get
-    string LastName()
+    string LastName() // Get the last name
     {
         return _LastName;
     }
 
     // Property Set
-    void setEmail(string Email)
+    void setEmail(string Email) // Set the email
     {
         _Email = Email;
     }
 
     // Property Get
-    string Email()
+    string Email() // Get the email
     {
         return _Email;
     }
 
     // Property Set
-    void setPhone(string Phone)
+    void setPhone(string Phone) // Set the phone number
     {
         _Phone = Phone;
     }
 
     // Property Get
-    string Phone()
+    string Phone() // Get the phone number
     {
         return _Phone;
     }
 
-    string FullName()
+    string FullName() // Get the full name (first + last)
     {
         return _FirstName + " " + _LastName;
     }
