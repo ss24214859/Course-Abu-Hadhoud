@@ -264,6 +264,11 @@ public:
         return clsBankClient(enMode::AddNewM, "", "", "", "", AccountNumber, "", 0.0);
     }
 
+    static vector<clsBankClient> GetClientsList()
+    {
+        return _LoadClientsDataFromFile();
+    }
+
     enum enSaveResult
     {
         SvFaildEmptyObject = 0,
