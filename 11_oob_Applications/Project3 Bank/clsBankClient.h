@@ -259,6 +259,17 @@ public:
         return _EmptyClientObject();
     }
 
+    static double GetTotalBalances()
+    {
+        double TotalBalance = 0;
+        vector<clsBankClient> vClients = _LoadClientsDataFromFile();
+        for (clsBankClient C : vClients)
+        {
+            TotalBalance += C.AccountBalance();
+        }
+        return TotalBalance;
+    }
+
     static clsBankClient GetAddNewClientObject(string AccountNumber)
     {
         return clsBankClient(enMode::AddNewM, "", "", "", "", AccountNumber, "", 0.0);
