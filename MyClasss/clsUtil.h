@@ -69,13 +69,13 @@ public:
         return "";
     }
 
-    static void PrintLineByChar(int width, char ch = '_')
+    static string PrintLineByChar(int width, char ch = '_')
     {
-
+        string Line = "";
         for (int i = 0; i < width; i++)
-            cout << ch;
+            Line += ch;
 
-        cout << "\n";
+        return Line;
     }
 
     static char GetRandomCharacter(enCharType CharType)

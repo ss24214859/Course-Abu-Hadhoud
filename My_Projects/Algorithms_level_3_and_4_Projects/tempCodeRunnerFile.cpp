@@ -1,11 +1,6 @@
-﻿#include <iostream>
-#include <locale> // هذه المكتبة ضرورية
-using namespace std;
-
-int main()
+void GoBackToMainMenue()
 {
-    setlocale(LC_ALL, "ar_EG.UTF-8"); // تعيين اللغة للعربية
-    cout << "السلام عليكم!" << endl;  // ستعمل إذا كان المحرر يدعم UTF-8
+    cout << "\nPress any key to go to Main Menue.";
     system("pause>0");
-    return 0;
+    ShowMainMenueScreen();
 }

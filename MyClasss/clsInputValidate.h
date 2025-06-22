@@ -73,6 +73,46 @@ public:
         return Number;
     }
 
+    static short ReadShortNumberBetween(short Min, short Max, string Message, string ErrorMessage = "Invalid Number")
+    {
+        short Number = 0;
+        Number = static_cast<short>(ReadIntNumber(Message));
+        while (!IsNumberBetween(Number, Min, Max))
+        {
+            cout << ErrorMessage << endl;
+            Number = static_cast<short>(ReadIntNumber(""));
+        }
+        return Number;
+    }
+
+    static long ReadLongNumberBetween(long Min, long Max, string Message, string ErrorMessage = "Invalid Number")
+    {
+        long Number = 0;
+        cout << Message;
+        while (!(cin >> Number) || !IsNumberBetween(Number, Min, Max))
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << ErrorMessage << endl;
+            cout << Message;
+        }
+        return Number;
+    }
+
+    static float ReadFloatNumberBetween(float Min, float Max, string Message, string ErrorMessage = "Invalid Number")
+    {
+        float Number = 0;
+        cout << Message;
+        while (!(cin >> Number) || !IsNumberBetween(Number, Min, Max))
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << ErrorMessage << endl;
+            cout << Message;
+        }
+        return Number;
+    }
+
     static int ReadIntNumberBetween(int Min, int Max, string Message, string ErrorMessage = "Invalid Number")
     {
         int Number = 0;
@@ -81,7 +121,7 @@ public:
         {
             cout << ErrorMessage << endl;
             Number = ReadIntNumber("");
-        };
+        }
         return Number;
     }
 
@@ -93,7 +133,92 @@ public:
         {
             cout << ErrorMessage << endl;
             Number = ReadDblNumber("");
-        };
+        }
+        return Number;
+    }
+    // Read short number
+    static short ReadShortNumber(string Message, string ErrorMessage = "Error! This is Not Number. Try again ")
+    {
+        short Number = 0;
+        cout << Message;
+        while (!(cin >> Number))
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << ErrorMessage;
+        }
+        return Number;
+    }
+
+    // Read long number
+    static long ReadLongNumber(string Message, string ErrorMessage = "Error! This is Not Number. Try again ")
+    {
+        long Number = 0;
+        cout << Message;
+        while (!(cin >> Number))
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << ErrorMessage;
+        }
+        return Number;
+    }
+
+    // Read float number
+    static float ReadFloatNumber(string Message, string ErrorMessage = "Error! This is Not Number. Try again ")
+    {
+        float Number = 0;
+        cout << Message;
+        while (!(cin >> Number))
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << ErrorMessage;
+        }
+        return Number;
+    }
+
+    // Read positive short
+    static short ReadPosShort(string Message)
+    {
+        short Number = 0;
+        do
+        {
+            Number = ReadShortNumber(Message);
+        } while (Number <= 0);
+        return Number;
+    }
+
+    // Read positive long
+    static long ReadPosLong(string Message)
+    {
+        long Number = 0;
+        do
+        {
+            Number = ReadLongNumber(Message);
+        } while (Number <= 0);
+        return Number;
+    }
+
+    // Read positive float
+    static float ReadPosFloat(string Message)
+    {
+        float Number = 0;
+        do
+        {
+            Number = ReadFloatNumber(Message);
+        } while (Number <= 0);
+        return Number;
+    }
+
+    // Read positive double
+    static double ReadPosDouble(string Message)
+    {
+        double Number = 0;
+        do
+        {
+            Number = ReadDblNumber(Message);
+        } while (Number <= 0);
         return Number;
     }
 
