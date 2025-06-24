@@ -4,6 +4,7 @@
 #include <iomanip>
 #include "../../MyClasss/clsUtil.h"
 #include "../../MyClasss/clsInputValidate.h"
+#include "clsClientsListScreen.h"
 
 using namespace std;
 
@@ -23,8 +24,8 @@ private:
     };
     static void _ShowClientListScreen()
     {
-        cout << "ShowClientListScreen Will be Here" << endl;
-    }
+        clsClientsListScreen::PrintClientListScreen();
+        }
 
     static void _ShowAddClientsScreen()
     {

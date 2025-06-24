@@ -11,7 +11,7 @@ protected:
         cout << "\t\t\t\t\t" << clsUtil::PrintLineByChar(45) << endl;
         cout << "\n\t\t\t\t\t" << Title << endl;
         if (SubTitle != "")
-            cout << "\n\t\t\t\t\t" << SubTitle << endl;
+            cout << "\t\t\t\t\t" << SubTitle << endl;
 
         cout << "\t\t\t\t\t" << clsUtil::PrintLineByChar(45) << endl;
     }
