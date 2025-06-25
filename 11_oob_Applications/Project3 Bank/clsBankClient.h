@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <vector>
 #include <string>
@@ -23,6 +24,7 @@ private:
     double _AccountBalance;
     bool _MarkForDelete = false;
 
+    // Converts a client object to a line for file storage
     static string _ConvertClientObjectToLine(clsBankClient Client)
     {
         string Sepretor = "#//#";
@@ -36,6 +38,7 @@ private:
         return Line;
     }
 
+    // Converts a line from file to a client object
     static clsBankClient _ConvertLineToClientobject(string Line)
     {
         vector<string> vClient = clsString::Split(Line, "#//#");
@@ -51,6 +54,7 @@ private:
         );
     }
 
+    // Loads all clients data from the file into a vector
     static vector<clsBankClient> _LoadClientsDataFromFile() //
     {
         vector<clsBankClient> vClients;
@@ -71,6 +75,7 @@ private:
         return vClients;
     }
 
+    // Saves all clients data to the file
     void _SaveClientsDataToFile(vector<clsBankClient> vClients) //
     {
         fstream file;
@@ -86,6 +91,7 @@ private:
         }
     }
 
+    // Updates the current client in the file
     void _Update()
     {
         vector<clsBankClient> vClients = _LoadClientsDataFromFile();
@@ -100,6 +106,7 @@ private:
         _SaveClientsDataToFile(vClients);
     }
 
+    // Adds a new client data line to the file
     void _AddDataLineToFile(string StrDateLine)
     {
         fstream File;
@@ -111,11 +118,13 @@ private:
         }
     }
 
+    // Adds the current client as a new client in the file
     void _AddNew()
     {
         _AddDataLineToFile(_ConvertClientObjectToLine(*this));
     }
 
+    // Marks the client for deletion and updates the file
     void _Delete()
     {
         vector<clsBankClient> ClientsData = _LoadClientsDataFromFile();
@@ -127,12 +136,14 @@ private:
         _SaveClientsDataToFile(ClientsData);
     }
 
+    // Returns an empty client object
     static clsBankClient _EmptyClientObject()
     {
         return clsBankClient(enMode::EmptyM, "", "", "", "", "", "", 0.0);
     }
 
 public:
+    // Constructor for clsBankClient
     clsBankClient(enMode Mode, string FirstName, string LastName, string Email, string Phone, string AccountNumber, string PINCode, double AccountBalance) : clsPerson(FirstName, LastName, Email, Phone)
     {
         _Mode = Mode;
@@ -141,49 +152,56 @@ public:
         _AccountBalance = AccountBalance;
     }
 
-    // Get for _AccountNumber
+    // Returns the account number
     string AccountNumber()
     {
         return _AccountNumber;
     }
-    // Get For _MarkForDelete
+    // Returns the mark for delete flag
     bool MarkForDelete()
     {
         return _MarkForDelete;
     }
 
-    // Getter and Setter for _PINCode
+    // Returns the PIN code
     string PINCode()
     {
         return _PINCode;
     }
+    // Sets the PIN code
     void SetPINCode(string pinCode)
     {
         _PINCode = pinCode;
     }
 
-    // Getter and Setter for _AccountBalance
+    // Returns the account balance
     double AccountBalance()
     {
         return _AccountBalance;
     }
+    // Sets the account balance
     void SetAccountBalance(double accountBalance)
     {
         _AccountBalance = accountBalance;
     }
 
     //-------------------------------------------------------
+    // Checks if the client object is empty
     bool IsEmpty()
     {
         return (_Mode == enMode::EmptyM);
     }
 
+    // Checks if a client exists by account number
     static bool IsClientExist(string AccountNumber)
     {
         clsBankClient C = Find(AccountNumber);
         return !C.IsEmpty();
     }
 
+    // Prints the client information to the console
+    /*
+        No UI Related code Inside Object.
     void Print()
     {
         cout << "\nClient Card: " << endl;
@@ -198,7 +216,9 @@ public:
         cout << "Account Balance : " << _AccountBalance << endl;
         clsUtil::PrintLineByChar(50);
     }
+     */
 
+    // Deletes the client and returns true if successful
     bool Delete()
     {
         _Delete();
@@ -210,11 +230,7 @@ public:
         return false;
     }
 
-    static void Print(clsBankClient Client)
-    {
-        Client.Print();
-    }
-
+    // Finds and returns a client by account number
     static clsBankClient Find(string AccountNumber)
     {
         fstream File;
@@ -237,6 +253,7 @@ public:
         return _EmptyClientObject();
     }
 
+    // Finds and returns a client by account number and PIN code
     static clsBankClient Find(string AccountNumber, string PINCode)
     {
         fstream File;
@@ -259,6 +276,7 @@ public:
         return _EmptyClientObject();
     }
 
+    // Returns the total balance of all clients
     static double GetTotalBalances()
     {
         double TotalBalance = 0;
@@ -270,11 +288,13 @@ public:
         return TotalBalance;
     }
 
+    // Returns a new client object for adding a new client
     static clsBankClient GetAddNewClientObject(string AccountNumber)
     {
         return clsBankClient(enMode::AddNewM, "", "", "", "", AccountNumber, "", 0.0);
     }
 
+    // Returns a list of all clients
     static vector<clsBankClient> GetClientsList()
     {
         return _LoadClientsDataFromFile();
@@ -286,6 +306,7 @@ public:
         SvSucceeded = 1,
         svFaildAccountisExist = 2
     };
+    // Saves the client object to the file (add or update)
     enSaveResult Save()
     {
         switch (_Mode)

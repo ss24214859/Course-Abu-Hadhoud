@@ -66,6 +66,7 @@ enum enMainMenuOptionPermissions
     eAll = -1
 };
 
+// Prints a single client record in the client list
 void PrintRecordInList(stClient Client)
 {
     cout << "| " << setw(15) << left << Client.AccountNumber
@@ -75,6 +76,7 @@ void PrintRecordInList(stClient Client)
          << "| " << setw(8) << left << Client.AccountBalance << "|";
 }
 
+// Prints all client records in the client list
 void PrintClientRecordsDataInList(vector<stClient> vClients)
 {
     for (stClient C : vClients)
@@ -84,6 +86,7 @@ void PrintClientRecordsDataInList(vector<stClient> vClients)
     }
 }
 
+// Prints a single client record in the balance list
 void PrintRecordInBalanceList(stClient Client)
 {
 
@@ -92,6 +95,7 @@ void PrintRecordInBalanceList(stClient Client)
          << "| " << setw(8) << left << Client.AccountBalance << "|";
 }
 
+// Prints all client records in the balance list
 void PrintClientRecordsDataInBalanceList(vector<stClient> vClients)
 {
 
@@ -102,6 +106,7 @@ void PrintClientRecordsDataInBalanceList(vector<stClient> vClients)
     }
 }
 
+// Prints a single user record in the users list
 void PrintUserRecordInUsersList(stUsers User)
 {
 
@@ -110,6 +115,7 @@ void PrintUserRecordInUsersList(stUsers User)
          << "| " << setw(13) << left << User.Permissions << "|";
 }
 
+// Prints all user records in the users list
 void PrintUsersRecordsInUsersList(vector<stUsers> Users)
 {
     for (stUsers U : Users)
@@ -119,6 +125,7 @@ void PrintUsersRecordsInUsersList(vector<stUsers> Users)
     }
 }
 
+// Shows the client list screen
 void ShowClientListScreen()
 {
 
@@ -134,6 +141,7 @@ void ShowClientListScreen()
     Pattern::PrintLineByChar(Title.length());
 }
 
+// Prints a client card with details
 void PrintClientCard(stClient Client)
 {
     cout << "the Foloowing is the Client Card: " << endl;
@@ -146,6 +154,7 @@ void PrintClientCard(stClient Client)
     Pattern::PrintLineByChar(50);
 }
 
+// Shows the find client screen and prints client card if found
 void FindClientScreen(vector<stClient> vClients)
 {
     stClient Client;
@@ -155,11 +164,13 @@ void FindClientScreen(vector<stClient> vClients)
         cout << "Client Not Found!" << endl;
 }
 
+// Reads an account number from user input
 string ReadAccountNumber()
 {
     return Read::ReadLine("Enter Account Number ?");
 }
 
+// Shows the add client screen
 void ShowAddClientsScreen()
 {
     PrintLineByChar(40);
@@ -169,6 +180,7 @@ void ShowAddClientsScreen()
     AddNewClients(ClientsFileName);
 }
 
+// Shows the delete client screen
 void ShowDeleteClientScreen()
 {
     PrintLineByChar(40);
@@ -178,6 +190,7 @@ void ShowDeleteClientScreen()
     DeleteClintByAccountNumber(ClientsFileName, ReadAccountNumber());
 }
 
+// Shows the update client info screen
 void ShowUpdateClientInfoScreen()
 {
     vector<stClient> vClients = LoadClientsDataFromFile(ClientsFileName);
@@ -189,6 +202,7 @@ void ShowUpdateClientInfoScreen()
     UpdateClintByAccountNumber(ClientsFileName, ReadAccountNumber(), vClients);
 }
 
+// Shows the find client screen
 void ShowFindClientScreen()
 {
     vector<stClient> vClients = LoadClientsDataFromFile(ClientsFileName);
@@ -199,6 +213,7 @@ void ShowFindClientScreen()
     FindClientScreen(vClients);
 }
 
+// Returns to the main menu after a pause
 void GoBackToMainMenue()
 {
     cout << "\nPress any key to go to Main Menue.";
@@ -206,6 +221,7 @@ void GoBackToMainMenue()
     ShowMainMenueScreen();
 }
 
+// Returns to the transaction menu after a pause
 void GoBackToTransactionMenue()
 {
     cout << "\nPress any key to go to Transaction Menue.";
@@ -213,6 +229,7 @@ void GoBackToTransactionMenue()
     ShowTransactionMenueScreen();
 }
 
+// Returns to the manage user menu after a pause
 void GoBackToManageUserMenue()
 {
     cout << "\nPress any key to go to Manage User Screen Menue.";
@@ -220,12 +237,14 @@ void GoBackToManageUserMenue()
     ShowManageUserMenueScreen();
 }
 
+// Enum for transaction types (deposit/withdraw)
 enum enTransactionType
 {
     enDeposit = 0,
     enWithdraw = 1
 };
 
+// Performs a cash transaction (deposit/withdraw) for a client
 bool TransactionClientsCash(vector<stClient> &vClients, string AccountNumber, double Amount, enTransactionType TransactionType)
 {
     Amount = (TransactionType == enDeposit) ? Amount : -Amount;
@@ -256,6 +275,7 @@ bool TransactionClientsCash(vector<stClient> &vClients, string AccountNumber, do
     return false;
 }
 
+// Shows the deposit screen
 void ShowDepositScreen()
 {
 
@@ -283,6 +303,7 @@ void ShowDepositScreen()
     GoBackToTransactionMenue();
 }
 
+// Shows the withdraw screen
 void ShowWithdrawScreen()
 {
 
@@ -319,6 +340,7 @@ void ShowWithdrawScreen()
     GoBackToTransactionMenue();
 }
 
+// Calculates the total balance of all clients
 double TotalClientsBalance(vector<stClient> vClients)
 {
     double TotalBalance = 0;
@@ -329,6 +351,7 @@ double TotalClientsBalance(vector<stClient> vClients)
     return TotalBalance;
 }
 
+// Shows the balance list screen
 void ShowBlanceListScreen()
 {
     vector<stClient> vClients = LoadClientsDataFromFile(ClientsFileName);
@@ -345,16 +368,19 @@ void ShowBlanceListScreen()
     GoBackToTransactionMenue();
 }
 
+// Reads the transaction menu option from user input
 enTransactionMenueOption ReadTransactionMenueOption()
 {
     return (enTransactionMenueOption)Read::ReadNumber("\nChoose What do you want to do? [1 to 4]?");
 }
 
+// Reads the manage user menu option from user input
 enManageUsersMenueOption ReadManageUserMenueOption()
 {
     return (enManageUsersMenueOption)Read::ReadNumber("\nChoose What do you want to do? [1 to 6]?");
 }
 
+// Shows the users list screen
 void ShowUsersListScreen()
 {
     vector<stUsers> vUsers = LoadUsersDataFromFile(UsersFileName);
@@ -369,6 +395,7 @@ void ShowUsersListScreen()
     PrintLineByChar(Title.length());
 }
 
+// Shows the add user screen
 void ShowAddUserScreen()
 {
     PrintLineByChar(40);
@@ -378,6 +405,7 @@ void ShowAddUserScreen()
     AddNewUsers(UsersFileName);
 }
 
+// Shows the delete user screen
 void ShowDeleteUserScreen()
 {
     PrintLineByChar(40);
@@ -387,6 +415,7 @@ void ShowDeleteUserScreen()
     DeleteUserByUserName(UsersFileName, ReadUserName());
 }
 
+// Shows the update user screen
 void ShowUpdateUserScreen()
 {
     vector<stUsers> vUsers = LoadUsersDataFromFile(UsersFileName);
@@ -398,6 +427,7 @@ void ShowUpdateUserScreen()
     UpdateUserByUserName(UsersFileName, ReadUserName(), vUsers);
 }
 
+// Shows the find user screen
 void ShowFindUserScreen()
 {
     vector<stUsers> vUsers = LoadUsersDataFromFile(UsersFileName);
@@ -408,6 +438,7 @@ void ShowFindUserScreen()
     FindUserScreen(vUsers);
 }
 
+// Performs the selected manage user menu option
 void PerformManageUserMenueOption(enManageUsersMenueOption choice)
 {
     system("cls");
@@ -458,6 +489,7 @@ void PerformManageUserMenueOption(enManageUsersMenueOption choice)
     }
 }
 
+// Shows the manage user menu screen
 void ShowManageUserMenueScreen()
 {
     short WidthLine = 50;
@@ -476,6 +508,7 @@ void ShowManageUserMenueScreen()
     PerformManageUserMenueOption(ReadManageUserMenueOption());
 }
 
+// Performs the selected transaction menu option
 void PerformTransactionMenueOption(enTransactionMenueOption choice)
 {
     system("cls");
@@ -511,6 +544,7 @@ void PerformTransactionMenueOption(enTransactionMenueOption choice)
     }
 }
 
+// Shows the transaction menu screen
 void ShowTransactionMenueScreen()
 {
     short WidthLine = 50;
@@ -527,6 +561,7 @@ void ShowTransactionMenueScreen()
     PerformTransactionMenueOption(ReadTransactionMenueOption());
 }
 
+// Checks if the current user has the required permission for the main menu option
 bool GetPermissionCaseforMainMenue(enMainMenuOptionPermissions Permission)
 {
     if ((CurrentUser.Permissions & Permission) == Permission)
@@ -540,6 +575,7 @@ bool GetPermissionCaseforMainMenue(enMainMenuOptionPermissions Permission)
     return false;
 }
 
+// Performs the selected main menu option
 void PerformMainMenueOption(enMainMenueOption choice)
 {
     system("cls");
@@ -617,11 +653,13 @@ void PerformMainMenueOption(enMainMenueOption choice)
     }
 }
 
+// Reads the main menu option from user input
 enMainMenueOption ReadMainMenueOption()
 {
     return (enMainMenueOption)Read::ReadNumber("\nChoose What do you want to do? [1 to 8]?");
 }
 
+// Shows the main menu screen
 void ShowMainMenueScreen()
 {
     short WidthLine = 50;
@@ -642,6 +680,7 @@ void ShowMainMenueScreen()
     PerformMainMenueOption(ReadMainMenueOption());
 }
 
+// Handles user login and returns true if successful
 bool LoginInfo()
 {
     string UserName = ReadUserName();
@@ -654,6 +693,7 @@ bool LoginInfo()
     return false;
 }
 
+// Shows the login screen and handles login process
 void LogIn()
 {
     PrintLineByChar(30, '-');
@@ -670,6 +710,7 @@ void LogIn()
     ShowMainMenueScreen();
 }
 
+// Program entry point
 int main()
 {
     LogIn();

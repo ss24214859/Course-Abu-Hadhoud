@@ -5,12 +5,15 @@
 #include "../../MyClasss/clsUtil.h"
 #include "../../MyClasss/clsInputValidate.h"
 #include "clsClientsListScreen.h"
+#include "clsAddClientsScreen.h"
 
 using namespace std;
 
+// Main screen class for the banking application
 class clsMainScreen : protected clsScreen
 {
 private:
+    // Enum for main menu options
     enum enMainMenueOption
     {
         eShowClientsList = 1,
@@ -22,90 +25,106 @@ private:
         eManageUserMenue = 7,
         eExit = 8
     };
+
+    // Show the clients list screen
     static void _ShowClientListScreen()
     {
+        // [Commit] Show the clients list screen
         clsClientsListScreen::PrintClientListScreen();
-        }
-
-    static void _ShowAddClientsScreen()
-    {
-        cout << "ShowAddClientsScreen Will be Here" << endl;
     }
 
+    // Show the add new client screen (placeholder)
+    static void _ShowAddClientsScreen()
+    {
+        // [Commit] Show the add new client screen (placeholder)
+        clsAddCientsScreen::ShowAddNewClientScreen();
+    }
+
+    // Show the delete client screen (placeholder)
     static void _ShowDeleteClientScreen()
     {
+        // [Commit] Show the delete client screen (placeholder)
         cout << "ShowDeleteClientScreen Will be Here" << endl;
     }
 
+    // Show the update client info screen (placeholder)
     static void _ShowUpdateClientInfoScreen()
     {
+        // [Commit] Show the update client info screen (placeholder)
         cout << "ShowUpdateClientInfoScreen Will be Here" << endl;
     }
 
+    // Show the find client screen (placeholder)
     static void _ShowFindClientScreen()
     {
+        // [Commit] Show the find client screen (placeholder)
         cout << "ShowFindClientScreen Will be Here" << endl;
     }
 
+    // Show the transaction menu screen (placeholder)
     static void _ShowTransactionMenueScreen()
     {
+        // [Commit] Show the transaction menu screen (placeholder)
         cout << "ShowTransactionMenueScreen Will be Here" << endl;
     }
 
+    // Show the manage user menu screen (placeholder)
     static void _ShowManageUserMenueScreen()
     {
+        // [Commit] Show the manage user menu screen (placeholder)
         cout << "ShowManageUserMenueScreen Will be Here" << endl;
     }
 
+    // Go back to the main menu
     static void _GoBackToMainMenue()
     {
+        // [Commit] Go back to the main menu
         cout << "\nPress any key to go to Main Menue.";
         system("pause>0");
         ShowMainMenueScreen();
     }
 
+    // Read the main menu option from the user
     static enMainMenueOption _ReadMainMenueOption()
     {
+        // [Commit] Read the main menu option from the user
         return (enMainMenueOption)clsInputValidate::ReadShortNumberBetween(1, 8, "\nChoose What do you want to do? [1 to 8]?", "\nChoose What do you want to do? [1 to 8]?");
     }
 
+    // Perform the selected main menu option
     static void _PerformMainMenueOption(enMainMenueOption choice)
     {
+        // [Commit] Perform the selected main menu option
         system("cls");
         switch (choice)
         {
         case enMainMenueOption::eShowClientsList:
         {
             _ShowClientListScreen();
-
             _GoBackToMainMenue();
             break;
         }
         case enMainMenueOption::eShowAddNewClient:
         {
             _ShowAddClientsScreen();
-
             _GoBackToMainMenue();
             break;
         }
         case enMainMenueOption::eShowDeleteClient:
         {
             _ShowDeleteClientScreen();
-
             _GoBackToMainMenue();
             break;
         }
         case enMainMenueOption::eShowUpdateClientInfo:
         {
             _ShowUpdateClientInfoScreen();
-
             _GoBackToMainMenue();
             break;
         }
         case enMainMenueOption::eShowFindClient:
         {
             _ShowFindClientScreen();
-
             _GoBackToMainMenue();
             break;
         }
@@ -113,19 +132,16 @@ private:
         {
             _ShowTransactionMenueScreen();
             _GoBackToMainMenue();
-
             break;
         }
         case enMainMenueOption::eManageUserMenue:
         {
             _ShowManageUserMenueScreen();
             _GoBackToMainMenue();
-
             break;
         }
         case enMainMenueOption::eExit:
         {
-
             break;
         }
         default:
@@ -138,8 +154,10 @@ private:
     }
 
 public:
+    // Show the main menu screen
     static void ShowMainMenueScreen()
     {
+        // [Commit] Show the main menu screen
         short WidthLine = 50;
         system("cls");
         clsScreen::_DrawScreenHeader("\t\tMain Screen");
