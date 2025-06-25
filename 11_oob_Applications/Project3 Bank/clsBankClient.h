@@ -84,8 +84,10 @@ private:
         {
             for (clsBankClient C : vClients)
             {
-                if (C._MarkForDelete == false)
+                if (C.MarkForDelete() == false)
+                {
                     file << _ConvertClientObjectToLine(C) << endl;
+                }
             }
             file.close();
         }

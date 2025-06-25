@@ -8,6 +8,7 @@ using namespace std;
 class clsDeleteClientScreen : protected clsScreen
 {
 public:
+    // Displays the Delete Client screen, prompts for account number, confirms deletion, and deletes the client if confirmed.
     static void ShowDeleteClientScreen()
     {
         clsScreen::_DrawScreenHeader("\t  Delete Client Screen");
