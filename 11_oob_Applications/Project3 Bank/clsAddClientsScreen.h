@@ -2,8 +2,6 @@
 #include <iostream>
 #include "clsBankClient.h"
 #include "clsScreen.h"
-#include "../../MyClasss/clsInputValidate.h"
-#include "../../MyClasss/clsString.h"
 #include "clsUtilClientUI.h"
 using namespace std;
 
