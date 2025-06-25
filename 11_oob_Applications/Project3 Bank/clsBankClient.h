@@ -84,7 +84,7 @@ private:
         {
             for (clsBankClient C : vClients)
             {
-                if (C._MarkForDelete = true)
+                if (C._MarkForDelete == false)
                     file << _ConvertClientObjectToLine(C) << endl;
             }
             file.close();
@@ -131,7 +131,7 @@ private:
         for (clsBankClient &C : ClientsData)
         {
             if (C.AccountNumber() == _AccountNumber)
-                _MarkForDelete = true;
+                C._MarkForDelete = true;
         }
         _SaveClientsDataToFile(ClientsData);
     }

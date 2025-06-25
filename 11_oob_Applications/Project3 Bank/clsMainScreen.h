@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <iostream>
 #include "clsScreen.h"
 #include <iomanip>
@@ -6,6 +6,7 @@
 #include "../../MyClasss/clsInputValidate.h"
 #include "clsClientsListScreen.h"
 #include "clsAddClientsScreen.h"
+#include "clsDeleteClientScreen.h"
 
 using namespace std;
 
@@ -44,7 +45,7 @@ private:
     static void _ShowDeleteClientScreen()
     {
         // [Commit] Show the delete client screen (placeholder)
-        cout << "ShowDeleteClientScreen Will be Here" << endl;
+        clsDeleteClientScreen::ShowDeleteClientScreen();
     }
 
     // Show the update client info screen (placeholder)

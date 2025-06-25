@@ -2,6 +2,7 @@
 #include "clsBankClient.h"
 #include "../../MyClasss/clsInputValidate.h"
 #include "../../MyClasss/clsString.h"
+#include "clsUtilClientUI.h"
 using namespace std;
 
 void ReadClientInfo(clsBankClient &Client)
@@ -38,13 +39,13 @@ void DeleteClient()
 {
     string AccountNumber = ReadExistingAccountNumber();
     clsBankClient Client = clsBankClient::Find(AccountNumber);
-    Client.Print();
+    clsUtilClientUI::Print(Client);
     if (clsInputValidate::ReadYesOrNo("Are you Sure you want delete this Client? y/n ?"))
     {
         if (Client.Delete())
         {
             cout << "Client Delete Successfully :-) " << endl;
-            Client.Print();
+            clsUtilClientUI::Print(Client);
         }
         else
             cout << "Faild Client is Not Delete :-( " << endl;
