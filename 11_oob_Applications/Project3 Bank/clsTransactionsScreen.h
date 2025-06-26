@@ -5,6 +5,7 @@
 #include "../../MyClasss/clsUtil.h"
 #include "../../MyClasss/clsInputValidate.h"
 #include "clsDepositScreen.h"
+#include "clsWithdrawScreen.h"
 using namespace std;
 
 class clsTransactionsScreen : clsScreen
@@ -27,8 +28,7 @@ private:
     // Shows the withdraw screen
     static void _ShowWithdrawScreen()
     {
-        cout << "\n[Withdraw Screen]\n";
-        // Add withdraw logic here
+        clsWithdrawScreen::ShowWithdrawScreen();
     }
 
     // Shows the total balance list screen

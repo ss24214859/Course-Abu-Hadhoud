@@ -308,7 +308,7 @@ public:
         Save();
     }
 
-    void Whithdraw(double Amount)
+    void Withdraw(double Amount)
     {
         _AccountBalance -= Amount;
         Save();
