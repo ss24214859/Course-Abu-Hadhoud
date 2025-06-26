@@ -114,13 +114,13 @@ private:
         case enMainMenueOption::eTransactionMenue:
         {
             _ShowTransactionMenueScreen();
-            _GoBackToMainMenue();
+            ShowMainMenueScreen();
             break;
         }
         case enMainMenueOption::eManageUserMenue:
         {
             _ShowManageUserMenueScreen();
-            _GoBackToMainMenue();
+            ShowMainMenueScreen();
             break;
         }
         case enMainMenueOption::eExit:

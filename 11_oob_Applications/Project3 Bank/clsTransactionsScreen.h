@@ -4,7 +4,7 @@
 #include <iomanip>
 #include "../../MyClasss/clsUtil.h"
 #include "../../MyClasss/clsInputValidate.h"
-
+#include "clsDepositScreen.h"
 using namespace std;
 
 class clsTransactionsScreen : clsScreen
@@ -18,20 +18,10 @@ private:
         eBack = 4
     };
 
-    // Reads the user's menu option selection
-    static enTransactionMenueOption ReadTransactionMenueOption()
-    {
-        short choice;
-        cout << "\n\t\tChoose an option [1-4]: ";
-        choice = clsInputValidate::ReadShortNumberBetween(1, 4, "Enter a valid option between 1 and 4: ");
-        return (enTransactionMenueOption)choice;
-    }
-
     // Shows the deposit screen
     static void _ShowDepositScreen()
     {
-        cout << "\n[Deposit Screen]\n";
-        // Add deposit logic here
+        clsDepositScreen::ShowDepositScreen();
     }
 
     // Shows the withdraw screen
@@ -55,6 +45,16 @@ private:
         system("pause>0");
         ShowTransactionMenueScreen();
     }
+
+    // Reads the user's menu option selection
+    static enTransactionMenueOption _ReadTransactionMenueOption()
+    {
+        short choice;
+        cout << "\n\t\tChoose an option [1-4]: ";
+        choice = clsInputValidate::ReadShortNumberBetween(1, 4, "Enter a valid option between 1 and 4: ");
+        return (enTransactionMenueOption)choice;
+    }
+
     // Performs the selected transaction menu option
     static void _PerformTransactionMenueOption(enTransactionMenueOption choice)
     {
@@ -108,6 +108,6 @@ public:
         cout << setw(37) << left << "" << "        [3] Total Balance." << endl;
         cout << setw(37) << left << "" << "        [4] Back." << endl;
         cout << setw(37) << left << "" << clsUtil::PrintLineByChar(WidthLine, '=');
-        _PerformTransactionMenueOption(ReadTransactionMenueOption());
+        _PerformTransactionMenueOption(_ReadTransactionMenueOption());
     }
 };

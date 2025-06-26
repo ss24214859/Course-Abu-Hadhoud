@@ -302,6 +302,18 @@ public:
         return _LoadClientsDataFromFile();
     }
 
+    void Deposit(double Amount)
+    {
+        _AccountBalance += Amount;
+        Save();
+    }
+
+    void Whithdraw(double Amount)
+    {
+        _AccountBalance -= Amount;
+        Save();
+    }
+
     enum enSaveResult
     {
         SvFaildEmptyObject = 0,

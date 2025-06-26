@@ -40,8 +40,10 @@ public:
 
     static void Print(clsBankClient Client)
     {
+        cout << "\n"
+             << clsUtil::PrintLineByChar(50) << endl;
         cout << "\nClient Card: " << endl;
-        clsUtil::PrintLineByChar(50);
+        cout << clsUtil::PrintLineByChar(50) << endl;
         cout << "FirstName       : " << Client.FirstName() << endl;
         cout << "LastName        : " << Client.LastName() << endl;
         cout << "Name            : " << Client.FullName() << endl;
@@ -50,6 +52,6 @@ public:
         cout << "Account Number  : " << Client.AccountNumber() << endl;
         cout << "PIN Code        : " << Client.PINCode() << endl;
         cout << "Account Balance : " << Client.AccountBalance() << endl;
-        clsUtil::PrintLineByChar(50);
+        cout << clsUtil::PrintLineByChar(50) << endl;
     }
 };
