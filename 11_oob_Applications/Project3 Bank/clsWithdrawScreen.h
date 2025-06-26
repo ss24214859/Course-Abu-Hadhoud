@@ -24,10 +24,18 @@ public:
 
         if (clsInputValidate::ReadYesOrNo("Are you sure you want to perform this transction ?"))
         {
-            Client.Withdraw(Amount);
-            cout << "\nAmount Withdrawed Successfully :-)\n"
-                 << endl;
-            cout << "New Balance Is: " << Client.AccountBalance() << endl;
+            if (Client.Withdraw(Amount))
+            {
+                cout << "\nAmount Withdrawed Successfully :-)\n"
+                     << endl;
+                cout << "New Balance Is: " << Client.AccountBalance() << endl;
+            }
+            else
+            {
+                cout << "Cannot Withdraw, Insuffecient Balance!" << endl;
+                cout << "Amount to Withdraw is : " << Amount << endl;
+                cout << "Your Balance is : " << Client.AccountBalance() << endl;
+            }
         }
         else
             cout << "\nOperation Was Cancelled.\n"
