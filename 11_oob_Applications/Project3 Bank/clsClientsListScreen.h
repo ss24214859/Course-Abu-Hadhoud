@@ -48,7 +48,7 @@ public:
     static void PrintClientListScreen()
     {
         // Get all clients and prepare screen titles
-        vector<clsBankClient> vClients = clsBankClient::GetClientsList();
+        vector<clsBankClient> vClients = clsBankClient::GetClients();
         string TitleOfScreen = "\t     Client List Screen";
         string SubTitleOfScreen = "\t      (" + to_string(vClients.size()) + ") Clients(s).";
         string TitleOfList = "\t\t| Account Number | Client Name           | Phone Number        |  Email                | PIN Code  | Balance |";

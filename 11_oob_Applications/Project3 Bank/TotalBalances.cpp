@@ -16,7 +16,7 @@ void PrintClientRecordBalanceLine(clsBankClient Client)
 void PrintClientsBalanceListScreen()
 {
 
-    vector<clsBankClient> vClients = clsBankClient::GetClientsList();
+    vector<clsBankClient> vClients = clsBankClient::GetClients();
     string length = " Balance ";
     cout << "              Balance List (" << vClients.size() << ") Clients(s)." << endl;
     string Title = "|  Account Number   | Client Name           | Balance |";

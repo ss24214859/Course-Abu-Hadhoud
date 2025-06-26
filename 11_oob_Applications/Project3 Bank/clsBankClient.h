@@ -297,7 +297,7 @@ public:
     }
 
     // Returns a list of all clients
-    static vector<clsBankClient> GetClientsList()
+    static vector<clsBankClient> GetClients()
     {
         return _LoadClientsDataFromFile();
     }
