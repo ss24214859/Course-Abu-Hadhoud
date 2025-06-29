@@ -126,17 +126,6 @@ private:
         _AddDataLineToFile(_ConvertClientObjectToLine(*this));
     }
 
-    // Marks the client for deletion and updates the file
-    void _Delete()
-    {
-        vector<clsBankClient> ClientsData = _LoadClientsDataFromFile();
-        for (clsBankClient &C : ClientsData)
-        {
-            if (C.AccountNumber() == _AccountNumber)
-                C._MarkForDelete = true;
-        }
-        _SaveClientsDataToFile(ClientsData);
-    }
 
     // Returns an empty client object
     static clsBankClient _EmptyClientObject()
@@ -223,13 +212,23 @@ public:
     // Deletes the client and returns true if successful
     bool Delete()
     {
-        _Delete();
-        if (!IsClientExist(_AccountNumber))
+        vector <clsBankClient> _vClients;
+        _vClients = _LoadClientsDataFromFile();
+
+        for (clsBankClient& C : _vClients)
         {
-            *this = _EmptyClientObject();
-            return true;
+            if (C.AccountNumber() == _AccountNumber)
+            {
+                C._MarkForDelete = true;
+                break;
+            }
         }
-        return false;
+
+        _SaveClientsDataToFile(_vClients);
+
+        *this = _EmptyClientObject();
+
+        return true;
     }
 
     // Finds and returns a client by account number
