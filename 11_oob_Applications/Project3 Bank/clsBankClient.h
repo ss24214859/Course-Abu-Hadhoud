@@ -126,7 +126,6 @@ private:
         _AddDataLineToFile(_ConvertClientObjectToLine(*this));
     }
 
-
     // Returns an empty client object
     static clsBankClient _EmptyClientObject()
     {
@@ -212,10 +211,10 @@ public:
     // Deletes the client and returns true if successful
     bool Delete()
     {
-        vector <clsBankClient> _vClients;
+        vector<clsBankClient> _vClients;
         _vClients = _LoadClientsDataFromFile();
 
-        for (clsBankClient& C : _vClients)
+        for (clsBankClient &C : _vClients)
         {
             if (C.AccountNumber() == _AccountNumber)
             {

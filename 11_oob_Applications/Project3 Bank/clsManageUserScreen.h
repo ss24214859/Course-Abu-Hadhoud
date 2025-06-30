@@ -25,11 +25,6 @@ private:
         eMainMenue = 6
     };
 
-    static enManageUsersMenueOption _ReadManageUserMenueOption()
-    {
-        return (enManageUsersMenueOption)clsInputValidate::ReadShortNumberBetween(1, 6, "\nChoose What do you want to do? [1 to 6]?");
-    }
-
     static void _ShowUsersListScreen()
     {
         clsUsersListScreen::ShowUsersListScreen();
@@ -53,6 +48,11 @@ private:
     static void _ShowFindUserScreen()
     {
         clsFindUserScreen::ShowFindUserScreen();
+    }
+
+    static enManageUsersMenueOption _ReadManageUserMenueOption()
+    {
+        return (enManageUsersMenueOption)clsInputValidate::ReadShortNumberBetween(1, 6, "\nChoose What do you want to do? [1 to 6]?");
     }
 
     static void _GoBackToManageUserMenue()

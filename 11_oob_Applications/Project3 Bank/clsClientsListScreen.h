@@ -45,7 +45,7 @@ public:
     /**
      * @brief Displays the client list screen, including headers and all client records.
      */
-    static void PrintClientListScreen()
+    static void ShowClientListScreen()
     {
         // Get all clients and prepare screen titles
         vector<clsBankClient> vClients = clsBankClient::GetClients();
