@@ -277,7 +277,7 @@ public:
     {
         SvFaildEmptyObject = 0,
         SvSucceeded = 1,
-        svFaildAccountisExist = 2
+        svFaildUserNameIsExist = 2
     };
     // Saves the client object to the file (add or update)
     enSaveResult Save()
@@ -291,7 +291,7 @@ public:
             return SvSucceeded;
         case enMode::AddNewM:
             if (IsUserExist(this->UserName()))
-                return svFaildAccountisExist;
+                return svFaildUserNameIsExist;
             else
             {
                 _AddNew();
