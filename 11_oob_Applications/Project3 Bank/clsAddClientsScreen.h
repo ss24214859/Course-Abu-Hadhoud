@@ -10,6 +10,7 @@ class clsAddCientsScreen : protected clsScreen
 public:
     static void ShowAddNewClientScreen()
     {
+        _DrawScreenHeader("\t\tAdd New Client Screen");
         string AccountNumber = clsUtilClientUI::ReadNewAccountNumber();
         clsBankClient NewClient = clsBankClient::GetAddNewClientObject(AccountNumber);
         clsUtilClientUI::ReadClientInfo(NewClient);

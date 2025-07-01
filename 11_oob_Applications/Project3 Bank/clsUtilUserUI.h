@@ -28,6 +28,65 @@ public:
         return UserName;
     }
 
+    enum enPermissions {
+        eUsersList = 1,
+        eAddNewUser = 2,
+        eDeleteUser = 4,
+        eUpdateUser = 8,
+        eFindUser = 16
+    };
+    static int ReadPermissions()
+    {
+        /*  This code is commented out because it is not used in the current implementation.
+
+        int Permissions = 0;
+
+        if (Read::ReadYesOrNo("Do You Want to give Full access? y/n ?"))
+            Permissions = -1;
+        else
+        {
+            bitset<7> command;
+            cout << "Do you want to give access to : " << endl;
+            command |= (Read::ReadYesOrNo("Clients List ?") << 0);
+            command |= (Read::ReadYesOrNo("Add New Client?") << 1);
+            command |= (Read::ReadYesOrNo("Delete Client ?") << 2);
+            command |= (Read::ReadYesOrNo("Update Client ?") << 3);
+            command |= (Read::ReadYesOrNo("Find Client ?") << 4);
+            command |= (Read::ReadYesOrNo("Transaction Menue ?") << 5);
+            command |= (Read::ReadYesOrNo("Manage Users?") << 6);
+
+            Permissions = command.to_ulong();
+        }
+        return Permissions; 
+        */
+
+
+        int Permissions = 0;
+
+        if(clsInputValidate::ReadYesOrNo("Do You Want to give Full access? y/n ?"))
+            Permissions = -1;
+        else
+        {
+            cout << "Do you want to give access to : " << endl;
+            if (clsInputValidate::ReadYesOrNo("Users List ?"))
+                Permissions += eUsersList;
+
+            if (clsInputValidate::ReadYesOrNo("Add New User?"))
+                Permissions += eAddNewUser;
+
+            if (clsInputValidate::ReadYesOrNo("Delete User ?"))
+                Permissions += eDeleteUser;
+
+            if (clsInputValidate::ReadYesOrNo("Update User ?"))
+                Permissions += eUpdateUser;
+
+            if (clsInputValidate::ReadYesOrNo("Find User ?"))
+                Permissions += eFindUser;
+        }
+        return Permissions;
+        
+    }
+
     static void ReadUserInfo(clsUser &User)
     {
         User.setFirstName(clsInputValidate::ReadString("Enter First Name : "));
@@ -35,7 +94,7 @@ public:
         User.setEmail(clsInputValidate::ReadString("Enter Email : "));
         User.setPhone(clsInputValidate::ReadString("Enter Phone : "));
         User.setPassword(clsInputValidate::ReadString("Enter Password : "));
-        User.setPermissions(clsInputValidate::ReadDblNumber("Enter Permissions : "));
+        User.setPermissions(ReadPermissions());
     }
 
     static void Print(clsUser User)
