@@ -275,8 +275,8 @@ public:
 
     enum enSaveResult
     {
-        SvFaildEmptyObject = 0,
-        SvSucceeded = 1,
+        svFaildEmptyObject = 0,
+        svSucceeded = 1,
         svFaildUserNameIsExist = 2
     };
     // Saves the client object to the file (add or update)
@@ -285,10 +285,10 @@ public:
         switch (_Mode)
         {
         case enMode::EmptyM:
-            return SvFaildEmptyObject;
+            return svFaildEmptyObject;
         case enMode::UpdateM:
             _Update();
-            return SvSucceeded;
+            return svSucceeded;
         case enMode::AddNewM:
             if (IsUserExist(this->UserName()))
                 return svFaildUserNameIsExist;
@@ -296,9 +296,9 @@ public:
             {
                 _AddNew();
                 _Mode = enMode::UpdateM;
-                return SvSucceeded;
+                return svSucceeded;
             }
         }
-        return SvSucceeded;
+        return svSucceeded;
     }
 };

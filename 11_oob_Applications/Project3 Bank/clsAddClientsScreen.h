@@ -17,14 +17,14 @@ public:
         clsBankClient::enSaveResult SaveResult = NewClient.Save();
         switch (SaveResult)
         {
-        case clsBankClient::enSaveResult::SvSucceeded:
+        case clsBankClient::enSaveResult::svSucceeded:
             cout << "Account Added Successfully :-) " << endl;
             clsUtilClientUI::Print(NewClient);
             break;
         case clsBankClient::enSaveResult::svFaildAccountisExist:
             cout << "Save Faild BeCause Account Number is Already Used :-( " << endl;
             break;
-        case clsBankClient::enSaveResult::SvFaildEmptyObject:
+        case clsBankClient::enSaveResult::svFaildEmptyObject:
             cout << "Save Faild BeCuase Client Is Empty :-( " << endl;
             break;
         }

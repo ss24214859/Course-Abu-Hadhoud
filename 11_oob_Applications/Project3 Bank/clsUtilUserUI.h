@@ -29,11 +29,13 @@ public:
     }
 
     enum enPermissions {
-        eUsersList = 1,
-        eAddNewUser = 2,
-        eDeleteUser = 4,
-        eUpdateUser = 8,
-        eFindUser = 16
+        eClientsList = 1,
+        eAddNewClient = 2,
+        eDeleteClient = 4,
+        eUpdateClientInfo = 8,
+        eFindClient = 16,
+        eTransactionMenue = 32,
+        ePManageUserMenue = 64,
     };
     static int ReadPermissions()
     {
@@ -47,13 +49,13 @@ public:
         {
             bitset<7> command;
             cout << "Do you want to give access to : " << endl;
-            command |= (Read::ReadYesOrNo("Clients List ?") << 0);
-            command |= (Read::ReadYesOrNo("Add New Client?") << 1);
-            command |= (Read::ReadYesOrNo("Delete Client ?") << 2);
-            command |= (Read::ReadYesOrNo("Update Client ?") << 3);
-            command |= (Read::ReadYesOrNo("Find Client ?") << 4);
-            command |= (Read::ReadYesOrNo("Transaction Menue ?") << 5);
-            command |= (Read::ReadYesOrNo("Manage Users?") << 6);
+            command += (Read::ReadYesOrNo("Clients List ?") << 0);
+            command += (Read::ReadYesOrNo("Add New Client?") << 1);
+            command += (Read::ReadYesOrNo("Delete Client ?") << 2);
+            command += (Read::ReadYesOrNo("Update Client ?") << 3);
+            command += (Read::ReadYesOrNo("Find Client ?") << 4);
+            command += (Read::ReadYesOrNo("Transaction Menue ?") << 5);
+            command += (Read::ReadYesOrNo("Manage Users?") << 6);
 
             Permissions = command.to_ulong();
         }
@@ -68,20 +70,26 @@ public:
         else
         {
             cout << "Do you want to give access to : " << endl;
-            if (clsInputValidate::ReadYesOrNo("Users List ?"))
-                Permissions += eUsersList;
+            if (clsInputValidate::ReadYesOrNo("Clients List ?"))
+                Permissions += enPermissions::eClientsList;
 
-            if (clsInputValidate::ReadYesOrNo("Add New User?"))
-                Permissions += eAddNewUser;
+            if (clsInputValidate::ReadYesOrNo("Add New Client?"))
+                Permissions += enPermissions::eAddNewClient;
 
-            if (clsInputValidate::ReadYesOrNo("Delete User ?"))
-                Permissions += eDeleteUser;
+            if (clsInputValidate::ReadYesOrNo("Delete Client ?"))
+                Permissions += enPermissions::eDeleteClient;
 
-            if (clsInputValidate::ReadYesOrNo("Update User ?"))
-                Permissions += eUpdateUser;
+            if (clsInputValidate::ReadYesOrNo("Update Client ?"))
+                Permissions += enPermissions::eUpdateClientInfo;
 
-            if (clsInputValidate::ReadYesOrNo("Find User ?"))
-                Permissions += eFindUser;
+            if (clsInputValidate::ReadYesOrNo("Find Client ?"))
+                Permissions += enPermissions::eFindClient;
+
+            if (clsInputValidate::ReadYesOrNo("Transaction Menue ?"))
+                Permissions += enPermissions::eTransactionMenue;
+
+            if (clsInputValidate::ReadYesOrNo("Manage Users?"))
+                Permissions += enPermissions::ePManageUserMenue;
         }
         return Permissions;
         

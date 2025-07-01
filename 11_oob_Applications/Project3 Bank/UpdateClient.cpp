@@ -23,7 +23,7 @@ void UpdateClient()
     }
 
     clsBankClient Client = clsBankClient::Find(AccountNumber);
-    Client.Print();
+    //Client.Print();
 
     ReadClient(Client);
 
@@ -33,13 +33,13 @@ void UpdateClient()
 
     switch (SaveResult)
     {
-    case clsBankClient::enSaveResult::SvFaildEmptyObject:
+    case clsBankClient::enSaveResult::svFaildEmptyObject:
         cout << "Save Faild Empty Object :-( " << endl;
         break;
 
-    case clsBankClient::enSaveResult::SvSucceeded:
+    case clsBankClient::enSaveResult::svSucceeded:
         cout << "Account update successfully :-) " << endl;
-        Client.Print();
+        //Client.Print();
         break;
     }
 }

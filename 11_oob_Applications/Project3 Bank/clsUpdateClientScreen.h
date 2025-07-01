@@ -23,11 +23,11 @@ public:
         clsBankClient::enSaveResult SaveResult = Client.Save();
         switch (SaveResult)
         {
-        case clsBankClient::enSaveResult::SvFaildEmptyObject:
+        case clsBankClient::enSaveResult::svFaildEmptyObject:
             cout << "Save Faild Empty Object :-( " << endl;
             break;
 
-        case clsBankClient::enSaveResult::SvSucceeded:
+        case clsBankClient::enSaveResult::svSucceeded:
             cout << "Account update successfully :-) " << endl;
             clsUtilClientUI::Print(Client);
             break;

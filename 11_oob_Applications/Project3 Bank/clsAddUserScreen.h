@@ -21,14 +21,14 @@ public:
         clsUser::enSaveResult SaveResult = NewUser.Save();
         switch (SaveResult)
         {
-        case clsUser::enSaveResult::SvSucceeded:
+        case clsUser::enSaveResult::svSucceeded:
             cout << "User Added Successfully :-) " << endl;
             clsUtilUserUI::Print(NewUser);
             break;
         case clsUser::enSaveResult::svFaildUserNameIsExist:
             cout << "Save Failed Because User Name is Already Used :-( " << endl;
             break;
-        case clsUser::enSaveResult::SvFaildEmptyObject:
+        case clsUser::enSaveResult::svFaildEmptyObject:
             cout << "Save Failed Because User Is Empty :-( " << endl;
             break;
         }
