@@ -19,11 +19,12 @@ public:
         if (!Client1.IsEmpty())
         {
             cout << "\nClient Found :-)\n";
+            clsUtilClientUI::Print(Client1);
         }
         else
         {
             cout << "\nClient Was not Found :-(\n";
         }
-        clsUtilClientUI::Print(Client1);
+        
     }
 };

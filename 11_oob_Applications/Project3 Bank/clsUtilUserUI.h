@@ -35,7 +35,7 @@ public:
         eUpdateClientInfo = 8,
         eFindClient = 16,
         eTransactionMenue = 32,
-        ePManageUserMenue = 64,
+        eManageUserMenue = 64,
     };
     static int ReadPermissions()
     {
@@ -89,7 +89,7 @@ public:
                 Permissions += enPermissions::eTransactionMenue;
 
             if (clsInputValidate::ReadYesOrNo("Manage Users?"))
-                Permissions += enPermissions::ePManageUserMenue;
+                Permissions += enPermissions::eManageUserMenue;
         }
         return Permissions;
         

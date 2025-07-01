@@ -12,6 +12,19 @@ class clsFindUserScreen : protected clsScreen
 public:
     static void ShowFindUserScreen()
     {
-        cout << "\nShowFindUserScreen will be here\n";
+        _DrawScreenHeader("\t  Find User Screen");
+        cout << "\n\n";
+        string UserName = clsUtilUserUI::ReadExistingUserName();
+
+        clsUser User1 = clsUser::Find(UserName);
+        if (!User1.IsEmpty())
+        {
+            cout << "\nUser Found :-)\n";
+            clsUtilUserUI::Print(User1);
+        }
+        else
+        {
+            cout << "\nUser Was not Found :-(\n";
+        }
     }
 }; 
