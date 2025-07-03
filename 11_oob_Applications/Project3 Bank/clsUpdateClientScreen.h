@@ -3,6 +3,7 @@
 #include "clsBankClient.h"
 #include "clsScreen.h"
 #include "clsUtilClientUI.h"
+#include "clsUser.h"
 using namespace std;
 
 class clsUpdateClientScreen : protected clsScreen
@@ -10,7 +11,6 @@ class clsUpdateClientScreen : protected clsScreen
 public:
     static void ShowUpdateClientScreen()
     {
-
         clsScreen::_DrawScreenHeader("\t   Update Client Screen");
         cout << "\n\n";
         string AccountNumber = clsUtilClientUI::ReadExistingAccountNumber();

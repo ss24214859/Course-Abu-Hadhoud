@@ -301,4 +301,25 @@ public:
         }
         return svSucceeded;
     }
+
+        enum enPermissions {
+        eClientsList = 1,
+        eAddNewClient = 2,
+        eDeleteClient = 4,
+        eUpdateClientInfo = 8,
+        eFindClient = 16,
+        eTransactionMenue = 32,
+        eManageUserMenue = 64,
+    };
+
+    bool ChackAccessPermission(enPermissions Permissions)
+    {
+        if (_Permissions == -1) // Full access
+            return true;
+
+        if ((_Permissions & Permissions ) == Permissions) // Check if the specific permission is granted
+            return true;
+        else
+        return false; // Permission not granted
+    }
 };

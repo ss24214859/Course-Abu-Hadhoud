@@ -28,15 +28,7 @@ public:
         return UserName;
     }
 
-    enum enPermissions {
-        eClientsList = 1,
-        eAddNewClient = 2,
-        eDeleteClient = 4,
-        eUpdateClientInfo = 8,
-        eFindClient = 16,
-        eTransactionMenue = 32,
-        eManageUserMenue = 64,
-    };
+
     static int ReadPermissions()
     {
         /*  This code is commented out because it is not used in the current implementation.
@@ -71,25 +63,25 @@ public:
         {
             cout << "Do you want to give access to : " << endl;
             if (clsInputValidate::ReadYesOrNo("Clients List ?"))
-                Permissions += enPermissions::eClientsList;
+                Permissions += clsUser::enPermissions::eClientsList;
 
             if (clsInputValidate::ReadYesOrNo("Add New Client?"))
-                Permissions += enPermissions::eAddNewClient;
+                Permissions += clsUser::enPermissions::eAddNewClient;
 
             if (clsInputValidate::ReadYesOrNo("Delete Client ?"))
-                Permissions += enPermissions::eDeleteClient;
+                Permissions += clsUser::enPermissions::eDeleteClient;
 
             if (clsInputValidate::ReadYesOrNo("Update Client ?"))
-                Permissions += enPermissions::eUpdateClientInfo;
+                Permissions += clsUser::enPermissions::eUpdateClientInfo;
 
             if (clsInputValidate::ReadYesOrNo("Find Client ?"))
-                Permissions += enPermissions::eFindClient;
+                Permissions += clsUser::enPermissions::eFindClient;
 
             if (clsInputValidate::ReadYesOrNo("Transaction Menue ?"))
-                Permissions += enPermissions::eTransactionMenue;
+                Permissions += clsUser::enPermissions::eTransactionMenue;
 
             if (clsInputValidate::ReadYesOrNo("Manage Users?"))
-                Permissions += enPermissions::eManageUserMenue;
+                Permissions += clsUser::enPermissions::eManageUserMenue;
         }
         return Permissions;
         

@@ -68,7 +68,7 @@ private:
 
     static void _Logout()
     {
-        CurrentUser= clsUser::Find("", "");
+        CurrentUser = clsUser::Find("", "");
         cout << "\n Bye :-)." << endl;
     }
 
@@ -86,63 +86,70 @@ private:
 
     static void _PerformMainMenueOption(enMainMenueOption choice)
     {
+        if (choice != enMainMenueOption::eLogout)
+        {
+            if (!ChackAccessRights(clsUser::enPermissions(choice)))
+            {
+                _GoBackToMainMenue();
+                return; // If the user does not have access rights, exit the function.
+            }
+        }
+
         system("cls");
         switch (choice)
         {
-        case enMainMenueOption::eShowClientsList:
+            case enMainMenueOption::eShowClientsList:
+            {
+                _ShowClientListScreen();
+                break;
+            }
+            case enMainMenueOption::eShowAddNewClient:
+            {
+                _ShowAddClientsScreen();
+                break;
+            }
+            case enMainMenueOption::eShowDeleteClient:
+            {
+                _ShowDeleteClientScreen();            
+                break;
+            }
+            case enMainMenueOption::eShowUpdateClientInfo:
+            {
+                _ShowUpdateClientInfoScreen();              
+                break;
+            }
+            case enMainMenueOption::eShowFindClient:
+            {
+                _ShowFindClientScreen();       
+                break;
+            }
+            case enMainMenueOption::eTransactionMenue:
+            {
+                _ShowTransactionMenueScreen();     
+                break;
+            }
+            case enMainMenueOption::eManageUserMenue:
+            {
+                _ShowManageUserMenueScreen();
+                break;
+            }
+            case enMainMenueOption::eLogout:
+            {
+                _Logout();
+                break;
+            }
+            default:
+            {
+                cout << "Invalid Choice" << endl;
+                
+                break;
+            }
+        }
+      
+        if (choice != enMainMenueOption::eLogout)
         {
-            _ShowClientListScreen();
             _GoBackToMainMenue();
-            break;
-        }
-        case enMainMenueOption::eShowAddNewClient:
-        {
-            _ShowAddClientsScreen();
-            _GoBackToMainMenue();
-            break;
-        }
-        case enMainMenueOption::eShowDeleteClient:
-        {
-            _ShowDeleteClientScreen();
-            _GoBackToMainMenue();
-            break;
-        }
-        case enMainMenueOption::eShowUpdateClientInfo:
-        {
-            _ShowUpdateClientInfoScreen();
-            _GoBackToMainMenue();
-            break;
-        }
-        case enMainMenueOption::eShowFindClient:
-        {
-            _ShowFindClientScreen();
-            _GoBackToMainMenue();
-            break;
-        }
-        case enMainMenueOption::eTransactionMenue:
-        {
-            _ShowTransactionMenueScreen();
-            ShowMainMenueScreen();
-            break;
-        }
-        case enMainMenueOption::eManageUserMenue:
-        {
-            _ShowManageUserMenueScreen();
-            ShowMainMenueScreen();
-            break;
-        }
-        case enMainMenueOption::eLogout:
-        {
-            _Logout();
-            break;
-        }
-        default:
-        {
-            cout << "Invalid Choice" << endl;
-            _GoBackToMainMenue();
-            break;
-        }
-        }
+        }  
     }
 
 public:

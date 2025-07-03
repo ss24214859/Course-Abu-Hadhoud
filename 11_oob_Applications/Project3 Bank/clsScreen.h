@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include "../../MyClasss/clsUtil.h"
+#include "clsUser.h"
+#include "Global.h"
 using namespace std;
 
 // Base class for all screen classes in the application
@@ -20,5 +22,23 @@ protected:
 
         // Print another line separator
         cout << "\t\t\t\t\t" << clsUtil::PrintLineByChar(45) << endl;
+    }
+
+    static bool ChackAccessRights(clsUser::enPermissions Permission)
+    {
+        if(!CurrentUser.ChackAccessPermission(Permission))
+        {
+            // Clear the console screen
+            system("cls");
+            // Print a line separator
+            cout << "\t\t\t\t\t" << clsUtil::PrintLineByChar(55) << endl;
+            // Print the main title
+            cout << "\n\t\t\t\t\t" << "       Access Denied! Contact Your Admin." << endl;
+            // Print another line separator
+            cout << "\t\t\t\t\t" << clsUtil::PrintLineByChar(55) << endl;
+            return false;
+        }
+        else
+        return true;
     }
 };

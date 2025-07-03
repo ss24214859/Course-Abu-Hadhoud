@@ -5,6 +5,7 @@
 #include "../../MyClasss/clsString.h"
 #include "../../MyClasss/clsUtil.h"
 #include "clsScreen.h"
+#include "clsUser.h"
 using namespace std;
 
 class clsClientsListScreen : protected clsScreen

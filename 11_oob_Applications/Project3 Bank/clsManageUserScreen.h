@@ -10,6 +10,7 @@
 #include "clsDeleteUserScreen.h"
 #include "clsUpdateUserScreen.h"
 #include "clsFindUserScreen.h"
+#include "clsMainScreen.h"
 using namespace std;
 
 class clsManageUserScreen : protected clsScreen
@@ -97,7 +98,7 @@ private:
             _GoBackToManageUserMenue();
             break;
         }
-        case enManageUsersMenueOption::eMainMenue:
+        case enManageUsersMenueOption::eMainMenue: 
         {
             break;
         }

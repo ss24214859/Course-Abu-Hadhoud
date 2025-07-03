@@ -3,6 +3,7 @@
 #include "clsBankClient.h"
 #include "clsScreen.h"
 #include "clsUtilClientUI.h"
+#include "clsUser.h"
 using namespace std;
 
 class clsAddCientsScreen : protected clsScreen
