@@ -29,6 +29,7 @@ public:
         _Year = now.tm_year + 1900;
         _Month = now.tm_mon + 1;
         _Day = now.tm_mday;
+
     }
 
     clsDate(short Day, short Month, short Year)

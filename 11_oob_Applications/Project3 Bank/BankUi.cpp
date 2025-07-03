@@ -7,7 +7,10 @@ int main()
 
     while(true)
     {
-        clsLoginScreen::ShowLoginScreen();
+       if(!clsLoginScreen::ShowLoginScreen())
+       {
+            break;
+       }
     }
 
 }
