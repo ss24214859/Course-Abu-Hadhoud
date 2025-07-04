@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <string>
 #include <ctime>
+#include <sstream>
 #include <vector>
 #include "clsString.h"
 using namespace std;
@@ -61,11 +62,12 @@ public:
 
     static string TimeToString(clsTime Time)
     {
-        string timeStr;
-        timeStr = to_string(Time._Hour) + ":"
-                   + to_string(Time._Minute) + ":"
-                   + to_string(Time._Second);
-        return timeStr;
+        ostringstream timeStr;
+        timeStr << setfill('0')
+        << setw(2) << to_string(Time._Hour) << ":"
+        << setw(2) << to_string(Time._Minute) << ":"
+        << setw(2) << to_string(Time._Second);
+        return timeStr.str();
     }
     string TimeToString() const
     {

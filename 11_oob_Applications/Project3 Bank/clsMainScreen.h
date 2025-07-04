@@ -11,6 +11,7 @@
 #include "clsFindClientScreen.h"
 #include "clsTransactionsScreen.h"
 #include "clsManageUserScreen.h"
+#include "clsLoginRegisterListScreen.h"
 #include "Global.h"
 
 using namespace std;
@@ -27,7 +28,8 @@ private:
         eShowFindClient = 5,
         eTransactionMenue = 6,
         eManageUserMenue = 7,
-        eLogout = 8
+        eLoginRegister = 8, 
+        eLogout = 9
     };
 
     static void _ShowClientListScreen()
@@ -66,6 +68,11 @@ private:
         clsManageUserScreen::ShowManageUserScreen();
     }
 
+    static void _ShowLoginRegisterListScreen()
+    {
+        clsLoginRegisterListScreen::ShowLoginRegisterListScreen();
+    }
+
     static void _Logout()
     {
         CurrentUser = clsUser::Find("", "");
@@ -81,7 +88,7 @@ private:
 
     static enMainMenueOption _ReadMainMenueOption()
     {
-        return (enMainMenueOption)clsInputValidate::ReadShortNumberBetween(1, 8, "\nChoose What do you want to do? [1 to 8]?", "\nChoose What do you want to do? [1 to 8]?");
+        return (enMainMenueOption)clsInputValidate::ReadShortNumberBetween(1, 9, "\nChoose What do you want to do? [1 to 9]?", "\nChoose What do you want to do? [1 to 9]?");
     }
 
     static void _PerformMainMenueOption(enMainMenueOption choice)
@@ -133,6 +140,11 @@ private:
                 _ShowManageUserMenueScreen();
                 break;
             }
+            case enMainMenueOption::eLoginRegister:
+            {
+                _ShowLoginRegisterListScreen();
+                break;
+            }
             case enMainMenueOption::eLogout:
             {
                 _Logout();
@@ -168,7 +180,8 @@ public:
         cout << setw(37) << left << "" << "        [5] Find Client." << endl;
         cout << setw(37) << left << "" << "        [6] Transaction Manue Screen." << endl;
         cout << setw(37) << left << "" << "        [7] Manage User Screen." << endl;
-        cout << setw(37) << left << "" << "        [8] Logout." << endl;
+        cout << setw(37) << left << "" << "        [8] Login Register List." << endl;
+        cout << setw(37) << left << "" << "        [9] Logout." << endl;
         cout << setw(37) << left << "" << clsUtil::PrintLineByChar(WidthLine, '=') << endl;
         _PerformMainMenueOption(_ReadMainMenueOption());
     }

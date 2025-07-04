@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include "clsDate.h"
+#include <vector>
+#include <fstream>
 #include "clsString.h"
 using namespace std;
 
@@ -241,5 +243,24 @@ public:
     static string DecryptText(string Text, short EncryptIOnKey)
     {
         return clsString::Decrypt(Text, EncryptIOnKey);
+    }
+
+    static vector<string> LoadStringRecordsInVector(string FileName)
+    {
+        vector<string> vLines;
+
+        fstream File;
+        File.open(FileName, ios::in);
+        if (File.is_open())
+        {
+            string Line;
+            while (getline(File, Line))
+            {
+                vLines.push_back(Line);
+            }
+
+            File.close();
+        }
+        return vLines;
     }
 };

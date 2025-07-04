@@ -39,7 +39,7 @@ private:
                       to_string(User.Permissions());
         return Line;
     }
-
+    
     // Converts a line from file to a user Object
     static clsUser _ConvertLineToUserObject(string Line)
     {
@@ -142,6 +142,34 @@ private:
     }
 
 public:
+    struct stLoginRegisterRecord
+    {
+        string DateTime;
+        string UserName;
+        string Password;
+        int Permissions;
+    };
+
+private:
+    static stLoginRegisterRecord _ConvertLineToLoginRegisterRecord(string Line)
+    {
+        vector<string> vParts = clsString::Split(Line, "#//#");
+        if (vParts.size() == 4)
+        {
+            stLoginRegisterRecord Record;
+            Record.DateTime = vParts[0];
+            Record.UserName = vParts[1];
+            Record.Password = vParts[2];
+            Record.Permissions = stoi(vParts[3]);
+            return Record;
+        }
+        return stLoginRegisterRecord({"", "", "", 0});
+    }
+
+public:
+
+
+
     clsUser(enMode Mode, string FirstName, string LastName, string Email, string Phone, string UserName, string Password, int Permissions)
         : clsPerson(FirstName, LastName, Email, Phone)
     {
@@ -319,6 +347,7 @@ public:
         eFindClient = 16,
         eTransactionMenue = 32,
         eManageUserMenue = 64,
+        eLoginRegister = 128,
     };
 
     bool ChackAccessPermission(enPermissions Permissions)
@@ -330,6 +359,29 @@ public:
             return true;
         else
         return false; // Permission not granted
+    }
+    
+     
+    static vector<stLoginRegisterRecord> LoadLoginRegisterRecords()
+    {
+        vector<stLoginRegisterRecord> vRecords;
+        fstream File;
+        File.open("LoginRegister.txt", ios::in);
+        if (File.is_open())
+        {
+            string Line;
+            while (getline(File, Line))
+            {
+                stLoginRegisterRecord Record = _ConvertLineToLoginRegisterRecord(Line);
+                if (Record.DateTime != "")
+                {
+                    vRecords.push_back(Record);
+                }
+
+            }
+            File.close();
+        }
+        return vRecords;
     }
 
     void RegisterLogin()
@@ -346,4 +398,6 @@ public:
         else
             cout << "Error opening file to save login info." << endl;
     }
+
+
 };

@@ -82,6 +82,9 @@ public:
 
             if (clsInputValidate::ReadYesOrNo("Manage Users?"))
                 Permissions += clsUser::enPermissions::eManageUserMenue;
+
+            if(clsInputValidate::ReadYesOrNo("Login Register?"))
+                Permissions += clsUser::enPermissions::eLoginRegister;
         }
         return Permissions;
         

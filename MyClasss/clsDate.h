@@ -4,6 +4,7 @@
 #include "clsString.h"
 #include <vector>
 #include <limits>
+#include <sstream>
 #include <ctime>
 #include "clsTime.h"
 
@@ -309,7 +310,13 @@ public:
 
     static string DateToString(clsDate Date)
     {
-        return to_string(Date._Day) + "/" + to_string(Date._Month) + "/" + to_string(Date._Year);
+        ostringstream ossDate;
+        ossDate << setfill('0')
+        <<setw(2)<< to_string(Date._Day) << "/" 
+        <<setw(2)<< to_string(Date._Month) << "/" 
+        <<setw(2)<< to_string(Date._Year);
+
+        return ossDate.str();
     }
 
     string DateToString()
