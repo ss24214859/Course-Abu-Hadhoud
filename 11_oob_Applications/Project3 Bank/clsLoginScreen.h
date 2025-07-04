@@ -5,15 +5,18 @@
 #include "../../MyClasss/clsInputValidate.h"
 #include "clsUser.h"
 #include "Global.h"
+#include "../../MyClasss/clsDate.h"
 
 using namespace std;
 class clsLoginScreen : protected clsScreen
 {
 private:
+
     static bool _Login()
     {
         bool FaildLogin = false;
         short Trails = 3;
+
         // Loop until the user successfully logs in or chooses to exit
         do
         {
@@ -35,8 +38,13 @@ private:
             FaildLogin = CurrentUser.IsEmpty();
 
         } while (FaildLogin);
-        // If login is successful, show the main menu screen
+
+        // If login is successful, Save the login information
+        CurrentUser.RegisterLogin();
+
+        // show the main menu screen
         clsMainScreen::ShowMainMenueScreen();
+
         return true;
     }
 
@@ -45,6 +53,8 @@ public:
     {
         system("cls");
         _DrawScreenHeader("\t\tLogin Screen");
-        return _Login();
+
+        return  _Login();
+         
     }
 };

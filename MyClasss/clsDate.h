@@ -5,6 +5,7 @@
 #include <vector>
 #include <limits>
 #include <ctime>
+#include "clsTime.h"
 
 using namespace std;
 
@@ -77,7 +78,7 @@ public:
     }
 
     // Methods --------------
-
+    
     static void Print(clsDate Date)
     {
         cout << DateToString(Date) << endl;
@@ -884,5 +885,10 @@ public:
     void DecreaseDateByOneMillennium()
     {
         *this = DecreaseDateByOneMillennium(*this);
+    }
+
+    static string GetSystemDateTimeString()
+    {
+        return GetSystemDate().DateToString() + " - " + clsTime::GetSystemTime().TimeToString();
     }
 };

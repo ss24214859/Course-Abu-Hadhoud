@@ -6,6 +6,7 @@
 #include "../../MyClasss/clsPerson.h"
 #include "../../MyClasss/clsString.h"
 #include "../../MyClasss/clsUtil.h"
+#include "../../MyClasss/clsDate.h"
 
 using namespace std;
 
@@ -130,6 +131,14 @@ private:
     static clsUser _EmptyUserObject()
     {
         return clsUser(enMode::EmptyM, "", "", "", "", "", "", 0);
+    }
+
+    string _PrepareLoginInRecord(string Sep="#//#")
+    {
+        return clsDate::GetSystemDateTimeString() + Sep +
+               _UserName + Sep +
+               _Password + Sep +
+               to_string(_Permissions);
     }
 
 public:
@@ -321,5 +330,20 @@ public:
             return true;
         else
         return false; // Permission not granted
+    }
+
+    void RegisterLogin()
+    {
+        string LoginInRecord = _PrepareLoginInRecord();
+        // Save the current user information to a file or database
+        fstream file;
+        file.open("LoginRegister.txt", ios::out | ios::app);
+        if(file.is_open())
+        {
+            file <<LoginInRecord<< endl;
+            file.close();
+        }
+        else
+            cout << "Error opening file to save login info." << endl;
     }
 };
