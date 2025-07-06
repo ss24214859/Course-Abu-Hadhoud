@@ -7,6 +7,7 @@
 #include "clsDepositScreen.h"
 #include "clsWithdrawScreen.h"
 #include "clsTotalBalancesScreen.h"
+#include "clsTransferScreen.h"
 using namespace std;
 
 class clsTransactionsScreen : clsScreen
@@ -17,7 +18,8 @@ private:
         eDeposit = 1,
         eWithdraw = 2,
         eTotalBalance = 3,
-        eBack = 4
+        eTransfer=4,
+        eBack = 5
     };
 
     // Shows the deposit screen
@@ -37,7 +39,10 @@ private:
     {
         clsTotalBalancesScreen::ShowBlanceListScreen();
     }
-
+    static void _TransferScreen()
+    {
+        clsTransferScreen::ShowTransferScreen();
+    }
     // Returns to the transaction menu after a pause
     static void _GoBackToTransactionMenue()
     {
@@ -50,8 +55,7 @@ private:
     static enTransactionMenueOption _ReadTransactionMenueOption()
     {
         short choice;
-        cout << "\n\t\tChoose an option [1-4]: ";
-        choice = clsInputValidate::ReadShortNumberBetween(1, 4, "Enter a valid option between 1 and 4: ");
+        choice = clsInputValidate::ReadShortNumberBetween(1, 5,"\n\t\tChoose an option [1-5]: " ,"Enter a valid option between 1 and 5: ");
         return (enTransactionMenueOption)choice;
     }
 
@@ -77,6 +81,12 @@ private:
         case enTransactionMenueOption::eTotalBalance:
         {
             _ShowBlanceListScreen();
+            _GoBackToTransactionMenue();
+            break;
+        }
+        case enTransactionMenueOption::eTransfer:
+        {
+            _TransferScreen();
             _GoBackToTransactionMenue();
             break;
         }
@@ -106,7 +116,8 @@ public:
         cout << setw(37) << left << "" << "        [1] Deposit." << endl;
         cout << setw(37) << left << "" << "        [2] Withdraw." << endl;
         cout << setw(37) << left << "" << "        [3] Total Balance." << endl;
-        cout << setw(37) << left << "" << "        [4] Back." << endl;
+        cout << setw(37) << left << "" << "        [4] Transfer." << endl;
+        cout << setw(37) << left << "" << "        [5] Back." << endl;
         cout << setw(37) << left << "" << clsUtil::PrintLineByChar(WidthLine, '=');
         _PerformTransactionMenueOption(_ReadTransactionMenueOption());
     }

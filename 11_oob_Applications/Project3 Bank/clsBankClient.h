@@ -320,6 +320,13 @@ public:
         return true;
     }
 
+    bool Transfer(clsBankClient &To ,double Amount)
+    {
+        if(!Withdraw(Amount)) return false;
+        To.Deposit(Amount);
+        return true;
+    }
+
     enum enSaveResult
     {
         svFaildEmptyObject = 0,

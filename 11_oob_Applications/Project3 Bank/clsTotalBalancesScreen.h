@@ -49,6 +49,6 @@ public:
 
         double TotalBalance = clsBankClient::GetTotalBalances();
         cout << setw(37) << left << "" << "                Total Balance = " << TotalBalance << endl;
-        cout << setw(37) << left << "" << "( " << clsUtil::NumberToText(TotalBalance) << ")" << endl;
+        cout << setw(37) << left << "" << "( " << clsUtil::NumberToText((long)TotalBalance) << ")" << endl;
     }
 };

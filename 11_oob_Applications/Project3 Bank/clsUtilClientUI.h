@@ -46,11 +46,23 @@ public:
         cout << clsUtil::PrintLineByChar(50) << endl;
         cout << "FirstName       : " << Client.FirstName() << endl;
         cout << "LastName        : " << Client.LastName() << endl;
-        cout << "Name            : " << Client.FullName() << endl;
+        cout << "FullName            : " << Client.FullName() << endl;
         cout << "Email           : " << Client.Email() << endl;
         cout << "Phone           : " << Client.Phone() << endl;
         cout << "Account Number  : " << Client.AccountNumber() << endl;
         cout << "PIN Code        : " << Client.PINCode() << endl;
+        cout << "Account Balance : " << Client.AccountBalance() << endl;
+        cout << clsUtil::PrintLineByChar(50) << endl;
+    }
+
+    static void PrintMiniCard(clsBankClient Client)
+    {
+        cout << "\n"
+             << clsUtil::PrintLineByChar(50) << endl;
+        cout << "\nClient Card: " << endl;
+        cout << clsUtil::PrintLineByChar(50) << endl;
+        cout << "FullName            : " << Client.FullName() << endl;
+        cout << "Account Number  : " << Client.AccountNumber() << endl;
         cout << "Account Balance : " << Client.AccountBalance() << endl;
         cout << clsUtil::PrintLineByChar(50) << endl;
     }
