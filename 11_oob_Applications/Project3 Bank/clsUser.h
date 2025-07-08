@@ -35,7 +35,7 @@ private:
                       User.Email() + Sepretor +
                       User.Phone() + Sepretor +
                       User.UserName() + Sepretor +
-                      User.Password() + Sepretor +
+                      clsUtil::EncryptText(User.Password(),51) + Sepretor +
                       to_string(User.Permissions());
         return Line;
     }
@@ -44,6 +44,7 @@ private:
     static clsUser _ConvertLineToUserObject(string Line)
     {
         vector<string> vUser = clsString::Split(Line, "#//#");
+        vUser[5] = clsUtil::DecryptText(vUser[5], 51); // Decrypt the passwords
         return clsUser(
             enMode::UpdateM,
             vUser[0],      // FirstName

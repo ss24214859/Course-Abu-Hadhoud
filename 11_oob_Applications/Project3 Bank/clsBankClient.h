@@ -33,7 +33,7 @@ private:
                       Client.Email() + Sepretor +
                       Client.Phone() + Sepretor +
                       Client.AccountNumber() + Sepretor +
-                      Client.PINCode() + Sepretor +
+                      clsUtil::EncryptText(Client.PINCode(),19) + Sepretor +
                       to_string(Client.AccountBalance());
         return Line;
     }
@@ -42,6 +42,7 @@ private:
     static clsBankClient _ConvertLineToClientobject(string Line)
     {
         vector<string> vClient = clsString::Split(Line, "#//#");
+        vClient[5]= clsUtil::DecryptText(vClient[5], 19); // Decrypt the PIN code
         return clsBankClient(
             enMode::UpdateM,
             vClient[0],      // FirstName
