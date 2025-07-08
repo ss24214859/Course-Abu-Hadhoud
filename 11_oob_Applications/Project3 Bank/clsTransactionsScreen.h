@@ -8,6 +8,7 @@
 #include "clsWithdrawScreen.h"
 #include "clsTotalBalancesScreen.h"
 #include "clsTransferScreen.h"
+#include "clsTransferLogScreen.h"
 using namespace std;
 
 class clsTransactionsScreen : clsScreen
@@ -19,7 +20,8 @@ private:
         eWithdraw = 2,
         eTotalBalance = 3,
         eTransfer=4,
-        eBack = 5
+        eTransferLog=5,
+        eBack = 6
     };
 
     // Shows the deposit screen
@@ -39,9 +41,15 @@ private:
     {
         clsTotalBalancesScreen::ShowBlanceListScreen();
     }
+    
     static void _TransferScreen()
     {
         clsTransferScreen::ShowTransferScreen();
+    }
+
+    static void _TransferLogScreen()
+    {
+        clsTransferLogScreen::ShowTransferLogScreen();
     }
     // Returns to the transaction menu after a pause
     static void _GoBackToTransactionMenue()
@@ -55,7 +63,7 @@ private:
     static enTransactionMenueOption _ReadTransactionMenueOption()
     {
         short choice;
-        choice = clsInputValidate::ReadShortNumberBetween(1, 5,"\n\t\tChoose an option [1-5]: " ,"Enter a valid option between 1 and 5: ");
+        choice = clsInputValidate::ReadShortNumberBetween(1, 6,"\n\t\tChoose an option [1 - 6]: " ,"Enter a valid option between 1 and 6: ");
         return (enTransactionMenueOption)choice;
     }
 
@@ -90,6 +98,12 @@ private:
             _GoBackToTransactionMenue();
             break;
         }
+        case enTransactionMenueOption::eTransferLog:
+        {
+            _TransferLogScreen();
+            _GoBackToTransactionMenue();
+            break;
+        }
         case enTransactionMenueOption::eBack:
         {
             break;
@@ -117,7 +131,8 @@ public:
         cout << setw(37) << left << "" << "        [2] Withdraw." << endl;
         cout << setw(37) << left << "" << "        [3] Total Balance." << endl;
         cout << setw(37) << left << "" << "        [4] Transfer." << endl;
-        cout << setw(37) << left << "" << "        [5] Back." << endl;
+        cout << setw(37) << left << "" << "        [5] Transfer Log." << endl;
+        cout << setw(37) << left << "" << "        [6] Back." << endl;
         cout << setw(37) << left << "" << clsUtil::PrintLineByChar(WidthLine, '=');
         _PerformTransactionMenueOption(_ReadTransactionMenueOption());
     }

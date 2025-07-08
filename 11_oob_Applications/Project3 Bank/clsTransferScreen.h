@@ -29,6 +29,8 @@ public:
                 cout<<"\nTransfer done Successfully.\n";
                 clsUtilClientUI::PrintMiniCard(ClientFrom);
                 clsUtilClientUI::PrintMiniCard(ClientTo);
+                
+                ClientFrom.SaveInTransferLog(ClientTo,Amount);
             }
             else 
             cout<<"Transfer Faild, Amount Exceeds The available Balance"<<endl;

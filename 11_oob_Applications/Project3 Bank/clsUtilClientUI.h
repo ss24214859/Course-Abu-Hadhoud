@@ -61,7 +61,7 @@ public:
              << clsUtil::PrintLineByChar(50) << endl;
         cout << "\nClient Card: " << endl;
         cout << clsUtil::PrintLineByChar(50) << endl;
-        cout << "FullName            : " << Client.FullName() << endl;
+        cout << "FullName        : " << Client.FullName() << endl;
         cout << "Account Number  : " << Client.AccountNumber() << endl;
         cout << "Account Balance : " << Client.AccountBalance() << endl;
         cout << clsUtil::PrintLineByChar(50) << endl;

@@ -132,6 +132,48 @@ private:
         return clsBankClient(enMode::EmptyM, "", "", "", "", "", "", 0.0);
     }
 
+        string _PrepareTransferRecord(clsBankClient To, double Amount, string Sep="#//#")
+    {
+        return clsDate::GetSystemDateTimeString() + Sep +
+                _AccountNumber + Sep +
+                To.AccountNumber() + Sep +
+                to_string(Amount)+Sep+
+                to_string(_AccountBalance)+Sep+
+                to_string(To.AccountBalance())+Sep+
+                CurrentUser.UserName();
+    }
+
+public:
+    struct stTransferLogRecord
+    {
+        string DateTime;
+        string From_AccNum;
+        string To_AccNum;
+        double Amount;
+        double From_BalanceAfter; //After Transfer.
+        double To_BalanceAfter;  //After Transfer.
+        string User;
+    };
+
+private:
+    static stTransferLogRecord _ConvertLineToTransferLogRecord(string Line)
+    {
+        vector<string> vParts = clsString::Split(Line, "#//#");
+        if (vParts.size() == 7)
+        {
+            stTransferLogRecord Record;
+            Record.DateTime = vParts[0];
+            Record.From_AccNum = vParts[1];
+            Record.To_AccNum = vParts[2];
+            Record.Amount = stod(vParts[3]);
+            Record.From_BalanceAfter = stod(vParts[4]);
+            Record.To_BalanceAfter = stod(vParts[5]);
+            Record.User = vParts[6];
+            return Record;
+        }
+        return stTransferLogRecord({"", "", "", 0,0,0,""});
+    }
+
 public:
     // Constructor for clsBankClient
     clsBankClient(enMode Mode, string FirstName, string LastName, string Email, string Phone, string AccountNumber, string PINCode, double AccountBalance) : clsPerson(FirstName, LastName, Email, Phone)
@@ -354,5 +396,42 @@ public:
             }
         }
         return svSucceeded;
+    }
+    
+    void SaveInTransferLog(clsBankClient To ,double Amount)
+    {
+        string TransferRecord = _PrepareTransferRecord(To,Amount);
+        // Save the current user information to a file or database
+        fstream file;
+        file.open("TransferLog.txt", ios::out | ios::app);
+        if(file.is_open())
+        {
+            file <<TransferRecord<< endl;
+            file.close();
+        }
+        else
+            cout << "Error opening file to save Transfer info." << endl;
+    }
+
+    // Loads transfer log records from the file into a vector
+    static vector<stTransferLogRecord> LoadTransferLogRecords()
+    {
+        vector<stTransferLogRecord> vRecords;
+        fstream File;
+        File.open("TransferLog.txt", ios::in);
+        if (File.is_open())
+        {
+            string Line;
+            while (getline(File, Line))
+            {
+                stTransferLogRecord Record = _ConvertLineToTransferLogRecord(Line);
+                if (Record.DateTime != "")
+                {
+                    vRecords.push_back(Record);
+                }
+            }
+            File.close();
+        }
+        return vRecords;
     }
 };
