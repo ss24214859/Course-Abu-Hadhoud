@@ -138,7 +138,7 @@ private:
     {
         return clsDate::GetSystemDateTimeString() + Sep +
                _UserName + Sep +
-               _Password + Sep +
+               clsUtil::EncryptText(_Password,51) + Sep +
                to_string(_Permissions);
     }
 
@@ -160,7 +160,7 @@ private:
             stLoginRegisterRecord Record;
             Record.DateTime = vParts[0];
             Record.UserName = vParts[1];
-            Record.Password = vParts[2];
+            Record.Password = clsUtil::DecryptText(vParts[2], 51); // Decrypt the password
             Record.Permissions = stoi(vParts[3]);
             return Record;
         }
