@@ -263,4 +263,14 @@ public:
         }
         return vLines;
     }
+
+    static string UpperAllString(string S1)
+    {
+        return clsString::UpperAllString(S1);
+    }
+    
+    static string LowerAllString(string S1)
+    {
+        return clsString::LowerAllString(S1);
+    }
 };
