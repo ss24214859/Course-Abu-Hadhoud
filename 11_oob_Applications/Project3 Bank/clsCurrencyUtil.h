@@ -11,6 +11,7 @@ public:
     static void PrintCurrency(clsCurrency& currency)
     {
         cout << "\nCurrency Details:\n";
+        cout << "-----------------------------\n";
         cout << "Country: " << currency.Country() << endl;
         cout << "Code: " << currency.CurrencyCode() << endl;
         cout << "Name: " << currency.CurrencyName() << endl;

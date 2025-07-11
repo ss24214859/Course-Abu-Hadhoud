@@ -75,6 +75,11 @@ private:
         clsLoginRegisterListScreen::ShowLoginRegisterListScreen();
     }
 
+    static void _ShowCurrencyExchangeScreen()
+    {
+        clsCurrencyExchangeScreen::ShowCurrencyExchangeScreen();
+    }
+
     static void _Logout()
     {
         CurrentUser = clsUser::Find("", "");
@@ -149,7 +154,7 @@ private:
             }
             case enMainMenueOption::eCurrencyExchange:
             {
-                clsCurrencyExchangeScreen::ShowCurrencyExchangeScreen();
+                _ShowCurrencyExchangeScreen();
                 break;
             }
             case enMainMenueOption::eLogout:
