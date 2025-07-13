@@ -7,10 +7,25 @@ using namespace std;
 class clsCurrencyUtil
 {
 public:
-    // Function to print currency details
-    static void PrintCurrency(clsCurrency& currency)
+    static clsCurrency ReadExistingCurrencyObject(string Massage)
     {
-        cout << "\nCurrency Details:\n";
+        string CurrencyCode = clsInputValidate::ReadString(Massage);
+        clsCurrency Currency = clsCurrency::FindByCurrencyCode(CurrencyCode);
+        while(Currency.IsEmpty())
+        {
+            cout<<"\nCurrency Not Found :-(\n"<<endl;
+            string CurrencyCode = clsInputValidate::ReadString(Massage);
+            Currency = clsCurrency::FindByCurrencyCode(CurrencyCode);
+            
+        }
+        return Currency;
+
+    }
+
+    // Function to print currency details
+    static void PrintCurrency(clsCurrency& currency,string Title="Currency Details:")
+    {
+        cout <<"\n"<<Title<<"\n";
         cout << "-----------------------------\n";
         cout << "Country: " << currency.Country() << endl;
         cout << "Code: " << currency.CurrencyCode() << endl;

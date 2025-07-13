@@ -227,4 +227,22 @@ public:
         return svFailed;
     }
 
+    double ConvertToUSD(double Amount)
+    {
+        return Amount / _Rate;
+    }
+    double ConvertFromUSD(double Amount)
+    {
+        return Amount * _Rate;
+    }
+
+    double ConvertToAnotherCurrency(clsCurrency &ToCurrency, double Amount)
+    {
+        double AmountInUSD = ConvertToUSD(Amount);
+  
+        if( ToCurrency.CurrencyCode() == "USD")
+            return AmountInUSD;
+        else    
+        return double (ToCurrency.ConvertFromUSD(AmountInUSD));
+    }
 };
