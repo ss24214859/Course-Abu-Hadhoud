@@ -202,13 +202,34 @@ public:
 
     void Reverse()
     {
-        Node *Current=NULL;
         while(Head!=NULL)
         {
-            Current=Head;
-            Head=Head->Next;
-            _Swap(Current->Next,Current->Prev);
+            _Swap(Head->Next,Head->Prev);
+
+            if(Head->Prev==NULL)
+            break;
+
+            Head=Head->Prev;
+            
+        }   
+    }
+
+    Node* GetNode(int Index)
+    {
+        if(Index>_Size-1||Index<0)
+        return NULL;
+
+        int Counter=0;
+        Node* CurrentNode=Head;
+        while(CurrentNode==NULL && (CurrentNode->Next!=NULL))
+        {
+            if(Index==Counter)
+            break;
+
+            CurrentNode=CurrentNode->Next;
+            Counter++;
         }
-        Head=Current;
+        return CurrentNode;
+
     }
 };
