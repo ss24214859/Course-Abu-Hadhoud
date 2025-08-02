@@ -221,7 +221,7 @@ public:
 
         int Counter=0;
         Node* CurrentNode=Head;
-        while(CurrentNode==NULL && (CurrentNode->Next!=NULL))
+        while(CurrentNode!=NULL && (CurrentNode->Next!=NULL))
         {
             if(Index==Counter)
             break;
@@ -231,5 +231,11 @@ public:
         }
         return CurrentNode;
 
+    }
+
+    T GetItem(int Index)
+    {
+        Node* ItemNode = GetNode(Index);
+        return (ItemNode==NULL)? T (NULL):ItemNode->Value ;
     }
 };

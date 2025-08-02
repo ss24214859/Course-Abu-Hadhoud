@@ -27,7 +27,5 @@ int main()
     MydblLinkedList.PrintList();
     cout<<"\nNumber Of items In the Linked List = "<<MydblLinkedList.Size()<<endl;
 
-    ClsDblLinkedList <int> ::Node* N1;
-    N1=MydblLinkedList.GetNode(0);
-    cout<<"N1 Value = "<<N1->Value<<endl;
+    cout<<"Get Item Of 1 = "<<MydblLinkedList.GetItem(1)<<endl;
 }
