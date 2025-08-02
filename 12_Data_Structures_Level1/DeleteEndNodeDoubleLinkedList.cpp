@@ -139,7 +139,7 @@ void PrintList(Node* Head)
     cout<<"Linked List Content: "<<endl;
     while(Head!=NULL)
     {
-        cout<< Head->Number<<" <--> ";
+        cout<< Head->Number<<" ";
 
         Head = Head->Next;
     }
