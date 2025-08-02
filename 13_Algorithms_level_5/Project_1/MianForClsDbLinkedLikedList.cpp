@@ -11,6 +11,11 @@ int main()
 {
 
     ClsDblLinkedList <int> MydblLinkedList;
+    
+    if(MydblLinkedList.IsEmpty())
+    cout<<"Yes List Is Empty."<<endl;
+    else
+    cout<<"No List Is Not Empty."<<endl;
 
     MydblLinkedList.InsertAtBeginning(5);
     MydblLinkedList.InsertAtBeginning(4);
@@ -22,14 +27,9 @@ int main()
     MydblLinkedList.PrintList();
     cout<<"\nNumber Of items In the Linked List = "<<MydblLinkedList.Size()<<endl;
 
-       MydblLinkedList.DeleteFirstNode();
-    cout << "\nAfter Deleting First Node:\n";
-    MydblLinkedList.PrintList();
-    cout<<"\nNumber Of items In the Linked List = "<<MydblLinkedList.Size()<<endl;
-
-    cout << "\nAfter Deleting Last Node:\n";
-    MydblLinkedList.DeleteLastNode();
-    MydblLinkedList.PrintList();
-    cout<<"\nNumber Of items In the Linked List = "<<MydblLinkedList.Size()<<endl;
+    if(MydblLinkedList.IsEmpty())
+    cout<<"Yes List Is Empty."<<endl;
+    else
+    cout<<"No List Is Not Empty."<<endl;
 
 }

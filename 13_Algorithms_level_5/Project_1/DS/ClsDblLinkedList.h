@@ -19,7 +19,12 @@ public:
 
     Node *Head=NULL;
 
-    int _Size() { return _Size; }
+    int Size() { return _Size; }
+
+    bool IsEmpty()
+    {
+        return _Size==0;
+    }
 
     void InsertAtBeginning(T Value)
     {
