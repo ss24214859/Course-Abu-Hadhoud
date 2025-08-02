@@ -19,13 +19,6 @@ public:
 
     Node *Head=NULL;
 
-    int Size() { return _Size; }
-
-    bool IsEmpty()
-    {
-        return _Size==0;
-    }
-
     void InsertAtBeginning(T Value)
     {
         Node *NewNode = new Node;
@@ -166,5 +159,35 @@ public:
         cout<<endl;
     }
 
+    int Size() { return _Size; }
+
+    bool IsEmpty()
+    {
+        return _Size==0;
+    }
+
+    void Clear()
+    {
+        /*               --This is The Hard Way
+        if(Head==NULL)
+        return;
+
+        while(Head->Next!=NULL)
+        {
+            Head=Head->Next;
+            delete Head->Prev;
+        }
+        delete Head;
+        Head=NULL;
+        _Size*/ 
+
+        // This is the Ture Way
+
+        while(Size!=0)
+        {
+            DeleteFirstNode();
+        }
+
+    }
 
 };
