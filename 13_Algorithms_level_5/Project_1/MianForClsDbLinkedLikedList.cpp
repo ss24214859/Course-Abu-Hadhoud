@@ -27,8 +27,10 @@ int main()
     MydblLinkedList.PrintList();
     cout<<"\nNumber Of items In the Linked List = "<<MydblLinkedList.Size()<<endl;
 
-    cout<<"\nExecuting .Clear"<<endl;
-    MydblLinkedList.Clear();
+    cout<<"\nExecuting .Reverse"<<endl;
+    MydblLinkedList.Reverse();
+    cout << "\nLinked List Contenet:\n";
+    MydblLinkedList.PrintList();
     cout<<"Number Of items In the Linked List = "<<MydblLinkedList.Size()<<endl;
 
 }

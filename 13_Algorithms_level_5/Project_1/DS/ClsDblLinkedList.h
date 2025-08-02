@@ -5,6 +5,7 @@ using namespace std;
 template <class T>
 class ClsDblLinkedList
 {
+
 protected:    
     int  _Size=0;
 
@@ -17,6 +18,15 @@ public:
         Node *Next;
     };
 
+private:
+    void _Swap(Node *&N1,Node *&N2)
+    {
+        Node *temp=N1;
+        N1=N2;
+        N2=temp;
+    }
+    
+public:
     Node *Head=NULL;
 
     void InsertAtBeginning(T Value)
@@ -190,4 +200,15 @@ public:
 
     }
 
+    void Reverse()
+    {
+        Node *Current=NULL;
+        while(Head!=NULL)
+        {
+            Current=Head;
+            Head=Head->Next;
+            _Swap(Current->Next,Current->Prev);
+        }
+        Head=Current;
+    }
 };
