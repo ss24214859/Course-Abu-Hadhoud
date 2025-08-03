@@ -72,6 +72,19 @@ public:
         _Size++;
     }
 
+
+    bool InsertAfter(int Index, T NewNodeValue)
+    {
+        Node* CurrentNode= GetNode(Index);
+        if(CurrentNode!=NULL)
+        {
+            InsertAfter(CurrentNode,NewNodeValue);
+            return true;
+        }
+        else 
+            return false;
+    }
+
     void InsertAtEnd(T NewNodeValue)
     {
         Node *NewNode = new Node;
@@ -82,6 +95,7 @@ public:
         if (Head == NULL)
         {
             Head = NewNode;
+            _Size++;
             return;
         }
 
@@ -237,5 +251,19 @@ public:
     {
         Node* ItemNode = GetNode(Index);
         return (ItemNode==NULL)? T (NULL):ItemNode->Value ;
+    }
+
+    bool UpdateItem(int Index, T NewValue)
+    {
+
+        Node * ItemNode= GetNode(Index);
+
+        if(ItemNode!=NULL)
+        {
+            ItemNode->Value=NewValue;
+            return true;
+        }
+        else
+            return false;
     }
 };

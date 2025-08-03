@@ -22,10 +22,14 @@ int main()
     MydblLinkedList.InsertAtBeginning(3);
     MydblLinkedList.InsertAtBeginning(2);
     MydblLinkedList.InsertAtBeginning(1);
-   
+
     cout << "\nLinked List Contenet:\n";
     MydblLinkedList.PrintList();
     cout<<"\nNumber Of items In the Linked List = "<<MydblLinkedList.Size()<<endl;
 
-    cout<<"Get Item Of 1 = "<<MydblLinkedList.GetItem(1)<<endl;
+    MydblLinkedList.InsertAfter(2,500);
+
+    MydblLinkedList.PrintList();
+    cout<<"\nNumber Of items In the Linked List = "<<MydblLinkedList.Size()<<endl;
+
 }
