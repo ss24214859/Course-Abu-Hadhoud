@@ -1,84 +1,27 @@
 #pragma once
 #include <iostream>
-#include "ClsDblLinkedList.h"
+#include "ClsMyQueue.h"
 
 using namespace std;
 
 template <class T>
-class ClsMyStack
+class ClsMyStack : public ClsMyQueue <T>
 {
-protected:
-    ClsDblLinkedList <T> _Stack;
 public:
     void push(T Value)
     {
-        _Stack.InsertAtBeginning(Value);
-    }
-    void pop()
-    {
-        _Stack.DeleteFirstNode();
-    }
-    int Size()
-    {
-        return _Stack.Size();
+        
+        ClsMyQueue<T>:: _Queue.InsertAtBeginning(Value);    // TO Use Varibale Or Methods in Base Class You Can Use This Way 
+        //this->_Queue.InsertAtBeginning(Value);        // OR You Can This Way 
+
     }
     T Top()
     {
-        return _Stack.GetItem(0);
+        return ClsMyQueue <T>::front();
     }
     T Bottom()
     {
-        return _Stack.GetItem(Size()-1);
+        return ClsMyQueue <T>::back();
     }
 
-    T GetItem(int Index)
-    {
-        return _Stack.GetItem(Index);
-    }
-
-
-    void DeleteItem(int Index)
-    {
-        _Stack.DeleteNode(Index);
-    }
-
-    bool IsEmpty()
-    {
-        return _Stack.IsEmpty();
-    }
-
-    void Reverse()
-    {
-        _Stack.Reverse();
-    }
-    
-    bool UpdateItem(int Index,T Value)
-    {
-        return _Stack.UpdateItem(Index,Value);
-    }
-    
-    void InsertAfter(int Index, T Value)
-    {
-        _Stack.InsertAfter(Index, Value);
-    }
-    
-    void InsertAtTop(T Value)
-    {
-        _Stack.InsertAtBeginning(Value);
-    }
-    
-    void InsertAtBottom(T Value)
-    {
-        _Stack.InsertAtEnd(Value);
-    }
-    
-    void Clear()
-    {
-        _Stack.Clear();
-    }
-    
-    void Print()
-    {
-        _Stack.Print();
-    }
 };

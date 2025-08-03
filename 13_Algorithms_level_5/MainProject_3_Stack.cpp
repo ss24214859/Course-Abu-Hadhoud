@@ -21,7 +21,7 @@ int main()
     cout << "\nStack: \n";
     MyStack.Print();
 
-    cout << "\nStack Size: " << MyStack.Size();
+    cout << "\nStack Size: " << MyStack.size();
     cout << "\nStack Top: " << MyStack.Top();
     cout << "\nStack Bottom: " << MyStack.Bottom();
 
@@ -50,12 +50,12 @@ int main()
 
 
     //Extension #5
-    MyStack.InsertAtTop(1000);
+    MyStack.InsertAtFront(1000);
     cout << "\n\nStack after Inserting 1000 at top: \n";
     MyStack.Print();
 
     //Extension #6
-    MyStack.InsertAtBottom(2000);
+    MyStack.InsertAtBack(2000);
     cout << "\n\nStack after Inserting 2000 at bottom: \n";
     MyStack.Print();
 
