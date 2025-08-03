@@ -128,6 +128,11 @@ public:
         _Size--;
     }
 
+    void DeleteNode(int Index)
+    {
+        DeleteNode(GetNode(Index));
+    }
+
     void DeleteFirstNode()
     {
         if (Head == NULL)
@@ -170,7 +175,7 @@ public:
 
 
 
-    void PrintList()
+    void Print()
     {
         Node *CurrentNode=Head;
         cout << "Linked List Contenet: " << endl;
@@ -207,7 +212,7 @@ public:
 
         // This is the Ture Way
 
-        while(Size!=0)
+        while(_Size!=0)
         {
             DeleteFirstNode();
         }

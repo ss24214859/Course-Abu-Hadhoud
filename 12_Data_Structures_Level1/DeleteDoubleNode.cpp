@@ -110,7 +110,7 @@ void PrintListDetials(Node* Head)
     }
 }
 
-void PrintList(Node* Head)
+void Print(Node* Head)
 {
     cout<<"Linked List Content: "<<endl;
     while(Head!=NULL)
@@ -133,11 +133,11 @@ int main()
     InsertAtBegining(Head,4);
     InsertAtBegining(Head,5);
 
-    PrintList(Head);
+    Print(Head);
     cout<<"___________________"<<endl;
     Node* NodeToDelete= Find(Head,5);
     DeleteNode(Head,NodeToDelete);
-    PrintList(Head);
+    Print(Head);
     PrintListDetials(Head);
 
 }

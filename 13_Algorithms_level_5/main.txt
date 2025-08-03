@@ -2,14 +2,14 @@
 //Mohammed Abu-Hadhoud
 
 #include <iostream>
-#include "DS/ClsMyQueue.h"
+#include "clsMyQueue.h"
 
 using namespace std;
 
 int main()
 {
 
-    ClsMyQueue <int> MyQueue;
+    clsMyQueue <int> MyQueue;
 
     MyQueue.push(10);
     MyQueue.push(20);
@@ -21,7 +21,7 @@ int main()
     cout << "\nQueue: \n";
     MyQueue.Print();
 
-    cout << "\nQueue Size: " << MyQueue.size();
+    cout << "\nQueue Size: " << MyQueue.Size();
     cout << "\nQueue Front: " << MyQueue.front();
     cout << "\nQueue Back: " << MyQueue.back();
 
@@ -59,14 +59,12 @@ int main()
     cout << "\n\nQueue after Inserting 2000 at back: \n";
     MyQueue.Print();
 
-    MyQueue.DeleteItem(2);
-    cout << "\n\nQueue after Deleting Item (2) : \n";
-    MyQueue.Print();
-
     //Extension #7
     MyQueue.Clear();
     cout << "\n\nQueue after Clear(): \n";
     MyQueue.Print();
+
+
 
 
     system("pause>0");
