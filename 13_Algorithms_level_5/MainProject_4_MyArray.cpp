@@ -17,13 +17,10 @@ int main()
     cout<<"Array Items: "<<endl;
     MyArray.PrintList();
 
-    cout<<"\n Item(2): "<<MyArray.GetItem(2)<<endl;
-
-    MyArray.Reverse();
-    cout<<"\nArray Items After Reverse: "<<endl;
+    MyArray.DeleteItemAt(2);
+    cout<<"\nArray Items After Delete Item(2) : "<<endl;
+    cout<<"Array Size : "<<MyArray.Size()<<endl;
     MyArray.PrintList();
 
-    MyArray.Clear();
-    cout<<"\nArray Items After Clear: "<<endl;
-    MyArray.PrintList();
+
 }

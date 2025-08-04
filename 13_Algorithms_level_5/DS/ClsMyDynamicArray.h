@@ -105,4 +105,29 @@ public:
         _OriginalArray=new T[_Size];
 
     }
+
+    bool DeleteItemAt(int Index)
+    {
+        if(Index<0 ||(Index>=_Size))
+        return false;
+
+        _TempArray= new T[_Size-1];
+        //Copy All before index.
+        for(int i=0; i< Index; i++)
+        {
+            _TempArray[i]=_OriginalArray[i];
+        }
+        //Copy All After index.
+        for(int i=Index+1; i<_Size;i++)
+        {
+            _TempArray[i-1]=_OriginalArray[i];
+        }
+
+        _Size--;
+
+        delete[] _OriginalArray;
+        _OriginalArray=_TempArray;
+        return true;
+        
+    }
 };
