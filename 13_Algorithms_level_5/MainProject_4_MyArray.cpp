@@ -17,13 +17,14 @@ int main()
     cout<<"Array Items: "<<endl;
     MyArray.PrintList();
 
-    MyArray.DeleteFirstItem();
-    cout<<"\nArray Items After Delete First Item : "<<endl;
-    cout<<"Array Size : "<<MyArray.Size()<<endl;
-    MyArray.PrintList();
+    int Index= MyArray.Find(20);
+    if(Index==-1)
+        cout<<"\nItem Was Not Found :-("<<endl;
+    else
+        cout<<"\n20 Is Found at Index : "<<Index<<endl;
 
-    MyArray.DeleteLastItem();
-    cout<<"\nArray Items After Delete Last Item : "<<endl;
+    MyArray.DeleteItem(20);
+    cout<<"\nArray Items After Delete Item : "<<endl;
     cout<<"Array Size : "<<MyArray.Size()<<endl;
     MyArray.PrintList();
 

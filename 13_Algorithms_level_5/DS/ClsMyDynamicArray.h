@@ -131,6 +131,11 @@ public:
         
     }
 
+    bool DeleteItem(T Value)
+    {
+        return DeleteItemAt(Find(Value));
+    }
+
     void DeleteFirstItem()
     {
         DeleteItemAt(0);
@@ -140,4 +145,16 @@ public:
     {
         DeleteItemAt(_Size-1);
     }
+
+    int Find(T Value)
+    {
+        for(int i=0;i<_Size;i++)
+        {
+            if(_OriginalArray[i]==Value)
+            return i;
+        }
+        return -1;
+    }
+
+    
 };
