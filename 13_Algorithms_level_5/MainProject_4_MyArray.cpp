@@ -17,19 +17,13 @@ int main()
     cout<<"Array Items: "<<endl;
     MyArray.PrintList();
 
-    MyArray.Resize(2);
-    cout<<"\n\nAfter Resize To 2";
-    cout<<"\nArray Size : "<<MyArray.Size()<<endl;
-    cout<<"IsEmpty  :" << MyArray.IsEmpty()<<endl;
-    cout<<"Array Items: "<<endl;
+    cout<<"\n Item(2): "<<MyArray.GetItem(2)<<endl;
+
+    MyArray.Reverse();
+    cout<<"\nArray Items After Reverse: "<<endl;
     MyArray.PrintList();
 
-
-    MyArray.Resize(5);
-    cout<<"\n\nAfter Resize To 5";
-    cout<<"\nArray Size : "<<MyArray.Size()<<endl;
-    cout<<"IsEmpty  :" << MyArray.IsEmpty()<<endl;
-    cout<<"Array Items: "<<endl;
+    MyArray.Clear();
+    cout<<"\nArray Items After Clear: "<<endl;
     MyArray.PrintList();
-
 }

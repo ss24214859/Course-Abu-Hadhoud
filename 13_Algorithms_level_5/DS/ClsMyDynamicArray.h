@@ -55,7 +55,8 @@ public:
         }
         cout<<"\n";
     }
-    
+
+
     void Resize(int NewSize)
     {
         if(NewSize<0)
@@ -76,5 +77,28 @@ public:
         _OriginalArray=_TempArray;
         
     }
+
+    T GetItem(int Index)
+    {
+        return _OriginalArray[Index];
+    }
+
+    void Reverse()
+    {
+        _TempArray= new T[_Size];
+
+        for(int i=0; i<_Size; i++)
+        {
+            _TempArray[i]=_OriginalArray[_Size-1-i];
+        }
+        delete[] _OriginalArray;
+        _OriginalArray=_TempArray;
+    }
     
+    void Clear()
+    {
+        _Size=0;
+        _OriginalArray=new T[_Size];
+
+    }
 };
