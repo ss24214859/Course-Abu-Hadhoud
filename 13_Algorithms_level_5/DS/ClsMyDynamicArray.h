@@ -7,9 +7,10 @@ class ClsMyDynamicArray
 {
 protected:
     int _Size;
+    T* _TempArray;
 
 public:
-    T* OriginalArray;
+    T* _OriginalArray;
 
     ClsMyDynamicArray(int Size)
     {
@@ -18,18 +19,18 @@ public:
     
         _Size=Size;
 
-        OriginalArray= new T [_Size];
+        _OriginalArray= new T [_Size];
     }
     ~ClsMyDynamicArray()
     {
-        delete[] OriginalArray;
+        delete[] _OriginalArray;
     }
 
     bool SetItem(int Index,T Value)
     {
         if(Index < _Size && (Index>=0))
         {
-            OriginalArray[Index]=Value;
+            _OriginalArray[Index]=Value;
             return true;
         }
         else
@@ -50,10 +51,30 @@ public:
     {
         for(int i=0;i<_Size;i++)
         {
-            cout<<OriginalArray[i]<<" ";
+            cout<<_OriginalArray[i]<<" ";
         }
         cout<<"\n";
     }
     
+    void Resize(int NewSize)
+    {
+        if(NewSize<0)
+        NewSize=0;
+
+        _TempArray=new T[NewSize];
+        
+        if(NewSize<_Size)
+        _Size=NewSize;
+
+        for(int i=0; i<_Size;i++)
+        {
+            _TempArray[i]=_OriginalArray[i];
+        }
+        _Size=NewSize;
+
+        delete[] _OriginalArray;
+        _OriginalArray=_TempArray;
+        
+    }
     
 };

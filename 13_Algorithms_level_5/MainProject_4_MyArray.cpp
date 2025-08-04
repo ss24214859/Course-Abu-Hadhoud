@@ -6,14 +6,30 @@ int main()
 {
     ClsMyDynamicArray <int> MyArray(5);
 
-    MyArray.SetItem(0,5);
-    MyArray.SetItem(1,10);
-    MyArray.SetItem(2,50);
+    MyArray.SetItem(0,10);
+    MyArray.SetItem(1,20);
+    MyArray.SetItem(2,30);
+    MyArray.SetItem(3,40);
+    MyArray.SetItem(4,50);
 
     cout<<"\nArray Size : "<<MyArray.Size()<<endl;
     cout<<"IsEmpty  :" << MyArray.IsEmpty()<<endl;
     cout<<"Array Items: "<<endl;
     MyArray.PrintList();
 
+    MyArray.Resize(2);
+    cout<<"\n\nAfter Resize To 2";
+    cout<<"\nArray Size : "<<MyArray.Size()<<endl;
+    cout<<"IsEmpty  :" << MyArray.IsEmpty()<<endl;
+    cout<<"Array Items: "<<endl;
+    MyArray.PrintList();
+
+
+    MyArray.Resize(5);
+    cout<<"\n\nAfter Resize To 5";
+    cout<<"\nArray Size : "<<MyArray.Size()<<endl;
+    cout<<"IsEmpty  :" << MyArray.IsEmpty()<<endl;
+    cout<<"Array Items: "<<endl;
+    MyArray.PrintList();
 
 }
