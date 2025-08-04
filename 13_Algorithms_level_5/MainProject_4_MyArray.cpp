@@ -17,10 +17,14 @@ int main()
     cout<<"Array Items: "<<endl;
     MyArray.PrintList();
 
-    MyArray.DeleteItemAt(2);
-    cout<<"\nArray Items After Delete Item(2) : "<<endl;
+    MyArray.DeleteFirstItem();
+    cout<<"\nArray Items After Delete First Item : "<<endl;
     cout<<"Array Size : "<<MyArray.Size()<<endl;
     MyArray.PrintList();
 
+    MyArray.DeleteLastItem();
+    cout<<"\nArray Items After Delete Last Item : "<<endl;
+    cout<<"Array Size : "<<MyArray.Size()<<endl;
+    MyArray.PrintList();
 
 }
