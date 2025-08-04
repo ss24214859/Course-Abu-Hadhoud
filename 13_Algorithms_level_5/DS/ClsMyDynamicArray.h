@@ -9,6 +9,13 @@ protected:
     int _Size;
     T* _TempArray;
 
+    void Swap(T &Right, T &Left)
+    {
+        T Temp=Right;
+        Right=Left;
+        Left=Temp;
+    }
+
 public:
     T* _OriginalArray;
 
@@ -85,14 +92,10 @@ public:
 
     void Reverse()
     {
-        _TempArray= new T[_Size];
-
-        for(int i=0; i<_Size; i++)
+        for(int i=0; i<_Size/2; i++)
         {
-            _TempArray[i]=_OriginalArray[_Size-1-i];
+            Swap(_OriginalArray[i],_OriginalArray[_Size-1-i]);
         }
-        delete[] _OriginalArray;
-        _OriginalArray=_TempArray;
     }
     
     void Clear()
