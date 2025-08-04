@@ -156,5 +156,28 @@ public:
         return -1;
     }
 
+    bool InsertAt(int Index, T Value)
+    {
+        if(Index<0||(Index>=_Size))
+            return false;
+
+        _Size++;
+        _TempArray= new T[_Size];
+        //Copy After Index.
+        for(int i=0; i<Index; i++)
+        {
+            _TempArray[i]=_OriginalArray[i];
+        }
+        _TempArray[Index]=Value;
+        for(int i=Index+1; i<_Size;i++)
+        {
+            _TempArray[i]=_OriginalArray[i-1];
+        }
+
+        delete[] _OriginalArray;
+        _OriginalArray=_TempArray;
+        return true;
+    }
+
     
 };

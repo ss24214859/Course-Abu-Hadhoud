@@ -17,14 +17,8 @@ int main()
     cout<<"Array Items: "<<endl;
     MyArray.PrintList();
 
-    int Index= MyArray.Find(20);
-    if(Index==-1)
-        cout<<"\nItem Was Not Found :-("<<endl;
-    else
-        cout<<"\n20 Is Found at Index : "<<Index<<endl;
-
-    MyArray.DeleteItem(20);
-    cout<<"\nArray Items After Delete Item : "<<endl;
+    MyArray.InsertAt(3,800);
+    cout<<"\nArray Items After Insert 800 At 3 : "<<endl;
     cout<<"Array Size : "<<MyArray.Size()<<endl;
     MyArray.PrintList();
 
