@@ -101,6 +101,7 @@ public:
     void Clear()
     {
         _Size=0;
+        delete[] _OriginalArray;
         _OriginalArray=new T[_Size];
 
     }
