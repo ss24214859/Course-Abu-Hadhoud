@@ -158,20 +158,23 @@ public:
 
     bool InsertAt(int Index, T Value)
     {
-        if(Index<0||(Index>=_Size))
+        if((Index < 0 )||(Index > _Size))
             return false;
 
         _Size++;
         _TempArray= new T[_Size];
-        //Copy After Index.
+        //Copy All Before Index.
         for(int i=0; i<Index; i++)
         {
             _TempArray[i]=_OriginalArray[i];
         }
+
         _TempArray[Index]=Value;
-        for(int i=Index+1; i<_Size;i++)
+
+        //Copy All After Index.
+        for(int i=Index; i<_Size-1;i++)
         {
-            _TempArray[i]=_OriginalArray[i-1];
+            _TempArray[i+1]=_OriginalArray[i];
         }
 
         delete[] _OriginalArray;
@@ -179,5 +182,33 @@ public:
         return true;
     }
 
-    
+    void InsertAtBeginning(T Value)
+    {
+        InsertAt(0,Value);
+    }
+
+    bool InsertAtEnd(T Value)
+    {
+        return  InsertAt(_Size,Value);
+    }
+
+    bool InsertAfter(int Index , T Value)
+    {
+        //if (index >= _Size)// Abu Hadhoud Slution   // if(Index= 4 >= _Size= 5) = false
+        if(Index>=_Size-1) // if(Index= 4 >= (_Size= 5 -1 )= 4 ) = ture
+        {
+            return InsertAt(_Size,Value);
+            
+        }
+        return InsertAt(Index + 1 , Value);
+    }
+
+    bool  InsertBefore(int Index , T Value)
+    {
+        if(Index < 1)
+        return InsertAt(0,Value);
+        else
+        return InsertAt(Index-1 , Value);
+    }
+
 };

@@ -17,8 +17,23 @@ int main()
     cout<<"Array Items: "<<endl;
     MyArray.PrintList();
 
-    MyArray.InsertAt(3,800);
-    cout<<"\nArray Items After Insert 800 At 3 : "<<endl;
+    MyArray.InsertAtBeginning(900);
+    cout<<"\nArray Items After Insert 900 At Beginning : "<<endl;
+    cout<<"Array Size : "<<MyArray.Size()<<endl;
+    MyArray.PrintList();
+    
+    MyArray.InsertBefore(0,500);
+    cout<<"\nArray Items After Insert 500 Before 2 : "<<endl;
+    cout<<"Array Size : "<<MyArray.Size()<<endl;
+    MyArray.PrintList();
+
+    MyArray.InsertAfter(6,800);
+    cout<<"\nArray Items After Insert 800 After 2 : "<<endl;
+    cout<<"Array Size : "<<MyArray.Size()<<endl;
+    MyArray.PrintList();
+
+     MyArray.InsertAtEnd(700);
+    cout<<"\nArray Items After Insert 700 At End : "<<endl;
     cout<<"Array Size : "<<MyArray.Size()<<endl;
     MyArray.PrintList();
 
