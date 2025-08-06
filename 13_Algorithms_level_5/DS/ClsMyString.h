@@ -1,20 +1,22 @@
 #pragma once
 #include <iostream>
-#include "ClsMyStackArr.h"
+#include "stack"
 using namespace std;
 
 class ClsMyString
 {
 private:
     string _Value="";
-    ClsMyStackArr <string> _Undo;
-    ClsMyStackArr <string> _Redo;
+    stack <string> _Undo;
+    stack <string> _Redo;
 public:
     void SetValue(string Value)
     {
-        if(!_Redo.IsEmpty())
-            _Redo.Clear();
-            
+        while(!_Redo.empty())
+        {
+            _Redo.pop();
+        }
+        
         _Undo.push(_Value);
         _Value=Value;
     }
@@ -25,20 +27,20 @@ public:
 
     void Undo()
     {
-        if(!_Undo.IsEmpty())
+        if(!_Undo.empty())
         {
             _Redo.push(_Value);
-            _Value=_Undo.Top();
+            _Value=_Undo.top();
             _Undo.pop();
         }
     }
 
     void Redo()
     {
-        if(!_Redo.IsEmpty())
+        if(!_Redo.empty())
         {   
             _Undo.push(_Value);
-            _Value=_Redo.Top();
+            _Value=_Redo.top();
             _Redo.pop();
         }
     }
