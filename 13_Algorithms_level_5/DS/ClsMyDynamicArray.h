@@ -33,7 +33,7 @@ public:
         delete[] _OriginalArray;
     }
 
-    bool SetItem(T Index,T Value)
+    bool SetItem(int Index,T Value)
     {
         if(Index < _Size && (Index>=0))
         {
@@ -85,7 +85,7 @@ public:
         
     }
 
-    T GetItem(T Index)
+    T GetItem(int Index)
     {
         return _OriginalArray[Index];
     }
@@ -106,7 +106,7 @@ public:
 
     }
 
-    bool DeleteItemAt(T Index)
+    bool DeleteItemAt(int Index)
     {
         if(Index<0 ||(Index>=_Size))
         return false;
@@ -156,7 +156,7 @@ public:
         return -1;
     }
 
-    bool InsertAt(T Index, T Value)
+    bool InsertAt(int Index, T Value)
     {
         if((Index < 0 )||(Index > _Size))
             return false;
@@ -192,7 +192,7 @@ public:
         return  InsertAt(_Size,Value);
     }
 
-    bool InsertAfter(T Index , T Value)
+    bool InsertAfter(int Index , T Value)
     {
         //if (index >= _Size)// Abu Hadhoud Slution   // if(Index= 4 >= _Size= 5) = false
         if(Index>=_Size-1) // if(Index= 4 >= (_Size= 5 -1 )= 4 ) = ture
@@ -203,7 +203,7 @@ public:
         return InsertAt(Index + 1 , Value);
     }
 
-    bool  InsertBefore(T Index , T Value)
+    bool  InsertBefore(int Index , T Value)
     {
         if(Index < 1)
         return InsertAt(0,Value);
