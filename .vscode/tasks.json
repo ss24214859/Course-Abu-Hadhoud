@@ -7,7 +7,7 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${workspaceFolder}\\BankUi.cpp",
+                "${file}",
                 "-o",
                 "${workspaceFolder}\\build\\Debug\\outDebug"
             ],

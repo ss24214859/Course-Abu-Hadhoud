@@ -20,7 +20,7 @@
                 }
             ],
             "preLaunchTask": "Build Bank Project",
-            "console": "integratedTerminal"
+            //"console": "integratedTerminal"
         },
         {
             "name": "C/C++: clang-cl.exe build and debug active file",

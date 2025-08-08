@@ -82,7 +82,7 @@ public:
     
     static void Print(clsDate Date)
     {
-        cout << DateToString(Date) << endl;
+        cout << DateToString(Date);
     }
 
     void Print()
