@@ -38,7 +38,6 @@ public:
         *this = StringToTime(TimeStr);
     }
 
-    
     // Setters & Getters
     void SetHour(short Hour) { _Hour = Hour; }
     short Hour() const { return _Hour; }
@@ -64,27 +63,44 @@ public:
     {
         ostringstream timeStr;
         timeStr << setfill('0')
-        << setw(2) << to_string(Time._Hour) << ":"
-        << setw(2) << to_string(Time._Minute) << ":"
-        << setw(2) << to_string(Time._Second);
+                << setw(2) << to_string(Time._Hour) << ":"
+                << setw(2) << to_string(Time._Minute) << ":"
+                << setw(2) << to_string(Time._Second);
         return timeStr.str();
     }
     string TimeToString() const
     {
         return TimeToString(*this);
     }
-    
+
     static clsTime StringToTime(string TimeStr)
     {
-        vector<string> vTimeStr = clsString::Split(TimeStr,":");
-        clsTime time(stoi(vTimeStr[0]), 
-                      stoi(vTimeStr[1]), 
-                      stoi(vTimeStr[2]));
-        return time;              
+        vector<string> vTimeStr = clsString::Split(TimeStr, ":");
+        clsTime time(stoi(vTimeStr[0]),
+                     stoi(vTimeStr[1]),
+                     stoi(vTimeStr[2]));
+        return time;
     }
 
     static clsTime GetSystemTime()
     {
         return clsTime();
+    }
+
+    static string TimeFromMinutesTostring(int Minutes)
+    {
+        if (Minutes < 60)
+            return to_string(Minutes) + " Minutes";
+
+        short hours = 0;
+        while (Minutes >= 60)
+        {
+            hours++;
+            Minutes -= 60;
+        }
+        if (Minutes == 0)
+            return to_string(hours) + " Hours";
+        else
+            return to_string(hours) + " Hours And " + to_string(Minutes) + " Minutes";
     }
 };
