@@ -19,23 +19,6 @@ private:
         short _AverageServeTime;
         string _ExpectedServeTime;
 
-        string _TimeFromMinutesTostring(int Minutes)
-        {
-            if (Minutes < 60)
-                return to_string(Minutes) + " Minutes";
-
-            short hours = 0;
-            while (Minutes >= 60)
-            {
-                hours++;
-                Minutes -= 60;
-            }
-            if (Minutes == 0)
-                return to_string(hours) + " Hours";
-            else
-                return to_string(hours) + " Hours And " + to_string(Minutes) + " Minutes";
-        }
-
     public:
         clsTicket(string Prefix, short Number, short WatingClients, short AvreageServeTime)
         {
@@ -44,7 +27,7 @@ private:
             _TicketDateTime = clsDate::GetSystemDateTimeString();
             _WatingClients = WatingClients;
             _AverageServeTime = AvreageServeTime;
-            _ExpectedServeTime = _TimeFromMinutesTostring(AvreageServeTime * _WatingClients);
+            _ExpectedServeTime = clsTime::TimeFromMinutesTostring(AvreageServeTime * _WatingClients);
         }
 
         string GetPrefix() const
@@ -99,19 +82,6 @@ private:
     int _AverageServeTime=0;
     short _TotalTickets=0;
 
-protected:
-    template <typename T>
-    stack<T> _ConvertFromQueueToStack(queue<T> queue)
-    {
-        stack<T> stack;
-        while (!queue.empty())
-        {
-            stack.push(queue.front());
-            queue.pop();
-        }
-        return stack;
-    }
-
 public:
     queue <clsTicket> QueueLine;
 
@@ -164,7 +134,7 @@ public:
     void PrintTicketsLineRTL()
     {
         cout << "\t\tTickets :  ";
-        
+
         if(QueueLine.empty())
         {
             cout<<"No Clients Left."<<endl;
@@ -183,19 +153,21 @@ public:
     void PrintTicketsLineLTR()
     {
         cout << "\t\tTickets :  ";
+
         if(QueueLine.empty())
         {
             cout<<"No Clients Left."<<endl;
             return;
         }
 
-        stack<clsTicket> _StackTotalTickets = _ConvertFromQueueToStack(QueueLine);
-        while (!_StackTotalTickets.empty())
+        queue<clsTicket> _tempTotalTickets = QueueLine;
+        string ToPrint="";
+        while (!_tempTotalTickets.empty())
         {
-            cout << _StackTotalTickets.top().FullNumber() << " --> ";
-            _StackTotalTickets.pop();
+            ToPrint= _tempTotalTickets.front().FullNumber() + " --> " + ToPrint;     // Print  Queue In Reverse Without use stack.  
+            _tempTotalTickets.pop();
         }
-        cout << endl;
+        cout<<ToPrint<<endl;
     }
 
     void PrintAllTickets()
