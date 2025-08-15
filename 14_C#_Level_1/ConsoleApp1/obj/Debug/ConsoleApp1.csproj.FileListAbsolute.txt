@@ -1,0 +1,8 @@
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp1\obj\Debug\ConsoleApp1.exe.config
