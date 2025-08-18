@@ -13,12 +13,14 @@ namespace Main
         static void Main(string[] args)
         {
 
-            Random rnd = new Random();
 
-            for (int j = 0; j < 4; j++)
-            {
-                Console.WriteLine(rnd); // returns random integers >= 10 and < 20
-            }
+            string s1 = "hamo";
+            Console.WriteLine(s1.Length);
+            Console.WriteLine(s1.IndexOf('a'));
+            
+            
+            
+            
         }
     }
 }
