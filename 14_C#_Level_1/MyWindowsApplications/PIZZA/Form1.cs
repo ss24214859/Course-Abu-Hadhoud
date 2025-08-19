@@ -22,21 +22,85 @@ namespace PIZZA
 
         List<string> ToppingsList = new List<string>();
 
+        float GetSelectedSizePrice()
+        {
+            if (rbtnSmall.Checked)
+                return Convert.ToSingle(rbtnSmall.Tag);
+            else if (rbtnMedium.Checked)
+                return Convert.ToSingle(rbtnMedium.Tag);
+            else if(rbtnLarg.Checked)
+                return Convert.ToSingle(rbtnLarg.Tag);
+
+            return 0;
+        }
+        float GetSelectedCrustPrice()
+        {
+            if (rbtnThinCrust.Checked)
+                return Convert.ToSingle(rbtnThinCrust.Tag);
+            else if (rbtnThickCrust.Checked)
+                    return Convert.ToSingle(rbtnThickCrust.Tag);
+
+                return 0;
+        }
+
+        float CalculateToppingsPrice()
+        {
+            float ToppingsPrice=0;
+            if (cboxExtraChees.Checked)
+                ToppingsPrice += Convert.ToSingle(cboxExtraChees.Tag);
+
+            if(cboxMushrooms.Checked)
+                ToppingsPrice += Convert.ToSingle(cboxMushrooms.Tag);
+
+            if (cboxTomatoes.Checked)
+                ToppingsPrice += Convert.ToSingle(cboxTomatoes.Tag);
+
+             if (cboxOnion.Checked)
+                ToppingsPrice += Convert.ToSingle(cboxOnion.Tag);
+
+             if (cboxOlives.Checked)
+                ToppingsPrice += Convert.ToSingle(cboxOlives.Tag);
+
+             if (cboxGreenPeppers.Checked)
+                ToppingsPrice += Convert.ToSingle(cboxGreenPeppers.Tag);
+
+
+            return ToppingsPrice;
+        }
+
+        float CalculateTotalPrice()
+        {
+            return GetSelectedCrustPrice() + GetSelectedSizePrice() + CalculateToppingsPrice();
+        }
+
+        void UpdateTotalPrice()
+        {
+            labTotalPriceNum.Text= '$'+ CalculateTotalPrice().ToString();
+        }
+
+         void UpdateSize()
+        {
+            UpdateTotalPrice();
+            if (rbtnSmall.Checked)
+                labSizeOp.Text = "Small";
+            else if (rbtnMedium.Checked)
+                labSizeOp.Text = "Meduim";
+            else if (rbtnLarg.Checked)
+                labSizeOp.Text = "Larg";
+        }
+
+        void UpdateCrustType()
+        {
+            UpdateTotalPrice();
+            if (rbtnThinCrust.Checked)
+                labCrustTypeOp.Text = "Thin Crust";
+            else if (rbtnThickCrust.Checked)
+                labCrustTypeOp.Text = "Thick Crust";
+        }
+
         public void ChangePrice(int Num,char Opration)
         {
-            int TotalPrice = 0;
-            switch (Opration)
-            {
-                case '+':
-                    TotalPrice = Convert.ToInt32(labTotalPriceNum.Text) + Num;
-                    break;
-                case '-':
-                    TotalPrice = Convert.ToInt32(labTotalPriceNum.Text) - Num;
-                    break;
-                default:
-                    return;
-            }
-            labTotalPriceNum.Text = Convert.ToString(TotalPrice);
+            return;
         }
         
         
@@ -55,103 +119,44 @@ namespace PIZZA
 
         private void cboxOnion_CheckedChanged(object sender, EventArgs e)
         {
-            if (cboxOnion.Checked)
-            {
-                ChangeLabToppings("Onion", '+');
-                ChangePrice(5, '+');
-            }
-            else
-            {
-                ChangeLabToppings("Onion", '-');
-                ChangePrice(5, '-');
-            }
+            UpdateToppings();
         }
 
         private void cboxOlives_CheckedChanged(object sender, EventArgs e)
         {
-            if (cboxOlives.Checked)
-            {
-                ChangeLabToppings("Olives", '+');
-                ChangePrice(5, '+');
-            }
-            else
-            {
-                ChangeLabToppings("Olives", '-');
-                ChangePrice(5, '-');
-            }
+            UpdateToppings();
         }
 
         private void cboxGreenPeppers_CheckedChanged(object sender, EventArgs e)
         {
-            if (cboxGreenPeppers.Checked)
-            {
-                ChangeLabToppings("Green Peppers", '+');
-                ChangePrice(5, '+');
-            }
-            else
-            {
-                ChangeLabToppings("Green Peppers", '-');
-                ChangePrice(5, '-');
-            }
+            UpdateToppings();
         }
 
         private void rbtnSmall_CheckedChanged(object sender, EventArgs e)
         {
-            int Price = 20;
-            if (rbtnSmall.Checked)
-            {
-                labSizeOp.Text = "Small";
-                ChangePrice(Price, '+');
-            }
-            else
-                ChangePrice(Price, '-');
-            
-                
-
-                
+            UpdateSize();    
         }
 
         private void rbtnMedium_CheckedChanged(object sender, EventArgs e)
         {
-            int Price = 30;
-            if (rbtnMedium.Checked)
-            {
-                labSizeOp.Text = "Medium";
-                ChangePrice(Price, '+');
-            }
-            else
-                ChangePrice(Price, '-');
+            UpdateSize(); 
         }
 
         private void rbtnLarg_CheckedChanged(object sender, EventArgs e)
         {
-            int Price = 40;
-            if (rbtnLarg.Checked)
-            {
-                labSizeOp.Text = "Larg";
-                ChangePrice(Price, '+');
-            }
-            else
-                ChangePrice(Price, '-');
+            UpdateSize();
         }
 
         private void rbtnThinCrust_CheckedChanged(object sender, EventArgs e)
         {
-            if(rbtnThinCrust.Checked)
-                labCrustTypeOp.Text = "Thin Crust";
+            UpdateCrustType();
             
         }
 
 
         private void rbtnThickCrust_CheckedChanged(object sender, EventArgs e)
         {
-            if(rbtnThickCrust.Checked)
-            {
-                labCrustTypeOp.Text = "Thick Crust";
-                ChangePrice(10, '+');
-            }
-            else
-                ChangePrice(10, '-');
+            UpdateCrustType();
         }
         private void labTotalPriceNum_Click(object sender, EventArgs e)
         {
@@ -174,78 +179,48 @@ namespace PIZZA
             }
         }
 
-        public void ChangeLabToppings(string TypeOfToppings, char Operation)
-        {
-            if (Operation=='+')
-            {
-                ToppingsList.Add(TypeOfToppings);  
-            }
-            else if(Operation=='-')
-            {
-                ToppingsList.Remove(TypeOfToppings);
-            }
 
-            if (ToppingsList.Count == 0)
-                labToppingsOp.Text = "No Toppings";
-            else
+        public void UpdateToppings()
+        {
+            UpdateTotalPrice();
+
+            string strToppings = "";
+            int count = 0;
+            foreach(Control crtl in gboToppings.Controls)
             {
-                labToppingsOp.Text = "";
-                bool FirstWord = true;
-                for(int i=0;ToppingsList.Count>i;i++)
+                if(crtl is CheckBox checBox)
                 {
-                    if (i == 3) labToppingsOp.Text += "\n";
-                        
-                    if (!FirstWord) labToppingsOp.Text += " , ";
-                    
-                    labToppingsOp.Text += ToppingsList[i];
-                    FirstWord = false; 
-                    
+                    if(checBox.Checked)
+                    {
+                        strToppings +=", " + checBox.Text;
+                        count++;
+                        if (count == 3)
+                            strToppings += "\n";
+                    }
                 }
             }
+            if (strToppings == "")
+                labToppingsOp.Text = "No Toppings";
+            else
+                
+                labToppingsOp.Text = strToppings.Substring(2);
 
         }
         private void cboxExtraChees_CheckedChanged(object sender, EventArgs e)
         {
-            if(cboxExtraChees.Checked)
-            {
-                ChangeLabToppings("Extra Chees", '+');
-                ChangePrice(5, '+');
-            }
-            else
-            {
-                ChangeLabToppings("Extra Chees",'-');
-                ChangePrice(5, '-');
-            }
-                
+            UpdateToppings();
+
         }
 
         private void cboxMushrooms_CheckedChanged(object sender, EventArgs e)
         {
 
-            if (cboxMushrooms.Checked)
-            {
-                ChangeLabToppings("Mushrooms", '+');
-                ChangePrice(5, '+');
-            }
-            else
-            {
-                ChangeLabToppings("Mushrooms", '-');
-                ChangePrice(5, '-');
-            }
+            UpdateToppings();
         }
 
         private void cboxTomatoes_CheckedChanged(object sender, EventArgs e)
         {
-            if (cboxTomatoes.Checked)
-            {
-                ChangeLabToppings("Tomatoes", '+');
-                ChangePrice(5, '+');
-            }
-            else
-            {
-                ChangeLabToppings("Tomatoes", '-');
-                ChangePrice(5, '-');
-            }
+            UpdateToppings();
         }
 
         private void btnOrderPizza_Click(object sender, EventArgs e)
@@ -278,6 +253,11 @@ namespace PIZZA
             rbtnEatIn.Checked = true;
             rbtnSmall.Checked = true;
             rbtnThickCrust.Checked = true;
+
+        }
+
+        private void gboxSize_Enter(object sender, EventArgs e)
+        {
 
         }
     }

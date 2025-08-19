@@ -9,3 +9,14 @@ C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\PIZZA\obj\Debug\PIZZA.cspr
 C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\PIZZA\obj\Debug\PIZZA.exe
 C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\PIZZA\obj\Debug\PIZZA.pdb
 C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\PIZZA\obj\Debug\PIZZA.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyWindowsApplications\PIZZA\bin\Debug\PIZZA.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyWindowsApplications\PIZZA\bin\Debug\PIZZA.exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyWindowsApplications\PIZZA\bin\Debug\PIZZA.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyWindowsApplications\PIZZA\obj\Debug\PIZZA.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyWindowsApplications\PIZZA\obj\Debug\PIZZA.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyWindowsApplications\PIZZA\obj\Debug\PIZZA.Form1.resources
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyWindowsApplications\PIZZA\obj\Debug\PIZZA.Properties.Resources.resources
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyWindowsApplications\PIZZA\obj\Debug\PIZZA.csproj.GenerateResource.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyWindowsApplications\PIZZA\obj\Debug\PIZZA.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyWindowsApplications\PIZZA\obj\Debug\PIZZA.exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyWindowsApplications\PIZZA\obj\Debug\PIZZA.pdb

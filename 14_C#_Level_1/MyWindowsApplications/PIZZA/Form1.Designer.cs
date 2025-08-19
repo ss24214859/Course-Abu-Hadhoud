@@ -72,10 +72,10 @@
             // 
             this.pictureBox1.BackgroundImage = global::PIZZA.Properties.Resources.صمم_ليا_صوره_لموقع_ب;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(-7, -1);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(-5, -1);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(520, 876);
+            this.pictureBox1.Size = new System.Drawing.Size(390, 745);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -85,9 +85,10 @@
             this.label1.Cursor = System.Windows.Forms.Cursors.Default;
             this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(515, -1);
+            this.label1.Location = new System.Drawing.Point(389, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(560, 97);
+            this.label1.Size = new System.Drawing.Size(451, 79);
             this.label1.TabIndex = 1;
             this.label1.Text = "Make Your Pizza";
             // 
@@ -95,11 +96,11 @@
             // 
             this.rbtnSmall.AutoSize = true;
             this.rbtnSmall.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnSmall.Location = new System.Drawing.Point(44, 23);
-            this.rbtnSmall.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnSmall.Location = new System.Drawing.Point(33, 19);
             this.rbtnSmall.Name = "rbtnSmall";
-            this.rbtnSmall.Size = new System.Drawing.Size(63, 21);
+            this.rbtnSmall.Size = new System.Drawing.Size(50, 17);
             this.rbtnSmall.TabIndex = 3;
+            this.rbtnSmall.Tag = "20";
             this.rbtnSmall.Text = "Small";
             this.rbtnSmall.UseVisualStyleBackColor = true;
             this.rbtnSmall.CheckedChanged += new System.EventHandler(this.rbtnSmall_CheckedChanged);
@@ -108,11 +109,11 @@
             // 
             this.rbtnMedium.AutoSize = true;
             this.rbtnMedium.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnMedium.Location = new System.Drawing.Point(44, 52);
-            this.rbtnMedium.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnMedium.Location = new System.Drawing.Point(33, 42);
             this.rbtnMedium.Name = "rbtnMedium";
-            this.rbtnMedium.Size = new System.Drawing.Size(78, 21);
+            this.rbtnMedium.Size = new System.Drawing.Size(62, 17);
             this.rbtnMedium.TabIndex = 4;
+            this.rbtnMedium.Tag = "30";
             this.rbtnMedium.Text = "Medium";
             this.rbtnMedium.UseVisualStyleBackColor = true;
             this.rbtnMedium.CheckedChanged += new System.EventHandler(this.rbtnMedium_CheckedChanged);
@@ -121,40 +122,39 @@
             // 
             this.rbtnLarg.AutoSize = true;
             this.rbtnLarg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnLarg.Location = new System.Drawing.Point(44, 80);
-            this.rbtnLarg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnLarg.Location = new System.Drawing.Point(33, 65);
             this.rbtnLarg.Name = "rbtnLarg";
-            this.rbtnLarg.Size = new System.Drawing.Size(58, 21);
+            this.rbtnLarg.Size = new System.Drawing.Size(46, 17);
             this.rbtnLarg.TabIndex = 5;
+            this.rbtnLarg.Tag = "40";
             this.rbtnLarg.Text = "Larg";
             this.rbtnLarg.UseVisualStyleBackColor = true;
             this.rbtnLarg.CheckedChanged += new System.EventHandler(this.rbtnLarg_CheckedChanged);
             // 
             // gboxSize
             // 
+            this.gboxSize.BackColor = System.Drawing.Color.Brown;
             this.gboxSize.Controls.Add(this.rbtnLarg);
             this.gboxSize.Controls.Add(this.rbtnMedium);
             this.gboxSize.Controls.Add(this.rbtnSmall);
             this.gboxSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxSize.Location = new System.Drawing.Point(520, 128);
-            this.gboxSize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxSize.Location = new System.Drawing.Point(417, 109);
             this.gboxSize.Name = "gboxSize";
-            this.gboxSize.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gboxSize.Size = new System.Drawing.Size(148, 108);
+            this.gboxSize.Size = new System.Drawing.Size(111, 88);
             this.gboxSize.TabIndex = 6;
             this.gboxSize.TabStop = false;
             this.gboxSize.Text = "Size";
+            this.gboxSize.Enter += new System.EventHandler(this.gboxSize_Enter);
             // 
             // gboxCrustType
             // 
+            this.gboxCrustType.BackColor = System.Drawing.Color.Brown;
             this.gboxCrustType.Controls.Add(this.rbtnThickCrust);
             this.gboxCrustType.Controls.Add(this.rbtnThinCrust);
             this.gboxCrustType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxCrustType.Location = new System.Drawing.Point(516, 262);
-            this.gboxCrustType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxCrustType.Location = new System.Drawing.Point(414, 218);
             this.gboxCrustType.Name = "gboxCrustType";
-            this.gboxCrustType.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gboxCrustType.Size = new System.Drawing.Size(148, 79);
+            this.gboxCrustType.Size = new System.Drawing.Size(111, 64);
             this.gboxCrustType.TabIndex = 7;
             this.gboxCrustType.TabStop = false;
             this.gboxCrustType.Text = "Crust Type";
@@ -163,11 +163,11 @@
             // 
             this.rbtnThickCrust.AutoSize = true;
             this.rbtnThickCrust.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnThickCrust.Location = new System.Drawing.Point(41, 53);
-            this.rbtnThickCrust.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnThickCrust.Location = new System.Drawing.Point(31, 43);
             this.rbtnThickCrust.Name = "rbtnThickCrust";
-            this.rbtnThickCrust.Size = new System.Drawing.Size(100, 21);
+            this.rbtnThickCrust.Size = new System.Drawing.Size(79, 17);
             this.rbtnThickCrust.TabIndex = 4;
+            this.rbtnThickCrust.Tag = "10";
             this.rbtnThickCrust.Text = "Thick Crust";
             this.rbtnThickCrust.UseVisualStyleBackColor = true;
             this.rbtnThickCrust.CheckedChanged += new System.EventHandler(this.rbtnThickCrust_CheckedChanged);
@@ -176,10 +176,9 @@
             // 
             this.rbtnThinCrust.AutoSize = true;
             this.rbtnThinCrust.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnThinCrust.Location = new System.Drawing.Point(43, 25);
-            this.rbtnThinCrust.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnThinCrust.Location = new System.Drawing.Point(32, 20);
             this.rbtnThinCrust.Name = "rbtnThinCrust";
-            this.rbtnThinCrust.Size = new System.Drawing.Size(94, 21);
+            this.rbtnThinCrust.Size = new System.Drawing.Size(73, 17);
             this.rbtnThinCrust.TabIndex = 3;
             this.rbtnThinCrust.Text = "Thin Crust";
             this.rbtnThinCrust.UseVisualStyleBackColor = true;
@@ -187,14 +186,13 @@
             // 
             // gboxWhereToEat
             // 
+            this.gboxWhereToEat.BackColor = System.Drawing.Color.Brown;
             this.gboxWhereToEat.Controls.Add(this.rbtnTakeOut);
             this.gboxWhereToEat.Controls.Add(this.rbtnEatIn);
             this.gboxWhereToEat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxWhereToEat.Location = new System.Drawing.Point(693, 282);
-            this.gboxWhereToEat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxWhereToEat.Location = new System.Drawing.Point(547, 234);
             this.gboxWhereToEat.Name = "gboxWhereToEat";
-            this.gboxWhereToEat.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gboxWhereToEat.Size = new System.Drawing.Size(352, 59);
+            this.gboxWhereToEat.Size = new System.Drawing.Size(264, 48);
             this.gboxWhereToEat.TabIndex = 8;
             this.gboxWhereToEat.TabStop = false;
             this.gboxWhereToEat.Text = "Where To Eat";
@@ -204,10 +202,9 @@
             // 
             this.rbtnTakeOut.AutoSize = true;
             this.rbtnTakeOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnTakeOut.Location = new System.Drawing.Point(160, 25);
-            this.rbtnTakeOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnTakeOut.Location = new System.Drawing.Point(120, 20);
             this.rbtnTakeOut.Name = "rbtnTakeOut";
-            this.rbtnTakeOut.Size = new System.Drawing.Size(88, 21);
+            this.rbtnTakeOut.Size = new System.Drawing.Size(70, 17);
             this.rbtnTakeOut.TabIndex = 4;
             this.rbtnTakeOut.Text = "Take Out";
             this.rbtnTakeOut.UseVisualStyleBackColor = true;
@@ -217,10 +214,9 @@
             // 
             this.rbtnEatIn.AutoSize = true;
             this.rbtnEatIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnEatIn.Location = new System.Drawing.Point(43, 25);
-            this.rbtnEatIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnEatIn.Location = new System.Drawing.Point(32, 20);
             this.rbtnEatIn.Name = "rbtnEatIn";
-            this.rbtnEatIn.Size = new System.Drawing.Size(65, 21);
+            this.rbtnEatIn.Size = new System.Drawing.Size(53, 17);
             this.rbtnEatIn.TabIndex = 3;
             this.rbtnEatIn.Text = "Eat In";
             this.rbtnEatIn.UseVisualStyleBackColor = true;
@@ -229,11 +225,11 @@
             // cboxExtraChees
             // 
             this.cboxExtraChees.AutoSize = true;
-            this.cboxExtraChees.Location = new System.Drawing.Point(45, 37);
-            this.cboxExtraChees.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxExtraChees.Location = new System.Drawing.Point(34, 30);
             this.cboxExtraChees.Name = "cboxExtraChees";
-            this.cboxExtraChees.Size = new System.Drawing.Size(101, 20);
+            this.cboxExtraChees.Size = new System.Drawing.Size(83, 17);
             this.cboxExtraChees.TabIndex = 9;
+            this.cboxExtraChees.Tag = "5";
             this.cboxExtraChees.Text = "Extra Chees";
             this.cboxExtraChees.UseVisualStyleBackColor = true;
             this.cboxExtraChees.CheckedChanged += new System.EventHandler(this.cboxExtraChees_CheckedChanged);
@@ -241,11 +237,11 @@
             // cboxMushrooms
             // 
             this.cboxMushrooms.AutoSize = true;
-            this.cboxMushrooms.Location = new System.Drawing.Point(45, 66);
-            this.cboxMushrooms.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxMushrooms.Location = new System.Drawing.Point(34, 54);
             this.cboxMushrooms.Name = "cboxMushrooms";
-            this.cboxMushrooms.Size = new System.Drawing.Size(99, 20);
+            this.cboxMushrooms.Size = new System.Drawing.Size(80, 17);
             this.cboxMushrooms.TabIndex = 10;
+            this.cboxMushrooms.Tag = "5";
             this.cboxMushrooms.Text = "Mushrooms";
             this.cboxMushrooms.UseVisualStyleBackColor = true;
             this.cboxMushrooms.CheckedChanged += new System.EventHandler(this.cboxMushrooms_CheckedChanged);
@@ -253,11 +249,11 @@
             // cboxTomatoes
             // 
             this.cboxTomatoes.AutoSize = true;
-            this.cboxTomatoes.Location = new System.Drawing.Point(45, 101);
-            this.cboxTomatoes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxTomatoes.Location = new System.Drawing.Point(34, 82);
             this.cboxTomatoes.Name = "cboxTomatoes";
-            this.cboxTomatoes.Size = new System.Drawing.Size(91, 20);
+            this.cboxTomatoes.Size = new System.Drawing.Size(73, 17);
             this.cboxTomatoes.TabIndex = 11;
+            this.cboxTomatoes.Tag = "5";
             this.cboxTomatoes.Text = "Tomatoes";
             this.cboxTomatoes.UseVisualStyleBackColor = true;
             this.cboxTomatoes.CheckedChanged += new System.EventHandler(this.cboxTomatoes_CheckedChanged);
@@ -265,11 +261,11 @@
             // cboxOnion
             // 
             this.cboxOnion.AutoSize = true;
-            this.cboxOnion.Location = new System.Drawing.Point(201, 37);
-            this.cboxOnion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxOnion.Location = new System.Drawing.Point(151, 30);
             this.cboxOnion.Name = "cboxOnion";
-            this.cboxOnion.Size = new System.Drawing.Size(64, 20);
+            this.cboxOnion.Size = new System.Drawing.Size(54, 17);
             this.cboxOnion.TabIndex = 12;
+            this.cboxOnion.Tag = "5";
             this.cboxOnion.Text = "Onion";
             this.cboxOnion.UseVisualStyleBackColor = true;
             this.cboxOnion.CheckedChanged += new System.EventHandler(this.cboxOnion_CheckedChanged);
@@ -277,11 +273,11 @@
             // cboxOlives
             // 
             this.cboxOlives.AutoSize = true;
-            this.cboxOlives.Location = new System.Drawing.Point(201, 65);
-            this.cboxOlives.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxOlives.Location = new System.Drawing.Point(151, 53);
             this.cboxOlives.Name = "cboxOlives";
-            this.cboxOlives.Size = new System.Drawing.Size(67, 20);
+            this.cboxOlives.Size = new System.Drawing.Size(55, 17);
             this.cboxOlives.TabIndex = 13;
+            this.cboxOlives.Tag = "5";
             this.cboxOlives.Text = "Olives";
             this.cboxOlives.UseVisualStyleBackColor = true;
             this.cboxOlives.CheckedChanged += new System.EventHandler(this.cboxOlives_CheckedChanged);
@@ -289,28 +285,27 @@
             // cboxGreenPeppers
             // 
             this.cboxGreenPeppers.AutoSize = true;
-            this.cboxGreenPeppers.Location = new System.Drawing.Point(201, 101);
-            this.cboxGreenPeppers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxGreenPeppers.Location = new System.Drawing.Point(151, 82);
             this.cboxGreenPeppers.Name = "cboxGreenPeppers";
-            this.cboxGreenPeppers.Size = new System.Drawing.Size(121, 20);
+            this.cboxGreenPeppers.Size = new System.Drawing.Size(97, 17);
             this.cboxGreenPeppers.TabIndex = 14;
+            this.cboxGreenPeppers.Tag = "5";
             this.cboxGreenPeppers.Text = "Green Peppers";
             this.cboxGreenPeppers.UseVisualStyleBackColor = true;
             this.cboxGreenPeppers.CheckedChanged += new System.EventHandler(this.cboxGreenPeppers_CheckedChanged);
             // 
             // gboToppings
             // 
+            this.gboToppings.BackColor = System.Drawing.Color.Brown;
             this.gboToppings.Controls.Add(this.cboxGreenPeppers);
             this.gboToppings.Controls.Add(this.cboxOlives);
             this.gboToppings.Controls.Add(this.cboxOnion);
             this.gboToppings.Controls.Add(this.cboxTomatoes);
             this.gboToppings.Controls.Add(this.cboxMushrooms);
             this.gboToppings.Controls.Add(this.cboxExtraChees);
-            this.gboToppings.Location = new System.Drawing.Point(693, 128);
-            this.gboToppings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboToppings.Location = new System.Drawing.Point(547, 109);
             this.gboToppings.Name = "gboToppings";
-            this.gboToppings.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gboToppings.Size = new System.Drawing.Size(352, 146);
+            this.gboToppings.Size = new System.Drawing.Size(264, 119);
             this.gboToppings.TabIndex = 0;
             this.gboToppings.TabStop = false;
             this.gboToppings.Text = "Toppings";
@@ -320,10 +315,9 @@
             this.labOrdrerSummary.AutoSize = true;
             this.labOrdrerSummary.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labOrdrerSummary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labOrdrerSummary.Location = new System.Drawing.Point(580, 369);
-            this.labOrdrerSummary.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labOrdrerSummary.Location = new System.Drawing.Point(419, 289);
             this.labOrdrerSummary.Name = "labOrdrerSummary";
-            this.labOrdrerSummary.Size = new System.Drawing.Size(217, 41);
+            this.labOrdrerSummary.Size = new System.Drawing.Size(175, 33);
             this.labOrdrerSummary.TabIndex = 9;
             this.labOrdrerSummary.Text = "Order Summary";
             // 
@@ -331,10 +325,9 @@
             // 
             this.labSize.AutoSize = true;
             this.labSize.Font = new System.Drawing.Font("Gabriola", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labSize.Location = new System.Drawing.Point(673, 415);
-            this.labSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labSize.Location = new System.Drawing.Point(506, 336);
             this.labSize.Name = "labSize";
-            this.labSize.Size = new System.Drawing.Size(70, 55);
+            this.labSize.Size = new System.Drawing.Size(57, 45);
             this.labSize.TabIndex = 10;
             this.labSize.Text = "Size:";
             // 
@@ -342,10 +335,9 @@
             // 
             this.labCrustType.AutoSize = true;
             this.labCrustType.Font = new System.Drawing.Font("Gabriola", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labCrustType.Location = new System.Drawing.Point(673, 560);
-            this.labCrustType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labCrustType.Location = new System.Drawing.Point(506, 483);
             this.labCrustType.Name = "labCrustType";
-            this.labCrustType.Size = new System.Drawing.Size(138, 55);
+            this.labCrustType.Size = new System.Drawing.Size(114, 45);
             this.labCrustType.TabIndex = 11;
             this.labCrustType.Text = "Crust Type:";
             // 
@@ -353,10 +345,9 @@
             // 
             this.labToppings.AutoSize = true;
             this.labToppings.Font = new System.Drawing.Font("Gabriola", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labToppings.Location = new System.Drawing.Point(673, 454);
-            this.labToppings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labToppings.Location = new System.Drawing.Point(506, 376);
             this.labToppings.Name = "labToppings";
-            this.labToppings.Size = new System.Drawing.Size(122, 55);
+            this.labToppings.Size = new System.Drawing.Size(101, 45);
             this.labToppings.TabIndex = 12;
             this.labToppings.Text = "Toppings:";
             // 
@@ -364,10 +355,9 @@
             // 
             this.labWhereToEat.AutoSize = true;
             this.labWhereToEat.Font = new System.Drawing.Font("Gabriola", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labWhereToEat.Location = new System.Drawing.Point(673, 607);
-            this.labWhereToEat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labWhereToEat.Location = new System.Drawing.Point(506, 531);
             this.labWhereToEat.Name = "labWhereToEat";
-            this.labWhereToEat.Size = new System.Drawing.Size(164, 55);
+            this.labWhereToEat.Size = new System.Drawing.Size(135, 45);
             this.labWhereToEat.TabIndex = 13;
             this.labWhereToEat.Text = "Where To Eat:";
             // 
@@ -375,10 +365,9 @@
             // 
             this.labTotalPrice.AutoSize = true;
             this.labTotalPrice.Font = new System.Drawing.Font("Gabriola", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTotalPrice.Location = new System.Drawing.Point(673, 666);
-            this.labTotalPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labTotalPrice.Location = new System.Drawing.Point(506, 591);
             this.labTotalPrice.Name = "labTotalPrice";
-            this.labTotalPrice.Size = new System.Drawing.Size(146, 55);
+            this.labTotalPrice.Size = new System.Drawing.Size(121, 45);
             this.labTotalPrice.TabIndex = 14;
             this.labTotalPrice.Text = "Total Pricce:";
             // 
@@ -387,22 +376,20 @@
             this.labTotalPriceNum.AutoSize = true;
             this.labTotalPriceNum.Font = new System.Drawing.Font("Georgia", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labTotalPriceNum.ForeColor = System.Drawing.Color.ForestGreen;
-            this.labTotalPriceNum.Location = new System.Drawing.Point(823, 666);
-            this.labTotalPriceNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labTotalPriceNum.Location = new System.Drawing.Point(647, 591);
             this.labTotalPriceNum.Name = "labTotalPriceNum";
-            this.labTotalPriceNum.Size = new System.Drawing.Size(72, 69);
+            this.labTotalPriceNum.Size = new System.Drawing.Size(89, 56);
             this.labTotalPriceNum.TabIndex = 19;
-            this.labTotalPriceNum.Text = "0";
+            this.labTotalPriceNum.Text = "$0";
             this.labTotalPriceNum.Click += new System.EventHandler(this.labTotalPriceNum_Click);
             // 
             // labCrustTypeOp
             // 
             this.labCrustTypeOp.AutoSize = true;
             this.labCrustTypeOp.Font = new System.Drawing.Font("Gadugi", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labCrustTypeOp.Location = new System.Drawing.Point(808, 577);
-            this.labCrustTypeOp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labCrustTypeOp.Location = new System.Drawing.Point(633, 500);
             this.labCrustTypeOp.Name = "labCrustTypeOp";
-            this.labCrustTypeOp.Size = new System.Drawing.Size(103, 22);
+            this.labCrustTypeOp.Size = new System.Drawing.Size(80, 19);
             this.labCrustTypeOp.TabIndex = 18;
             this.labCrustTypeOp.Text = "Thick Crust";
             // 
@@ -410,10 +397,9 @@
             // 
             this.labToppingsOp.AutoSize = true;
             this.labToppingsOp.Font = new System.Drawing.Font("Gadugi", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labToppingsOp.Location = new System.Drawing.Point(733, 510);
-            this.labToppingsOp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labToppingsOp.Location = new System.Drawing.Point(562, 432);
             this.labToppingsOp.Name = "labToppingsOp";
-            this.labToppingsOp.Size = new System.Drawing.Size(118, 22);
+            this.labToppingsOp.Size = new System.Drawing.Size(95, 19);
             this.labToppingsOp.TabIndex = 17;
             this.labToppingsOp.Text = "No Toppings";
             // 
@@ -421,10 +407,9 @@
             // 
             this.labWhereToEatOp.AutoSize = true;
             this.labWhereToEatOp.Font = new System.Drawing.Font("Gadugi", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labWhereToEatOp.Location = new System.Drawing.Point(839, 624);
-            this.labWhereToEatOp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labWhereToEatOp.Location = new System.Drawing.Point(662, 548);
             this.labWhereToEatOp.Name = "labWhereToEatOp";
-            this.labWhereToEatOp.Size = new System.Drawing.Size(57, 22);
+            this.labWhereToEatOp.Size = new System.Drawing.Size(46, 19);
             this.labWhereToEatOp.TabIndex = 16;
             this.labWhereToEatOp.Text = "Eat In";
             // 
@@ -432,10 +417,9 @@
             // 
             this.labSizeOp.AutoSize = true;
             this.labSizeOp.Font = new System.Drawing.Font("Gadugi", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labSizeOp.Location = new System.Drawing.Point(733, 432);
-            this.labSizeOp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labSizeOp.Location = new System.Drawing.Point(562, 353);
             this.labSizeOp.Name = "labSizeOp";
-            this.labSizeOp.Size = new System.Drawing.Size(56, 22);
+            this.labSizeOp.Size = new System.Drawing.Size(46, 19);
             this.labSizeOp.TabIndex = 15;
             this.labSizeOp.Text = "Small";
             // 
@@ -444,10 +428,9 @@
             this.btnOrderPizza.BackColor = System.Drawing.Color.White;
             this.btnOrderPizza.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
             this.btnOrderPizza.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrderPizza.Location = new System.Drawing.Point(647, 802);
-            this.btnOrderPizza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOrderPizza.Location = new System.Drawing.Point(485, 680);
             this.btnOrderPizza.Name = "btnOrderPizza";
-            this.btnOrderPizza.Size = new System.Drawing.Size(111, 32);
+            this.btnOrderPizza.Size = new System.Drawing.Size(83, 26);
             this.btnOrderPizza.TabIndex = 20;
             this.btnOrderPizza.Text = "Order Pizza";
             this.btnOrderPizza.UseVisualStyleBackColor = false;
@@ -455,10 +438,9 @@
             // 
             // btnRestForm
             // 
-            this.btnRestForm.Location = new System.Drawing.Point(836, 802);
-            this.btnRestForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRestForm.Location = new System.Drawing.Point(637, 680);
             this.btnRestForm.Name = "btnRestForm";
-            this.btnRestForm.Size = new System.Drawing.Size(111, 32);
+            this.btnRestForm.Size = new System.Drawing.Size(83, 26);
             this.btnRestForm.TabIndex = 21;
             this.btnRestForm.Text = "Reset Form";
             this.btnRestForm.UseVisualStyleBackColor = true;
@@ -466,17 +448,18 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(1096, 878);
+            this.ClientSize = new System.Drawing.Size(860, 743);
+            this.Controls.Add(this.labToppingsOp);
             this.Controls.Add(this.btnRestForm);
             this.Controls.Add(this.btnOrderPizza);
             this.Controls.Add(this.labTotalPriceNum);
             this.Controls.Add(this.labCrustTypeOp);
-            this.Controls.Add(this.labToppingsOp);
             this.Controls.Add(this.labWhereToEatOp);
             this.Controls.Add(this.labSizeOp);
             this.Controls.Add(this.labTotalPrice);
@@ -493,7 +476,8 @@
             this.Controls.Add(this.labToppings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
