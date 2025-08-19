@@ -185,17 +185,13 @@ namespace PIZZA
             UpdateTotalPrice();
 
             string strToppings = "";
-            int count = 0;
             foreach(Control crtl in gboToppings.Controls)
             {
                 if(crtl is CheckBox checBox)
                 {
                     if(checBox.Checked)
                     {
-                        strToppings +=", " + checBox.Text;
-                        count++;
-                        if (count == 3)
-                            strToppings += "\n";
+                        strToppings +=", " + checBox.Text; 
                     }
                 }
             }

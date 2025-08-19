@@ -395,11 +395,11 @@
             // 
             // labToppingsOp
             // 
-            this.labToppingsOp.AutoSize = true;
+            this.labToppingsOp.AutoEllipsis = true;
             this.labToppingsOp.Font = new System.Drawing.Font("Gadugi", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labToppingsOp.Location = new System.Drawing.Point(562, 432);
             this.labToppingsOp.Name = "labToppingsOp";
-            this.labToppingsOp.Size = new System.Drawing.Size(95, 19);
+            this.labToppingsOp.Size = new System.Drawing.Size(259, 51);
             this.labToppingsOp.TabIndex = 17;
             this.labToppingsOp.Text = "No Toppings";
             // 
@@ -454,7 +454,7 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(860, 743);
+            this.ClientSize = new System.Drawing.Size(877, 743);
             this.Controls.Add(this.labToppingsOp);
             this.Controls.Add(this.btnRestForm);
             this.Controls.Add(this.btnOrderPizza);
@@ -474,11 +474,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labToppings);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
