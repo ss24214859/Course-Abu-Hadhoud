@@ -1,4 +1,4 @@
-﻿namespace Tic_Tac_Toe
+﻿namespace XO_Game_Final
 {
     partial class Form1
     {
@@ -29,217 +29,347 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.lbTitle = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.picb2 = new System.Windows.Forms.PictureBox();
-            this.picb4 = new System.Windows.Forms.PictureBox();
-            this.picb5 = new System.Windows.Forms.PictureBox();
-            this.picb6 = new System.Windows.Forms.PictureBox();
-            this.picb1 = new System.Windows.Forms.PictureBox();
-            this.picb3 = new System.Windows.Forms.PictureBox();
-            this.picb7 = new System.Windows.Forms.PictureBox();
-            this.picb8 = new System.Windows.Forms.PictureBox();
-            this.picb9 = new System.Windows.Forms.PictureBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lbWinner = new System.Windows.Forms.Label();
-            this.lbTurn = new System.Windows.Forms.Label();
-            this.btRestartGame = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTurn = new System.Windows.Forms.Label();
+            this.btnRestart = new System.Windows.Forms.Button();
+            this.lblWinnerIs = new System.Windows.Forms.Label();
+            this.lblWinner = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb9)).BeginInit();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbTitle
+            // button7
             // 
-            resources.ApplyResources(this.lbTitle, "lbTitle");
-            this.lbTitle.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbTitle.Name = "lbTitle";
+            this.button7.BackColor = System.Drawing.Color.Transparent;
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Image = global::XO_Game_Final.Properties.Resources.question_mark_96;
+            this.button7.Location = new System.Drawing.Point(563, 610);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(200, 127);
+            this.button7.TabIndex = 8;
+            this.button7.Tag = "?";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // pictureBox1
+            // button8
             // 
-            this.pictureBox1.BackgroundImage = global::Tic_Tac_Toe.Properties.Resources.K4fTj4SWRHCoJT03mBYl_Telegram_Logos__6_;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
+            this.button8.BackColor = System.Drawing.Color.Transparent;
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Image = global::XO_Game_Final.Properties.Resources.question_mark_96;
+            this.button8.Location = new System.Drawing.Point(864, 610);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(200, 127);
+            this.button8.TabIndex = 7;
+            this.button8.Tag = "?";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // picb2
+            // button9
             // 
-            resources.ApplyResources(this.picb2, "picb2");
-            this.picb2.Name = "picb2";
-            this.picb2.TabStop = false;
-            this.picb2.Click += new System.EventHandler(this.picb2_Click);
+            this.button9.BackColor = System.Drawing.Color.Transparent;
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Image = global::XO_Game_Final.Properties.Resources.question_mark_96;
+            this.button9.Location = new System.Drawing.Point(1168, 610);
+            this.button9.Margin = new System.Windows.Forms.Padding(4);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(200, 127);
+            this.button9.TabIndex = 6;
+            this.button9.Tag = "?";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // picb4
+            // button4
             // 
-            resources.ApplyResources(this.picb4, "picb4");
-            this.picb4.Name = "picb4";
-            this.picb4.TabStop = false;
-            this.picb4.Click += new System.EventHandler(this.picb4_Click);
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = global::XO_Game_Final.Properties.Resources.question_mark_96;
+            this.button4.Location = new System.Drawing.Point(563, 398);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(200, 127);
+            this.button4.TabIndex = 5;
+            this.button4.Tag = "?";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // picb5
+            // button5
             // 
-            resources.ApplyResources(this.picb5, "picb5");
-            this.picb5.Name = "picb5";
-            this.picb5.TabStop = false;
-            this.picb5.Click += new System.EventHandler(this.picb5_Click);
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Image = global::XO_Game_Final.Properties.Resources.question_mark_96;
+            this.button5.Location = new System.Drawing.Point(864, 401);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(200, 127);
+            this.button5.TabIndex = 4;
+            this.button5.Tag = "?";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // picb6
+            // button6
             // 
-            resources.ApplyResources(this.picb6, "picb6");
-            this.picb6.Name = "picb6";
-            this.picb6.TabStop = false;
-            this.picb6.Click += new System.EventHandler(this.picb6_Click);
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Image = global::XO_Game_Final.Properties.Resources.question_mark_96;
+            this.button6.Location = new System.Drawing.Point(1168, 406);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(200, 127);
+            this.button6.TabIndex = 3;
+            this.button6.Tag = "?";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // picb1
+            // button3
             // 
-            resources.ApplyResources(this.picb1, "picb1");
-            this.picb1.Name = "picb1";
-            this.picb1.TabStop = false;
-            this.picb1.Click += new System.EventHandler(this.picb1_Click);
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::XO_Game_Final.Properties.Resources.question_mark_96;
+            this.button3.Location = new System.Drawing.Point(1168, 201);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(200, 127);
+            this.button3.TabIndex = 2;
+            this.button3.Tag = "?";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // picb3
+            // button2
             // 
-            resources.ApplyResources(this.picb3, "picb3");
-            this.picb3.Name = "picb3";
-            this.picb3.TabStop = false;
-            this.picb3.Click += new System.EventHandler(this.picb3_Click);
-            // 
-            // picb7
-            // 
-            resources.ApplyResources(this.picb7, "picb7");
-            this.picb7.Name = "picb7";
-            this.picb7.TabStop = false;
-            this.picb7.Click += new System.EventHandler(this.picb7_Click);
-            // 
-            // picb8
-            // 
-            resources.ApplyResources(this.picb8, "picb8");
-            this.picb8.Name = "picb8";
-            this.picb8.TabStop = false;
-            this.picb8.Click += new System.EventHandler(this.picb8_Click);
-            // 
-            // picb9
-            // 
-            resources.ApplyResources(this.picb9, "picb9");
-            this.picb9.Name = "picb9";
-            this.picb9.TabStop = false;
-            this.picb9.Click += new System.EventHandler(this.picb9_Click);
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::XO_Game_Final.Properties.Resources.question_mark_96;
+            this.button2.Location = new System.Drawing.Point(864, 197);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(200, 127);
+            this.button2.TabIndex = 1;
+            this.button2.Tag = "?";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.ForeColor = System.Drawing.Color.Yellow;
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Britannic Bold", 50F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(599, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(684, 93);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Tic-Tac-Toe Game";
             // 
             // label2
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Britannic Bold", 36F);
             this.label2.ForeColor = System.Drawing.Color.Yellow;
+            this.label2.Location = new System.Drawing.Point(185, 223);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 67);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Turn";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbWinner
+            // lblTurn
             // 
-            resources.ApplyResources(this.lbWinner, "lbWinner");
-            this.lbWinner.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbWinner.ForeColor = System.Drawing.Color.Lime;
-            this.lbWinner.Name = "lbWinner";
+            this.lblTurn.BackColor = System.Drawing.Color.Transparent;
+            this.lblTurn.Font = new System.Drawing.Font("Britannic Bold", 36F);
+            this.lblTurn.ForeColor = System.Drawing.Color.White;
+            this.lblTurn.Location = new System.Drawing.Point(36, 289);
+            this.lblTurn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTurn.Name = "lblTurn";
+            this.lblTurn.Size = new System.Drawing.Size(503, 63);
+            this.lblTurn.TabIndex = 11;
+            this.lblTurn.Text = "Player 1";
+            this.lblTurn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbTurn
+            // btnRestart
             // 
-            resources.ApplyResources(this.lbTurn, "lbTurn");
-            this.lbTurn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbTurn.ForeColor = System.Drawing.Color.White;
-            this.lbTurn.Name = "lbTurn";
+            this.btnRestart.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRestart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestart.Font = new System.Drawing.Font("Britannic Bold", 27.75F);
+            this.btnRestart.ForeColor = System.Drawing.Color.White;
+            this.btnRestart.Location = new System.Drawing.Point(119, 549);
+            this.btnRestart.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(347, 69);
+            this.btnRestart.TabIndex = 12;
+            this.btnRestart.Text = "Restart Game";
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
-            // btRestartGame
+            // lblWinnerIs
             // 
-            this.btRestartGame.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            resources.ApplyResources(this.btRestartGame, "btRestartGame");
-            this.btRestartGame.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btRestartGame.Name = "btRestartGame";
-            this.btRestartGame.UseVisualStyleBackColor = false;
-            this.btRestartGame.Click += new System.EventHandler(this.btRestartGame_Click);
+            this.lblWinnerIs.AutoSize = true;
+            this.lblWinnerIs.BackColor = System.Drawing.Color.Transparent;
+            this.lblWinnerIs.Font = new System.Drawing.Font("Britannic Bold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinnerIs.ForeColor = System.Drawing.Color.Yellow;
+            this.lblWinnerIs.Location = new System.Drawing.Point(156, 368);
+            this.lblWinnerIs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblWinnerIs.Name = "lblWinnerIs";
+            this.lblWinnerIs.Size = new System.Drawing.Size(217, 67);
+            this.lblWinnerIs.TabIndex = 13;
+            this.lblWinnerIs.Text = "Winner";
+            this.lblWinnerIs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
+            // lblWinner
             // 
-            this.panel1.Controls.Add(this.picb9);
-            this.panel1.Controls.Add(this.picb8);
-            this.panel1.Controls.Add(this.picb7);
-            this.panel1.Controls.Add(this.picb3);
-            this.panel1.Controls.Add(this.picb1);
-            this.panel1.Controls.Add(this.picb6);
-            this.panel1.Controls.Add(this.picb5);
-            this.panel1.Controls.Add(this.picb4);
-            this.panel1.Controls.Add(this.picb2);
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
+            this.lblWinner.BackColor = System.Drawing.Color.Transparent;
+            this.lblWinner.Font = new System.Drawing.Font("Britannic Bold", 36F);
+            this.lblWinner.ForeColor = System.Drawing.Color.Lime;
+            this.lblWinner.Location = new System.Drawing.Point(101, 447);
+            this.lblWinner.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblWinner.Name = "lblWinner";
+            this.lblWinner.Size = new System.Drawing.Size(364, 63);
+            this.lblWinner.TabIndex = 14;
+            this.lblWinner.Text = "In Progress";
+            this.lblWinner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(95, 654);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(429, 108);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(161, 25);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(215, 175);
+            this.pictureBox2.TabIndex = 16;
+            this.pictureBox2.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::XO_Game_Final.Properties.Resources.question_mark_96;
+            this.button1.Location = new System.Drawing.Point(563, 197);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 127);
+            this.button1.TabIndex = 0;
+            this.button1.TabStop = false;
+            this.button1.Tag = "?";
+            this.button1.UseMnemonic = false;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btRestartGame);
-            this.Controls.Add(this.lbTurn);
-            this.Controls.Add(this.lbWinner);
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(1479, 822);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblWinner);
+            this.Controls.Add(this.lblWinnerIs);
+            this.Controls.Add(this.btnRestart);
+            this.Controls.Add(this.lblTurn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lbTitle);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
+            this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tic-Tac-Toe Game";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picb9)).EndInit();
-            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lbTitle;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox picb2;
-        private System.Windows.Forms.PictureBox picb4;
-        private System.Windows.Forms.PictureBox picb5;
-        private System.Windows.Forms.PictureBox picb6;
-        private System.Windows.Forms.PictureBox picb1;
-        private System.Windows.Forms.PictureBox picb3;
-        private System.Windows.Forms.PictureBox picb7;
-        private System.Windows.Forms.PictureBox picb8;
-        private System.Windows.Forms.PictureBox picb9;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbWinner;
-        private System.Windows.Forms.Label lbTurn;
-        private System.Windows.Forms.Button btRestartGame;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblTurn;
+        private System.Windows.Forms.Button btnRestart;
+        private System.Windows.Forms.Label lblWinnerIs;
+        private System.Windows.Forms.Label lblWinner;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button1;
     }
 }
 

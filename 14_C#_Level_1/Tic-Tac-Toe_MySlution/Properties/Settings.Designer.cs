@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XO_Game_Final.Properties
+namespace Tic_Tac_Toe_MySlution.Properties
 {
 
 

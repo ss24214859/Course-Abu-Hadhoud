@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace XO_Game_Final
+namespace Tic_Tac_Toe_MySlution
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace XO_Game_Final
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new سيجا());
         }
     }
 }

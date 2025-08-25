@@ -1,0 +1,10 @@
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Tic-Tac-Toe_MySlution\obj\Debug\Tic-Tac-Toe_MySlution.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Tic-Tac-Toe_MySlution\obj\Debug\Tic_Tac_Toe_MySlution.Properties.Resources.resources
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Tic-Tac-Toe_MySlution\obj\Debug\Tic-Tac-Toe_MySlution.csproj.GenerateResource.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Tic-Tac-Toe_MySlution\obj\Debug\Tic-Tac-Toe_MySlution.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Tic-Tac-Toe_MySlution\bin\Debug\Tic-Tac-Toe Game Arabic.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Tic-Tac-Toe_MySlution\bin\Debug\Tic-Tac-Toe Game Arabic.exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Tic-Tac-Toe_MySlution\bin\Debug\Tic-Tac-Toe Game Arabic.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Tic-Tac-Toe_MySlution\obj\Debug\Tic_Tac_Toe_MySlution.سيجا.resources
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Tic-Tac-Toe_MySlution\obj\Debug\Tic-Tac-Toe Game Arabic.exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Tic-Tac-Toe_MySlution\obj\Debug\Tic-Tac-Toe Game Arabic.pdb
