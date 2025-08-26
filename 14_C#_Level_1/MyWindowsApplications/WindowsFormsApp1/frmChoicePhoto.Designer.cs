@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Form1
+    partial class frmChoicePhoto
     {
         /// <summary>
         /// Required designer variable.
@@ -32,8 +32,9 @@
             this.rbGirl = new System.Windows.Forms.RadioButton();
             this.rbPen = new System.Windows.Forms.RadioButton();
             this.rbBook = new System.Windows.Forms.RadioButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbTitle = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnDone = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,6 +90,17 @@
             this.rbBook.UseVisualStyleBackColor = true;
             this.rbBook.CheckedChanged += new System.EventHandler(this.rbBook_CheckedChanged);
             // 
+            // lbTitle
+            // 
+            this.lbTitle.AutoSize = true;
+            this.lbTitle.Font = new System.Drawing.Font("Showcard Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle.ForeColor = System.Drawing.Color.Red;
+            this.lbTitle.Location = new System.Drawing.Point(244, 21);
+            this.lbTitle.Name = "lbTitle";
+            this.lbTitle.Size = new System.Drawing.Size(290, 46);
+            this.lbTitle.TabIndex = 5;
+            this.lbTitle.Text = "Choice Photo";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.Girl;
@@ -99,32 +111,33 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // lbTitle
+            // btnDone
             // 
-            this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Showcard Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.ForeColor = System.Drawing.Color.Red;
-            this.lbTitle.Location = new System.Drawing.Point(336, 20);
-            this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(121, 46);
-            this.lbTitle.TabIndex = 5;
-            this.lbTitle.Text = "Title";
+            this.btnDone.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnDone.Location = new System.Drawing.Point(713, 399);
+            this.btnDone.Name = "btnDone";
+            this.btnDone.Size = new System.Drawing.Size(123, 65);
+            this.btnDone.TabIndex = 6;
+            this.btnDone.Text = "Done";
+            this.btnDone.UseVisualStyleBackColor = false;
+            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
-            // Form1
+            // frmChoicePhoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(859, 513);
+            this.Controls.Add(this.btnDone);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.rbBook);
             this.Controls.Add(this.rbPen);
             this.Controls.Add(this.rbGirl);
             this.Controls.Add(this.rbBoy);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "frmChoicePhoto";
+            this.Text = "Choice Photo";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -140,6 +153,7 @@
         private System.Windows.Forms.RadioButton rbPen;
         private System.Windows.Forms.RadioButton rbBook;
         private System.Windows.Forms.Label lbTitle;
+        private System.Windows.Forms.Button btnDone;
     }
 }
 

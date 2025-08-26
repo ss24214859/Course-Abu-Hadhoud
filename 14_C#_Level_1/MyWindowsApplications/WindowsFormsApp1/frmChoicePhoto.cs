@@ -11,9 +11,9 @@ using WindowsFormsApp1.Properties;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class frmChoicePhoto : Form
     {
-        public Form1()
+        public frmChoicePhoto()
         {
             InitializeComponent();
         }
@@ -70,6 +70,12 @@ namespace WindowsFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
             rbBoy.Checked = true;
+        }
+
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }
