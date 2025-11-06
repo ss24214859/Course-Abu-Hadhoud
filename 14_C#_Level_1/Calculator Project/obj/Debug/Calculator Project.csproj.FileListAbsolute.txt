@@ -1,0 +1,8 @@
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Calculator Project\bin\Debug\Calculator Project.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Calculator Project\bin\Debug\Calculator Project.exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Calculator Project\bin\Debug\Calculator Project.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Calculator Project\obj\Debug\Calculator Project.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Calculator Project\obj\Debug\Calculator Project.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Calculator Project\obj\Debug\Calculator Project.exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Calculator Project\obj\Debug\Calculator Project.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Calculator Project\obj\Debug\Calculator Project.exe.config

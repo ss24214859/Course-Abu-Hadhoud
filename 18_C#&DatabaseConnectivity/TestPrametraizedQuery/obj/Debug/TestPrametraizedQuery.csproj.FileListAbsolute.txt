@@ -1,0 +1,8 @@
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\TestPrametraizedQuery\bin\Debug\TestPrametraizedQuery.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\TestPrametraizedQuery\bin\Debug\TestPrametraizedQuery.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\TestPrametraizedQuery\bin\Debug\TestPrametraizedQuery.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\TestPrametraizedQuery\obj\Debug\TestPrametraizedQuery.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\TestPrametraizedQuery\obj\Debug\TestPrametraizedQuery.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\TestPrametraizedQuery\obj\Debug\TestPrametraizedQuery.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\TestPrametraizedQuery\obj\Debug\TestPrametraizedQuery.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\TestPrametraizedQuery\obj\Debug\TestPrametraizedQuery.exe.config

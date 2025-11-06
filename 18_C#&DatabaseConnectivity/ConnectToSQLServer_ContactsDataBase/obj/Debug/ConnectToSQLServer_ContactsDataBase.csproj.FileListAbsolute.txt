@@ -1,0 +1,8 @@
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ConnectToSQLServer_ContactsDataBase\bin\Debug\ConnectToSQLServer_ContactsDataBase.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ConnectToSQLServer_ContactsDataBase\bin\Debug\ConnectToSQLServer_ContactsDataBase.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ConnectToSQLServer_ContactsDataBase\bin\Debug\ConnectToSQLServer_ContactsDataBase.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ConnectToSQLServer_ContactsDataBase\obj\Debug\ConnectToSQLServer_ContactsDataBase.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ConnectToSQLServer_ContactsDataBase\obj\Debug\ConnectToSQLServer_ContactsDataBase.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ConnectToSQLServer_ContactsDataBase\obj\Debug\ConnectToSQLServer_ContactsDataBase.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ConnectToSQLServer_ContactsDataBase\obj\Debug\ConnectToSQLServer_ContactsDataBase.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ConnectToSQLServer_ContactsDataBase\obj\Debug\ConnectToSQLServer_ContactsDataBase.exe.config

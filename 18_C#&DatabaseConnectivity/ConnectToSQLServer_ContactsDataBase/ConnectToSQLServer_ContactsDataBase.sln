@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectToSQLServer_ContactsDataBase", "ConnectToSQLServer_ContactsDataBase.csproj", "{AADCC570-B1AC-4279-BC8C-5892277653DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AADCC570-B1AC-4279-BC8C-5892277653DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AADCC570-B1AC-4279-BC8C-5892277653DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AADCC570-B1AC-4279-BC8C-5892277653DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AADCC570-B1AC-4279-BC8C-5892277653DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5815F76-7859-4BDE-B5AF-9DDC1ECF1861}
+	EndGlobalSection
+EndGlobal

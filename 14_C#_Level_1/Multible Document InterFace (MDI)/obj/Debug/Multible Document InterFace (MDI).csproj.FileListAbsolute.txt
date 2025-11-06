@@ -1,0 +1,12 @@
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Multible Document InterFace (MDI)\bin\Debug\Multible Document InterFace (MDI).exe.config
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Multible Document InterFace (MDI)\bin\Debug\Multible Document InterFace (MDI).exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Multible Document InterFace (MDI)\bin\Debug\Multible Document InterFace (MDI).pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Multible Document InterFace (MDI)\obj\Debug\Multible Document InterFace (MDI).csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Multible Document InterFace (MDI)\obj\Debug\Multible_Document_InterFace__MDI_.Form1.resources
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Multible Document InterFace (MDI)\obj\Debug\Multible_Document_InterFace__MDI_.Properties.Resources.resources
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Multible Document InterFace (MDI)\obj\Debug\Multible Document InterFace (MDI).csproj.GenerateResource.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Multible Document InterFace (MDI)\obj\Debug\Multible Document InterFace (MDI).csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Multible Document InterFace (MDI)\obj\Debug\Multible Document InterFace (MDI).exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Multible Document InterFace (MDI)\obj\Debug\Multible Document InterFace (MDI).pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Multible Document InterFace (MDI)\obj\Debug\Multible Document InterFace (MDI).exe.config
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\Multible Document InterFace (MDI)\obj\Debug\Multible_Document_InterFace__MDI_.Form2.resources

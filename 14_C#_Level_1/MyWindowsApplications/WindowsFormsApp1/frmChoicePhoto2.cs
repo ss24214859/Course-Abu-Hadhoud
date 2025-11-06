@@ -48,7 +48,7 @@ namespace WindowsFormsApp1
             //this is the shortcut Slution.
             string ActiveChoice = cboChoicePhoto.Text;
             lbTitle.Text = ActiveChoice;
-            pictureBox1.Image =(Image )Resources.ResourceManager.GetObject(ActiveChoice);
+            pictureBox1.Image = (Image )Resources.ResourceManager.GetObject(ActiveChoice);
 
         }
 

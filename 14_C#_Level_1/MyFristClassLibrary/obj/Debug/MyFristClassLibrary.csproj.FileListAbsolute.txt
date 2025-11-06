@@ -1,0 +1,6 @@
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyFristClassLibrary\bin\Debug\MyFristClassLibrary.dll
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyFristClassLibrary\bin\Debug\MyFristClassLibrary.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyFristClassLibrary\obj\Debug\MyFristClassLibrary.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyFristClassLibrary\obj\Debug\MyFristClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyFristClassLibrary\obj\Debug\MyFristClassLibrary.dll
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\MyFristClassLibrary\obj\Debug\MyFristClassLibrary.pdb

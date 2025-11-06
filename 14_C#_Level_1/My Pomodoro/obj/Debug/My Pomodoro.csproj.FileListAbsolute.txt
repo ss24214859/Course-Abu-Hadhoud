@@ -1,0 +1,11 @@
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\My Pomodoro\bin\Debug\My Pomodoro.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\My Pomodoro\bin\Debug\My Pomodoro.exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\My Pomodoro\bin\Debug\My Pomodoro.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\My Pomodoro\obj\Debug\My Pomodoro.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\My Pomodoro\obj\Debug\My_Pomodoro.Form1.resources
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\My Pomodoro\obj\Debug\My_Pomodoro.Properties.Resources.resources
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\My Pomodoro\obj\Debug\My Pomodoro.csproj.GenerateResource.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\My Pomodoro\obj\Debug\My Pomodoro.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\My Pomodoro\obj\Debug\My Pomodoro.exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\My Pomodoro\obj\Debug\My Pomodoro.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\My Pomodoro\obj\Debug\My Pomodoro.exe.config

@@ -1,0 +1,11 @@
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp3\bin\Debug\ConsoleApp3.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp3\bin\Debug\ConsoleApp3.exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp3\bin\Debug\ConsoleApp3.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp3\bin\Debug\MyFristClassLibrary.dll
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp3\bin\Debug\MyFristClassLibrary.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp3\obj\Debug\ConsoleApp3.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp3\obj\Debug\ConsoleApp3.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp3\obj\Debug\ConsoleA.88426B56.Up2Date
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp3\obj\Debug\ConsoleApp3.exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp3\obj\Debug\ConsoleApp3.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\ConsoleApp3\obj\Debug\ConsoleApp3.exe.config

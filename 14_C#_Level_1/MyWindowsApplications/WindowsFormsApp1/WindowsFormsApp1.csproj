@@ -46,17 +46,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmTabControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTabControl.Designer.cs">
+      <DependentUpon>frmTabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListView.Designer.cs">
+      <DependentUpon>frmListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTreeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTreeView.Designer.cs">
+      <DependentUpon>frmTreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMonthCalandar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMonthCalandar.Designer.cs">
+      <DependentUpon>frmMonthCalandar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCheckedListBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCheckedListBox.Designer.cs">
+      <DependentUpon>frmCheckedListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLinkLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLinkLabel.Designer.cs">
+      <DependentUpon>frmLinkLabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmChoicePhoto2.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmChoicePhoto2.Designer.cs">
       <DependentUpon>frmChoicePhoto2.cs</DependentUpon>
     </Compile>
-    <Compile Include="MaskedTextBox.cs">
+    <Compile Include="frmCountYourAge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MaskedTextBox.Designer.cs">
-      <DependentUpon>MaskedTextBox.cs</DependentUpon>
+    <Compile Include="frmCountYourAge.Designer.cs">
+      <DependentUpon>frmCountYourAge.cs</DependentUpon>
     </Compile>
     <Compile Include="frmChoicePhoto.cs">
       <SubType>Form</SubType>
@@ -72,17 +108,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmTabControl.resx">
+      <DependentUpon>frmTabControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListView.resx">
+      <DependentUpon>frmListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMonthCalandar.resx">
+      <DependentUpon>frmMonthCalandar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCheckedListBox.resx">
+      <DependentUpon>frmCheckedListBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLinkLabel.resx">
+      <DependentUpon>frmLinkLabel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmChoicePhoto2.resx">
       <DependentUpon>frmChoicePhoto2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MaskedTextBox.resx">
-      <DependentUpon>MaskedTextBox.cs</DependentUpon>
+    <EmbeddedResource Include="frmCountYourAge.resx">
+      <DependentUpon>frmCountYourAge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChoicePhoto.resx">
       <DependentUpon>frmChoicePhoto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTreeView.resx">
+      <DependentUpon>frmTreeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -94,6 +148,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="daily-201218-14.jpg.webp" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -118,6 +173,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="daily-201218-14.jpg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="YouTube.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

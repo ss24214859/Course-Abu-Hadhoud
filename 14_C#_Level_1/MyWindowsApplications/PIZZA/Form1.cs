@@ -70,7 +70,7 @@ namespace PIZZA
 
         float CalculateTotalPrice()
         {
-            return GetSelectedCrustPrice() + GetSelectedSizePrice() + CalculateToppingsPrice();
+            return (GetSelectedCrustPrice() + GetSelectedSizePrice() + CalculateToppingsPrice() ) * (float)nudTotolNumber.Value ;
         }
 
         void UpdateTotalPrice()
@@ -227,6 +227,7 @@ namespace PIZZA
                 gboxSize.Enabled       = false;
                 gboxCrustType.Enabled  = false;
                 gboxWhereToEat.Enabled = false;
+                nudTotolNumber.Enabled = false;
                 MessageBox.Show("Your Order is Conferm :-) ");
             }
         }
@@ -255,6 +256,11 @@ namespace PIZZA
         private void gboxSize_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateTotalPrice();
         }
     }
 }

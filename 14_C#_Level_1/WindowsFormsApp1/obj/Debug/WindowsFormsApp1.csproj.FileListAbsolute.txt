@@ -1,0 +1,14 @@
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\WindowsFormsApp1\bin\Debug\MyFristClassLibrary.dll
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\WindowsFormsApp1\bin\Debug\MyFristClassLibrary.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\WindowsFormsApp1\obj\Debug\WindowsF.A1EEDF9B.Up2Date
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\14_C#_Level_1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.clsperson.resources
