@@ -1,0 +1,8 @@
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Sql Update Data\bin\Debug\Sql Update Data.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Sql Update Data\bin\Debug\Sql Update Data.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Sql Update Data\bin\Debug\Sql Update Data.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Sql Update Data\obj\Debug\Sql Update Data.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Sql Update Data\obj\Debug\Sql Update Data.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Sql Update Data\obj\Debug\Sql Update Data.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Sql Update Data\obj\Debug\Sql Update Data.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Sql Update Data\obj\Debug\Sql Update Data.exe.config
