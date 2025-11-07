@@ -92,6 +92,33 @@ namespace Sql_Update_Data
                 Console.WriteLine(ex.ToString());
             }
         }
+        static void DeleteContacts(string ContactIDs)
+        {
+            SqlConnection Connection = new SqlConnection(ConnectionString);
+            string Query = @"DELETE  Contacts
+                            Where ContactID in (" + ContactIDs + ") ";
+            SqlCommand cmd = new SqlCommand(Query, Connection);
+            
+
+            try
+            {
+                Connection.Open();
+                int RowsAffected = cmd.ExecuteNonQuery();
+                if (RowsAffected > 0)
+                {
+                    Console.WriteLine("Record Deleted Successfully");
+                }
+                else
+                {
+                    Console.WriteLine("Record Delete Failed");
+                }
+                Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
 
         static void Main(string[] args)
         {
@@ -105,7 +132,26 @@ namespace Sql_Update_Data
 
             UpdateContact(12, contact);*/
 
-            DeleteContact(12);
+            DeleteContacts("0,10");
+
+            //Bug
+            /*
+                    DeleteContacts(@"0);
+            INSERT INTO [dbo].[Contacts]
+                   ([FirstName]
+                   ,[LastName]
+                   ,[Email]
+                   ,[Phone]
+                   ,[Address]
+                   ,[CountryID])
+             VALUES
+                   ('Mohamed'
+                   ,'Shaaban'
+                   ,'moo@mm.gm'
+                   ,'01225623325'
+                   ,'st 222'
+                   ,5");
+            */
         }
     }
 }
