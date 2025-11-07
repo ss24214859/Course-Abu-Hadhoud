@@ -1,0 +1,8 @@
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Connect to SQLServer Database-Insert-Add Data\bin\Debug\Connect to SQLServer Database-Insert-Add Data.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Connect to SQLServer Database-Insert-Add Data\bin\Debug\Connect to SQLServer Database-Insert-Add Data.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Connect to SQLServer Database-Insert-Add Data\bin\Debug\Connect to SQLServer Database-Insert-Add Data.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Connect to SQLServer Database-Insert-Add Data\obj\Debug\Connect to SQLServer Database-Insert-Add Data.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Connect to SQLServer Database-Insert-Add Data\obj\Debug\Connect to SQLServer Database-Insert-Add Data.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Connect to SQLServer Database-Insert-Add Data\obj\Debug\Connect to SQLServer Database-Insert-Add Data.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Connect to SQLServer Database-Insert-Add Data\obj\Debug\Connect to SQLServer Database-Insert-Add Data.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Connect to SQLServer Database-Insert-Add Data\obj\Debug\Connect to SQLServer Database-Insert-Add Data.exe.config
