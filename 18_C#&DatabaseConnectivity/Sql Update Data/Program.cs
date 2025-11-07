@@ -32,7 +32,7 @@ namespace Sql_Update_Data
                         "      ,[Phone] = @Phone" +
                         "      ,[Address] =@Address" +
                         "      ,[CountryID] = @CountryID " +
-                        "   WHERE ContactID = @ContactID";
+                        "   WHERE ContactID = @ContactID  ";
 
 
             SqlCommand cmd = new SqlCommand(Query, Connection);
@@ -64,9 +64,38 @@ namespace Sql_Update_Data
             }
 
         }
+
+        static void DeleteContact(int ContactID)
+        {
+            SqlConnection Connection = new SqlConnection(ConnectionString);
+            string Query = @"DELETE  Contacts
+                            Where ContactID = @ContactID";
+            SqlCommand cmd = new SqlCommand(Query, Connection);
+            cmd.Parameters.AddWithValue("@ContactID", ContactID);
+
+            try
+            {
+                Connection.Open();
+                int RowsAffected = cmd.ExecuteNonQuery();
+                if (RowsAffected > 0)
+                {
+                    Console.WriteLine("Record Deleted Successfully");
+                }
+                else
+                {
+                    Console.WriteLine("Record Delete Failed");
+                }
+                Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
         static void Main(string[] args)
         {
-            stContact contact = new stContact();
+            /*stContact contact = new stContact();
             contact.FirstName = "Ahmed";
             contact.LastName = "Ali";
             contact.Email = "Ahm@ali.com";
@@ -74,7 +103,9 @@ namespace Sql_Update_Data
             contact.Address = "335 stf";
             contact.CountryID = 2;
 
-            UpdateContact(12, contact);
+            UpdateContact(12, contact);*/
+
+            DeleteContact(12);
         }
     }
 }
