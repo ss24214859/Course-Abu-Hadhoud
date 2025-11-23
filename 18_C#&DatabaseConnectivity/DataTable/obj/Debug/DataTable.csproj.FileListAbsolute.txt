@@ -1,0 +1,8 @@
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataTable\bin\Debug\DataTable.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataTable\bin\Debug\DataTable.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataTable\bin\Debug\DataTable.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataTable\obj\Debug\DataTable.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataTable\obj\Debug\DataTable.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataTable\obj\Debug\DataTable.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataTable\obj\Debug\DataTable.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataTable\obj\Debug\DataTable.exe.config

@@ -65,7 +65,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -100,6 +99,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gboxSize.SuspendLayout();
             this.gboxCrustType.SuspendLayout();
@@ -135,7 +135,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(649, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(700, 121);
+            this.label1.Size = new System.Drawing.Size(560, 97);
             this.label1.TabIndex = 1;
             this.label1.Text = "Make Your Pizza";
             // 
@@ -144,7 +144,7 @@
             this.rbtnSmall.AutoSize = true;
             this.rbtnSmall.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtnSmall.Location = new System.Drawing.Point(44, 23);
-            this.rbtnSmall.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnSmall.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnSmall.Name = "rbtnSmall";
             this.rbtnSmall.Size = new System.Drawing.Size(63, 21);
             this.rbtnSmall.TabIndex = 3;
@@ -158,7 +158,7 @@
             this.rbtnMedium.AutoSize = true;
             this.rbtnMedium.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtnMedium.Location = new System.Drawing.Point(44, 52);
-            this.rbtnMedium.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnMedium.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnMedium.Name = "rbtnMedium";
             this.rbtnMedium.Size = new System.Drawing.Size(78, 21);
             this.rbtnMedium.TabIndex = 4;
@@ -172,7 +172,7 @@
             this.rbtnLarg.AutoSize = true;
             this.rbtnLarg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtnLarg.Location = new System.Drawing.Point(44, 80);
-            this.rbtnLarg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnLarg.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnLarg.Name = "rbtnLarg";
             this.rbtnLarg.Size = new System.Drawing.Size(58, 21);
             this.rbtnLarg.TabIndex = 5;
@@ -189,9 +189,9 @@
             this.gboxSize.Controls.Add(this.rbtnSmall);
             this.gboxSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxSize.Location = new System.Drawing.Point(445, 108);
-            this.gboxSize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxSize.Margin = new System.Windows.Forms.Padding(4);
             this.gboxSize.Name = "gboxSize";
-            this.gboxSize.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxSize.Padding = new System.Windows.Forms.Padding(4);
             this.gboxSize.Size = new System.Drawing.Size(118, 86);
             this.gboxSize.TabIndex = 6;
             this.gboxSize.TabStop = false;
@@ -205,9 +205,9 @@
             this.gboxCrustType.Controls.Add(this.rbtnThinCrust);
             this.gboxCrustType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxCrustType.Location = new System.Drawing.Point(441, 215);
-            this.gboxCrustType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxCrustType.Margin = new System.Windows.Forms.Padding(4);
             this.gboxCrustType.Name = "gboxCrustType";
-            this.gboxCrustType.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxCrustType.Padding = new System.Windows.Forms.Padding(4);
             this.gboxCrustType.Size = new System.Drawing.Size(118, 63);
             this.gboxCrustType.TabIndex = 7;
             this.gboxCrustType.TabStop = false;
@@ -218,7 +218,7 @@
             this.rbtnThickCrust.AutoSize = true;
             this.rbtnThickCrust.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtnThickCrust.Location = new System.Drawing.Point(41, 53);
-            this.rbtnThickCrust.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnThickCrust.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnThickCrust.Name = "rbtnThickCrust";
             this.rbtnThickCrust.Size = new System.Drawing.Size(100, 21);
             this.rbtnThickCrust.TabIndex = 4;
@@ -232,7 +232,7 @@
             this.rbtnThinCrust.AutoSize = true;
             this.rbtnThinCrust.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtnThinCrust.Location = new System.Drawing.Point(43, 25);
-            this.rbtnThinCrust.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnThinCrust.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnThinCrust.Name = "rbtnThinCrust";
             this.rbtnThinCrust.Size = new System.Drawing.Size(94, 21);
             this.rbtnThinCrust.TabIndex = 3;
@@ -247,21 +247,20 @@
             this.gboxWhereToEat.Controls.Add(this.rbtnEatIn);
             this.gboxWhereToEat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxWhereToEat.Location = new System.Drawing.Point(583, 231);
-            this.gboxWhereToEat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxWhereToEat.Margin = new System.Windows.Forms.Padding(4);
             this.gboxWhereToEat.Name = "gboxWhereToEat";
-            this.gboxWhereToEat.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxWhereToEat.Padding = new System.Windows.Forms.Padding(4);
             this.gboxWhereToEat.Size = new System.Drawing.Size(282, 47);
             this.gboxWhereToEat.TabIndex = 8;
             this.gboxWhereToEat.TabStop = false;
             this.gboxWhereToEat.Text = "Where To Eat";
-            this.gboxWhereToEat.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // rbtnTakeOut
             // 
             this.rbtnTakeOut.AutoSize = true;
             this.rbtnTakeOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtnTakeOut.Location = new System.Drawing.Point(160, 25);
-            this.rbtnTakeOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnTakeOut.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnTakeOut.Name = "rbtnTakeOut";
             this.rbtnTakeOut.Size = new System.Drawing.Size(88, 21);
             this.rbtnTakeOut.TabIndex = 4;
@@ -274,7 +273,7 @@
             this.rbtnEatIn.AutoSize = true;
             this.rbtnEatIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtnEatIn.Location = new System.Drawing.Point(43, 25);
-            this.rbtnEatIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnEatIn.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnEatIn.Name = "rbtnEatIn";
             this.rbtnEatIn.Size = new System.Drawing.Size(65, 21);
             this.rbtnEatIn.TabIndex = 3;
@@ -286,7 +285,7 @@
             // 
             this.cboxExtraChees.AutoSize = true;
             this.cboxExtraChees.Location = new System.Drawing.Point(45, 37);
-            this.cboxExtraChees.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxExtraChees.Margin = new System.Windows.Forms.Padding(4);
             this.cboxExtraChees.Name = "cboxExtraChees";
             this.cboxExtraChees.Size = new System.Drawing.Size(101, 20);
             this.cboxExtraChees.TabIndex = 9;
@@ -299,7 +298,7 @@
             // 
             this.cboxMushrooms.AutoSize = true;
             this.cboxMushrooms.Location = new System.Drawing.Point(45, 66);
-            this.cboxMushrooms.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxMushrooms.Margin = new System.Windows.Forms.Padding(4);
             this.cboxMushrooms.Name = "cboxMushrooms";
             this.cboxMushrooms.Size = new System.Drawing.Size(99, 20);
             this.cboxMushrooms.TabIndex = 10;
@@ -312,7 +311,7 @@
             // 
             this.cboxTomatoes.AutoSize = true;
             this.cboxTomatoes.Location = new System.Drawing.Point(45, 101);
-            this.cboxTomatoes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxTomatoes.Margin = new System.Windows.Forms.Padding(4);
             this.cboxTomatoes.Name = "cboxTomatoes";
             this.cboxTomatoes.Size = new System.Drawing.Size(91, 20);
             this.cboxTomatoes.TabIndex = 11;
@@ -325,7 +324,7 @@
             // 
             this.cboxOnion.AutoSize = true;
             this.cboxOnion.Location = new System.Drawing.Point(201, 37);
-            this.cboxOnion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxOnion.Margin = new System.Windows.Forms.Padding(4);
             this.cboxOnion.Name = "cboxOnion";
             this.cboxOnion.Size = new System.Drawing.Size(64, 20);
             this.cboxOnion.TabIndex = 12;
@@ -338,7 +337,7 @@
             // 
             this.cboxOlives.AutoSize = true;
             this.cboxOlives.Location = new System.Drawing.Point(201, 65);
-            this.cboxOlives.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxOlives.Margin = new System.Windows.Forms.Padding(4);
             this.cboxOlives.Name = "cboxOlives";
             this.cboxOlives.Size = new System.Drawing.Size(67, 20);
             this.cboxOlives.TabIndex = 13;
@@ -351,7 +350,7 @@
             // 
             this.cboxGreenPeppers.AutoSize = true;
             this.cboxGreenPeppers.Location = new System.Drawing.Point(201, 101);
-            this.cboxGreenPeppers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxGreenPeppers.Margin = new System.Windows.Forms.Padding(4);
             this.cboxGreenPeppers.Name = "cboxGreenPeppers";
             this.cboxGreenPeppers.Size = new System.Drawing.Size(121, 20);
             this.cboxGreenPeppers.TabIndex = 14;
@@ -370,9 +369,9 @@
             this.gboToppings.Controls.Add(this.cboxMushrooms);
             this.gboToppings.Controls.Add(this.cboxExtraChees);
             this.gboToppings.Location = new System.Drawing.Point(583, 108);
-            this.gboToppings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboToppings.Margin = new System.Windows.Forms.Padding(4);
             this.gboToppings.Name = "gboToppings";
-            this.gboToppings.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboToppings.Padding = new System.Windows.Forms.Padding(4);
             this.gboToppings.Size = new System.Drawing.Size(282, 117);
             this.gboToppings.TabIndex = 0;
             this.gboToppings.TabStop = false;
@@ -386,7 +385,7 @@
             this.labOrdrerSummary.Location = new System.Drawing.Point(699, 445);
             this.labOrdrerSummary.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labOrdrerSummary.Name = "labOrdrerSummary";
-            this.labOrdrerSummary.Size = new System.Drawing.Size(271, 51);
+            this.labOrdrerSummary.Size = new System.Drawing.Size(217, 41);
             this.labOrdrerSummary.TabIndex = 9;
             this.labOrdrerSummary.Text = "Order Summary";
             // 
@@ -397,7 +396,7 @@
             this.labSize.Location = new System.Drawing.Point(844, 518);
             this.labSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labSize.Name = "labSize";
-            this.labSize.Size = new System.Drawing.Size(88, 69);
+            this.labSize.Size = new System.Drawing.Size(70, 55);
             this.labSize.TabIndex = 10;
             this.labSize.Text = "Size:";
             // 
@@ -408,7 +407,7 @@
             this.labCrustType.Location = new System.Drawing.Point(844, 743);
             this.labCrustType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labCrustType.Name = "labCrustType";
-            this.labCrustType.Size = new System.Drawing.Size(173, 69);
+            this.labCrustType.Size = new System.Drawing.Size(138, 55);
             this.labCrustType.TabIndex = 11;
             this.labCrustType.Text = "Crust Type:";
             // 
@@ -419,7 +418,7 @@
             this.labToppings.Location = new System.Drawing.Point(844, 579);
             this.labToppings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labToppings.Name = "labToppings";
-            this.labToppings.Size = new System.Drawing.Size(153, 69);
+            this.labToppings.Size = new System.Drawing.Size(122, 55);
             this.labToppings.TabIndex = 12;
             this.labToppings.Text = "Toppings:";
             // 
@@ -430,7 +429,7 @@
             this.labWhereToEat.Location = new System.Drawing.Point(844, 818);
             this.labWhereToEat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labWhereToEat.Name = "labWhereToEat";
-            this.labWhereToEat.Size = new System.Drawing.Size(205, 69);
+            this.labWhereToEat.Size = new System.Drawing.Size(164, 55);
             this.labWhereToEat.TabIndex = 13;
             this.labWhereToEat.Text = "Where To Eat:";
             // 
@@ -441,7 +440,7 @@
             this.labTotalPrice.Location = new System.Drawing.Point(844, 993);
             this.labTotalPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labTotalPrice.Name = "labTotalPrice";
-            this.labTotalPrice.Size = new System.Drawing.Size(183, 69);
+            this.labTotalPrice.Size = new System.Drawing.Size(146, 55);
             this.labTotalPrice.TabIndex = 14;
             this.labTotalPrice.Text = "Total Pricce:";
             // 
@@ -453,7 +452,7 @@
             this.labTotalPriceNum.Location = new System.Drawing.Point(1095, 985);
             this.labTotalPriceNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labTotalPriceNum.Name = "labTotalPriceNum";
-            this.labTotalPriceNum.Size = new System.Drawing.Size(138, 86);
+            this.labTotalPriceNum.Size = new System.Drawing.Size(110, 69);
             this.labTotalPriceNum.TabIndex = 19;
             this.labTotalPriceNum.Text = "$0";
             this.labTotalPriceNum.Click += new System.EventHandler(this.labTotalPriceNum_Click);
@@ -465,7 +464,7 @@
             this.labCrustTypeOp.Location = new System.Drawing.Point(1055, 769);
             this.labCrustTypeOp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labCrustTypeOp.Name = "labCrustTypeOp";
-            this.labCrustTypeOp.Size = new System.Drawing.Size(129, 28);
+            this.labCrustTypeOp.Size = new System.Drawing.Size(103, 22);
             this.labCrustTypeOp.TabIndex = 18;
             this.labCrustTypeOp.Text = "Thick Crust";
             // 
@@ -487,7 +486,7 @@
             this.labWhereToEatOp.Location = new System.Drawing.Point(1104, 843);
             this.labWhereToEatOp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labWhereToEatOp.Name = "labWhereToEatOp";
-            this.labWhereToEatOp.Size = new System.Drawing.Size(71, 28);
+            this.labWhereToEatOp.Size = new System.Drawing.Size(57, 22);
             this.labWhereToEatOp.TabIndex = 16;
             this.labWhereToEatOp.Text = "Eat In";
             // 
@@ -498,7 +497,7 @@
             this.labSizeOp.Location = new System.Drawing.Point(936, 543);
             this.labSizeOp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labSizeOp.Name = "labSizeOp";
-            this.labSizeOp.Size = new System.Drawing.Size(70, 28);
+            this.labSizeOp.Size = new System.Drawing.Size(56, 22);
             this.labSizeOp.TabIndex = 15;
             this.labSizeOp.Text = "Small";
             // 
@@ -508,7 +507,7 @@
             this.btnOrderPizza.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
             this.btnOrderPizza.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrderPizza.Location = new System.Drawing.Point(535, 696);
-            this.btnOrderPizza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOrderPizza.Margin = new System.Windows.Forms.Padding(4);
             this.btnOrderPizza.Name = "btnOrderPizza";
             this.btnOrderPizza.Size = new System.Drawing.Size(89, 26);
             this.btnOrderPizza.TabIndex = 20;
@@ -519,7 +518,7 @@
             // btnRestForm
             // 
             this.btnRestForm.Location = new System.Drawing.Point(697, 696);
-            this.btnRestForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRestForm.Margin = new System.Windows.Forms.Padding(4);
             this.btnRestForm.Name = "btnRestForm";
             this.btnRestForm.Size = new System.Drawing.Size(89, 26);
             this.btnRestForm.TabIndex = 21;
@@ -532,7 +531,7 @@
             this.nudTotolNumber.BackColor = System.Drawing.SystemColors.Control;
             this.nudTotolNumber.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.nudTotolNumber.Location = new System.Drawing.Point(869, 734);
-            this.nudTotolNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudTotolNumber.Margin = new System.Windows.Forms.Padding(4);
             this.nudTotolNumber.Maximum = new decimal(new int[] {
             50,
             0,
@@ -560,7 +559,7 @@
             this.label2.Location = new System.Drawing.Point(844, 914);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(211, 69);
+            this.label2.Size = new System.Drawing.Size(169, 55);
             this.label2.TabIndex = 23;
             this.label2.Text = "Total Number:";
             // 
@@ -572,7 +571,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1461, 1174);
+            this.tabControl1.Size = new System.Drawing.Size(1209, 1054);
             this.tabControl1.TabIndex = 24;
             // 
             // tabPage1
@@ -601,20 +600,10 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1453, 1145);
+            this.tabPage1.Size = new System.Drawing.Size(1201, 1025);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1453, 1145);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -651,6 +640,7 @@
             0,
             0,
             0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // label4
             // 
@@ -672,6 +662,7 @@
             this.button1.TabIndex = 42;
             this.button1.Text = "Reset Form";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnRestForm_Click);
             // 
             // button2
             // 
@@ -685,6 +676,7 @@
             this.button2.TabIndex = 41;
             this.button2.Text = "Order Pizza";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.btnOrderPizza_Click);
             // 
             // label5
             // 
@@ -852,6 +844,7 @@
             this.checkBox4.Tag = "5";
             this.checkBox4.Text = "Tomatoes";
             this.checkBox4.UseVisualStyleBackColor = true;
+
             // 
             // checkBox5
             // 
@@ -1010,6 +1003,7 @@
             this.radioButton7.Tag = "20";
             this.radioButton7.Text = "Small";
             this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
             // 
             // label14
             // 
@@ -1045,6 +1039,16 @@
             this.label15.TabIndex = 33;
             this.label15.Text = "Toppings:";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1201, 1025);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1053,7 +1057,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(1169, 939);
+            this.ClientSize = new System.Drawing.Size(1190, 960);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nudTotolNumber);
@@ -1080,7 +1084,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text = "d";
+            this.Text = "frmPizza";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gboxSize.ResumeLayout(false);

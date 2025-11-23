@@ -1,0 +1,17 @@
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\bin\Debug\ContactsWinFrm.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\bin\Debug\ContactsWinFrm.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\bin\Debug\ContactsWinFrm.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\bin\Debug\ContactsBusinessLayer.dll
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\bin\Debug\ContactsDataAccessLayer.dll
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\bin\Debug\ContactsBusinessLayer.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\bin\Debug\ContactsDataAccessLayer.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\obj\Debug\ContactsWinFrm.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\obj\Debug\ContactsWinFrm.Properties.Resources.resources
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\obj\Debug\ContactsWinFrm.csproj.GenerateResource.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\obj\Debug\ContactsWinFrm.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\obj\Debug\Contacts.FD3519EC.Up2Date
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\obj\Debug\ContactsWinFrm.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\obj\Debug\ContactsWinFrm.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\obj\Debug\ContactsWinFrm.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\obj\Debug\ContactsWinFrm.frmListContacts.resources
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsWinFrm\obj\Debug\ContactsWinFrm.frmAddEditContact.resources

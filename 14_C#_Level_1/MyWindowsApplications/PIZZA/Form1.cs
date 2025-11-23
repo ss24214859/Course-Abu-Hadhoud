@@ -70,7 +70,7 @@ namespace PIZZA
 
         float CalculateTotalPrice()
         {
-            return (GetSelectedCrustPrice() + GetSelectedSizePrice() + CalculateToppingsPrice() ) * (float)nudTotolNumber.Value ;
+            return (GetSelectedCrustPrice() + GetSelectedSizePrice() + CalculateToppingsPrice() ) * (float)nudTotolNumber.Value;// * (total Count Of Pizza is (float)nudTotolNumber.Value) 
         }
 
         void UpdateTotalPrice()
@@ -98,23 +98,12 @@ namespace PIZZA
                 labCrustTypeOp.Text = "Thick Crust";
         }
 
-        public void ChangePrice(int Num,char Opration)
-        {
-            return;
-        }
-        
-        
 
         private void Form1_Load(object sender, EventArgs e)
         {
             rbtnSmall.Checked = true;
             rbtnThickCrust.Checked = true;
             rbtnEatIn.Checked = true;
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void cboxOnion_CheckedChanged(object sender, EventArgs e)
@@ -261,6 +250,11 @@ namespace PIZZA
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             UpdateTotalPrice();
+        }
+
+        private void radioButton7_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

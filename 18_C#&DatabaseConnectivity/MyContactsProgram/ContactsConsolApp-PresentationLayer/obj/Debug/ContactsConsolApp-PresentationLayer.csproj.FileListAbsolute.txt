@@ -1,0 +1,13 @@
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\obj\Debug\ContactsConsolApp-PresentationLayer.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\obj\Debug\ContactsConsolApp-PresentationLayer.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\bin\Debug\ContactsConsolApp-PresentationLayer.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\bin\Debug\ContactsConsolApp-PresentationLayer.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\bin\Debug\ContactsConsolApp-PresentationLayer.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\bin\Debug\ContactsBusinessLayer.dll
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\bin\Debug\ContactsDataAccessLayer.dll
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\bin\Debug\ContactsBusinessLayer.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\bin\Debug\ContactsDataAccessLayer.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\obj\Debug\Contacts.558F1E09.Up2Date
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\obj\Debug\ContactsConsolApp-PresentationLayer.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\obj\Debug\ContactsConsolApp-PresentationLayer.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\obj\Debug\ContactsConsolApp-PresentationLayer.exe.config
