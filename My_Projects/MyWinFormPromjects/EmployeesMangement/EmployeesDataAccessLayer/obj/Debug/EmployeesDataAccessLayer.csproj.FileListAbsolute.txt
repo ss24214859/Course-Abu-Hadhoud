@@ -1,0 +1,6 @@
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\bin\Debug\EmployeesDataAccessLayer.dll
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\bin\Debug\EmployeesDataAccessLayer.pdb
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\obj\Debug\EmployeesDataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\obj\Debug\EmployeesDataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\obj\Debug\EmployeesDataAccessLayer.dll
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\obj\Debug\EmployeesDataAccessLayer.pdb

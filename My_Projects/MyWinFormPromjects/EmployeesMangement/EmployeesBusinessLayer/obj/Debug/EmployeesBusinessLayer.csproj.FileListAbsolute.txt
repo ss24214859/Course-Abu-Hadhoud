@@ -1,0 +1,11 @@
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\EmployeesBusinessLayer\obj\Debug\EmployeesBusinessLayer.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\EmployeesBusinessLayer\obj\Debug\EmployeesBusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesBusinessLayer\bin\Debug\EmployeesBusinessLayer.dll
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesBusinessLayer\bin\Debug\EmployeesBusinessLayer.pdb
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesBusinessLayer\bin\Debug\EmployeesDataAccessLayer.dll
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesBusinessLayer\bin\Debug\EmployeesDataAccessLayer.pdb
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesBusinessLayer\obj\Debug\EmployeesBusinessLayer.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesBusinessLayer\obj\Debug\EmployeesBusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesBusinessLayer\obj\Debug\Employee.BC961839.Up2Date
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesBusinessLayer\obj\Debug\EmployeesBusinessLayer.dll
+C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesBusinessLayer\obj\Debug\EmployeesBusinessLayer.pdb

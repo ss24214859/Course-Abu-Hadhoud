@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeesBusinessLayer", "EmployeesBusinessLayer.csproj", "{8BDECF68-489D-46E9-8BA3-F618AD598101}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeesDataAccessLayer", "..\EmployeesDataAccessLayer\EmployeesDataAccessLayer.csproj", "{C30FAB90-C2F5-4520-BDC8-A4ACDC86F8FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BDECF68-489D-46E9-8BA3-F618AD598101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BDECF68-489D-46E9-8BA3-F618AD598101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BDECF68-489D-46E9-8BA3-F618AD598101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BDECF68-489D-46E9-8BA3-F618AD598101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C30FAB90-C2F5-4520-BDC8-A4ACDC86F8FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C30FAB90-C2F5-4520-BDC8-A4ACDC86F8FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C30FAB90-C2F5-4520-BDC8-A4ACDC86F8FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C30FAB90-C2F5-4520-BDC8-A4ACDC86F8FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4975F94-26FF-49CB-868C-59F21C5F0B29}
+	EndGlobalSection
+EndGlobal
