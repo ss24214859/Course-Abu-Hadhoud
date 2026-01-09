@@ -43,7 +43,7 @@ namespace ContactsWinFrm
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you Want to Delete Contact["+ dgvAllContacts.CurrentRow.Cells[0].Value +"]" , "Confirm Delete" , MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show("Are you sure you Want to Delete ContactID["+ dgvAllContacts.CurrentRow.Cells[0].Value +"]" , "Confirm Delete" , MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 if (clsContact.Delete((int)dgvAllContacts.CurrentRow.Cells["ContactID"].Value))
                 {
@@ -51,9 +51,19 @@ namespace ContactsWinFrm
                     _RefreshContactsList();
                 }
                 else
-                    MessageBox.Show("Contact is not Delete");
+                    MessageBox.Show("Contact is not Deleted");
             }
             
+        }
+
+        private void dgvAllContacts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvAllContacts_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

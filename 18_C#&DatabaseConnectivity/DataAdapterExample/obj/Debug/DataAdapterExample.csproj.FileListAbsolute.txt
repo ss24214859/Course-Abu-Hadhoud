@@ -1,0 +1,8 @@
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataAdapterExample\bin\Debug\DataAdapterExample.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataAdapterExample\bin\Debug\DataAdapterExample.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataAdapterExample\bin\Debug\DataAdapterExample.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataAdapterExample\obj\Debug\DataAdapterExample.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataAdapterExample\obj\Debug\DataAdapterExample.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataAdapterExample\obj\Debug\DataAdapterExample.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataAdapterExample\obj\Debug\DataAdapterExample.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\DataAdapterExample\obj\Debug\DataAdapterExample.exe.config

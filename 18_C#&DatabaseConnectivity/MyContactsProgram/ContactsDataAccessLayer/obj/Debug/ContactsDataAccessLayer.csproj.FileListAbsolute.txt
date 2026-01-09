@@ -4,3 +4,9 @@ C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsDataA
 C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsDataAccessLayer\bin\Debug\ContactsDataAccessLayer.pdb
 C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.dll
 C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsDataAccessLayer\bin\Debug\ContactsDataAccessLayer.dll
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsDataAccessLayer\bin\Debug\ContactsDataAccessLayer.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.dll
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.pdb

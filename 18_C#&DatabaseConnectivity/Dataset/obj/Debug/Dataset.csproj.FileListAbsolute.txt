@@ -1,0 +1,8 @@
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Dataset\bin\Debug\Dataset.exe.config
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Dataset\bin\Debug\Dataset.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Dataset\bin\Debug\Dataset.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Dataset\obj\Debug\Dataset.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Dataset\obj\Debug\Dataset.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Dataset\obj\Debug\Dataset.exe
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Dataset\obj\Debug\Dataset.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\Dataset\obj\Debug\Dataset.exe.config

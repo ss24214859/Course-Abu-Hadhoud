@@ -7,3 +7,12 @@ C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsBusin
 C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsBusinessLayer\obj\Debug\Contacts.DFB66D76.Up2Date
 C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.dll
 C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\bin\Debug\ContactsBusinessLayer.dll
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\bin\Debug\ContactsBusinessLayer.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\bin\Debug\ContactsDataAccessLayer.dll
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\bin\Debug\ContactsDataAccessLayer.pdb
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.csproj.AssemblyReference.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\obj\Debug\Contacts.DFB66D76.Up2Date
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.dll
+C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.pdb

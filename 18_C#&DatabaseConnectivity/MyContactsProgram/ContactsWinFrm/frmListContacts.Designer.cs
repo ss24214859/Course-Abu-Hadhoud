@@ -40,10 +40,10 @@
             // 
             // btnAddNewContact
             // 
-            this.btnAddNewContact.Location = new System.Drawing.Point(1017, 11);
-            this.btnAddNewContact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddNewContact.Location = new System.Drawing.Point(763, 9);
+            this.btnAddNewContact.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddNewContact.Name = "btnAddNewContact";
-            this.btnAddNewContact.Size = new System.Drawing.Size(211, 80);
+            this.btnAddNewContact.Size = new System.Drawing.Size(158, 65);
             this.btnAddNewContact.TabIndex = 0;
             this.btnAddNewContact.Text = "Add New Contact";
             this.btnAddNewContact.UseVisualStyleBackColor = true;
@@ -58,14 +58,15 @@
             this.dgvAllContacts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAllContacts.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvAllContacts.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvAllContacts.Location = new System.Drawing.Point(0, 114);
-            this.dgvAllContacts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvAllContacts.Location = new System.Drawing.Point(0, 93);
+            this.dgvAllContacts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvAllContacts.Name = "dgvAllContacts";
             this.dgvAllContacts.ReadOnly = true;
             this.dgvAllContacts.RowHeadersWidth = 51;
             this.dgvAllContacts.RowTemplate.Height = 24;
-            this.dgvAllContacts.Size = new System.Drawing.Size(1240, 489);
+            this.dgvAllContacts.Size = new System.Drawing.Size(930, 397);
             this.dgvAllContacts.TabIndex = 1;
+            this.dgvAllContacts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAllContacts_CellContentClick_1);
             // 
             // contextMenuStrip1
             // 
@@ -74,30 +75,30 @@
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 52);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 48);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // frmListContacts
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 603);
+            this.ClientSize = new System.Drawing.Size(930, 490);
             this.Controls.Add(this.dgvAllContacts);
             this.Controls.Add(this.btnAddNewContact);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmListContacts";
             this.Text = "frmListContacts";
             this.Load += new System.EventHandler(this.frmListContacts_Load);

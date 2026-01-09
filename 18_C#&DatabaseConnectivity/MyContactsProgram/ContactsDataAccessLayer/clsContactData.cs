@@ -212,7 +212,7 @@ namespace ContactsDataAccessLayer
 
         static public bool IsContactExistByID(int ID)
         {
-            DataTable dt = new DataTable();
+
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             string query = "SELECT Found=1 FROM Contacts WHERE ContactID = @ContactID";
             SqlCommand cmd = new SqlCommand(query, Connection);
