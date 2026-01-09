@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIOptimizer.cs" />
     <EmbeddedResource Include="EmployeesMangementSystemForm.resx">
       <DependentUpon>EmployeesMangementSystemForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,7 +24,7 @@ namespace EmployeesMangementSystem
         public EmployeesMangementSystemForm()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
+            UIOptimizer.EnableDoubleBuffering(this);
             this.ResizeRedraw = true;
         }
 
@@ -64,10 +65,11 @@ namespace EmployeesMangementSystem
         private void ExpandOrReduceEmployeeScreenToTarget(int TargetWidth)
         {
             int CurrentWidth = pnlEmployeeScreen.Width;
-            int delta = (TargetWidth - CurrentWidth)/6;
+            int diff = TargetWidth - CurrentWidth;
+            int delta = diff/6;
 
             if (delta == 0)
-                delta = (TargetWidth > CurrentWidth) ? 1 : -1;
+                delta = (diff > 0) ? 1 : -1; // use diff sign; previous code inverted this for sidebar
 
             pnlEmployeeScreen.SuspendLayout();
             pnldvgEmployeesContainer.SuspendLayout();
@@ -75,15 +77,21 @@ namespace EmployeesMangementSystem
             pnlEmployeeScreen.Width += delta; //Update Size.
             pictureBox1.Width += delta; //Update Line Of Panal.
             pnldvgEmployeesContainer.Width += delta; //  Upadate Data Graid View.
-            pnlEmployeeScreen.Location = new Point(pnlEmployeeScreen.Location.X - delta, pnlEmployeeScreen.Location.Y); //Update location in the end to Ignore nose in Animation.
-            pnldvgEmployeesContainer.ResumeLayout();
-            pnlEmployeeScreen.ResumeLayout();
+
+            // Move the panel so right edge aligns (careful with bounds)
+            pnlEmployeeScreen.Location = new Point(pnlEmployeeScreen.Location.X - delta, pnlEmployeeScreen.Location.Y); 
+
+            pnldvgEmployeesContainer.ResumeLayout();  // this is the problem 
+            pnlEmployeeScreen.ResumeLayout(false);
+
+            // Force a repaint for smoother visuals
+            pnlEmployeeScreen.Invalidate();
 
         }
         private void SidebarTimer_Tick(object sender, EventArgs e)
         {
-            int TargetSidebarWidth = 0;
-            int TargetEmployeeScreenWidth = 0;
+            int TargetSidebarWidth;
+            int TargetEmployeeScreenWidth;
 
             // SET Minimum or Maximum size Of the Sidebar
             if (SidebarExpand)
@@ -99,23 +107,32 @@ namespace EmployeesMangementSystem
                 TargetEmployeeScreenWidth = pnlEmployeeScreen.MinimumSize.Width;
             }
             //Set Target Size of Sidebar.
-            int Sidebardelta = (TargetSidebarWidth - flpSidebar.Width) / 6;
+            int diff = TargetSidebarWidth - flpSidebar.Width;
+            int Sidebardelta = diff/ 6;
 
             if (Sidebardelta == 0)
-                Sidebardelta = (TargetSidebarWidth < flpSidebar.Width) ? 1 : -1;
+                Sidebardelta = (diff < 0) ? 1 : -1;
 
+            //Apply width change
+            flpSidebar.SuspendLayout();
             flpSidebar.Width += Sidebardelta;  //Ease
+            flpSidebar.ResumeLayout(false);
 
             //Set Target Size of Employees Screen.
             ExpandOrReduceEmployeeScreenToTarget(TargetEmployeeScreenWidth);
 
-            if ((Sidebardelta < 0 && flpSidebar.Width <= TargetSidebarWidth) || (Sidebardelta > 0 && flpSidebar.Width >= TargetSidebarWidth))
+            if ((Sidebardelta < 0 && flpSidebar.Width <= TargetSidebarWidth) ||
+                (Sidebardelta > 0 && flpSidebar.Width >= TargetSidebarWidth))
             {
                 flpSidebar.Width = TargetSidebarWidth;
                 pnlEmployeeScreen.Width = TargetEmployeeScreenWidth;
 
                 SidebarExpand = !SidebarExpand;
                 SidebarTimer.Stop();
+
+                // Ensure final layout is clean
+                this.PerformLayout();
+                this.Invalidate();
             }
         }
 
@@ -250,7 +267,6 @@ namespace EmployeesMangementSystem
             {
                 dvEmployees.RowFilter = "";
                 UpdateCountOfEmployees(lbTotalEmployees);
-
                 return;
             }
             

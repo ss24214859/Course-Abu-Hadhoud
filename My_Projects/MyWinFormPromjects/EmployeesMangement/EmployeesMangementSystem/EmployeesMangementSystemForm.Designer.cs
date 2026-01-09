@@ -250,7 +250,7 @@
             // 
             // SidebarTimer
             // 
-            this.SidebarTimer.Interval = 15;
+            this.SidebarTimer.Interval = 5;
             this.SidebarTimer.Tick += new System.EventHandler(this.SidebarTimer_Tick);
             // 
             // pnlEmployeeScreen
