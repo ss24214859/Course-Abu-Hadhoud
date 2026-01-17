@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace EmployeesDataAccessLayer
 {
@@ -16,38 +17,70 @@ namespace EmployeesDataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string Qurey = "SELECT * FROM AttendanceStatus WHERE AttendanceStatusID = @AttendanceStatusID;";
+            string Qurey = "SELECT Name FROM AttendanceStatus WHERE AttendanceStatusID = @AttendanceStatusID;";
             SqlCommand command = new SqlCommand(Qurey, connection);
-            command.Parameters.AddWithValue("@AttendanceStatusID", StatusID);
+            command.Parameters.AddWithValue("@StatusID", StatusID);
 
             try
             {
                 connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                Object   Result = command.ExecuteReader();
 
-                if (reader.Read())
+                if (Result!= DBNull.Value && Result != null)
                 {
                     IsFound = true;
-                    Name = reader["Name"] != DBNull.Value ? (string)reader["Name"] : "";
+                    Name = (string)Result;
 
                 }
-                else
-                {
-                    IsFound = false;
-                }
-
-                reader.Close();
+  
+                
             }
             catch (Exception ex)
             {
                 //Console.WriteLine(ex.Message);
-                IsFound = false;
+                // Logger.Log(ex);
+                throw;
             }
             finally
             {
                 connection.Close();
             }
             return IsFound;
+        }
+
+        static public bool GetStatusInfoByName(string Name, ref int StatusID)
+        {
+
+            using (SqlConnection connection =
+                   new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                string query = @"SELECT StatusID
+                         FROM AttendanceStatus
+                         WHERE Name = @Name";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.Add("@Name", SqlDbType.NVarChar, 50).Value = Name;
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            StatusID = Convert.ToInt32(result);
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Logger.Log(ex);
+                        throw; 
+                    }
+                }
+            }
+            return false;
         }
 
         public static int AddNewStatus(string Name)

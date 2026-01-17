@@ -97,7 +97,7 @@ namespace EmployeesDataAccessLayer
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string Qurey = @"UPDATE Employees set (FirstName = @FirstName,LastName = @LastName,Phone = @Phone,Salary = @Salary,HireDate = @HireDate)
+            string Qurey = @"UPDATE Employees SET FirstName = @FirstName,LastName = @LastName,Phone = @Phone,Salary = @Salary,HireDate = @HireDate
                              WHERE EmployeeID = @EmployeeID;";
             SqlCommand command = new SqlCommand(Qurey, connection);
 

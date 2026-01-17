@@ -160,5 +160,10 @@ namespace ContactsWinFrm
         {
 
         }
+
+        private void cbCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

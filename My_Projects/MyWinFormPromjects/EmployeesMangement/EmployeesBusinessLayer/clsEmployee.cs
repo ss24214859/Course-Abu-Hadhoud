@@ -8,7 +8,7 @@ using EmployeesDataAccessLayer;
 
 namespace EmployeesBusinessLayer
 {
-    public class clsEmployees
+    public class clsEmployee
     {
         public class EmployeesStatistics
         {
@@ -28,7 +28,7 @@ namespace EmployeesBusinessLayer
         public double Salary{get;set;}
         public DateTime HireDate { get; set; }
 
-        public clsEmployees()
+        public clsEmployee()
         {
             ID = -1;
             FirstName = "";
@@ -50,7 +50,7 @@ namespace EmployeesBusinessLayer
         {
             return clsEmployeesData.UpdateEmployee(this.ID, this.FirstName, this.LastName, this.Phone, this.Salary, this.HireDate);
         }
-        public clsEmployees(int id, string  firstName, string lastName, string phone , double salary, DateTime hireDate)
+        public clsEmployee(int id, string  firstName, string lastName, string phone , double salary, DateTime hireDate)
         {
             ID = id;
             FirstName = firstName;
@@ -62,7 +62,7 @@ namespace EmployeesBusinessLayer
             SaveMode = enSaveMode.Update;
         }
 
-        public static clsEmployees Find(int ID)
+        public static clsEmployee Find(int ID)
         {
             string FirstName = "";
             string LastName = "";
@@ -70,7 +70,7 @@ namespace EmployeesBusinessLayer
             double Salary = -1;
             DateTime HireDate = DateTime.Now;
             if (clsEmployeesData.GetEmployeeInfoByID(ID, ref FirstName, ref LastName, ref Phone, ref Salary, ref HireDate))
-                return new clsEmployees(ID, FirstName, LastName, Phone, Salary, HireDate);
+                return new clsEmployee(ID, FirstName, LastName, Phone, Salary, HireDate);
             else
                 return null;
         }

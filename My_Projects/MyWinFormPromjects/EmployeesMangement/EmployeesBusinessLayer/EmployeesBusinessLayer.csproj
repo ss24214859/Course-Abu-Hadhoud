@@ -41,9 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsAttendanceReports.cs" />
     <Compile Include="clsAttendanceStatus.cs" />
     <Compile Include="clsAttendance.cs" />
-    <Compile Include="clsEmployees.cs" />
+    <Compile Include="clsEmployee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

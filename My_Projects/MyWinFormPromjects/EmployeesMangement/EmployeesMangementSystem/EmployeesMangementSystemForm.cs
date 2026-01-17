@@ -17,10 +17,14 @@ namespace EmployeesMangementSystem
     {
         bool SidebarExpand = true;
 
-        enum enMenuOptions { Employees=0,Attendance =1, Statistics  =2};
-        enMenuOptions CurrentMenuOption = enMenuOptions.Employees;
-        DataTable dtEmployees = new DataTable();
-        DataView dvEmployees = new DataView();
+        //enum enMenuOptions { Employees = 0, Attendance = 1, Statistics = 2 };
+        //enMenuOptions _CurrentMenuOption = enMenuOptions.Employees;
+
+        DataTable dtEmployees = new DataTable(); // All Employees Data
+        DataView dvEmployees = new DataView();   // Filtered Employees Data
+
+        DataTable dtMarkAttendance  = new DataTable(); // All Mark Attendance Data
+
         public EmployeesMangementSystemForm()
         {
             InitializeComponent();
@@ -30,14 +34,15 @@ namespace EmployeesMangementSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
             LoadEmployeesScreen();
             SetEmployeeMenuStayle();
+            SetAttendanceMenuStayle();
 
-            
+
         }
 
-        
+
         private void SetPlaceholder(TextBox txt, string placeholder)
         {
             txt.Text = placeholder;
@@ -62,53 +67,17 @@ namespace EmployeesMangementSystem
             };
         }
 
-        private void ExpandOrReduceEmployeeScreenToTarget(int TargetWidth)
-        {
-            int CurrentWidth = pnlEmployeeScreen.Width;
-            int diff = TargetWidth - CurrentWidth;
-            int delta = diff/6;
-
-            if (delta == 0)
-                delta = (diff > 0) ? 1 : -1; // use diff sign; previous code inverted this for sidebar
-
-            pnlEmployeeScreen.SuspendLayout();
-            pnldvgEmployeesContainer.SuspendLayout();
-
-            pnlEmployeeScreen.Width += delta; //Update Size.
-            pictureBox1.Width += delta; //Update Line Of Panal.
-            pnldvgEmployeesContainer.Width += delta; //  Upadate Data Graid View.
-
-            // Move the panel so right edge aligns (careful with bounds)
-            pnlEmployeeScreen.Location = new Point(pnlEmployeeScreen.Location.X - delta, pnlEmployeeScreen.Location.Y); 
-
-            pnldvgEmployeesContainer.ResumeLayout();  // this is the problem 
-            pnlEmployeeScreen.ResumeLayout(false);
-
-            // Force a repaint for smoother visuals
-            pnlEmployeeScreen.Invalidate();
-
-        }
         private void SidebarTimer_Tick(object sender, EventArgs e)
         {
-            int TargetSidebarWidth;
-            int TargetEmployeeScreenWidth;
+
 
             // SET Minimum or Maximum size Of the Sidebar
-            if (SidebarExpand)
-            {
-                // Collapse
-                TargetSidebarWidth = flpSidebar.MinimumSize.Width;
-                TargetEmployeeScreenWidth = pnlEmployeeScreen.MaximumSize.Width;
-            }
-            else
-            {
-                //Expand
-                TargetSidebarWidth = flpSidebar.MaximumSize.Width;
-                TargetEmployeeScreenWidth = pnlEmployeeScreen.MinimumSize.Width;
-            }
+            int TargetSidebarWidth = (SidebarExpand) ? /* Collapse */  flpSidebar.MinimumSize.Width : /* Expand */ flpSidebar.MaximumSize.Width;
+
+
             //Set Target Size of Sidebar.
             int diff = TargetSidebarWidth - flpSidebar.Width;
-            int Sidebardelta = diff/ 6;
+            int Sidebardelta = diff / 6;
 
             if (Sidebardelta == 0)
                 Sidebardelta = (diff < 0) ? 1 : -1;
@@ -118,14 +87,11 @@ namespace EmployeesMangementSystem
             flpSidebar.Width += Sidebardelta;  //Ease
             flpSidebar.ResumeLayout(false);
 
-            //Set Target Size of Employees Screen.
-            ExpandOrReduceEmployeeScreenToTarget(TargetEmployeeScreenWidth);
-
             if ((Sidebardelta < 0 && flpSidebar.Width <= TargetSidebarWidth) ||
                 (Sidebardelta > 0 && flpSidebar.Width >= TargetSidebarWidth))
             {
                 flpSidebar.Width = TargetSidebarWidth;
-                pnlEmployeeScreen.Width = TargetEmployeeScreenWidth;
+                ////pnlEmployeeScreen.Width = TargetEmployeeScreenWidth;
 
                 SidebarExpand = !SidebarExpand;
                 SidebarTimer.Stop();
@@ -139,8 +105,8 @@ namespace EmployeesMangementSystem
         private void MenuBoutton_Click(object sender, EventArgs e)
         {
             //set timer interval to lowest to make it smoother.
-            if(!SidebarTimer.Enabled)
-            SidebarTimer.Start();
+            if (!SidebarTimer.Enabled)
+                SidebarTimer.Start();
         }
         private void DataGridViewModrenStayle(DataGridView dgvModrenStayle)
         {
@@ -178,48 +144,86 @@ namespace EmployeesMangementSystem
         }
         private void _RefreachEmployees()
         {
-            dtEmployees = clsEmployees.GetAllEmployees();
+            dtEmployees = clsEmployee.GetAllEmployees();
             dvEmployees = new DataView(dtEmployees);
             dgvEmployeesList.DataSource = dvEmployees;
         }
 
+
+        private void _RefreachMarkAttendance()
+        {
+            dtMarkAttendance = clsAttendanceReports.GetAttendanceByDateForAttendancList(dtpHireDate.Value);
+
+            dgvMarkAttendance.DataSource = dtMarkAttendance;
+
+            _AddAndFillStatusCheckBox();
+
+            if (dgvMarkAttendance.Columns.Contains("StatusName"))
+            dgvMarkAttendance.Columns["StatusName"].Visible=false;
+
+            
+
+        }
+        void _AddAndFillStatusCheckBox()
+        {
+            if (dgvMarkAttendance.Columns.Contains("Status"))
+                dgvMarkAttendance.Columns.Remove("Status");
+
+            // Create Combo Box Column
+            DataGridViewComboBoxColumn combo = new DataGridViewComboBoxColumn();
+            combo.HeaderText = "Status";
+            combo.Name = "Status";
+            combo.DataPropertyName = "StatusName";
+            combo.ReadOnly = false;
+
+            // Fill Combo Box with Attendance Statuses
+            DataTable dtAttendanceStatus = clsAttendanceStatus.GetAllStatus();
+
+            foreach (DataRow Row in dtAttendanceStatus.Rows)
+            {
+                combo.Items.Add(Row["Name"]);
+            }
+
+            // Add Combo Box Column to DataGridView
+            dgvMarkAttendance.Columns.Add(combo);
+        }
         private void SetEmployeeMenuStayle()
         {
             DataGridViewModrenStayle(dgvEmployeesList);
 
             dgvEmployeesList.Columns["Salary"].DefaultCellStyle.Format = "C0";
             dgvEmployeesList.Columns["HireDate"].DefaultCellStyle.Format = "yyyy-MM-dd";
+        }
 
+        private void SetAttendanceMenuStayle()
+        {
+             DataGridViewModrenStayle(dgvMarkAttendance);
+            
         }
 
         private void LoadEmployeesScreen()
         {
+            pnlEmployeeScreen.BringToFront();
             _RefreachEmployees();
-            
-
             SetPlaceholder(tbSearch, "Name or ID...");
-            pnlEmployeeScreen.Visible = true;
-            pnlEmployeeScreen.Enabled = true;
-
             UpdateCountOfEmployees(lbTotalEmployees);
         }
 
-        private void CloseCurrentMenuOptionScreen(enMenuOptions SelectedMenuOption)
-        {
-            if(SelectedMenuOption == CurrentMenuOption)
-                return;
 
-            switch (CurrentMenuOption)
-            {
-                case enMenuOptions.Employees :
-                    pnlEmployeeScreen.Visible = false;
-                    pnlEmployeeScreen.Enabled = false;
-                    break;
-            }
+        private void LoadAttendanceScreen()
+        {
+            pnlAttendanceScreen.BringToFront();
+            _RefreachMarkAttendance();
             
-            CurrentMenuOption = SelectedMenuOption;
+        }
+
+        private void LoadStatisticsScreen()
+        {
+
 
         }
+
+       
 
         void UpdateCountOfEmployees(Label lbCount)
         {
@@ -229,21 +233,22 @@ namespace EmployeesMangementSystem
         }
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-            CloseCurrentMenuOptionScreen(enMenuOptions.Employees);
             LoadEmployeesScreen();
-            
+
         }
 
         private void btnAttendance_Click(object sender, EventArgs e)
         {
-            CloseCurrentMenuOptionScreen(enMenuOptions.Attendance);
+            LoadAttendanceScreen();
+
+
         }
 
         private void btnStatistics_Click(object sender, EventArgs e)
         {
-            CloseCurrentMenuOptionScreen(enMenuOptions.Statistics);
+            
         }
-        
+
         private void pnlEmployeeScreen_Paint(object sender, PaintEventArgs e)
         {
 
@@ -258,21 +263,21 @@ namespace EmployeesMangementSystem
         {
 
         }
-        
+
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            string search = tbSearch.Text.Trim().Replace("'","''");
+            string search = tbSearch.Text.Trim().Replace("'", "''");
 
-            if (string.IsNullOrWhiteSpace(search)|| search == "Name or ID...")
+            if (string.IsNullOrWhiteSpace(search) || search == "Name or ID...")
             {
                 dvEmployees.RowFilter = "";
                 UpdateCountOfEmployees(lbTotalEmployees);
                 return;
             }
-            
-                dvEmployees.RowFilter = $"Convert(EmployeeID,'System.String') LIKE '%{search}%' "+
-                                        $"OR FirstName LIKE '%{search}%' " +
-                                        $"OR LastName LIKE '%{search}%' " ;
+
+            dvEmployees.RowFilter = $"Convert(EmployeeID,'System.String') LIKE '%{search}%' " +
+                                    $"OR FirstName LIKE '%{search}%' " +
+                                    $"OR LastName LIKE '%{search}%' ";
             UpdateCountOfEmployees(lbTotalEmployees);
         }
 
@@ -283,7 +288,7 @@ namespace EmployeesMangementSystem
 
             if (MessageBox.Show("Are you sure you Want to Delete Employee [ " + EmployeeID + " ]", "Confirm Delete", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                if (clsEmployees.Delete(EmployeeID))
+                if (clsEmployee.Delete(EmployeeID))
                 {
                     MessageBox.Show("Employee is Deleted Successfully.");
                     _RefreachEmployees();
@@ -293,6 +298,73 @@ namespace EmployeesMangementSystem
 
 
             }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void btnAddEmployee_Click(object sender, EventArgs e)
+        {
+            frmAddOrEditEmployee frmAddOrEditEmployee = new frmAddOrEditEmployee(-1);
+            frmAddOrEditEmployee.ShowDialog();
+
+            _RefreachEmployees();
+
+        }
+
+        private void editEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddOrEditEmployee frmAddOrEditEmployee = new frmAddOrEditEmployee((int)dgvEmployeesList.CurrentRow.Cells[0].Value);
+            frmAddOrEditEmployee.ShowDialog();
+
+            _RefreachEmployees();
+        }
+
+        private void pnlAttendanceScreen_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dtpHireDate_ValueChanged(object sender, EventArgs e)
+        {
+            _RefreachMarkAttendance();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvMarkAttendance_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

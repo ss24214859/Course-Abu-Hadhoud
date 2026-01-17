@@ -52,6 +52,7 @@ namespace EmployeesBusinessLayer
         {
             return clsAttendanceData.GetAllAttendanceByDayDate(DayDate);
         }
+        
         static clsAttendance Find(int AttendanceID)
         {
             int EmployeeID = -1;

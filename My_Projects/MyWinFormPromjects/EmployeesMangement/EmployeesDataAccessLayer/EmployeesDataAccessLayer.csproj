@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsAttendanceReportsDAL.cs" />
     <Compile Include="clsAttendanceStatusData.cs" />
     <Compile Include="clsAttendanceData.cs" />
     <Compile Include="clsDataAccessSettings.cs" />

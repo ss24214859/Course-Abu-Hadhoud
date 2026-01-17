@@ -151,7 +151,7 @@ namespace EmployeesDataAccessLayer
         {
             DataTable dt = new DataTable();
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM Attendance WHERE DayDate = @DayDate  AND ;";
+            string query = "SELECT * FROM Attendance WHERE DayDate = @DayDate;";
             SqlCommand cmd = new SqlCommand(query, Connection);
             cmd.Parameters.AddWithValue("@DayDate", DayDate);
 
