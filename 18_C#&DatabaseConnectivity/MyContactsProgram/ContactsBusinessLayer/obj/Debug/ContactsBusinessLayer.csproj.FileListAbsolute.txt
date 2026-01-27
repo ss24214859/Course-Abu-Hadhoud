@@ -16,3 +16,12 @@ C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsPro
 C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\obj\Debug\Contacts.DFB66D76.Up2Date
 C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.dll
 C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.pdb
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\bin\Debug\ContactsBusinessLayer.dll
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\bin\Debug\ContactsBusinessLayer.pdb
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\bin\Debug\ContactsDataAccessLayer.dll
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\bin\Debug\ContactsDataAccessLayer.pdb
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.csproj.AssemblyReference.cache
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.csproj.CoreCompileInputs.cache
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\obj\Debug\Contacts.DFB66D76.Up2Date
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.dll
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.pdb

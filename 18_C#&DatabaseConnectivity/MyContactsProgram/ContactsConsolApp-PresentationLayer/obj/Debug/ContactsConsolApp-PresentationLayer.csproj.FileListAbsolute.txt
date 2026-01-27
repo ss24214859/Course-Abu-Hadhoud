@@ -11,3 +11,15 @@ C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConso
 C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\obj\Debug\ContactsConsolApp-PresentationLayer.exe
 C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\obj\Debug\ContactsConsolApp-PresentationLayer.pdb
 C:\Users\ss242\OneDrive\Documents\repos\18_C#&DatabaseConnectivity\ContactsConsolApp-PresentationLayer\obj\Debug\ContactsConsolApp-PresentationLayer.exe.config
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsConsolApp-PresentationLayer\bin\Debug\ContactsConsolApp-PresentationLayer.exe.config
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsConsolApp-PresentationLayer\bin\Debug\ContactsConsolApp-PresentationLayer.exe
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsConsolApp-PresentationLayer\bin\Debug\ContactsConsolApp-PresentationLayer.pdb
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsConsolApp-PresentationLayer\bin\Debug\ContactsBusinessLayer.dll
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsConsolApp-PresentationLayer\bin\Debug\ContactsDataAccessLayer.dll
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsConsolApp-PresentationLayer\bin\Debug\ContactsBusinessLayer.pdb
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsConsolApp-PresentationLayer\bin\Debug\ContactsDataAccessLayer.pdb
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsConsolApp-PresentationLayer\obj\Debug\ContactsConsolApp-PresentationLayer.csproj.AssemblyReference.cache
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsConsolApp-PresentationLayer\obj\Debug\ContactsConsolApp-PresentationLayer.csproj.CoreCompileInputs.cache
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsConsolApp-PresentationLayer\obj\Debug\Contacts.558F1E09.Up2Date
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsConsolApp-PresentationLayer\obj\Debug\ContactsConsolApp-PresentationLayer.exe
+C:\MyRepo's\Course-Abu-Hadhoud\18_C#&DatabaseConnectivity\MyContactsProgram\ContactsConsolApp-PresentationLayer\obj\Debug\ContactsConsolApp-PresentationLayer.pdb

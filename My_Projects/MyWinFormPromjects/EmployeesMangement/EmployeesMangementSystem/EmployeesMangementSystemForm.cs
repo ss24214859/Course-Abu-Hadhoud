@@ -23,6 +23,7 @@ namespace EmployeesMangementSystem
         DataTable dtEmployees = new DataTable(); // All Employees Data
         DataView dvEmployees = new DataView();   // Filtered Employees Data
 
+        DataTable _dtAttendanceStatus  = new DataTable(); // All Attendance Status Data
         DataTable dtMarkAttendance  = new DataTable(); // All Mark Attendance Data
 
         public EmployeesMangementSystemForm()
@@ -34,7 +35,7 @@ namespace EmployeesMangementSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            _dtAttendanceStatus = clsAttendanceStatus.GetAllStatus();
             LoadEmployeesScreen();
             SetEmployeeMenuStayle();
             SetAttendanceMenuStayle();
@@ -150,43 +151,75 @@ namespace EmployeesMangementSystem
         }
 
 
+
+        void _AddStatusCheckBox()
+        {
+            if (!dgvMarkAttendance.Columns.Contains("Status"))
+            {
+
+                // Create Combo Box Column
+                DataGridViewComboBoxColumn combo = new DataGridViewComboBoxColumn();
+
+                combo.HeaderText = "Status";
+                combo.Name = "Status";
+                //combo.DataPropertyName = "StatusID";
+
+                combo.DataSource = _dtAttendanceStatus;
+
+                combo.DisplayMember = "Name";
+                combo.ValueMember = "StatusID";
+                combo.ValueType = typeof(int);
+                combo.ReadOnly = false;
+
+
+
+                // Add Combo Box Column to DataGridView
+                dgvMarkAttendance.Columns.Add(combo);
+            }
+
+            // Bind Values to Combo Box Column From StatusID Column
+            foreach (DataGridViewRow row in dgvMarkAttendance.Rows)
+            {
+
+                if (row.Cells["StatusID"].Value != null)
+                {
+                    row.Cells["status"].Value = row.Cells["StatusID"].Value;
+                }
+            }
+
+        }
         private void _RefreachMarkAttendance()
         {
+            if (dgvMarkAttendance.IsCurrentCellInEditMode)
+                return; 
+           
             dtMarkAttendance = clsAttendanceReports.GetAttendanceByDateForAttendancList(dtpHireDate.Value);
+         
 
             dgvMarkAttendance.DataSource = dtMarkAttendance;
 
-            _AddAndFillStatusCheckBox();
-
-            if (dgvMarkAttendance.Columns.Contains("StatusName"))
-            dgvMarkAttendance.Columns["StatusName"].Visible=false;
-
-            
-
-        }
-        void _AddAndFillStatusCheckBox()
-        {
-            if (dgvMarkAttendance.Columns.Contains("Status"))
-                dgvMarkAttendance.Columns.Remove("Status");
-
-            // Create Combo Box Column
-            DataGridViewComboBoxColumn combo = new DataGridViewComboBoxColumn();
-            combo.HeaderText = "Status";
-            combo.Name = "Status";
-            combo.DataPropertyName = "StatusName";
-            combo.ReadOnly = false;
-
-            // Fill Combo Box with Attendance Statuses
-            DataTable dtAttendanceStatus = clsAttendanceStatus.GetAllStatus();
-
-            foreach (DataRow Row in dtAttendanceStatus.Rows)
+            //Make all Columns ReadOnly = true
+            foreach(DataGridViewColumn col in dgvMarkAttendance.Columns)
             {
-                combo.Items.Add(Row["Name"]);
+                col.ReadOnly = true;
             }
 
-            // Add Combo Box Column to DataGridView
-            dgvMarkAttendance.Columns.Add(combo);
+            // Add and Fill Status Combo Box Column
+            _AddStatusCheckBox();
+
+
+            // Handle Data Error Event
+            dgvMarkAttendance.DataError += (s, e) =>
+            {
+                MessageBox.Show(e.Exception.Message);
+            };
+
+            //Hide StatusID Column
+            if (dgvMarkAttendance.Columns.Contains("StatusID"))
+            dgvMarkAttendance.Columns["StatusID"].Visible=false;
+
         }
+        
         private void SetEmployeeMenuStayle()
         {
             DataGridViewModrenStayle(dgvEmployeesList);
@@ -362,9 +395,30 @@ namespace EmployeesMangementSystem
 
         }
 
-        private void dgvMarkAttendance_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvMarkAttendance_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
+            /*foreach (DataGridViewRow row in dgvMarkAttendance.Rows)
+            {
+                // بننقل القيمة من العمود المخفي للكومبو بوكس تاني
+                if (row.Cells["StatusID"].Value != null)
+                {
+                    row.Cells["status"].Value = row.Cells["StatusID"].Value;
+                }
+            }*/
+        }
 
+        private void dgvMarkAttendance_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvMarkAttendance.Columns[e.ColumnIndex].Name == "Status")
+            {
+                dgvMarkAttendance.CurrentCell = dgvMarkAttendance[e.ColumnIndex, e.RowIndex];
+                dgvMarkAttendance.BeginEdit(true);
+
+                if (dgvMarkAttendance.EditingControl is ComboBox cb)
+                {
+                    cb.DroppedDown = true;
+                }
+            }
         }
     }
 }

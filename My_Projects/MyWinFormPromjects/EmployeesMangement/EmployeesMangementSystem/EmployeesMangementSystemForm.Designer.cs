@@ -1,4 +1,6 @@
-﻿namespace EmployeesMangementSystem
+﻿using System.Windows.Forms;
+
+namespace EmployeesMangementSystem
 {
     partial class EmployeesMangementSystemForm
     {
@@ -879,12 +881,12 @@
             this.dgvMarkAttendance.Location = new System.Drawing.Point(0, 0);
             this.dgvMarkAttendance.MultiSelect = false;
             this.dgvMarkAttendance.Name = "dgvMarkAttendance";
-            this.dgvMarkAttendance.ReadOnly = true;
-            this.dgvMarkAttendance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMarkAttendance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvMarkAttendance.Size = new System.Drawing.Size(945, 252);
             this.dgvMarkAttendance.TabIndex = 0;
             this.dgvMarkAttendance.UseWaitCursor = true;
-            this.dgvMarkAttendance.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarkAttendance_CellContentClick);
+            this.dgvMarkAttendance.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarkAttendance_CellClick);
+            this.dgvMarkAttendance.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvMarkAttendance_DataBindingComplete);
             // 
             // EmployeesMangementSystemForm
             // 

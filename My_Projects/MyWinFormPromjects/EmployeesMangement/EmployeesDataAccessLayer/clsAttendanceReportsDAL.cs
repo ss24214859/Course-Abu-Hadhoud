@@ -14,14 +14,12 @@ namespace EmployeesDataAccessLayer
         {
             DataTable dt = new DataTable();
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = @"SELECT       E.EmployeeID, E.FirstName, E.Phone, ISNULL(S.Name,'Present') As  StatusName
+            string query = @"SELECT       E.EmployeeID, E.FirstName, E.Phone, IsNull(A.StatusID, CAST(1 AS INT) ) As StatusID
                              FROM   Employees E
                              				Left JOIN Attendance A
                                              ON A.EmployeeID = E.EmployeeID
-                             	  And DayDate >= @DayDate 
-                             	  And  DayDate < DATEADD(day,1,@DayDate)
-                             			Left join AttendanceStatus S 
-                             			ON A.StatusID = S.StatusID
+                             	  And DayDate >= @DayDate
+                             	  And  DayDate < DATEADD(day,1,@DayDate)	
                              
                              where  HireDate <= @DayDate ;";
 

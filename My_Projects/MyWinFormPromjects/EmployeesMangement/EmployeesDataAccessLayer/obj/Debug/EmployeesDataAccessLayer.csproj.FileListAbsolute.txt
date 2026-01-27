@@ -4,3 +4,9 @@ C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\Employees
 C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\obj\Debug\EmployeesDataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\obj\Debug\EmployeesDataAccessLayer.dll
 C:\Users\ss242\OneDrive\Documents\repos\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\obj\Debug\EmployeesDataAccessLayer.pdb
+C:\MyRepo's\Course-Abu-Hadhoud\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\bin\Debug\EmployeesDataAccessLayer.dll
+C:\MyRepo's\Course-Abu-Hadhoud\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\bin\Debug\EmployeesDataAccessLayer.pdb
+C:\MyRepo's\Course-Abu-Hadhoud\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\obj\Debug\EmployeesDataAccessLayer.csproj.AssemblyReference.cache
+C:\MyRepo's\Course-Abu-Hadhoud\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\obj\Debug\EmployeesDataAccessLayer.csproj.CoreCompileInputs.cache
+C:\MyRepo's\Course-Abu-Hadhoud\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\obj\Debug\EmployeesDataAccessLayer.dll
+C:\MyRepo's\Course-Abu-Hadhoud\My_Projects\MyWinFormPromjects\EmployeesMangement\EmployeesDataAccessLayer\obj\Debug\EmployeesDataAccessLayer.pdb
