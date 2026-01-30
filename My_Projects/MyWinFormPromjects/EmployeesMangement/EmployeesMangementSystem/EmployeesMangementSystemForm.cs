@@ -177,13 +177,20 @@ namespace EmployeesMangementSystem
                 dgvMarkAttendance.Columns.Add(combo);
             }
 
+            //Bind Values to Combo Box Column From StatusID Column
+
             // Bind Values to Combo Box Column From StatusID Column
+
             foreach (DataGridViewRow row in dgvMarkAttendance.Rows)
             {
 
                 if (row.Cells["StatusID"].Value != null)
                 {
+
+                    row.Cells["Status"].Value = row.Cells["StatusID"].Value;
+
                     row.Cells["status"].Value = row.Cells["StatusID"].Value;
+
                 }
             }
 
@@ -196,7 +203,16 @@ namespace EmployeesMangementSystem
             dtMarkAttendance = clsAttendanceReports.GetAttendanceByDateForAttendancList(dtpHireDate.Value);
          
 
+            //Make all Columns ReadOnly = true
+            foreach(DataGridViewColumn col in dgvMarkAttendance.Columns)
+            {
+                col.ReadOnly = true;
+            }
+            
+
             dgvMarkAttendance.DataSource = dtMarkAttendance;
+            //dgvMarkAttendance.Columns["Status"].DataPropertyName = "StatusID";
+
 
             //Make all Columns ReadOnly = true
             foreach(DataGridViewColumn col in dgvMarkAttendance.Columns)
@@ -208,6 +224,7 @@ namespace EmployeesMangementSystem
             _AddStatusCheckBox();
 
 
+
             // Handle Data Error Event
             dgvMarkAttendance.DataError += (s, e) =>
             {
@@ -217,6 +234,7 @@ namespace EmployeesMangementSystem
             //Hide StatusID Column
             if (dgvMarkAttendance.Columns.Contains("StatusID"))
             dgvMarkAttendance.Columns["StatusID"].Visible=false;
+
 
         }
         
@@ -387,7 +405,7 @@ namespace EmployeesMangementSystem
 
         private void dtpHireDate_ValueChanged(object sender, EventArgs e)
         {
-            _RefreachMarkAttendance();
+            
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -396,6 +414,28 @@ namespace EmployeesMangementSystem
         }
 
         private void dgvMarkAttendance_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+           
+            if(dgvMarkAttendance.Columns.Contains("Status"))
+            {
+                foreach (DataGridViewRow row in dgvMarkAttendance.Rows)
+                {
+                
+                    if (row.Cells["StatusID"].Value != null && row.Cells["Status"] != null)
+                    {
+                        row.Cells["Status"].Value = row.Cells["StatusID"].Value;
+                    }
+                }
+            }
+            
+        }
+
+        private void btnLoadAttendance_Click(object sender, EventArgs e)
+        {
+            _RefreachMarkAttendance();
+        }
+
+        private void dgvMarkAttendance_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             /*foreach (DataGridViewRow row in dgvMarkAttendance.Rows)
             {
@@ -419,6 +459,31 @@ namespace EmployeesMangementSystem
                     cb.DroppedDown = true;
                 }
             }
+        }
+
+        private void btnSaveAttendance_Click(object sender, EventArgs e)
+        {
+            int savedCount = 0;
+            int failedCount = 0;
+            foreach (DataGridViewRow row in dgvMarkAttendance.Rows)
+            {
+                int EmployeeID = Convert.ToInt32(row.Cells["EmployeeID"].Value);
+
+                int StatusID = Convert.ToInt32(row.Cells["Status"].Value);
+
+                clsAttendance attendance = new clsAttendance();
+
+                attendance.EmployeeID = EmployeeID;
+                attendance.DayDate = Convert.ToDateTime(dtpHireDate.Value);
+                attendance.StatusID = StatusID;    
+                
+
+                if(attendance.Save()) 
+                    savedCount++;
+                else 
+                    failedCount++;
+            }
+            MessageBox.Show($"Attendance Saved. \n Successful: {savedCount} \n Failed: {failedCount}");
         }
     }
 }

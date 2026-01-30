@@ -12,9 +12,9 @@ namespace EmployeesBusinessLayer
     public class clsAttendance
     {
         int AttendanceID { get; set; }
-        int EmployeeID { get; set; }
-        int StatusID {get;set;}
-        DateTime DayDate {get;set;}
+        public int EmployeeID { get; set; }
+        public int StatusID {get;set;}
+        public DateTime DayDate {get;set;}
 
         enum enModeSave { Addnew=0 , Update=1}
         enModeSave ModeSave = enModeSave.Addnew;

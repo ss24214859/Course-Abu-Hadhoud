@@ -88,6 +88,7 @@ namespace EmployeesMangementSystem
             this.label6 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dgvMarkAttendance = new System.Windows.Forms.DataGridView();
+            this.clsEmployeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             panel15 = new System.Windows.Forms.Panel();
             panel15.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -113,6 +114,7 @@ namespace EmployeesMangementSystem
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarkAttendance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clsEmployeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel15
@@ -761,6 +763,7 @@ namespace EmployeesMangementSystem
             this.btnSaveAttendance.Text = "Save Attendance";
             this.btnSaveAttendance.UseVisualStyleBackColor = false;
             this.btnSaveAttendance.UseWaitCursor = true;
+            this.btnSaveAttendance.Click += new System.EventHandler(this.btnSaveAttendance_Click);
             // 
             // panel10
             // 
@@ -798,6 +801,7 @@ namespace EmployeesMangementSystem
             this.btnLoadAttendance.Text = "Load Attendance";
             this.btnLoadAttendance.UseVisualStyleBackColor = false;
             this.btnLoadAttendance.UseWaitCursor = true;
+            this.btnLoadAttendance.Click += new System.EventHandler(this.btnLoadAttendance_Click);
             // 
             // panel6
             // 
@@ -886,7 +890,15 @@ namespace EmployeesMangementSystem
             this.dgvMarkAttendance.TabIndex = 0;
             this.dgvMarkAttendance.UseWaitCursor = true;
             this.dgvMarkAttendance.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarkAttendance_CellClick);
+
+            this.dgvMarkAttendance.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarkAttendance_CellContentClick);
             this.dgvMarkAttendance.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvMarkAttendance_DataBindingComplete);
+            // 
+            // clsEmployeeBindingSource
+            // 
+            this.clsEmployeeBindingSource.DataSource = typeof(EmployeesBusinessLayer.clsEmployee);
+            this.dgvMarkAttendance.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvMarkAttendance_DataBindingComplete);
+
             // 
             // EmployeesMangementSystemForm
             // 
@@ -937,6 +949,7 @@ namespace EmployeesMangementSystem
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarkAttendance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clsEmployeeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -998,6 +1011,7 @@ namespace EmployeesMangementSystem
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel13;
+        private BindingSource clsEmployeeBindingSource;
     }
 }
 

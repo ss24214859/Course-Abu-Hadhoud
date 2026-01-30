@@ -14,7 +14,10 @@ namespace EmployeesDataAccessLayer
         {
             DataTable dt = new DataTable();
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+
             string query = @"SELECT       E.EmployeeID, E.FirstName, E.Phone, IsNull(A.StatusID, CAST(1 AS INT) ) As StatusID
+
                              FROM   Employees E
                              				Left JOIN Attendance A
                                              ON A.EmployeeID = E.EmployeeID
