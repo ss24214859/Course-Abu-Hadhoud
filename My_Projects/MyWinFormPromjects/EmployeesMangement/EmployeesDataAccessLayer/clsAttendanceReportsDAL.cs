@@ -16,18 +16,18 @@ namespace EmployeesDataAccessLayer
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
 
-            string query = @"SELECT       E.EmployeeID, E.FirstName, E.Phone, IsNull(A.StatusID, CAST(1 AS INT) ) As StatusID
+            string query = @"SELECT       E.EmployeeID, E.FirstName +' '+E.LastName As EmployeeName, E.Phone, IsNull(A.StatusID, CAST(1 AS INT) ) As StatusID
 
                              FROM   Employees E
                              				Left JOIN Attendance A
                                              ON A.EmployeeID = E.EmployeeID
-                             	  And DayDate >= @DayDate
-                             	  And  DayDate < DATEADD(day,1,@DayDate)	
+                             	  And DayOnly = @DayDate
+                             	  
                              
                              where  HireDate <= @DayDate ;";
 
             SqlCommand cmd = new SqlCommand(query, Connection);
-            cmd.Parameters.AddWithValue("@DayDate", DayDate);
+            cmd.Parameters.Add("@DayDate", SqlDbType.Date).Value = DayDate;
 
             try
             {

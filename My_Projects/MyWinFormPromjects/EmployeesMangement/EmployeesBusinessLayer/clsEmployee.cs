@@ -10,14 +10,7 @@ namespace EmployeesBusinessLayer
 {
     public class clsEmployee
     {
-        public class EmployeesStatistics
-        {
-            public double MaximumSalary { get; set; }
-            public double MinimumSalary { get; set; }
-            public double AverageSalary{ get; set; }
-            public int TotalEmployees {  get; set; }
-            public double TotalPayroll { get; set; }
-        }
+        
 
         enum enSaveMode {AddNew = 0 , Update = 1 };
         enSaveMode SaveMode = enSaveMode.AddNew;
@@ -85,29 +78,7 @@ namespace EmployeesBusinessLayer
 
         }
 
-        public static EmployeesStatistics GetEmployeesStatistics()
-        {
-            EmployeesStatistics employeesStatistics = new EmployeesStatistics();
-            double MaximumSalary = -1;
-            double MinimumSalary = -1;
-            double AverageSalary = -1;
-            int TotalEmployees = -1;
-            double TotalPayroll = -1;
-
-            
-            clsEmployeesData.GetEmployeesStatistics(ref MaximumSalary,ref MinimumSalary,ref AverageSalary,ref TotalEmployees,ref TotalPayroll);
         
-            employeesStatistics.MaximumSalary = MaximumSalary;
-            employeesStatistics.MinimumSalary = MinimumSalary;
-            employeesStatistics.AverageSalary = AverageSalary;
-            employeesStatistics.TotalEmployees = TotalEmployees;
-            employeesStatistics.TotalPayroll = TotalPayroll;
-
-            var Result = employeesStatistics;
-
-            return Result;
-        
-        }
 
         public static bool IsEmployeeExist(int ID)
         {

@@ -45,6 +45,7 @@
     <Compile Include="clsAttendanceStatus.cs" />
     <Compile Include="clsAttendance.cs" />
     <Compile Include="clsEmployee.cs" />
+    <Compile Include="clsEmployeesStatistics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

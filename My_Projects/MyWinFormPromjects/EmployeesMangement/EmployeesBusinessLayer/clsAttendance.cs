@@ -53,7 +53,7 @@ namespace EmployeesBusinessLayer
             return clsAttendanceData.GetAllAttendanceByDayDate(DayDate);
         }
         
-        static clsAttendance Find(int AttendanceID)
+        static public clsAttendance Find(int AttendanceID)
         {
             int EmployeeID = -1;
             int StatusID = -1;
@@ -62,6 +62,16 @@ namespace EmployeesBusinessLayer
                 return new clsAttendance(AttendanceID, EmployeeID, StatusID, DayDate);
             else
                 return null; 
+        }
+        static public clsAttendance Find(int EmployeeID,DateTime DayDate)
+        {
+            int AttendanceID = -1;
+            int StatusID = -1;
+            
+            if (clsAttendanceData.GetAttendanceInfoByEmployeeIDAndDayDate(ref AttendanceID, EmployeeID,ref StatusID, DayDate))
+                return new clsAttendance(AttendanceID, EmployeeID, StatusID, DayDate);
+            else
+                return null;
         }
 
         static public bool IsAttendanceExist(int AttendanceID)

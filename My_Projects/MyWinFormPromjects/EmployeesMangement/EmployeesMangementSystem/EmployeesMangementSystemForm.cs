@@ -15,17 +15,23 @@ namespace EmployeesMangementSystem
 {
     public partial class EmployeesMangementSystemForm : System.Windows.Forms.Form
     {
+        enum enScreens{Employees = 0,Attendance =1 , Statistics = 2 };
+        enScreens CurrentScreen;
+
         bool SidebarExpand = true;
 
         //enum enMenuOptions { Employees = 0, Attendance = 1, Statistics = 2 };
         //enMenuOptions _CurrentMenuOption = enMenuOptions.Employees;
 
-        DataTable dtEmployees = new DataTable(); // All Employees Data
-        DataView dvEmployees = new DataView();   // Filtered Employees Data
+        DataTable dtEmployees = new DataTable(); // All Employees Data.
 
-        DataTable _dtAttendanceStatus  = new DataTable(); // All Attendance Status Data
-        DataTable dtMarkAttendance  = new DataTable(); // All Mark Attendance Data
+        DataView dvEmployees = new DataView();   // Filtered Employees Data.
 
+        DataTable _dtAttendanceStatus  = new DataTable(); // All Attendance Status Data.
+        DataTable dtMarkAttendance  = new DataTable(); // All Mark Attendance Data.
+        DataView dvMarkAttendance = new DataView(); //Filterd Attendance.
+
+        
         public EmployeesMangementSystemForm()
         {
             InitializeComponent();
@@ -39,7 +45,7 @@ namespace EmployeesMangementSystem
             LoadEmployeesScreen();
             SetEmployeeMenuStayle();
             SetAttendanceMenuStayle();
-
+            SetStatisticsMenuStayle();
 
         }
 
@@ -146,12 +152,36 @@ namespace EmployeesMangementSystem
         private void _RefreachEmployees()
         {
             dtEmployees = clsEmployee.GetAllEmployees();
-            dvEmployees = new DataView(dtEmployees);
+            dvEmployees = new DataView(dtEmployees); 
             dgvEmployeesList.DataSource = dvEmployees;
         }
 
 
+        void _UpdateAttendanceCards()
+        {
+            int PresentCount = 0;
+            int AbsentCount = 0;
+            int LateCount = 0;
+            int LeaveCount = 0;
+            
+            foreach (DataGridViewRow row  in dgvMarkAttendance.Rows)
+            {
+                if (Convert.ToInt32(row.Cells["Status"].Value)==1)
+                    PresentCount++;
+                else if (Convert.ToInt32(row.Cells["Status"].Value) == 2)
+                    AbsentCount++;
+                else if (Convert.ToInt32(row.Cells["Status"].Value) == 3)
+                    LateCount++;
+                else if (Convert.ToInt32(row.Cells["Status"].Value) == 4)
+                LeaveCount++;
+            }
+            lbPresentCount.Text = PresentCount.ToString();
+            lbAbsentCount.Text = AbsentCount.ToString();
+            lbLateCount.Text = LateCount.ToString();
+            lbLeaveCount.Text = LeaveCount.ToString();
 
+
+        }
         void _AddStatusCheckBox()
         {
             if (!dgvMarkAttendance.Columns.Contains("Status"))
@@ -177,22 +207,17 @@ namespace EmployeesMangementSystem
                 dgvMarkAttendance.Columns.Add(combo);
             }
 
-            //Bind Values to Combo Box Column From StatusID Column
-
             // Bind Values to Combo Box Column From StatusID Column
 
             foreach (DataGridViewRow row in dgvMarkAttendance.Rows)
             {
 
-                if (row.Cells["StatusID"].Value != null)
+                if (row.Cells["StatusID"].Value != null )
                 {
-
                     row.Cells["Status"].Value = row.Cells["StatusID"].Value;
-
-                    row.Cells["status"].Value = row.Cells["StatusID"].Value;
-
                 }
             }
+            dgvMarkAttendance.Columns["Status"].ReadOnly = false;
 
         }
         private void _RefreachMarkAttendance()
@@ -201,28 +226,18 @@ namespace EmployeesMangementSystem
                 return; 
            
             dtMarkAttendance = clsAttendanceReports.GetAttendanceByDateForAttendancList(dtpHireDate.Value);
-         
-
-            //Make all Columns ReadOnly = true
-            foreach(DataGridViewColumn col in dgvMarkAttendance.Columns)
-            {
-                col.ReadOnly = true;
-            }
-            
 
             dgvMarkAttendance.DataSource = dtMarkAttendance;
-            //dgvMarkAttendance.Columns["Status"].DataPropertyName = "StatusID";
-
 
             //Make all Columns ReadOnly = true
-            foreach(DataGridViewColumn col in dgvMarkAttendance.Columns)
+            foreach (DataGridViewColumn col in dgvMarkAttendance.Columns)
             {
                 col.ReadOnly = true;
             }
 
             // Add and Fill Status Combo Box Column
             _AddStatusCheckBox();
-
+            
 
 
             // Handle Data Error Event
@@ -235,9 +250,8 @@ namespace EmployeesMangementSystem
             if (dgvMarkAttendance.Columns.Contains("StatusID"))
             dgvMarkAttendance.Columns["StatusID"].Visible=false;
 
-
         }
-        
+
         private void SetEmployeeMenuStayle()
         {
             DataGridViewModrenStayle(dgvEmployeesList);
@@ -252,8 +266,16 @@ namespace EmployeesMangementSystem
             
         }
 
+
+        private void SetStatisticsMenuStayle()
+        {
+            DataGridViewModrenStayle(dgvRecentHires);
+
+        }
+
         private void LoadEmployeesScreen()
         {
+            CurrentScreen = enScreens.Employees;
             pnlEmployeeScreen.BringToFront();
             _RefreachEmployees();
             SetPlaceholder(tbSearch, "Name or ID...");
@@ -263,6 +285,8 @@ namespace EmployeesMangementSystem
 
         private void LoadAttendanceScreen()
         {
+
+            CurrentScreen = enScreens.Employees;
             pnlAttendanceScreen.BringToFront();
             _RefreachMarkAttendance();
             
@@ -270,8 +294,20 @@ namespace EmployeesMangementSystem
 
         private void LoadStatisticsScreen()
         {
+            CurrentScreen = enScreens.Employees;
+            pnlStatisticsScreen.BringToFront();
+            clsEmployeesStatistics Statistics = clsEmployeesStatistics.GetEmployeesStatistics();
+            lblTotalEmployeesInStatistics.Text = Statistics.TotalEmployees.ToString();
+            lblMaximumSalaryNumber.Text = Statistics.MaximumSalary.ToString("C0");
+            lblMinimumSalaryNumber.Text = Statistics.MinimumSalary.ToString("C0");
+            lblAverageSalaryNumber.Text = Statistics.AverageSalary.ToString("n0");
+            lblTotalPayroll.Text = Statistics.TotalPayroll.ToString("C0");
 
+            int CurrentYear = DateTime.Now.Year;
+            lblHiredInCount.Text =  clsEmployeesStatistics.GetEmployeesCountByYear(CurrentYear).ToString();
+            lblHiredIn.Text = $"Hired in {CurrentYear}:";
 
+            dgvRecentHires.DataSource = clsEmployeesStatistics.GetRecentHiresLast3Employees();
         }
 
        
@@ -297,7 +333,7 @@ namespace EmployeesMangementSystem
 
         private void btnStatistics_Click(object sender, EventArgs e)
         {
-            
+            LoadStatisticsScreen();
         }
 
         private void pnlEmployeeScreen_Paint(object sender, PaintEventArgs e)
@@ -467,23 +503,93 @@ namespace EmployeesMangementSystem
             int failedCount = 0;
             foreach (DataGridViewRow row in dgvMarkAttendance.Rows)
             {
-                int EmployeeID = Convert.ToInt32(row.Cells["EmployeeID"].Value);
-
-                int StatusID = Convert.ToInt32(row.Cells["Status"].Value);
-
-                clsAttendance attendance = new clsAttendance();
-
-                attendance.EmployeeID = EmployeeID;
-                attendance.DayDate = Convert.ToDateTime(dtpHireDate.Value);
-                attendance.StatusID = StatusID;    
                 
+                int EmployeeID = Convert.ToInt32(row.Cells["EmployeeID"].Value);
+                int NewStatusID = Convert.ToInt32(row.Cells["Status"].Value);
+                DateTime CurrentDayDate = Convert.ToDateTime(dtpHireDate.Value);
 
-                if(attendance.Save()) 
-                    savedCount++;
-                else 
-                    failedCount++;
+                clsAttendance Attendance =  clsAttendance.Find(EmployeeID, CurrentDayDate);
+
+                if (Attendance != null)
+                {
+                    // Update Existing Attendance Record
+                    if (Attendance.StatusID == NewStatusID)
+                        continue; // No Change in Status, Skip Saving
+                    else
+                        Attendance.StatusID = NewStatusID;  // Update StatusID
+                }
+                else
+                {
+                    // Create New Attendance Record
+                    Attendance = new clsAttendance();
+                    // Set Properties for New Record
+                    Attendance.EmployeeID = EmployeeID;
+                    Attendance.DayDate = CurrentDayDate;
+                    Attendance.StatusID = NewStatusID;
+
+                }
+                if (Attendance != null)
+                {
+                    // Save Attendance Record
+                    if (Attendance.Save())
+                        savedCount++;
+                    else
+                        failedCount++;
+                }
             }
             MessageBox.Show($"Attendance Saved. \n Successful: {savedCount} \n Failed: {failedCount}");
+            _RefreachMarkAttendance();
+        }
+
+        private void dgvMarkAttendance_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+                 
+            if (dgvMarkAttendance.Columns[e.ColumnIndex].Name == "Status")
+            {
+                //Update Attendance Summary Cards
+                _UpdateAttendanceCards();
+            }
+
+        }
+
+        private void dgvMarkAttendance_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if(dgvMarkAttendance.IsCurrentCellDirty)
+            {
+                dgvMarkAttendance.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+        private void lbPresentCount_TextChanged(object sender, EventArgs e)
+        {
+            float TotalEmployees = dgvMarkAttendance.Rows.Count;
+            lbTotalEmployeesinAttendance.Text = $"Total Employees {TotalEmployees.ToString()} | Attendance Rate {Convert.ToInt32(Convert.ToInt32(lbPresentCount.Text) / TotalEmployees * 100).ToString()}%";
+        }
+
+        private void panel9_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel21_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel30_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbSearch_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

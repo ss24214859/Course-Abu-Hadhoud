@@ -223,48 +223,6 @@ namespace EmployeesDataAccessLayer
         }
 
 
-        static public bool GetEmployeesStatistics(ref double MaximumSalary, ref double MinimumSalary, ref double AverageSalary, ref int TotalEmployees, ref double TotalPayroll)
-        {
-            bool IsFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string Qurey = "SELECT * FROM StatisticsView";
-            SqlCommand command = new SqlCommand(Qurey, connection);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    IsFound = true;
-                    MaximumSalary = reader["MaximumSalary"] != DBNull.Value ? (double)reader["MaximumSalary"] : -1;
-                    MinimumSalary = reader["MinimumSalary"] != DBNull.Value ? (double)reader["MinimumSalary"] : -1;
-                    AverageSalary = reader["AverageSalary"] != DBNull.Value ? (double)reader["AverageSalary"] : -1;
-                    TotalEmployees = reader["TotalEmployees"] != DBNull.Value ? (int)reader["TotalEmployees"] : -1;
-                    TotalPayroll = reader["TotalPayroll"] != DBNull.Value ? (double)reader["TotalPayroll"]: -1;
-
-
-                }
-                else
-                {
-                    IsFound = false;
-                }
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                //Console.WriteLine(ex.Message);
-                IsFound = false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return IsFound;
-        }
+        
     }
 }

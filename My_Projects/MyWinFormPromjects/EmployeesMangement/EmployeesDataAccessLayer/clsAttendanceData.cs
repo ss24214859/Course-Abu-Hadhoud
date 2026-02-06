@@ -53,6 +53,48 @@ namespace EmployeesDataAccessLayer
             return IsFound;
         }
 
+        static public bool GetAttendanceInfoByEmployeeIDAndDayDate(ref int AttendanceID,int EmployeeID, ref int StatusID,DateTime DayDate)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string Qurey = "SELECT AttendanceID,StatusID  FROM Attendance WHERE EmployeeID= @EmployeeID and DayOnly = @DayDate;";
+            SqlCommand command = new SqlCommand(Qurey, connection);
+            command.Parameters.AddWithValue("@EmployeeID", EmployeeID);
+            command.Parameters.Add("@DayDate", SqlDbType.Date).Value = DayDate;
+
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+                    AttendanceID = reader["AttendanceID"] != DBNull.Value ? (int)reader["AttendanceID"] : -1;
+                    StatusID = reader["StatusID"] != DBNull.Value ? (int)reader["StatusID"] : -1;
+                }
+                else
+                {
+                    IsFound = false;
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine(ex.Message);
+                IsFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
         public static int AddNewAttendance(int EmployeeID,int StatusID, DateTime DayDate)
         {
             int AttendanceID = -1;
@@ -93,7 +135,7 @@ namespace EmployeesDataAccessLayer
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string Qurey = @"UPDATE Attendance set (EmployeeID = @EmployeeID,StatusID = @StatusID,DayDate = @DayDate)
+            string Qurey = @"UPDATE Attendance set EmployeeID = @EmployeeID,StatusID = @StatusID,DayDate = @DayDate
                              WHERE AttendanceID = @AttendanceID;";
             SqlCommand command = new SqlCommand(Qurey, connection);
 
