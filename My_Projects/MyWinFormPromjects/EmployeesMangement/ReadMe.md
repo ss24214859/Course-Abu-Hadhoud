@@ -124,17 +124,6 @@ Add your SQL Server connection string.
 
 ## 📷 Screenshots
 
-Add system screenshots here:
-
-* Employees Form
-* Add/Edit Employee
-* Attendance Screen
-
-Example:
-
-```md
-## 📷 Screenshots
-
 ### 👨‍💼 Employees List
 
 ![Employees1](Screenshots/Employees1.png)
@@ -145,7 +134,7 @@ Example:
 
 ### ➕ Add Employee
 
-![Add](Screenshots/ِAdd.png)
+![Add](Screenshots/Add.png)
 
 ---
 
@@ -162,7 +151,7 @@ Example:
 ### 📅 Statistics Screen
 
 ![Statistics](Screenshots/Statistics.png)
-```
+
 
 ---
 
